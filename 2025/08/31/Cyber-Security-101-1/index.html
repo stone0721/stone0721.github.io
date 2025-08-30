@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"stone0721.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="简介  进攻性安全 防御性安全 搜索技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一部分 简介">
+<meta property="og:url" content="https://stone0721.github.io/2025/08/31/Cyber-Security-101-1/index.html">
+<meta property="og:site_name" content="Munashe">
+<meta property="og:description" content="简介  进攻性安全 防御性安全 搜索技巧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-1.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-2.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-3.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-4.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-5.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-6.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-7.png">
+<meta property="article:published_time" content="2025-08-30T17:55:24.000Z">
+<meta property="article:modified_time" content="2025-08-30T22:06:39.921Z">
+<meta property="article:author" content="stone0721">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-1.png">
+
+
+<link rel="canonical" href="https://stone0721.github.io/2025/08/31/Cyber-Security-101-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://stone0721.github.io/2025/08/31/Cyber-Security-101-1/","path":"2025/08/31/Cyber-Security-101-1/","title":"第一部分 简介"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第一部分 简介 | Munashe</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Munashe</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TryHackMe-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">TryHackMe  第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E6%94%BB%E6%80%A7%E5%AE%89%E5%85%A8%EF%BC%9A%E6%A8%A1%E6%8B%9F%E9%BB%91%E5%AE%A2%E6%9F%A5%E6%89%BE%E7%B3%BB%E7%BB%9F%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.1.</span> <span class="nav-text">进攻性安全：模拟黑客查找系统漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TryHackMe-%E9%98%B2%E5%BE%A1%E5%AE%89%E5%85%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">1.2.</span> <span class="nav-text">TryHackMe 防御安全简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7"><span class="nav-number">1.3.</span> <span class="nav-text">搜索技巧</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">stone0721</p>
+  <div class="site-description" itemprop="description">信息安全技术博客，分享个人学习笔记、技术文章、工具使用等。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://stone0721.github.io/2025/08/31/Cyber-Security-101-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="stone0721">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Munashe">
+      <meta itemprop="description" content="信息安全技术博客，分享个人学习笔记、技术文章、工具使用等。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="第一部分 简介 | Munashe">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第一部分 简介
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-31 01:55:24 / 修改时间：06:06:39" itemprop="dateCreated datePublished" datetime="2025-08-31T01:55:24+08:00">2025-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cyber-Security-101/" itemprop="url" rel="index"><span itemprop="name">Cyber Security 101</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>简介</p>
+<ul>
+<li>进攻性安全</li>
+<li>防御性安全</li>
+<li>搜索技巧</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="TryHackMe-第一部分"><a href="#TryHackMe-第一部分" class="headerlink" title="TryHackMe  第一部分"></a>TryHackMe  第一部分</h2><h3 id="进攻性安全：模拟黑客查找系统漏洞"><a href="#进攻性安全：模拟黑客查找系统漏洞" class="headerlink" title="进攻性安全：模拟黑客查找系统漏洞"></a>进攻性安全：模拟黑客查找系统漏洞</h3><ul>
+<li>入侵FakeBank</li>
+</ul>
+<p><img src="/../images/Cyber%20Security%20101-1.png" alt="Cyber Security 101-1"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-u 声明正在扫描的网站</span><br><span class="line">-w 采用单词列表遍历查找隐藏的页面</span><br></pre></td></tr></table></figure>
+
+<p>这里扫描了一个模拟的银行网站，<a target="_blank" rel="noopener" href="http://fakebank.thm/">http://fakebank.thm</a></p>
+<p>结果找到bank-transfer转账页面，状态200 OK，代表可以访问</p>
+<p>访问<a target="_blank" rel="noopener" href="http://fakebank.thm/bank-transfer">http://fakebank.thm/bank-transfer</a> </p>
+<p>于是获取了转账权限（可以使用ID进行转账）</p>
+<p><strong>总结：</strong></p>
+<p>未经授权就可以访问的转账页面，这是一种<strong>访问控制漏洞</strong>。具体来说是<strong>不安全的直接引用</strong></p>
+<p>通过操纵 URL 参数、表单数据或请求体中的标识符（如用户 ID、账户 ID 或交易 ID）</p>
+<p>无需授权，直接访问或修改他人的资源</p>
+<blockquote>
+<p>如Optus 数据泄露（2022 年，澳大利亚电信巨头）</p>
+<p><a target="_blank" rel="noopener" href="https://www.upguard.com/blog/how-did-the-optus-data-breach-happen">https://www.upguard.com/blog/how-did-the-optus-data-breach-happen</a></p>
+<p>报告总结了原因：</p>
+<ul>
+<li><p>一个无需身份验证的API可以访问客户敏感信息</p>
+</li>
+<li><p>递增使用客户标识符（递增ID即可获取所有客户ID）</p>
+</li>
+</ul>
+</blockquote>
+<p>Gobuster工具：Go语言编写的开源命令行工具</p>
+<p>可以用于暴力枚举Web目录、文件、DNS子域名等</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gobuster <span class="built_in">dir</span> -u 网站 -w 字典</span><br><span class="line">gobuster dns -d 网站 -w 字典</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="TryHackMe-防御安全简介"><a href="#TryHackMe-防御安全简介" class="headerlink" title="TryHackMe 防御安全简介"></a>TryHackMe 防御安全简介</h3><ul>
+<li><p>Security Operations Center (SOC), where we cover Threat Intelligence   情报收集</p>
+</li>
+<li><p>Digital Forensics and Incident Response (DFIR), where we also cover Malware Analysis   数字取证、事件响应、恶意软件分析</p>
+</li>
+</ul>
+<p>事件响应流程：</p>
+<p><img src="/../images/Cyber%20Security%20101-2.png" alt="Cyber Security 101-2"></p>
+<p>Security Information and Event Management (SIEM)</p>
+<p>收集安全相关信息和事件并呈现，如果检测到可疑事件会发出警报</p>
+<p><strong>SIEM系统模拟：</strong></p>
+<blockquote>
+<p>多次登录失败不一定有问题，可能只是忘记密码</p>
+</blockquote>
+<p>注意到 IP 143.110.250.149 尝试未授权登录，最终成功，这很可疑，利用一些网站查询IP是否可疑。</p>
+<p><img src="/../images/Cyber%20Security%20101-3.png" alt="Cyber Security 101-3"></p>
+<p><img src="/../images/Cyber%20Security%20101-4.png" alt="Cyber Security 101-4"></p>
+<p>查询结果显示非常可疑，并且登录成功，可能有危险，应该进行处理。选择 SOC Team lead ，负责初始的事件处理并报告，之后交给 DFIR </p>
+<p><img src="/../images/Cyber%20Security%20101-5.png" alt="Cyber Security 101-5"></p>
+<p><img src="/../images/Cyber%20Security%20101-6.png" alt="Cyber Security 101-6"></p>
+<p>最后封锁这个IP</p>
+<p><img src="/../images/Cyber%20Security%20101-7.png" alt="Cyber Security 101-7"></p>
+<h3 id="搜索技巧"><a href="#搜索技巧" class="headerlink" title="搜索技巧"></a>搜索技巧</h3><p><strong>谷歌搜索:</strong></p>
+<ul>
+<li><p>双引号表示精确搜索</p>
+</li>
+<li><p><code>site:</code>   限制域名</p>
+</li>
+<li><p><code>-</code>   忽略特定词语</p>
+</li>
+<li><p><code>filetype:</code>查找文件类型（而非网页）</p>
+</li>
+</ul>
+<p><strong>专业搜索引擎：</strong></p>
+<ul>
+<li>Shodan 搜索联网设备</li>
+<li>Censys 搜索互联网资产</li>
+<li><strong>VirusTotal</strong>  文件病毒扫描服务</li>
+<li>Have I Been Pwned  检测某个电子邮箱地址是否被泄露</li>
+</ul>
+<p><strong>常见漏洞CVE</strong></p>
+<ul>
+<li>CVE系统，漏洞字典，用CVE ID标准化每个漏洞（<a target="_blank" rel="noopener" href="https://nvd.nist.gov/%EF%BC%89">https://nvd.nist.gov/）</a></li>
+<li>漏洞数据库，可以找到来自不同作者的漏洞利用代码</li>
+</ul>
+<p><strong>查阅官方文档</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/08/31/Metasploit/" rel="next" title="Metasploit">
+                  Metasploit <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">stone0721</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
