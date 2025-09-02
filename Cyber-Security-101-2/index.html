@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Cyber Security 101 第二部分 Linux基础知识 | </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#10b981">
+
+  <link rel="canonical" href="https://stone0721.github.io/Cyber-Security-101-2/">
+
+  
+
+  <meta name="description" content="Linux基础知识  基本命令 使用SSH登录Linux设备、执行命令、与文件系统交互 实用工具、进程、自动化、与包管理、日志  Linux是基于UNIX的多个操作系统总称，包括Ubuntu、Debian 基本命令echo Hello    # 输出提供的文本 whoami        # 输出当前登录的用户 ls            # 列出目录下的文件listing,默认参数是当前目录 c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cyber Security 101 第二部分 Linux基础知识">
+<meta property="og:url" content="https://stone0721.github.io/Cyber-Security-101-2/">
+<meta property="og:site_name">
+<meta property="og:description" content="Linux基础知识  基本命令 使用SSH登录Linux设备、执行命令、与文件系统交互 实用工具、进程、自动化、与包管理、日志  Linux是基于UNIX的多个操作系统总称，包括Ubuntu、Debian 基本命令echo Hello    # 输出提供的文本 whoami        # 输出当前登录的用户 ls            # 列出目录下的文件listing,默认参数是当前目录 c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-9.png">
+<meta property="article:published_time" content="2025-09-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-02T09:37:43.963Z">
+<meta property="article:author" content="stone0721">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-9.png">
+  <meta name="generator" content="Hexo 7.3.0">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Cyber-Security-101-2/"},"headline":"Cyber Security 101 第二部分 Linux基础知识","description":"Linux基础知识 基本命令 使用SSH登录Linux设备、执行命令、与文件系统交互 实用工具、进程、自动化、与包管理、日志 Linux是基于UNIX的多个操作系统总称，包括Ubuntu、Debian 基本命令echo Hello    # 输出提供的文本 whoami        # 输出当前登录的用户 ls   ","datePublished":"2025-09-01T16:00:00.000Z","dateModified":"2025-09-02T09:37:43.963Z","author":{"@type":"Person","name":"stone0721"},"publisher":{"@type":"Organization","name":"","logo":{"@type":"ImageObject","url":"https://stone0721.github.io/favicon.ico"}}}
+</script>
+
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  <style>
+    :root {
+      --sea-color-primary: #10b981;
+    }
+  </style>
+
+  
+<script src="/js/theme_mode.js"></script>
+
+</head>
+<body>
+  <header class="sea-header">
+    <nav class="sea-nav-wrap">
+  <div class="sea-nav-logo" title="">
+    <a href="/"></a>
+  </div>
+  <div class="sea-nav-menus">
+    <div id="sea-nav-toggle">
+      <svg t="1716965724278" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10878" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M950.857143 768v73.142857c0 20.004571-16.566857 36.571429-36.571429 36.571429H109.714286c-20.004571 0-36.571429-16.566857-36.571429-36.571429v-73.142857c0-20.004571 16.566857-36.571429 36.571429-36.571429h804.571428c20.004571 0 36.571429 16.566857 36.571429 36.571429z m0-292.571429v73.142858c0 20.004571-16.566857 36.571429-36.571429 36.571428H109.714286c-20.004571 0-36.571429-16.566857-36.571429-36.571428v-73.142858c0-20.004571 16.566857-36.571429 36.571429-36.571428h804.571428c20.004571 0 36.571429 16.566857 36.571429 36.571428z m0-292.571428v73.142857c0 20.004571-16.566857 36.571429-36.571429 36.571429H109.714286c-20.004571 0-36.571429-16.566857-36.571429-36.571429V182.857143c0-20.004571 16.566857-36.571429 36.571429-36.571429h804.571428c20.004571 0 36.571429 16.566857 36.571429 36.571429z" p-id="10879"></path></svg>
+    </div>
+
+    <div id="sea-nav-dimmer"></div>
+<div class="sea-menu-wrap">
+  
+    <a
+      class="sea-menu-link "
+      
+      href="/archives/"
+    >
+      归档
+    </a>
+  
+    <a
+      class="sea-menu-link "
+      
+      href="/categories/"
+    >
+      
+    </a>
+  
+
+  <span class="sea-menu-sep">|</span>
+
+  
+
+  <span class="sea-menu-icon" id="sea-theme-dark">
+    <svg t="1725413107294" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10118" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M557.553778 976.355556c-257.265778 0-466.56-207.160889-466.56-464.426667 0-253.923556 206.577778-464.284444 460.501333-464.284445h0.355556c10.766222 0 20.622222 3.953778 25.443555 13.610667 4.878222 9.756444 3.740444 20.394667-2.915555 29.027556-55.722667 72.220444-85.162667 158.108444-85.162667 249.372444 0 225.891556 183.779556 409.386667 409.671111 409.386667l5.248-0.256c10.325333-0.142222 20.977778 5.859556 25.841778 15.644444a28.302222 28.302222 0 0 1-2.915556 30.051556C837.902222 910.08 703.203556 976.355556 557.553778 976.355556zM495.274667 105.016889C299.192889 135.281778 147.882667 306.161778 147.882667 509.809778c0 225.877333 183.779556 409.656889 409.671111 409.656889 108.686222 0 210.403556-42.055111 286.577778-116.977778-231.566222-27.192889-411.804444-224.625778-411.804445-463.36 0-83.427556 21.617778-163.299556 62.947556-234.112z" fill="" p-id="10119"></path><path d="M578.830222 879.132444c-186.865778 0-345.784889-133.418667-377.841778-317.269333a14.222222 14.222222 0 1 1 28.017778-4.878222c29.681778 170.183111 176.810667 293.703111 349.824 293.703111a14.222222 14.222222 0 1 1 0 28.444444zM209.991111 531.2c-7.537778 0-13.838222-6.997333-14.193778-14.606222-0.312889-6.584889-0.483556-13.795556-0.483555-20.465778 0-7.864889 6.357333-14.492444 14.222222-14.492444s14.222222 6.229333 14.222222 14.094222c0 6.229333 0.170667 13.425778 0.455111 19.584 0.369778 7.850667-5.674667 15.886222-13.525333 15.886222h-0.696889z" fill="" p-id="10120"></path><path d="M622.350222 309.930667m-25.344 0a25.344 25.344 0 1 0 50.688 0 25.344 25.344 0 1 0-50.688 0Z" fill="" p-id="10121"></path><path d="M787.072 188.273778m-25.344 0a25.344 25.344 0 1 0 50.688 0 25.344 25.344 0 1 0-50.688 0Z" fill="" p-id="10122"></path><path d="M731.960889 415.303111m-25.344 0a25.344 25.344 0 1 0 50.688 0 25.344 25.344 0 1 0-50.688 0Z" p-id="10123"></path></svg>
+  </span>
+  <span class="sea-menu-icon" id="sea-theme-light">
+    <svg t="1725410359322" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4274" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M512 768c-141.376 0-256-114.624-256-256s114.624-256 256-256 256 114.624 256 256-114.624 256-256 256z m0-85.333333a170.666667 170.666667 0 1 0 0-341.333334 170.666667 170.666667 0 0 0 0 341.333334zM469.333333 85.333333a42.666667 42.666667 0 1 1 85.333334 0v85.333334a42.666667 42.666667 0 1 1-85.333334 0V85.333333z m0 768a42.666667 42.666667 0 1 1 85.333334 0v85.333334a42.666667 42.666667 0 1 1-85.333334 0v-85.333334zM85.333333 554.666667a42.666667 42.666667 0 1 1 0-85.333334h85.333334a42.666667 42.666667 0 1 1 0 85.333334H85.333333z m768 0a42.666667 42.666667 0 1 1 0-85.333334h85.333334a42.666667 42.666667 0 1 1 0 85.333334h-85.333334zM161.834667 222.165333a42.666667 42.666667 0 0 1 60.330666-60.330666l64 64a42.666667 42.666667 0 0 1-60.330666 60.330666l-64-64z m576 576a42.666667 42.666667 0 0 1 60.330666-60.330666l64 64a42.666667 42.666667 0 0 1-60.330666 60.330666l-64-64z m-515.669334 64a42.666667 42.666667 0 0 1-60.330666-60.330666l64-64a42.666667 42.666667 0 0 1 60.330666 60.330666l-64 64z m576-576a42.666667 42.666667 0 0 1-60.330666-60.330666l64-64a42.666667 42.666667 0 0 1 60.330666 60.330666l-64 64z" p-id="4275"></path></svg>
+  </span>
+
+  <span id="sea-menu-close-icon">
+    <svg t="1725435896874" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4408" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M556.8 512l265.6-265.6c12.8-12.8 12.8-32 0-44.8s-32-12.8-44.8 0L512 467.2 246.4 201.6c-12.8-12.8-32-12.8-44.8 0s-12.8 32 0 44.8l265.6 265.6-265.6 265.6c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 12.8 9.6 22.4 9.6s16-3.2 22.4-9.6l265.6-265.6 265.6 265.6c6.4 6.4 16 9.6 22.4 9.6s16-3.2 22.4-9.6c12.8-12.8 12.8-32 0-44.8L556.8 512z" p-id="4409"></path></svg>
+  </span>
+</div>
+  </div>
+</nav>
+  </header>
+  <main id="sea-main-wrapper" data-pagefind-body>
+    <article class="sea-page-card-wrapper">
+  <header class="sea-article-header">
+    <h1 class="sea-article-title">Cyber Security 101 第二部分 Linux基础知识</h1>
+    
+      <div class="sea-post-meta sea-post-meta__center">
+        <div class="sea-post-time">
+  <svg t="1716964550804" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2621" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M805.49888 981.49888l-602.3168-0.76288c-86.59456-8.192-154.56768-81.3056-154.56768-170.01472L48.6144 291.73248c0-94.1568 76.60032-170.75712 170.7776-170.75712l586.10176 0c94.1568 0 170.73152 76.60032 170.73152 170.75712L976.22528 810.7008C976.2304 904.87296 899.63008 981.49888 805.49888 981.49888L805.49888 981.49888zM219.3664 190.57152c-55.79776 0-101.20192 45.38368-101.20192 101.18144l0 518.96832c0 55.79776 45.40416 101.20704 101.20192 101.20704l586.13248 0c55.77728 0 101.16096-45.40928 101.16096-101.20704L906.65984 291.73248c0-55.79776-45.38368-101.18656-101.16096-101.18656L219.3664 190.54592 219.3664 190.57152zM698.84416 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L745.22624 244.1216C745.22624 269.7472 724.46976 290.51904 698.84416 290.51904L698.84416 290.51904zM315.65824 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L362.04032 244.1216C362.04032 269.7472 341.28896 290.51904 315.65824 290.51904L315.65824 290.51904zM534.8864 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C581.26848 774.01088 560.4864 794.78784 534.8864 794.78784L534.8864 794.78784zM930.79552 452.608 121.24672 452.608c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l809.5744 0c25.6 0 46.38208 20.77696 46.38208 46.38208C977.2032 431.82592 956.42624 452.608 930.79552 452.608L930.79552 452.608zM327.92576 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208C374.30784 628.25472 353.52576 649.03168 327.92576 649.03168L327.92576 649.03168zM534.8864 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208S560.4864 649.03168 534.8864 649.03168L534.8864 649.03168zM741.27872 649.03168l-44.26752 0c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.77696 46.38208 46.38208C787.6608 628.25472 766.90944 649.03168 741.27872 649.03168L741.27872 649.03168zM327.92576 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C374.30784 774.01088 353.52576 794.78784 327.92576 794.78784L327.92576 794.78784zM741.27872 794.78784l-44.26752 0c-25.60512 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.78208 46.38208 46.38208C787.6608 774.01088 766.90944 794.78784 741.27872 794.78784L741.27872 794.78784z" p-id="2622"></path></svg>
+  <time datetime="2025-09-01T16:00:00.000Z">2025-09-02</time>
+</div>
+        
+  <div class="sea-post-categories">
+    <svg t="1716964680422" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4550" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M810.666667 85.333333a85.333333 85.333333 0 0 1 85.333333 85.333334v152.021333c36.821333 9.493333 64 42.88 64 82.645333v405.333334a128 128 0 0 1-128 128H192a128 128 0 0 1-128-128V298.666667a85.376 85.376 0 0 1 64-82.645334V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h597.333334zM128.149333 296.170667L128 298.666667v512a64 64 0 0 0 60.245333 63.893333L192 874.666667h640a64 64 0 0 0 63.893333-60.245334L896 810.666667V405.333333a21.333333 21.333333 0 0 0-18.837333-21.184L874.666667 384H638.165333l-122.069333-101.717333a21.333333 21.333333 0 0 0-10.688-4.736l-2.986667-0.213334H149.333333a21.333333 21.333333 0 0 0-21.184 18.837334zM535.189333 213.333333l127.978667 106.666667H832V170.666667a21.333333 21.333333 0 0 0-18.837333-21.184L810.666667 149.333333H213.333333a21.333333 21.333333 0 0 0-21.184 18.837334L192 170.666667v42.666666h343.168z" p-id="4551"></path></svg>
+    <a class="category-link" href="/categories/Cyber-Security-101/">Cyber Security 101</a>
+  </div>
+
+        
+      </div>
+    
+  </header>
+  <div class="sea-doc">
+    
+    <div class="sea-article-content">
+      <p>Linux基础知识</p>
+<ul>
+<li>基本命令</li>
+<li>使用SSH登录Linux设备、执行命令、与文件系统交互</li>
+<li>实用工具、进程、自动化、与包管理、日志</li>
+</ul>
+<p>Linux是基于UNIX的多个操作系统总称，包括Ubuntu、Debian</p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> Hello    <span class="token comment"># 输出提供的文本</span>
+<span class="token function">whoami</span>        <span class="token comment"># 输出当前登录的用户</span>
+<span class="token function">ls</span>            <span class="token comment"># 列出目录下的文件listing,默认参数是当前目录</span>
+<span class="token builtin class-name">cd</span>            <span class="token comment"># 更改目录 change directory</span>
+<span class="token function">cat</span>           <span class="token comment"># 输出文件内容</span>
+<span class="token builtin class-name">pwd</span>           <span class="token comment"># 打印完整工作目录路径 print working directory</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> <span class="token parameter variable">-name</span> passwords.txt  <span class="token comment"># 在当前目录下查找文件</span>
+<span class="token function">find</span> <span class="token parameter variable">-name</span> *.txt          <span class="token comment"># 使用*来搜索所有txt文件</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">"81.143.211.90"</span> access.log  <span class="token comment"># 搜索文件内容，展示包含所需值的条目</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># shell运算符</span>
+<span class="token operator">&amp;</span>    允许终端后台允许命令
+<span class="token operator">&amp;&amp;</span>   将多个命令组合在一行
+<span class="token operator">></span>    重定向
+<span class="token operator">>></span>   与<span class="token operator">></span>相同，但是输出不覆盖而是添加在后面</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> Hello <span class="token operator">></span> welcome     <span class="token comment"># 将 Hello 输出到文本文件，内容将被覆盖</span>
+<span class="token builtin class-name">echo</span> World <span class="token operator">>></span> welcome    <span class="token comment"># 将 World 添加到文本文件后（自动换行）</span></code></pre>
+
+
+
+<h2 id="使用SSH登录Linux设备、执行命令、与文件系统交互"><a href="#使用SSH登录Linux设备、执行命令、与文件系统交互" class="headerlink" title="使用SSH登录Linux设备、执行命令、与文件系统交互"></a>使用SSH登录Linux设备、执行命令、与文件系统交互</h2><ul>
+<li>SSH（Secure Shell） ：连接远程Linux机器命令行并进行交互</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> 账户用户名@远程机器IP地址
+<span class="token comment"># 然后还需输入密码</span></code></pre>
+
+<ul>
+<li>命令参数</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-a</span>       <span class="token comment"># 将显示工作目录所有内容all，包括隐藏文件</span>
+<span class="token function">ls</span> <span class="token parameter variable">--help</span>   <span class="token comment"># manual使用帮助</span>
+<span class="token function">ls</span> <span class="token parameter variable">-lh</span>      <span class="token comment"># 列出当前目录下文件详细信息 long、human能阅读的方式</span></code></pre>
+
+
+
+<ul>
+<li>与文件系统交互</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span>    <span class="token comment"># 创建文件</span>
+<span class="token function">mkdir</span>    <span class="token comment"># make directory创建文件夹</span>
+<span class="token function">cp</span>       <span class="token comment"># copy</span>
+<span class="token function">mv</span>       <span class="token comment"># move</span>
+<span class="token function">rm</span>       <span class="token comment"># remove</span>
+<span class="token function">file</span>     <span class="token comment"># 确定文件类型</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> note           <span class="token comment"># 删除文件</span>
+<span class="token function">rm</span> <span class="token parameter variable">-R</span> directory   <span class="token comment"># 删除文件夹</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> note new_note <span class="token comment"># 复制时可以自动创建新文件</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> note new_note <span class="token comment"># 移动到新文件夹或新文件，不保留旧文件</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">file</span> note  <span class="token comment"># 确定文件类型</span>
+<span class="token operator">></span> note: ASCII text  <span class="token comment"># 表明是一个文本文件</span></code></pre>
+
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-lh</span>
+<span class="token operator">></span> -rw-r--r-- <span class="token number">1</span> user group <span class="token number">4</span>.5K Sep  <span class="token number">2</span> <span class="token number">14</span>:30 example.txt
+<span class="token operator">></span> drwxr-xr-x <span class="token number">2</span> user group <span class="token number">4</span>.0K Sep  <span class="token number">2</span> <span class="token number">10</span>:15 mydir</code></pre>
+
+<p>第1个字符：<code>-</code>普通文件，<code>d</code>目录，<code>l</code>符号链接</p>
+<p>后9个字符：权限，分为三组，分别表示 文件拥有者权限、所属组权限、其他用户权限</p>
+<p>硬链接数（如1或2）：普通文件通常为 1，目录为至少 2（包含自身和 . 目录）。</p>
+<p>文件拥有者、文件所属组、文件大小、最后修改时间、文件名</p>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p>需要知道用户名和密码</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> 其他用户
+<span class="token operator">></span> Password:
+<span class="token comment"># 仅切换到目标身份，但保留当前用户的环境变量，且工作目录不变</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> <span class="token parameter variable">-l</span> 用户名
+<span class="token comment"># 完全切换用户，并切换到HOME目录</span></code></pre>
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><strong>&#x2F;ETC</strong>：存储操作系统使用的系统文件</li>
+<li><strong>&#x2F;var</strong>：存储系统上运行的服务或应用经常访问或写入的数据，如日志文件<code>/var/log</code></li>
+<li><strong>&#x2F;root</strong>：root系统用户的主目录</li>
+<li><strong>&#x2F;tmp</strong>：用于存储只需访问几次的数据。重启将清除，任何用户默认都可以写入此文件夹，渗透测试中存储、枚举的理想场所</li>
+</ul>
+<h2 id="终端文本编辑器"><a href="#终端文本编辑器" class="headerlink" title="终端文本编辑器"></a>终端文本编辑器</h2><p>nano</p>
+<p>vim</p>
+<h2 id="通用-实用工具"><a href="#通用-实用工具" class="headerlink" title="通用&#x2F;实用工具"></a>通用&#x2F;实用工具</h2><h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> 文件URL</code></pre>
+
+<h3 id="SCP（SSH）"><a href="#SCP（SSH）" class="headerlink" title="SCP（SSH）"></a>SCP（SSH）</h3><p>利用SSH协议在两台计算机之间传输文件，提供身份验证和加密</p>
+<p>通过 SOURCE 和 DESTINATION 模型，SCP 允许您：</p>
+<ul>
+<li>将文件和目录从当前系统复制到远程系统</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> test.txt user@IP_address:home/user/new.txt</code></pre>
+
+<ul>
+<li>将文件和目录从远程系统复制到当前系统</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> user@IP_address:home/user/test.txt new.txt</code></pre>
+
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><p>Python3的“HTTPServer”会在当前目录进行文件服务</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">python3 <span class="token parameter variable">-m</span> http.server <span class="token comment"># 启动http服务（8000端口）</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://10.10.135.215:8000/myfile</code></pre>
+
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><p><img src="/../images/Cyber%20Security%20101-9.png" alt="image-20250902153343829"></p>
+<p>所有进程（加上其他用户运行以及系统进程）</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux</code></pre>
+
+<p>top获取进程的实时统计信息</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">top</span></code></pre>
+
+
+
+<h3 id="管理进程"><a href="#管理进程" class="headerlink" title="管理进程"></a>管理进程</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">kill</span> <span class="token operator">&lt;</span>PID<span class="token operator">></span></code></pre>
+
+<p>在进程被终止时可以发送的一些信号：</p>
+<ul>
+<li>SIGTERM——终止进程，但允许它事先执行一些清理任务</li>
+<li>SIGKILL - 终止进程 - 事后不做任何清理</li>
+<li>SIGSTOP——停止&#x2F;暂停进程</li>
+</ul>
+<h3 id="进程的启动"><a href="#进程的启动" class="headerlink" title="进程的启动"></a>进程的启动</h3><p>命名空间将进程彼此隔离，只有同一命名空间中的进程可以相互看到</p>
+<p>PID为 0 的进程是系统启动时启动的</p>
+<p><strong>systemd</strong>是第一个启动的进程之一，管理系统进程的初始化系统。任何想要启动的进程都会作为 <strong>systemd</strong> 的子进程启动。</p>
+<p><strong>systemctl</strong> 是管理 <strong>systemd</strong> 服务的命令行工具，可以用于启用或停止、开机启用、禁止 服务</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token punctuation">[</span>option<span class="token punctuation">]</span> <span class="token punctuation">[</span>service<span class="token punctuation">]</span>
+<span class="token comment"># start stop enable disable</span></code></pre>
+
+<h3 id="前台和后台"><a href="#前台和后台" class="headerlink" title="前台和后台"></a>前台和后台</h3><p>在命令中添加 <code>&amp;</code> 会让进程在后台运行</p>
+<p><code>CTRL + Z</code>也可以将进程移到后台</p>
+<p><code>fg</code> 命令将后台进程重新带回前台（ foreground）</p>
+<h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><p>cron 是一个 Linux 系统中的守护进程（daemon），在系统启动时自动运行，用于定时执行任务（称为 cron 作业，cron jobs）。</p>
+<p>它根据预设的时间表（schedule）运行脚本、命令或程序，适合自动化任务，如定时备份、更新系统或启动应用程序。</p>
+<p>使用 <strong>crontab</strong>（table）来管理定时任务</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> <span class="token parameter variable">-e</span>  <span class="token comment"># 编辑当前用户的crontab</span>
+<span class="token function">crontab</span> <span class="token parameter variable">-l</span>  <span class="token comment"># 查看当前用户的crontab</span></code></pre>
+
+<p>格式</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">时 日 月 星期 命令   <span class="token comment">#   *表示任意</span>
+<span class="token number">0</span> * * * * /usr/bin/google-chrome  <span class="token comment"># 每个小时启动Google Chrome</span>
+@reboot /var/opt/processes.sh <span class="token comment"># 系统启动或重启时执行脚本</span></code></pre>
+
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理??????"></a>包管理??????</h2><p><code>apt</code> 是软件包管理命令，每当更新系统时，包含软件的仓库也会检查更新</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token punctuation">[</span>software-name-here<span class="token punctuation">]</span>
+<span class="token function">apt</span> remove <span class="token punctuation">[</span>software-name-here<span class="token punctuation">]</span></code></pre>
+
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p><code>var/log</code> 存储各种日志</p>
+<p><strong>日志轮转</strong>：自动管理日志文件大小和存储，定期压缩旧日志、创建新日志、并删除过期日志</p>
+<p>以三个日志为例：</p>
+<ul>
+<li><p>Apache2 Web服务器：</p>
+<ul>
+<li><p><code>/var/log/apache2/access.log</code>：记录 Web 服务器的访问日志（每次 HTTP 请求的详细信息，如 IP、URL、状态码等）。</p>
+</li>
+<li><p><code>/var/log/apache2/error.log</code>：记录 Apache2 的错误信息（如配置错误、页面未找到）。</p>
+</li>
+</ul>
+</li>
+<li><p>fail2ban 服务：<code>/var/log/fail2ban.log</code>，记录 fail2ban 服务的运行状态和操作。</p>
+<p>  防止暴力破解，通过监控日志（如SSH登录）检测异常行为，并临时封禁异常IP</p>
+</li>
+<li><p>UFW服务：<code>/var/log/ufw.log</code>，记录 UFW 防火墙的操作和事件。</p>
+</li>
+</ul>
+
+    </div>
+  </div>
+
+  
+    
+  <div class="sea-prev-next-wrapper">
+    
+      <div class="prev">
+        <svg t="1725418977480" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4239" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="4240"></path></svg>
+        <a class="link" href="/Cyber-Security-101-3/">
+          Cyber Security 101 第三部分 Windows和AD基础知识
+        </a>
+      </div>
+    
+    
+      <div class="next">
+        <a class="link" href="/Metasploit-2/">
+          Metasploit-2 Metasploit基础知识
+        </a>
+        <svg t="1725418993065" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6832" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M731.733333 480l-384-341.333333c-17.066667-14.933333-44.8-14.933333-59.733333 4.266666-14.933333 17.066667-14.933333 44.8 4.266667 59.733334L640 512 292.266667 821.333333c-17.066667 14.933333-19.2 42.666667-4.266667 59.733334 8.533333 8.533333 19.2 14.933333 32 14.933333 10.666667 0 19.2-4.266667 27.733333-10.666667l384-341.333333c8.533333-8.533333 14.933333-19.2 14.933334-32s-4.266667-23.466667-14.933334-32z" p-id="6833"></path></svg>
+      </div>
+    
+  </div>
+
+  
+</article>
+
+
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleIcon = document.querySelector('.sea-article-catalog-title .sea-svg-icon');
+    const tocContent = document.querySelector('.sea-article-catalog > .toc');
+    if (toggleIcon && tocContent) {
+      toggleIcon.addEventListener('click', function () {
+        tocContent.classList.toggle('sea-article-catalog-show');
+        toggleIcon.classList.toggle('sea-svg-icon-rotate');
+      });
+    }
+  });
+</script>
+  </main>
+  <footer id="sea-footer-container">
+  <div class="sea-footer-row">
+    <div class="sea-footer-menu-link">
+      
+    </div>
+  </div>
+  
+  
+  <div class="sea-footer-row">
+    <div class="sea-footer-copyright">
+      <span>©</span>
+      
+        2025
+      
+      <span>·</span>
+      stone0721
+    </div>
+    <span class="split-line">|</span>
+    <div class="sea-footer-theme-by">
+      Theme by <a class="theme" href="https://github.com/hai-zou/hexo-theme-sea" target="_blank">Sea</a>
+    </div>
+  </div>
+</footer>
+
+  
+<script src="/js/main.js" defer></script>
+
+
+<script src="/js/theme.js" defer></script>
+
+</body>
+</html>
