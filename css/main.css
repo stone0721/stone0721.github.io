@@ -691,7 +691,7 @@ html[theme=dark] .token.inserted {
 }
 
 .sea-article-catalog .toc-number {
-  display: none;
+  display: block !important;
 }
 
 .sea-article-catalog .toc-item {
