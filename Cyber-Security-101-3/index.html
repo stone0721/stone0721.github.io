@@ -19,13 +19,22 @@
 <meta property="og:site_name">
 <meta property="og:description" content="Windows和AD基础知识  Windows桌面、NTFS文件系统、UAC、控制面板 系统配置、UAC设置、资源监控、Windows注册表 安全相关的内置微软工具 AD基础知识">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-09-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-03T03:17:06.746Z">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-10.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-11.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-12.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-14.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-15.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-16.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-18.png">
+<meta property="og:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-17.png">
+<meta property="article:published_time" content="2025-09-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-03T12:06:28.220Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/Cyber%20Security%20101-10.png">
   <meta name="generator" content="Hexo 7.3.0">
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Cyber-Security-101-3/"},"headline":"Cyber Security 101 第三部分 Windows和AD基础知识","description":"Windows和AD基础知识 Windows桌面、NTFS文件系统、UAC、控制面板 系统配置、UAC设置、资源监控、Windows注册表 安全相关的内置微软工具 AD基础知识","datePublished":"2025-09-01T16:00:00.000Z","dateModified":"2025-09-03T03:17:06.746Z","author":{"@type":"Person","name":"stone0721"},"publisher":{"@type":"Organization","name":"","logo":{"@type":"ImageObject","url":"https://stone0721.github.io/favicon.ico"}}}
+{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Cyber-Security-101-3/"},"headline":"Cyber Security 101 第三部分 Windows和AD基础知识","description":"Windows和AD基础知识 Windows桌面、NTFS文件系统、UAC、控制面板 系统配置、UAC设置、资源监控、Windows注册表 安全相关的内置微软工具 AD基础知识","datePublished":"2025-09-02T16:00:00.000Z","dateModified":"2025-09-03T12:06:28.220Z","author":{"@type":"Person","name":"stone0721"},"publisher":{"@type":"Organization","name":"","logo":{"@type":"ImageObject","url":"https://stone0721.github.io/favicon.ico"}}}
 </script>
 
   
@@ -99,7 +108,7 @@
       <div class="sea-post-meta sea-post-meta__center">
         <div class="sea-post-time">
   <svg t="1716964550804" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2621" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M805.49888 981.49888l-602.3168-0.76288c-86.59456-8.192-154.56768-81.3056-154.56768-170.01472L48.6144 291.73248c0-94.1568 76.60032-170.75712 170.7776-170.75712l586.10176 0c94.1568 0 170.73152 76.60032 170.73152 170.75712L976.22528 810.7008C976.2304 904.87296 899.63008 981.49888 805.49888 981.49888L805.49888 981.49888zM219.3664 190.57152c-55.79776 0-101.20192 45.38368-101.20192 101.18144l0 518.96832c0 55.79776 45.40416 101.20704 101.20192 101.20704l586.13248 0c55.77728 0 101.16096-45.40928 101.16096-101.20704L906.65984 291.73248c0-55.79776-45.38368-101.18656-101.16096-101.18656L219.3664 190.54592 219.3664 190.57152zM698.84416 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L745.22624 244.1216C745.22624 269.7472 724.46976 290.51904 698.84416 290.51904L698.84416 290.51904zM315.65824 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L362.04032 244.1216C362.04032 269.7472 341.28896 290.51904 315.65824 290.51904L315.65824 290.51904zM534.8864 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C581.26848 774.01088 560.4864 794.78784 534.8864 794.78784L534.8864 794.78784zM930.79552 452.608 121.24672 452.608c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l809.5744 0c25.6 0 46.38208 20.77696 46.38208 46.38208C977.2032 431.82592 956.42624 452.608 930.79552 452.608L930.79552 452.608zM327.92576 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208C374.30784 628.25472 353.52576 649.03168 327.92576 649.03168L327.92576 649.03168zM534.8864 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208S560.4864 649.03168 534.8864 649.03168L534.8864 649.03168zM741.27872 649.03168l-44.26752 0c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.77696 46.38208 46.38208C787.6608 628.25472 766.90944 649.03168 741.27872 649.03168L741.27872 649.03168zM327.92576 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C374.30784 774.01088 353.52576 794.78784 327.92576 794.78784L327.92576 794.78784zM741.27872 794.78784l-44.26752 0c-25.60512 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.78208 46.38208 46.38208C787.6608 774.01088 766.90944 794.78784 741.27872 794.78784L741.27872 794.78784z" p-id="2622"></path></svg>
-  <time datetime="2025-09-01T16:00:00.000Z">2025-09-02</time>
+  <time datetime="2025-09-02T16:00:00.000Z">2025-09-03</time>
 </div>
         
   <div class="sea-post-categories">
@@ -124,7 +133,7 @@
 <span id="more"></span>
 
 <p>Windows11有两个版本，家庭版和专业版，专业版使用 BitLocker 驱动器加密</p>
-<h2 id="文件系统：NTFS"><a href="#文件系统：NTFS" class="headerlink" title="文件系统：NTFS"></a>文件系统：NTFS</h2><p>NTFS 被称为日志文件系统，发生故障可以使用日志中的信息自动修复磁盘上的文件</p>
+<h2 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h2><h3 id="文件系统：NTFS"><a href="#文件系统：NTFS" class="headerlink" title="文件系统：NTFS"></a>文件系统：NTFS</h3><p>NTFS 被称为日志文件系统，发生故障可以使用日志中的信息自动修复磁盘上的文件</p>
 <h3 id="权限设置"><a href="#权限设置" class="headerlink" title="权限设置"></a>权限设置</h3><ul>
 <li>Read</li>
 <li>Write</li>
@@ -133,8 +142,141 @@
 <li>Modify</li>
 <li>Full Control</li>
 </ul>
-<h3 id="备用数据流ADS"><a href="#备用数据流ADS" class="headerlink" title="备用数据流ADS"></a>备用数据流ADS</h3><p>每个文件至少有一个数据流<code>$DATA</code>，ADS允许包含多个数据流</p>
-<h3 id="Windows-System32"><a href="#Windows-System32" class="headerlink" title="Windows\System32"></a>Windows\System32</h3><h3 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h3><h3 id="User-Account-Control（UAC）"><a href="#User-Account-Control（UAC）" class="headerlink" title="User Account Control（UAC）"></a>User Account Control（UAC）</h3><h3 id="设置和控制面板"><a href="#设置和控制面板" class="headerlink" title="设置和控制面板"></a>设置和控制面板</h3><h3 id="任务管理器"><a href="#任务管理器" class="headerlink" title="任务管理器"></a>任务管理器</h3>
+<p>继承性：子文件夹和文件继承父文件夹的权限</p>
+<p>显式权限：可以为特定文件及文件夹设置独立权限，覆盖继承的权限</p>
+<h3 id="备用数据流ADS"><a href="#备用数据流ADS" class="headerlink" title="备用数据流ADS"></a>备用数据流ADS</h3><p>每个文件至少有一个默认数据流 <code>$DATA</code>，ADS 允许文件附加额外的命名数据流，与主数据流并存，可以存储独立的数据。</p>
+<ul>
+<li><p>元数据存储：Windows 常使用 ADS 存储文件的元数据，如文件的摘要信息或缩略图。</p>
+</li>
+<li><p>安全和隐藏数据：ADS 可用于隐藏数据（例如，恶意软件可能利用 ADS 隐藏恶意代码）。</p>
+</li>
+</ul>
+<h3 id="Windows-System32"><a href="#Windows-System32" class="headerlink" title="Windows\System32"></a>Windows\System32</h3><p><code>C:\Windows</code> 即包含操作系统的文件夹，环境变量是 <code>%windir%</code></p>
+<blockquote>
+<p>环境变量存储有关操作系统环境的信息。此信息包括操作系统路径、操作系统使用的处理器数量以及临时文件夹的位置等详细信息</p>
+</blockquote>
+<p>其中的 <code>System32</code>文件夹中的内容对操作系统至关重要。</p>
+<h3 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h3><ul>
+<li><p>管理员：可以对系统进行更改。添加用户、删除用户、修改组、修改系统设置等。</p>
+</li>
+<li><p>标准用户：只能更改属于用户的文件夹&#x2F;文件，而不能执行系统级更改，例如安装程序。</p>
+</li>
+</ul>
+<p>创建用户账户时会为该用户创建一个配置文件。每个用户配置文件文件夹位于 C:\Users。</p>
+<p>每个用户配置文件都包含共同的文件夹：桌面、文件、下载、音乐、图片</p>
+<p>在运行窗口：<code>lusrmgr.msc</code> 可以查看用户和群组的详细信息。</p>
+<h3 id="User-Account-Control（UAC）"><a href="#User-Account-Control（UAC）" class="headerlink" title="User Account Control（UAC）"></a>User Account Control（UAC）</h3><p>任意管理员用户都可以修改系统设置，引入 UAC 以限制权限滥用。</p>
+<p>即管理员用户登录时，默认情况下会话不会以管理员权限运行。当需要执行需要更高级别权限的操作时，系统会提示用户确认是否允许该操作运行。</p>
+<blockquote>
+<p>不适用于内置本地管理员账户，日常不会使用这个账户。</p>
+</blockquote>
+<p>这就是一些安装程序图标右下角会有个盾牌的原因，因为它需要更高级别的权限来安装</p>
+<p>UAC 可以设置控制强度</p>
+<p>运行提示符：<code>UserAccountControlSettings.exe</code></p>
+<h3 id="设置和控制面板"><a href="#设置和控制面板" class="headerlink" title="设置和控制面板"></a>设置和控制面板</h3><p>设置日常使用更多</p>
+<p>控制面板可以访问更复杂设置和执行复杂操作。</p>
+<h3 id="任务管理器"><a href="#任务管理器" class="headerlink" title="任务管理器"></a>任务管理器</h3><p><code>Ctrl +  Shift + Esc</code>打开任务管理器</p>
+<p>可以查看正在运行的程序、进程，以及性能、服务等详细信息。</p>
+<p><img src="/../images/Cyber%20Security%20101-10.png" alt="image-20250903165458247"></p>
+<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h2><h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><p><code>MSConfig</code> 程序（系统<strong>配置</strong>实用程序）用于高级故障排除，主要帮助诊断启动问题。</p>
+<p>直接Windows搜索系统配置</p>
+<p><img src="/../images/Cyber%20Security%20101-11.png" alt="image-20250903171810356"></p>
+<p>常规：选择Windows启动时加载的设备和服务</p>
+<p>引导：为操作系统定义各种启动选项</p>
+<p>服务：列出系统配置的所有服务（服务是一种在后台运行的特殊应用程序）</p>
+<p>启动：微软建议使用任务管理器来管理启动项</p>
+<p>工具：列出各种实用程序，可以通过运行提示符（Win+R）、命令提示符和运行按钮来启动</p>
+<p><img src="/../images/Cyber%20Security%20101-12.png" alt="image-20250903173815026"></p>
+<p>运行提示符：<code>control.exe</code> 进入控制面板</p>
+<h3 id="计算机管理-compmgmt-msc"><a href="#计算机管理-compmgmt-msc" class="headerlink" title="计算机管理 compmgmt.msc"></a>计算机管理 compmgmt.msc</h3><p><img src="/../images/Cyber%20Security%20101-14.png" alt="image-20250903174214904"></p>
+<p>计算机管理实用程序</p>
+<p><img src="/../images/Cyber%20Security%20101-15.png" alt="image-20250903174934694"></p>
+<ul>
+<li>系统工具<ul>
+<li>任务计划程序：可以创建和管理常见任务，运行应用程序、脚本等，并且可以配置任务在任意时间点运行</li>
+<li>事件查看器：可以记录五种类型的事件。这些事件记录可以被视为审计线索，用于了解计算机系统的活动。</li>
+<li>共享文件夹：其他人可以连接的共享和文件夹的完整列表。 </li>
+<li>本地用户和组</li>
+<li>性能：有 <strong>性能监视器</strong> （<code>perfmon</code>）程序</li>
+<li>设备管理器：查看和配置硬件，例如禁用连接到计算机的任何硬件。</li>
+</ul>
+</li>
+<li>存储<ul>
+<li>磁盘管理：执行高级存储任务，设置新驱动器、扩展或缩小分区、分配或更改驱动器号</li>
+</ul>
+</li>
+<li>服务和应用程序：可以查看服务</li>
+</ul>
+<h3 id="系统信息-msinfo32-exe"><a href="#系统信息-msinfo32-exe" class="headerlink" title="系统信息 msinfo32.exe"></a>系统信息 msinfo32.exe</h3><p><img src="/../images/Cyber%20Security%20101-16.png" alt="image-20250903180155830"></p>
+<ul>
+<li>硬件资源：不懂硬件看不懂</li>
+<li>组件：可以查看计算机上安装的硬件设备的具体信息</li>
+<li>软件环境：可以查看操作系统内置软件以及您已安装软件的信息。此部分还显示其他详细信息，例如<strong>环境变量</strong>和<strong>网络连接</strong>。</li>
+</ul>
+<h3 id="资源监视器-resmon-exe-？？？"><a href="#资源监视器-resmon-exe-？？？" class="headerlink" title="资源监视器 resmon.exe ？？？"></a>资源监视器 resmon.exe ？？？</h3><p><img src="/../images/Cyber%20Security%20101-18.png" alt="image-20250903180747583"></p>
+<p>资源监视器显示每个进程以及CPU、内存、磁盘和网络使用情况的汇总信息，此外还提供有关哪些进程正在使用各个文件句柄和模块的详细信息。</p>
+<p>高级筛选功能允许用户隔离与一个或多个进程（应用程序或服务）相关的数据，启动、停止、暂停和恢复服务，以及从用户界面关闭无响应的应用程序。它还包括一个进程分析功能，可以帮助识别死锁进程和文件锁定冲突</p>
+<h3 id="命令提示符-cmd"><a href="#命令提示符-cmd" class="headerlink" title="命令提示符 cmd"></a>命令提示符 cmd</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">hostname</span>   <span class="token comment"># 输出计算机名称</span>
+<span class="token function">whoami</span>     <span class="token comment"># 输出登录用户的名称</span>
+ipconfig   <span class="token comment"># 显示计算机的网络地址设置</span>
+cls        <span class="token comment"># 清除屏幕 clear</span>
+<span class="token function">netstat</span>    <span class="token comment"># 显示协议统计信息和当前的 TCP/IP 网络连接</span>
+net        <span class="token comment"># 管理网络资源 使用 help (net help)</span></code></pre>
+
+<p>命令后加 <code>/?</code> 显示说明（<code>net</code>除外）</p>
+<h3 id="注册表编辑器-regedt32-exe"><a href="#注册表编辑器-regedt32-exe" class="headerlink" title="注册表编辑器 regedt32.exe"></a>注册表编辑器 regedt32.exe</h3><p><strong>Windows 注册表</strong> 是一个中央分层数据库，用于存储为一个或多个用户、应用程序和硬件设备配置系统所需的信息。</p>
+<p>注册表包含 Windows 在运行期间不断引用的信息，例如：</p>
+<ul>
+<li>每个用户的个人资料</li>
+<li>计算机上安装的应用程序以及每个应用程序可以创建的文档类型</li>
+<li>文件夹和应用程序图标的属性表设置</li>
+<li>系统上有哪些硬件</li>
+<li>正在使用的端口</li>
+</ul>
+<h2 id="第三部分-内置安全功能"><a href="#第三部分-内置安全功能" class="headerlink" title="第三部分 内置安全功能"></a>第三部分 内置安全功能</h2><h3 id="Windows更新"><a href="#Windows更新" class="headerlink" title="Windows更新"></a>Windows更新</h3><h3 id="WIndows安全"><a href="#WIndows安全" class="headerlink" title="WIndows安全"></a>WIndows安全</h3><ul>
+<li><strong>病毒和威胁防护</strong></li>
+<li><strong>防火墙和网络保护</strong></li>
+<li><strong>应用程序和浏览器控制</strong></li>
+<li><strong>设备安全</strong></li>
+</ul>
+<h3 id="病毒和威胁防护"><a href="#病毒和威胁防护" class="headerlink" title="病毒和威胁防护"></a>病毒和威胁防护</h3><h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>防火墙（Firewall）监控和控制通过端口进出的网络流量。检查每一个数据包，决定是允许通过、拒绝，还是丢弃。</p>
+<p>Windows防火墙提供三种防火墙配置文件：域、私有和公共</p>
+<ul>
+<li><strong>域</strong>：域配置文件适用于主机系统可以向域控制器进行身份验证的网络。</li>
+<li><strong>私人</strong>：私人配置文件是用户分配的配置文件，用于指定私人或家庭网络。</li>
+<li><strong>公共</strong>：默认配置文件是公共配置文件，用于指定公共网络，例如咖啡店、机场和其他地点的 Wi-Fi 热点。</li>
+</ul>
+<h3 id="应用和浏览器控制"><a href="#应用和浏览器控制" class="headerlink" title="应用和浏览器控制"></a>应用和浏览器控制</h3><h3 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h3><ul>
+<li>内核隔离：防止攻击将代码插入高安全性进程</li>
+<li>安全处理器：使用可信平台模块 (TPM) 技术，提供基于硬件的安全相关功能。TPM 芯片是一种安全的加密处理器。该芯片包含多种物理安全机制，使其具有防篡改功能，恶意软件无法篡改 TPM 的安全功能</li>
+<li>数据加密：BitLocker 驱动器加密是一种与操作系统集成的数据保护功能，可以解决丢失、被盗或不当退役的计算机造成的数据盗窃或泄露威胁</li>
+</ul>
+<h3 id="卷影复制服务-VSS"><a href="#卷影复制服务-VSS" class="headerlink" title="卷影复制服务 VSS"></a>卷影复制服务 VSS</h3><p>该服务创建数据的一致性快照（也称为卷影副本或时间点副本）。这些快照可以在特定时间点捕获文件、文件夹或整个驱动器的数据状态，方便备份或恢复。</p>
+<ul>
+<li><p>系统保护功能：通过VSS支持创建、配置和删除还原点，以及执行系统还原。</p>
+</li>
+<li><p>安全风险：勒索软件可能删除卷影副本，导致无法通过系统还原恢复数据。</p>
+</li>
+</ul>
+<h2 id="第四部分-Active-Directory"><a href="#第四部分-Active-Directory" class="headerlink" title="第四部分 Active Directory"></a>第四部分 Active Directory</h2><p><strong>Windows 域</strong>是一个基于 <strong>Active Directory</strong> 的集中式网络管理架构，通过域控制器实现用户、计算机和资源的统一管理。它提供单一登录、组策略和安全控制等功能，适合中大型企业或组织。运行Active Directory 服务的服务器称为<strong>域控制器 ( DC )</strong></p>
+<p>相比工作组，域更适合需要高效管理和高安全性的场景，但也需要注意域控制器的安全性和权限管理。</p>
+<ul>
+<li>集中身份管理：可以轻松从 Active Directory 配置整个网络中的所有用户。</li>
+<li>管理安全策略：您可以直接从 Active Directory 配置安全策略，并根据需要将其应用于网络上的用户和计算机。</li>
+</ul>
+<h3 id="Active-Directory"><a href="#Active-Directory" class="headerlink" title="Active Directory"></a>Active Directory</h3><p><strong>用户</strong>：用户是安全主体之一，是可以对网络中的资源进行操作的对象。</p>
+<ul>
+<li>人员：用户通常代表组织中需要访问网络的人员，例如员工。</li>
+<li>服务：您还可以定义 IIS 或 MSSQL 等服务所使用的用户。每个服务都需要一个用户才能运行，但服务用户与普通用户不同，因为他们只拥有运行特定服务所需的权限。</li>
+</ul>
+<p><strong>机器</strong>：每台加入 Active Directory 域的计算机都会创建一个计算机对象。计算机也被视为“安全主体”，机器账户本身指计算机的本地管理员。计算机名称+ $ 就是机器账户名</p>
+<p><strong>安全组</strong>：类似用户组，可用于向用户授予特定权限。如域管理员、服务器操作员、备份操作员、账户操作员、域用户、域计算机、域控制器</p>
+<p>登录域控制器，运行  Active Directory 用户和计算机。</p>
+<p>组织单位OU：容器对象，可用于对用户和计算机进行分类。一个用户一次智能属于一个OU</p>
+<p><img src="/../images/Cyber%20Security%20101-17.png" alt="image-20250903190750825"></p>
+<p>如图，THM组织单元有5个子组织单元。</p>
+<h3 id="Delegation-权限委派"><a href="#Delegation-权限委派" class="headerlink" title="Delegation 权限委派"></a>Delegation 权限委派</h3><p>——– 未完待续</p>
+
     </div>
   </div>
 
@@ -142,17 +284,10 @@
     
   <div class="sea-prev-next-wrapper">
     
-      <div class="prev">
-        <svg t="1725418977480" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4239" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="4240"></path></svg>
-        <a class="link" href="/Cyber-Security-101-2/">
-          Cyber Security 101 第二部分 Linux基础知识
-        </a>
-      </div>
-    
     
       <div class="next">
-        <a class="link" href="/Metasploit-2/">
-          Metasploit-2 Metasploit基础知识
+        <a class="link" href="/Cyber-Security-101-2/">
+          Cyber Security 101 第二部分 Linux基础知识
         </a>
         <svg t="1725418993065" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6832" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M731.733333 480l-384-341.333333c-17.066667-14.933333-44.8-14.933333-59.733333 4.266666-14.933333 17.066667-14.933333 44.8 4.266667 59.733334L640 512 292.266667 821.333333c-17.066667 14.933333-19.2 42.666667-4.266667 59.733334 8.533333 8.533333 19.2 14.933333 32 14.933333 10.666667 0 19.2-4.266667 27.733333-10.666667l384-341.333333c8.533333-8.533333 14.933333-19.2 14.933334-32s-4.266667-23.466667-14.933334-32z" p-id="6833"></path></svg>
       </div>
