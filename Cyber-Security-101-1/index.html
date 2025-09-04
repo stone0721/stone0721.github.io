@@ -102,7 +102,7 @@
 
 <h2 id="进攻性安全：模拟黑客查找系统漏洞"><a href="#进攻性安全：模拟黑客查找系统漏洞" class="headerlink" title="进攻性安全：模拟黑客查找系统漏洞"></a>进攻性安全：模拟黑客查找系统漏洞</h2><p>示例：入侵一个 FakeBank</p>
 <p><img src="/../images/Cyber%20Security%20101-1.png" alt="Cyber Security 101-1"></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-u 声明正在扫描的网站</span><br><span class="hljs-deletion">-w 采用单词列表遍历查找隐藏的页面</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-u 声明正在扫描的网站</span><br><span class="line">-w 采用单词列表遍历查找隐藏的页面</span><br></pre></td></tr></table></figure>
 
 <p>这里扫描了一个模拟的银行网站，<a target="_blank" rel="noopener" href="http://fakebank.thm/">http://fakebank.thm</a></p>
 <p>结果找到bank-transfer转账页面，状态200 OK，代表可以访问</p>
@@ -126,7 +126,7 @@
 </blockquote>
 <h3 id="Gobuster"><a href="#Gobuster" class="headerlink" title="Gobuster"></a>Gobuster</h3><p>Go语言编写的开源命令行工具</p>
 <p>可以用于暴力枚举Web目录、文件、DNS子域名等</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">gobuster <span class="hljs-built_in">dir</span> -u 网站域名 -w 爆破字典<br>gobuster dns -d 网站域名 -w 爆破字典<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gobuster <span class="built_in">dir</span> -u 网站域名 -w 爆破字典</span><br><span class="line">gobuster dns -d 网站域名 -w 爆破字典</span><br></pre></td></tr></table></figure>
 
 
 

@@ -98,53 +98,53 @@
 
 
 
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> Hello    <span class="hljs-comment"># 输出提供的文本</span><br><span class="hljs-built_in">whoami</span>        <span class="hljs-comment"># 输出当前登录的用户</span><br><span class="hljs-built_in">ls</span>            <span class="hljs-comment"># 列出目录下的文件listing,默认参数是当前目录</span><br><span class="hljs-built_in">cd</span>            <span class="hljs-comment"># 更改目录 change directory</span><br><span class="hljs-built_in">cat</span>           <span class="hljs-comment"># 输出文件内容</span><br><span class="hljs-built_in">pwd</span>           <span class="hljs-comment"># 打印完整工作目录路径 print working directory</span><br></code></pre></td></tr></table></figure>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> Hello    <span class="comment"># 输出提供的文本</span></span><br><span class="line"><span class="built_in">whoami</span>        <span class="comment"># 输出当前登录的用户</span></span><br><span class="line"><span class="built_in">ls</span>            <span class="comment"># 列出目录下的文件listing,默认参数是当前目录</span></span><br><span class="line"><span class="built_in">cd</span>            <span class="comment"># 更改目录 change directory</span></span><br><span class="line"><span class="built_in">cat</span>           <span class="comment"># 输出文件内容</span></span><br><span class="line"><span class="built_in">pwd</span>           <span class="comment"># 打印完整工作目录路径 print working directory</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">find -name passwords.txt  <span class="hljs-comment"># 在当前目录下查找文件</span><br>find -name *.txt          <span class="hljs-comment"># 使用*来搜索所有txt文件</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find -name passwords.txt  <span class="comment"># 在当前目录下查找文件</span></span><br><span class="line">find -name *.txt          <span class="comment"># 使用*来搜索所有txt文件</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep <span class="hljs-string">&quot;81.143.211.90&quot;</span> access.log  <span class="hljs-comment"># 搜索文件内容，展示包含所需值的条目</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;81.143.211.90&quot;</span> access.log  <span class="comment"># 搜索文件内容，展示包含所需值的条目</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># shell运算符</span><br>&amp;    允许终端后台允许命令<br>&amp;&amp;   将多个命令组合在一行<br>&gt;    重定向<br>&gt;&gt;   与&gt;相同，但是输出不覆盖而是添加在后面<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shell运算符</span></span><br><span class="line">&amp;    允许终端后台允许命令</span><br><span class="line">&amp;&amp;   将多个命令组合在一行</span><br><span class="line">&gt;    重定向</span><br><span class="line">&gt;&gt;   与&gt;相同，但是输出不覆盖而是添加在后面</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> Hello &gt; welcome     <span class="hljs-comment"># 将 Hello 输出到文本文件，内容将被覆盖</span><br><span class="hljs-built_in">echo</span> World &gt;&gt; welcome    <span class="hljs-comment"># 将 World 添加到文本文件后（自动换行）</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> Hello &gt; welcome     <span class="comment"># 将 Hello 输出到文本文件，内容将被覆盖</span></span><br><span class="line"><span class="built_in">echo</span> World &gt;&gt; welcome    <span class="comment"># 将 World 添加到文本文件后（自动换行）</span></span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="使用SSH登录Linux设备、执行命令、与文件系统交互"><a href="#使用SSH登录Linux设备、执行命令、与文件系统交互" class="headerlink" title="使用SSH登录Linux设备、执行命令、与文件系统交互"></a>使用SSH登录Linux设备、执行命令、与文件系统交互</h2><ul>
 <li>SSH（Secure Shell） ：连接远程Linux机器命令行并进行交互</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh 账户用户名@远程机器IP地址<br><span class="hljs-comment"># 然后还需输入密码</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh 账户用户名@远程机器IP地址</span><br><span class="line"><span class="comment"># 然后还需输入密码</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>命令参数</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">ls</span> -a       <span class="hljs-comment"># 将显示工作目录所有内容all，包括隐藏文件</span><br><span class="hljs-built_in">ls</span> --<span class="hljs-built_in">help</span>   <span class="hljs-comment"># manual使用帮助</span><br><span class="hljs-built_in">ls</span> -lh      <span class="hljs-comment"># 列出当前目录下文件详细信息 long、human能阅读的方式</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -a       <span class="comment"># 将显示工作目录所有内容all，包括隐藏文件</span></span><br><span class="line"><span class="built_in">ls</span> --<span class="built_in">help</span>   <span class="comment"># manual使用帮助</span></span><br><span class="line"><span class="built_in">ls</span> -lh      <span class="comment"># 列出当前目录下文件详细信息 long、human能阅读的方式</span></span><br></pre></td></tr></table></figure>
 
 
 
 <ul>
 <li>与文件系统交互</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">touch</span>    <span class="hljs-comment"># 创建文件</span><br><span class="hljs-built_in">mkdir</span>    <span class="hljs-comment"># make directory创建文件夹</span><br><span class="hljs-built_in">cp</span>       <span class="hljs-comment"># copy</span><br><span class="hljs-built_in">mv</span>       <span class="hljs-comment"># move</span><br><span class="hljs-built_in">rm</span>       <span class="hljs-comment"># remove</span><br>file     <span class="hljs-comment"># 确定文件类型</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span>    <span class="comment"># 创建文件</span></span><br><span class="line"><span class="built_in">mkdir</span>    <span class="comment"># make directory创建文件夹</span></span><br><span class="line"><span class="built_in">cp</span>       <span class="comment"># copy</span></span><br><span class="line"><span class="built_in">mv</span>       <span class="comment"># move</span></span><br><span class="line"><span class="built_in">rm</span>       <span class="comment"># remove</span></span><br><span class="line">file     <span class="comment"># 确定文件类型</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">rm</span> note           <span class="hljs-comment"># 删除文件</span><br><span class="hljs-built_in">rm</span> -R directory   <span class="hljs-comment"># 删除文件夹</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> note           <span class="comment"># 删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -R directory   <span class="comment"># 删除文件夹</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> note new_note <span class="hljs-comment"># 复制时可以自动创建新文件</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> note new_note <span class="comment"># 复制时可以自动创建新文件</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mv</span> note new_note <span class="hljs-comment"># 移动到新文件夹或新文件，不保留旧文件</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> note new_note <span class="comment"># 移动到新文件夹或新文件，不保留旧文件</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">file note  <span class="hljs-comment"># 确定文件类型</span><br>&gt; note: ASCII text  <span class="hljs-comment"># 表明是一个文本文件</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file note  <span class="comment"># 确定文件类型</span></span><br><span class="line">&gt; note: ASCII text  <span class="comment"># 表明是一个文本文件</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">ls</span> -lh<br>&gt; -rw-r--r-- 1 user group 4.5K Sep  2 14:30 example.txt<br>&gt; drwxr-xr-x 2 user group 4.0K Sep  2 10:15 mydir<br></code></pre></td></tr></table></figure>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -lh</span><br><span class="line">&gt; -rw-r--r-- 1 user group 4.5K Sep  2 14:30 example.txt</span><br><span class="line">&gt; drwxr-xr-x 2 user group 4.0K Sep  2 10:15 mydir</span><br></pre></td></tr></table></figure>
 
 <p>第1个字符：<code>-</code>普通文件，<code>d</code>目录，<code>l</code>符号链接</p>
 <p>后9个字符：权限，分为三组，分别表示 文件拥有者权限、所属组权限、其他用户权限</p>
 <p>硬链接数（如1或2）：普通文件通常为 1，目录为至少 2（包含自身和 . 目录）。</p>
 <p>文件拥有者、文件所属组、文件大小、最后修改时间、文件名</p>
 <h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p>需要知道用户名和密码</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">su 其他用户<br>&gt; Password:<br><span class="hljs-comment"># 仅切换到目标身份，但保留当前用户的环境变量，且工作目录不变</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su 其他用户</span><br><span class="line">&gt; Password:</span><br><span class="line"><span class="comment"># 仅切换到目标身份，但保留当前用户的环境变量，且工作目录不变</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">su -l 用户名<br><span class="hljs-comment"># 完全切换用户，并切换到HOME目录</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su -l 用户名</span><br><span class="line"><span class="comment"># 完全切换用户，并切换到HOME目录</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><strong>&#x2F;ETC</strong>：存储操作系统使用的系统文件</li>
@@ -154,35 +154,35 @@
 </ul>
 <h2 id="终端文本编辑器"><a href="#终端文本编辑器" class="headerlink" title="终端文本编辑器"></a>终端文本编辑器</h2><p>nano</p>
 <p>vim</p>
-<h2 id="通用-实用工具"><a href="#通用-实用工具" class="headerlink" title="通用&#x2F;实用工具"></a>通用&#x2F;实用工具</h2><h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget 文件URL<br></code></pre></td></tr></table></figure>
+<h2 id="通用-实用工具"><a href="#通用-实用工具" class="headerlink" title="通用&#x2F;实用工具"></a>通用&#x2F;实用工具</h2><h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget 文件URL</span><br></pre></td></tr></table></figure>
 
 <h3 id="SCP（SSH）"><a href="#SCP（SSH）" class="headerlink" title="SCP（SSH）"></a>SCP（SSH）</h3><p>利用SSH协议在两台计算机之间传输文件，提供身份验证和加密</p>
 <p>通过 SOURCE 和 DESTINATION 模型，SCP 允许您：</p>
 <ul>
 <li>将文件和目录从当前系统复制到远程系统</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">scp test.txt user@IP_address:home/user/new.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp test.txt user@IP_address:home/user/new.txt</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>将文件和目录从远程系统复制到当前系统</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">scp user@IP_address:home/user/test.txt new.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp user@IP_address:home/user/test.txt new.txt</span><br></pre></td></tr></table></figure>
 
 <h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><p>Python3的“HTTPServer”会在当前目录进行文件服务</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">python3 -m http.server <span class="hljs-comment"># 启动http服务（8000端口）</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server <span class="comment"># 启动http服务（8000端口）</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget http://10.10.135.215:8000/myfile<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://10.10.135.215:8000/myfile</span><br></pre></td></tr></table></figure>
 
 <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><p><img src="/../images/Cyber%20Security%20101-9.png" alt="image-20250902153343829"></p>
 <p>所有进程（加上其他用户运行以及系统进程）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ps aux<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
 
 <p>top获取进程的实时统计信息</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">top<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="管理进程"><a href="#管理进程" class="headerlink" title="管理进程"></a>管理进程</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">kill</span> &lt;PID&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="管理进程"><a href="#管理进程" class="headerlink" title="管理进程"></a>管理进程</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> &lt;PID&gt;</span><br></pre></td></tr></table></figure>
 
 <p>在进程被终止时可以发送的一些信号：</p>
 <ul>
@@ -194,7 +194,7 @@
 <p>PID为 0 的进程是系统启动时启动的</p>
 <p><strong>systemd</strong>是第一个启动的进程之一，管理系统进程的初始化系统。任何想要启动的进程都会作为 <strong>systemd</strong> 的子进程启动。</p>
 <p><strong>systemctl</strong> 是管理 <strong>systemd</strong> 服务的命令行工具，可以用于启用或停止、开机启用、禁止 服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl [option] [service]<br><span class="hljs-comment"># start stop enable disable</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl [option] [service]</span><br><span class="line"><span class="comment"># start stop enable disable</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="前台和后台"><a href="#前台和后台" class="headerlink" title="前台和后台"></a>前台和后台</h3><p>在命令中添加 <code>&amp;</code> 会让进程在后台运行</p>
 <p><code>CTRL + Z</code>也可以将进程移到后台</p>
@@ -202,13 +202,13 @@
 <h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><p>cron 是一个 Linux 系统中的守护进程（daemon），在系统启动时自动运行，用于定时执行任务（称为 cron 作业，cron jobs）。</p>
 <p>它根据预设的时间表（schedule）运行脚本、命令或程序，适合自动化任务，如定时备份、更新系统或启动应用程序。</p>
 <p>使用 <strong>crontab</strong>（table）来管理定时任务</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">crontab -e  <span class="hljs-comment"># 编辑当前用户的crontab</span><br>crontab -l  <span class="hljs-comment"># 查看当前用户的crontab</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e  <span class="comment"># 编辑当前用户的crontab</span></span><br><span class="line">crontab -l  <span class="comment"># 查看当前用户的crontab</span></span><br></pre></td></tr></table></figure>
 
 <p>格式</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">时 日 月 星期 命令   <span class="hljs-comment">#   *表示任意</span><br>0 * * * * /usr/bin/google-chrome  <span class="hljs-comment"># 每个小时启动Google Chrome</span><br>@reboot /var/opt/processes.sh <span class="hljs-comment"># 系统启动或重启时执行脚本</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">时 日 月 星期 命令   <span class="comment">#   *表示任意</span></span><br><span class="line">0 * * * * /usr/bin/google-chrome  <span class="comment"># 每个小时启动Google Chrome</span></span><br><span class="line">@reboot /var/opt/processes.sh <span class="comment"># 系统启动或重启时执行脚本</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理??????"></a>包管理??????</h2><p><code>apt</code> 是软件包管理命令，每当更新系统时，包含软件的仓库也会检查更新</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt update<br>apt install [software-name-here]<br>apt remove [software-name-here]<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install [software-name-here]</span><br><span class="line">apt remove [software-name-here]</span><br></pre></td></tr></table></figure>
 
 <h2 id="日志-var-log"><a href="#日志-var-log" class="headerlink" title="日志 var&#x2F;log"></a>日志 var&#x2F;log</h2><p><code>var/log</code> 存储各种日志</p>
 <p><strong>日志轮转</strong>：自动管理日志文件大小和存储，定期压缩旧日志、创建新日志、并删除过期日志</p>
