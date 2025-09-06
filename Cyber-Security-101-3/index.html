@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
 <meta property="article:published_time" content="2025-09-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-04T11:40:12.557Z">
+<meta property="article:modified_time" content="2025-09-06T03:53:43.341Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
@@ -50,7 +50,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-04T00:00:00+08:00","dateModified":"2025-09-04T19:40:12+08:00","datePublished":"2025-09-04T00:00:00+08:00","description":"先介绍Active Directory基础知识\n再介绍 Windows 的 NTFS 文件系统、UAC权限控制、系统配置、资源监控、注册表以及安全相关功能。","headline":"Cyber Security 101 第三部分 AD和Windows基础知识","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Cyber-Security-101-3/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/Cyber-Security-101-3/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-04T00:00:00+08:00","dateModified":"2025-09-06T11:53:43+08:00","datePublished":"2025-09-04T00:00:00+08:00","description":"先介绍Active Directory基础知识\n再介绍 Windows 的 NTFS 文件系统、UAC权限控制、系统配置、资源监控、注册表以及安全相关功能。","headline":"Cyber Security 101 第三部分 AD和Windows基础知识","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Cyber-Security-101-3/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/Cyber-Security-101-3/","image":[]}</script>
   
 </head>
 <body>
@@ -69,7 +69,7 @@
 
 
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Cyber-Security-101-4/"><span class="title">Cyber Security 101 第四部分 命令行</span></a><a class="item title" href="/Cyber-Security-101-5/"><span class="title">Cyber Security 101 第五部分 网络</span></a><a class="item title" href="/Cyber-Security-101-1/"><span class="title">Cyber Security 101 第一部分 简介</span></a><a class="item title" href="/Cyber-Security-101-3/"><span class="title">Cyber Security 101 第三部分 AD和Windows基础知识</span></a><a class="item title" href="/Cyber-Security-101-2/"><span class="title">Cyber Security 101 第二部分 Linux基础知识</span></a></div></widget>
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Cyber-Security-101-5/"><span class="title">Cyber Security 101 第五部分 网络</span></a><a class="item title" href="/Cyber-Security-101-3/"><span class="title">Cyber Security 101 第三部分 AD和Windows基础知识</span></a><a class="item title" href="/Cyber-Security-101-2/"><span class="title">Cyber Security 101 第二部分 Linux基础知识</span></a><a class="item title" href="/Cyber-Security-101-1/"><span class="title">Cyber Security 101 第一部分 简介</span></a><a class="item title" href="/Cyber-Security-101-4/"><span class="title">Cyber Security 101 第四部分 命令行</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -82,7 +82,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Cyber-Security-101/">Cyber Security 101</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-03T16:00:00.000Z">2025-09-04</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-04T11:40:12.557Z">2025-09-04</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-03T16:00:00.000Z">2025-09-04</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-06T03:53:43.341Z">2025-09-06</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -158,14 +158,24 @@
 <li>Kerberos：新的默认协议</li>
 <li>NetNTLM：旧的身份验证协议，仍然兼容</li>
 </ul>
-<h4 id="Kerberos"><a href="#Kerberos" class="headerlink" title="Kerberos"></a>Kerberos</h4><p>使用 Kerberos 登录服务的用户将被分配 tickets ，类似cookie，持有 tickets 的用户可以出示给服务，证明已通过网络身份验证。</p>
-<p>1.用户将 用户名和密钥 发送给 <strong>KDC（密钥分发中心）</strong>，KDC 将创建并返回一个 <strong>TGT（Ticket Granting Ticket）</strong> ，这个 ticket 允许用户在每次连接服务时无需传递 用户名、密钥 即可请求服务 ticket 。</p>
+<h4 id="Kerberos"><a href="#Kerberos" class="headerlink" title="Kerberos"></a>Kerberos</h4><p>Kerberos 是 Windows 域环境中默认的身份验证协议，依赖于 KDC（密钥分发中心），通常运行在域控制器（DC）上。KDC 包含两个主要服务：</p>
+<ul>
+<li>认证服务（AS，Authentication Service）：负责验证用户身份并颁发 TGT（Ticket Granting Ticket）。</li>
+<li>票据授予服务（TGS，Ticket Granting Service）：根据 TGT 颁发特定服务的 服务票据（Service Ticket）。</li>
+</ul>
 <blockquote>
 <p>TGT 作为用户身份的通用凭证，允许用户在有效期内多次请求服务票据</p>
-<p>服务票据则是针对特定服务的安全凭证，遵循最小权限原则，确保访问控制的精准性和安全性。</p>
 </blockquote>
-<p>？？？？？？？</p>
-<h4 id="NetNTLM"><a href="#NetNTLM" class="headerlink" title="NetNTLM"></a>NetNTLM</h4><p>？？？？？？？</p>
+<p>Kerberos 工作流程简述：</p>
+<ol>
+<li>用户通过用户名和密码（或密钥）向 KDC 的认证服务（AS）请求身份验证。</li>
+<li>KDC 验证用户身份后，返回一个 TGT，该票据包含用户的身份信息和时间戳，加密后存储在客户端。</li>
+<li>当用户需要访问特定服务时，客户端使用 TGT 向 KDC 的票据授予服务（TGS）请求 服务票据。</li>
+<li>TGS 返回一个针对特定服务的 服务票据，用户出示该票据给目标服务，服务验证票据后授予访问权限。</li>
+<li>票据有效期：TGT 和服务票据都有时间限制（通常为 10 小时），到期后需续期或重新认证。</li>
+</ol>
+<h4 id="NetNTLM"><a href="#NetNTLM" class="headerlink" title="NetNTLM"></a>NetNTLM</h4><p>NetNTLM（也称为 NTLM，NT LAN Manager）是 Windows 域环境中较旧的身份验证协议，通常作为 Kerberos 的备用协议，用于不支持 Kerberos 的场景或向下兼容旧系统。</p>
+<p>仅做介绍</p>
 <h3 id="树、林、信任关系"><a href="#树、林、信任关系" class="headerlink" title="树、林、信任关系"></a>树、林、信任关系</h3><p>AD支持集成多个域，将网络划分为可独立管理的单元。</p>
 <p><strong>树</strong>的每个域都有各自的 DC ，有各自的域管理员，以及可以控制企业中所有内容的 <strong>企业管理员。</strong></p>
 <p><img src="/../images/Cyber%20Security%20101-23.png" alt="https:&#x2F;&#x2F;tryhackme-images.s3.amazonaws.com&#x2F;user-uploads&#x2F;5ed5961c6276df568891c3ea&#x2F;room-content&#x2F;abea24b7979676a1dcc0c568054544c8.png"></p>
@@ -269,7 +279,10 @@
 <li>系统上有哪些硬件</li>
 <li>正在使用的端口</li>
 </ul>
-<h2 id="第四部分-内置安全功能"><a href="#第四部分-内置安全功能" class="headerlink" title="第四部分 内置安全功能"></a>第四部分 内置安全功能</h2><h3 id="Windows更新"><a href="#Windows更新" class="headerlink" title="Windows更新"></a>Windows更新</h3><h3 id="WIndows安全"><a href="#WIndows安全" class="headerlink" title="WIndows安全"></a>WIndows安全</h3><ul>
+<h2 id="第四部分-内置安全功能"><a href="#第四部分-内置安全功能" class="headerlink" title="第四部分 内置安全功能"></a>第四部分 内置安全功能</h2><h3 id="Windows更新"><a href="#Windows更新" class="headerlink" title="Windows更新"></a>Windows更新</h3><p>Windows 更新是微软为 Windows 操作系统提供的补丁、功能更新和安全修复，旨在提升系统安全性、稳定性和性能。</p>
+<p>更新可分为 安全更新、功能更新、质量更新、驱动更新</p>
+<p>Windows 10 和 Windows 11 设计为强制更新，普通用户无法永久禁用更新，只能推迟。</p>
+<h3 id="WIndows安全"><a href="#WIndows安全" class="headerlink" title="WIndows安全"></a>WIndows安全</h3><ul>
 <li><strong>病毒和威胁防护</strong></li>
 <li><strong>防火墙和网络保护</strong></li>
 <li><strong>应用程序和浏览器控制</strong></li>
