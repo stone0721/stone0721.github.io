@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
 <meta property="article:published_time" content="2025-09-06T09:25:00.000Z">
-<meta property="article:modified_time" content="2025-09-07T01:09:07.188Z">
+<meta property="article:modified_time" content="2025-09-07T07:16:40.419Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
@@ -50,7 +50,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-06T17:25:00+08:00","dateModified":"2025-09-07T09:09:07+08:00","datePublished":"2025-09-06T17:25:00+08:00","description":"介绍pwntools和编码知识","headline":"CryptoHack 第一部分 简介","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/CryptoHack-1/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/CryptoHack-1/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-06T17:25:00+08:00","dateModified":"2025-09-07T15:16:40+08:00","datePublished":"2025-09-06T17:25:00+08:00","description":"介绍pwntools和编码知识","headline":"CryptoHack 第一部分 简介","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/CryptoHack-1/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/CryptoHack-1/","image":[]}</script>
   
 </head>
 <body>
@@ -82,7 +82,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CryptoHack/">CryptoHack</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-06T09:25:00.000Z">2025-09-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-07T01:09:07.188Z">2025-09-07</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-06T09:25:00.000Z">2025-09-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-07T07:16:40.419Z">2025-09-07</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -132,7 +132,7 @@
 
 <p>Python 的 PyCryptodome 库通过方法<code>bytes_to_long()</code>和<code>long_to_bytes()</code>实现了这一点。</p>
 <p>需要先安装 PyCryptodome 并使用  <code>from Crypto.Util.number import *</code>导入它 。</p>
-<h3 id="异或XOR"><a href="#异或XOR" class="headerlink" title="异或XOR"></a>异或XOR</h3><p>$$<br>\begin{align}<br>交换律：&amp; A ⊕ B &#x3D; B ⊕ A \<br>结合律：&amp; A ⊕ (B ⊕ C) &#x3D; (A ⊕ B) ⊕ C \<br>恒等式：&amp; A ⊕ 0 &#x3D; A \<br>自逆：&amp; A ⊕ A &#x3D; 0<br>\end{align}<br>$$</p>
+<h3 id="异或XOR"><a href="#异或XOR" class="headerlink" title="异或XOR"></a>异或XOR</h3><p>交换律： A ⊕ B &#x3D; B ⊕ A<br>结合律： A ⊕ (B ⊕ C) &#x3D; (A ⊕ B) ⊕ C<br>恒等式：A ⊕ 0 &#x3D; A<br>自逆： A ⊕ A &#x3D; 0</p>
 <p>Python <code>pwntools</code>库中有一个方便的<code>xor()</code>函数，可以对不同类型和长度的数据进行异或运算。</p>
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104</span><br></pre></td></tr></table></figure>
 
