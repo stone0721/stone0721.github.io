@@ -1,0 +1,1286 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>MoeCTF 2025 Reverse - 首页</title>
+
+  
+    <meta name="description" content="逆向部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MoeCTF 2025 Reverse">
+<meta property="og:url" content="https://stone0721.github.io/MoeCTF%202025-1/">
+<meta property="og:site_name" content="首页">
+<meta property="og:description" content="逆向部分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
+<meta property="article:published_time" content="2025-09-08T15:20:00.000Z">
+<meta property="article:modified_time" content="2025-09-13T11:11:58.834Z">
+<meta property="article:author" content="stone0721">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/home.ico">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-08T23:20:00+08:00","dateModified":"2025-09-13T19:11:58+08:00","datePublished":"2025-09-08T23:20:00+08:00","description":"逆向部分","headline":"MoeCTF 2025 Reverse","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/MoeCTF%202025-1/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/MoeCTF%202025-1/","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/cover.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">ddddd</div><div class="sub cap">分享个人学习笔记、技术文章</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Pwn 基础知识</span></a><a class="item title" href="/Web%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-5/"><span class="title">MoeCTF 2025 Web</span></a><a class="item title" href="/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-1/"><span class="title">MoeCTF 2025 Reverse</span></a><a class="item title" href="/MoeCTF%202025-2/"><span class="title">MoeCTF 2025 Misc</span></a><a class="item title" href="/Cyber-Security-101-1/"><span class="title">Cyber Security 101 第一部分 简介</span></a><a class="item title" href="/Cyber-Security-101-2/"><span class="title">Cyber Security 101 第二部分 Linux基础知识</span></a><a class="item title" href="/MoeCTF%202025-3/"><span class="title">MoeCTF 2025 Pwn</span></a><a class="item title" href="/MoeCTF%202025-4/"><span class="title">MoeCTF 2025 Crypto</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-08T15:20:00.000Z">2025-09-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-13T11:11:58.834Z">2025-09-13</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>MoeCTF 2025 Reverse</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>逆向部分</p>
+<span id="more"></span>
+
+
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="speed"><a href="#speed" class="headerlink" title="speed"></a>speed</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Did you see my little pony? She runs really fast...</span><br><span class="line">附件：speed.zip</span><br></pre></td></tr></table></figure>
+
+<p>运行 speed.exe ，窗口一晃而过</p>
+<p>直接使用 IDA Pro 打开，注意到主函数中有 Winmain 函数</p>
+<p>跳转到 Winmain 函数</p>
+<blockquote>
+<p>Winmain 是Windows 桌面程序的主函数</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-1.png" alt="image-20250907194355357"></p>
+<p>注意到29行 ShowWindow 命令，和32行 DestroyWindow 。</p>
+<p>之间只有 <code>sleep(1)</code> </p>
+<p>就是这个函数让窗口一晃而过。在这下断点，执行。窗口停下。</p>
+<blockquote>
+<p>微软 Visual C++ 中 Sleep() 参数单位是 毫秒   大写S</p>
+<p>Linux 中 sleep()  参数单位是秒  小写s</p>
+<p>标准 C 中 sleep() 参数单位也是秒  小写s</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-2.png"></p>
+<h3 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h3><p>打开程序，提示输入 flag，随便输入一个，程序退出</p>
+<p>用 IDA 打开程序</p>
+<p><img src="/../images/MoeCTF%202025-3.png" alt="image-20250907195336233"></p>
+<p>32行，Buffer 认为是输入，v4 是输入长度， v11 是长为16的字符数组</p>
+<p>33行，v7 与 一串神秘字符比较，猜测 v7 需要等于这串字符</p>
+<p>注意到这串字符 结尾是 <code>=</code>，查看 32 行的函数，可以判断应该是个 base64 编码函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">ciphertext = <span class="string">&quot;bW9lY3Rme1kwdV9DNG5fRzAwZF9BdF9CNDVlNjQhIX0=&quot;</span></span><br><span class="line">b = base64.b64decode(ciphertext)  </span><br><span class="line"><span class="built_in">print</span>(b.decode())  </span><br></pre></td></tr></table></figure>
+
+<p>解码，即得到 <code>flag</code></p>
+<h3 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h3><p><img src="/../images/MoeCTF%202025-4.png" alt="image-20250907203252039"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag            db &#x27;geoi~lq~bcyUcyUkUlkaoUlfkmw&#x27;,0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-6.png" alt="image-20250907205605413"></p>
+<p>enc 是一个很简单的异或函数，一切都很简单，写一个简单的 c++ 程序模拟</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::string flag = <span class="string">&quot;geoi~lq~bcyUcyUkUlkaoUlfkmw&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">char</span> <span class="title">enc</span><span class="params">(<span class="type">char</span> a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a ^ <span class="number">0x11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> len = flag.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;  len; i++)&#123;</span><br><span class="line">        flag[i] = <span class="built_in">enc</span>(flag[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; flag &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vt~xo&#125;`osrhDrhDzD&#125;zp~D&#125;wz|f</span><br></pre></td></tr></table></figure>
+
+<p>很显然不是 flag</p>
+<p>结合提示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IDA pro 9.0 推出了针对 C++ exception 的优化</span><br><span class="line"></span><br><span class="line">但是这并不意味着所有的 try catch 都能被正确反编译</span><br></pre></td></tr></table></figure>
+
+<p>这意味着需要读汇编</p>
+<p>注意到下面这段汇编代码，有一个比上面的 flag 更像 flag 的字符串</p>
+<p>islower， isupper函数表示分大小写需要对字符进行不同处理（特殊字符不处理）</p>
+<p><img src="/../images/MoeCTF%202025-5.png" alt="image-20250907205534958"></p>
+<p>总而言之，重新写一个 c++ 程序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::string flag = <span class="string">&quot;zbrpgs&#123;F4z3_Ge1px_jvgu_@sybjre_qrfhjn&#125;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> len = flag.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;  len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">islower</span>(flag[i]))&#123;</span><br><span class="line">            flag[i] = (flag[i] - <span class="number">84</span>) % <span class="number">26</span> + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isupper</span>(flag[i]))&#123;</span><br><span class="line">            flag[i] = (flag[i] - <span class="number">52</span>) % <span class="number">26</span> + <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; flag &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;S4m3_Tr1ck_with_@flower_desuwa&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="moe-upx"><a href="#moe-upx" class="headerlink" title="moe_upx"></a>moe_upx</h3><p>直接将文件拖入 IDA 发现无法反汇编，使用 upx 脱壳</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upx -d moe.exe</span><br></pre></td></tr></table></figure>
+
+<p>然后 moe.exe 就能正常反编译了</p>
+<p><img src="/../images/MoeCTF%202025-7.png" alt="image-20250907211643846"></p>
+<p>使用 <code>fgets</code> 读入一行，存储到 <code>Buffer</code>，然后对<code>Buffer</code>每个字符与 0x21 异或，再与后一个字符异或，得到 <code>v14</code></p>
+<p>重写：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::string flag;</span><br><span class="line">    std::cin &gt;&gt; flag;</span><br><span class="line">    <span class="type">int</span> len = flag.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span>(len)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;  len; i++)&#123;</span><br><span class="line">            flag[i] = flag[i] ^ <span class="number">0x21</span>;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; len - <span class="number">1</span> )&#123;</span><br><span class="line">                flag[i] = flag[i] ^ flag[i<span class="number">+1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; flag &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>看比较部分：</p>
+<p>只有当 v14 与 v10 这两个数组 前35 个字符一样时，才不会输出表示失败的字符串</p>
+<p>现在看看 v10 是什么，就是一些字节数据 32个63位整数</p>
+<blockquote>
+<p><strong>SSE 指令</strong>（<code>_mm_load_si128</code>）加载 <strong>128 位数据（<code>xmmword</code>）</strong> 到内存。</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-8.png" alt="image-20250907212548928"></p>
+<p>以十六进制按顺序排列  ：<code>232B2736333C0348640B1D767B100B3A3F65762915371C0A08213E3C3D160B24</code>（小端序）</p>
+<p>仔细一看，除了 v10 数组以外，在下面还有 v11 , v12 , v13 分别为 41 , 36 , 86（十进制）</p>
+<p>此外提示消息还提到 <code>fget</code>会连同换行符一起读入。换行符 <code>\n</code> 的 ASCII 码值为 0x10 ，与0x21 异或结果为 0x2B</p>
+<p>最终应该在原十六进制数后加上 29 24 56 2B</p>
+<p>最后是逆向获取 <code>flag</code> 的过程。</p>
+<p>从后往前，对每个字符，先与后一个字符异或，再与 0x21 异或</p>
+<p>特殊情况：最后一个字符直接与 0x21 异或（也是迭代的第一个字符）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 36 27 2B 23 </span></span><br><span class="line"><span class="comment"># 48 03 3C 33 </span></span><br><span class="line"><span class="comment"># 76 1D 0B 64 </span></span><br><span class="line"><span class="comment"># 3A 0B 10 7B </span></span><br><span class="line"><span class="comment"># 29 76 65 3F </span></span><br><span class="line"><span class="comment"># 0A 1C 37 15</span></span><br><span class="line"><span class="comment"># 3C 3E 21 08</span></span><br><span class="line"><span class="comment"># 24 0B 16 3D</span></span><br><span class="line"><span class="comment"># 小端序</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># d&#x27;41 d&#x27;36 d&#x27;86 -&gt; 29 24 56</span></span><br><span class="line"><span class="comment"># A^21 = 2B   fget还会在末尾有 \n</span></span><br><span class="line"></span><br><span class="line">x = <span class="string">&quot;232B2736333C0348640B1D767B100B3A3F65762915371C0A08213E3C3D160B242924562B&quot;</span></span><br><span class="line"></span><br><span class="line">s = <span class="built_in">bytes</span>.fromhex(x)</span><br><span class="line"></span><br><span class="line">s_list = <span class="built_in">list</span>(s)</span><br><span class="line">length = <span class="built_in">len</span>(s_list)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        s_list[length - i - <span class="number">1</span>] = s_list[length - i - <span class="number">1</span>] ^ <span class="number">0x21</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        s_list[length - i - <span class="number">1</span>] = s_list[length - i] ^ s_list[length - i - <span class="number">1</span>]</span><br><span class="line">        s_list[length - i - <span class="number">1</span>] = s_list[length - i - <span class="number">1</span>] ^ <span class="number">0x21</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s_list)</span><br><span class="line">ascii_str = <span class="built_in">bytes</span>(s_list).decode(<span class="string">&#x27;ascii&#x27;</span>)  </span><br><span class="line"><span class="built_in">print</span>(ascii_str) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;Y0u_c4n_unp4ck_It_vvith_upx&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ez3"><a href="#ez3" class="headerlink" title="ez3"></a>ez3</h3><p>试运行：</p>
+<p><img src="/../images/MoeCTF%202025-9.png" alt="image-20250908080915351"></p>
+<p>现在拖入 IDA 查看</p>
+<p>第19行：要求是 42 个字符</p>
+<p>第27行：符合 <code>moectf&#123;......&#125;</code> 的格式</p>
+<p><code>else</code>分支应该是对 <code>v11 ：flag</code> 进行某种变换</p>
+<p><img src="/../images/MoeCTF%202025-10.png" alt="image-20250908081230111"></p>
+<p>第40行：注意到 v5 使用在 使用 end 迭代器，且长度为 1 ，猜测与 <code>&#125;</code> 有关</p>
+<p>第41行：注意到 v6 使用在 使用 begin 迭代器，且长度为 7 ，猜测与  <code>moectf&#123;</code> 有关</p>
+<p>那现在很自然可以认为最终 v12 应该是flag 中 <code>&#123;&#125;</code> 内的内容</p>
+<p>最终要想输出 OK，需要 v5 &#x3D; 1，即 <code>check(v12)</code> 返回 1</p>
+<p>查看 <code>check()</code> 函数</p>
+<p><img src="/../images/MoeCTF%202025-11.png" alt="image-20250908082219517"></p>
+<p>a 数组：</p>
+<p><img src="/../images/MoeCTF%202025-12.png" alt="image-20250908082926253"></p>
+<p>现在可以开始求解 flag 了</p>
+<p>先重写一下 <code>check</code> 函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">is_flag</span><span class="params">(flag)</span>:</span></span><br><span class="line"><span class="function">    b =</span> [<span class="number">0</span>] * <span class="number">34</span></span><br><span class="line">    <span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(<span class="number">34</span>)</span>:</span></span><br><span class="line"><span class="function">        b[i] =</span> <span class="number">47806</span> * (<span class="built_in">ord</span>(flag[i]) + i)</span><br><span class="line">        <span class="keyword">if</span> i != <span class="number">0</span>:</span><br><span class="line">            b[i] = b[i] ^ b[i<span class="number">-1</span>] ^ <span class="number">0x114514</span></span><br><span class="line">        b[i] = b[i] % <span class="number">51966</span></span><br><span class="line">        <span class="keyword">if</span> b[i] != ciphertext[i]:</span><br><span class="line">            <span class="keyword">return</span> False</span><br><span class="line">    <span class="keyword">return</span> True</span><br></pre></td></tr></table></figure>
+
+<p>使用 Z3 求解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">ciphertext = [ <span class="number">0x0B1B0</span>, <span class="number">0x5678</span>,<span class="number">0x7FF2</span>,<span class="number">0x0A332</span>,<span class="number">0x0A0E8</span>,<span class="number">0x364C</span>,<span class="number">0x2BD4</span>,<span class="number">0x0C8FE</span>,<span class="number">0x4A7C</span>,<span class="number">0x18</span>,<span class="number">0x2BE4</span>,<span class="number">0x4144</span>,<span class="number">0x3BA6</span>,<span class="number">0x0BE8C</span>,<span class="number">0x8F7E</span>,<span class="number">0x35F8</span>,<span class="number">0x61AA</span>,<span class="number">0x2B4A</span>,<span class="number">0x6828</span>,<span class="number">0x0B39E</span>,<span class="number">0x0B542</span>,<span class="number">0x33EC</span>,<span class="number">0x0C7D8</span>,<span class="number">0x448C</span>,<span class="number">0x9310</span>,<span class="number">0x8808</span>,<span class="number">0x0ADD4</span>,<span class="number">0x3CC2</span>,<span class="number">0x796</span>,<span class="number">0x0C940</span>,<span class="number">0x4E32</span>,<span class="number">0x4E2E</span>,<span class="number">0x924A</span>,<span class="number">0x5B5C</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 Z3 求解器</span></span><br><span class="line">solver = Solver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 flag 字符和中间变量 b，使用 BitVec 类型（32 位）</span></span><br><span class="line">flag = [BitVec(<span class="string">f&#x27;flag_<span class="subst">&#123;i&#125;</span>&#x27;</span>, <span class="number">32</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]</span><br><span class="line">b = [BitVec(<span class="string">f&#x27;b_<span class="subst">&#123;i&#125;</span>&#x27;</span>, <span class="number">32</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加约束：flag 字符在 ASCII 可打印字符范围内 (32 到 126)</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">    solver.add(flag[i] &gt;= <span class="number">32</span>, flag[i] &lt;= <span class="number">126</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 is_flag 函数的逻辑添加约束</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">    temp = <span class="number">47806</span> * (flag[i] + i)</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        solver.add(b[i] == temp % <span class="number">51966</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        temp = temp ^ b[i-<span class="number">1</span>] ^ <span class="number">0x114514</span></span><br><span class="line">        solver.add(b[i] == temp % <span class="number">51966</span>)</span><br><span class="line">    solver.add(b[i] == ciphertext[i])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储所有解</span></span><br><span class="line">solutions = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> solver.check() == sat:</span><br><span class="line">    model = solver.model()</span><br><span class="line">    <span class="comment"># 提取 flag 字符</span></span><br><span class="line">    flag_vals = [model[flag[i]].as_long() <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]</span><br><span class="line">    flag_str = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">chr</span>(val) <span class="keyword">for</span> val <span class="keyword">in</span> flag_vals)</span><br><span class="line">    solutions.append(flag_str)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 添加排除当前解的约束</span></span><br><span class="line">    solver.add(Or([flag[i] != flag_vals[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 可选：限制最大解的数量，避免过多输出</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(solutions) &gt;= <span class="number">100</span>:  <span class="comment"># 限制最多 100 个解</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出所有解</span></span><br><span class="line"><span class="keyword">if</span> solutions:</span><br><span class="line">    <span class="keyword">for</span> idx, sol <span class="keyword">in</span> <span class="built_in">enumerate</span>(solutions, <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;idx&#125;</span>: <span class="subst">&#123;sol&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;无解&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="/../images/MoeCTF%202025-13.png" alt="image-20250908091647471"></p>
+<p>注意到多个解满足检查，逐个提交，第二个 flag 正确</p>
+<h3 id="ezandroid"><a href="#ezandroid" class="headerlink" title="ezandroid"></a>ezandroid</h3><p><img src="/../images/MoeCTF%202025-14.png" alt="image-20250908094114492"></p>
+<p>注意到 44 行，输入 文本，转换成 String ，Base64 编码后需要与 上面这串字符相等</p>
+<blockquote>
+<p>在 Java（以及安卓开发中常见的语言如 Kotlin）中，trim() 是一个字符串方法，用于移除字符串首尾的空白字符，包括空格（ ）、制表符（\t）、换行符（\n）、回车符（\r）等。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">s = <span class="string">&quot;bW9lY3Rme2FuZHJvaWRfUmV2ZXJzZV9JNV9lYXN5fQ==&quot;</span></span><br><span class="line"></span><br><span class="line">b = base64.b64decode(s)  <span class="comment"># Base64 解码</span></span><br><span class="line"><span class="built_in">print</span>(b.decode()) </span><br></pre></td></tr></table></figure>
+
+<p>base64 解码，即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;android_Reverse_I5_easy&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="flower"><a href="#flower" class="headerlink" title="flower"></a>flower</h3><blockquote>
+<p> 花指令</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-18.png" alt="image-20250908100209083"></p>
+<p><img src="/../images/MoeCTF%202025-16.png" alt="image-20250908095047887"></p>
+<p>直接拖入 IDA</p>
+<p><img src="/../images/MoeCTF%202025-17.png" alt="image-20250908095209792"></p>
+<p><code>solve </code>函数无法反编译</p>
+<p>格式检查部分：</p>
+<p><img src="/../images/MoeCTF%202025-19.png" alt="image-20250908100545837"></p>
+<p>最下方：右侧是 格式错误分支，左侧是我们需要关心的地方</p>
+<p><img src="/../images/MoeCTF%202025-20.png" alt="image-20250908101438831"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">loc_4048E5:</span><br><span class="line">    jz      short Label</span><br><span class="line">    jnz     short Label</span><br><span class="line">    call    near ptr Label+1</span><br><span class="line"></span><br><span class="line">Label:                        </span><br><span class="line">    lea     rax, [rbp+var_59]</span><br><span class="line">    _Z5solveNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE endp ; sp-analysis failed</span><br></pre></td></tr></table></figure>
+
+<p><code>jz</code> 和 <code>jnz</code> 表示为 0 和不为 0 时均跳转到 Label</p>
+<p>call 指令不会被执行到，并且在反编译时对反编译器造成干扰，使用 <code>NOP</code> 指令替换</p>
+<p><img src="/../images/MoeCTF%202025-21.png" alt="image-20250908102025064"></p>
+<p>现在能成功反编译 <code>solve</code>函数</p>
+<p><img src="/../images/MoeCTF%202025-22.png" alt="image-20250908102255417"></p>
+<p>现在能发现格式检查部分的逻辑</p>
+<p>查看 <code>0x4048F2</code> 地址处的汇编代码</p>
+<p><img src="/../images/MoeCTF%202025-23.png" alt="image-20250908102848172"></p>
+<p>这里看到涉及到 begin (7)和 end (1)的迭代器，可以猜测这里对格式进行处理，</p>
+<p>然后将长度与 20h ，即 32比较，可以猜测 flag的 <code>&#123;&#125;</code>中字符串长度为 32 </p>
+<p>输出变了，说明猜测正确</p>
+<p><img src="/../images/MoeCTF%202025-24.png" alt="image-20250908103103155"></p>
+<p>现在 想想如何输出 Win</p>
+<p><img src="/../images/MoeCTF%202025-25.png" alt="image-20250908103511922"></p>
+<p>将每个字符使用 encode 函数编码，然后与 enc 比较，不同会输出 Wrong，刚好 32 个十六进制数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enc:</span><br><span class="line">4F 1A 59 1F 5B 1D 5D 6F 7B 47 7E 44 6A 07 59 67 0E 52 08 63 5C 1A 52 1F 20 7B 21 77 70 25 74 2B </span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/MoeCTF%202025-26.png" alt="image-20250908110924415"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key 23h</span><br></pre></td></tr></table></figure>
+
+<p>key 是一个全局变量， 每次执行都会加 1</p>
+<p>逆向这个 encode 函数很简单</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">min</span>(<span class="built_in">len</span>(enc), length)):</span><br><span class="line">    s += <span class="built_in">chr</span>(enc[i] ^ (key + i))  <span class="comment"># 逆向异或</span></span><br></pre></td></tr></table></figure>
+
+<p>但是仅仅这样的话会输出不可打印字符。</p>
+<p>原因是 key 不一定仅仅在这里被使用 ，可能在别的地方被改过，已经不是最初的指了。</p>
+<p>搜索 key</p>
+<p><img src="/../images/MoeCTF%202025-27.png" alt="image-20250908122646151"></p>
+<p>发现在 main 函数中也被使用，虽然我们没能反编译出。</p>
+<p><img src="/../images/MoeCTF%202025-28.png" alt="image-20250908122718321"></p>
+<p>查看发现 key 会与 0xA 异或，现在</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">key = <span class="number">0x23</span> ^ <span class="number">0x0A</span> </span><br><span class="line">enc = [<span class="number">0x4F</span> ,<span class="number">0x1A</span> ,<span class="number">0x59</span> ,<span class="number">0x1F</span> ,<span class="number">0x5B</span> ,<span class="number">0x1D</span> ,<span class="number">0x5D</span> ,<span class="number">0x6F</span> ,<span class="number">0x7B</span> ,<span class="number">0x47</span> ,<span class="number">0x7E</span> ,<span class="number">0x44</span> ,<span class="number">0x6A</span> ,<span class="number">0x07</span>, <span class="number">0x59</span> ,<span class="number">0x67</span> ,<span class="number">0x0E</span> ,<span class="number">0x52</span> ,<span class="number">0x08</span>,<span class="number">0x63</span> ,<span class="number">0x5C</span> ,<span class="number">0x1A</span> ,<span class="number">0x52</span> ,<span class="number">0x1F</span> ,<span class="number">0x20</span> ,<span class="number">0x7B</span> ,<span class="number">0x21</span> ,<span class="number">0x77</span> ,<span class="number">0x70</span> ,<span class="number">0x25</span> ,<span class="number">0x74</span> ,<span class="number">0x2B</span>]</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">min</span>(<span class="built_in">len</span>(enc), length)):</span><br><span class="line">    s += <span class="built_in">chr</span>(enc[i] ^ (key + i))  <span class="comment"># 逆向</span></span><br><span class="line"></span><br><span class="line">flag = <span class="string">&quot;moectf&#123;&quot;</span> + s + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;f0r3v3r_JuMp_1n_7h3_a$m_a9b35c3c&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<blockquote>
+<p> 本题中还使用 <code>ptrace</code> ，实现禁止跟踪进程，用于对抗动态调试</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-15.png" alt="image-20250908094830416"></p>
+<h3 id="A-cup-of-tea"><a href="#A-cup-of-tea" class="headerlink" title="A cup of tea"></a>A cup of tea</h3><blockquote>
+<p>TEA 加密</p>
+</blockquote>
+<p>花了半天才找到 主函数</p>
+<p><img src="/../images/MoeCTF%202025-29.png" alt="image-20250908142337256"></p>
+<p>sub_14001109B 函数：</p>
+<p><img src="/../images/MoeCTF%202025-30.png" alt="image-20250908144504888"></p>
+<p>可以看出这是一个 TEA 加密算法，使用 <code> DELTA =  0x114514</code></p>
+<p>逆向这个过程即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ctypes <span class="keyword">import</span> c_uint32</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt_block</span>(<span class="params">left, right, k</span>):</span><br><span class="line">    sum_val = <span class="number">0x114514</span> * <span class="number">32</span>  <span class="comment"># sum = DELTA * rounds</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>):</span><br><span class="line">        right = c_uint32(right - ((k[<span class="number">3</span>] + (left &gt;&gt; <span class="number">5</span>)) ^ (sum_val + left) ^ (k[<span class="number">2</span>] + <span class="number">16</span> * left))).value</span><br><span class="line">        left = c_uint32(left - ((k[<span class="number">1</span>] + (right &gt;&gt; <span class="number">5</span>)) ^ (sum_val + right) ^ (k[<span class="number">0</span>] + <span class="number">16</span> * right))).value</span><br><span class="line">        sum_val -= <span class="number">0x114514</span></span><br><span class="line">    <span class="keyword">return</span> left, right</span><br><span class="line"></span><br><span class="line">v9 = [</span><br><span class="line">    <span class="number">2026214571</span>,   <span class="comment"># 0x78B1DCAB</span></span><br><span class="line">    <span class="number">578894681</span>,    <span class="comment"># 0x22849959</span></span><br><span class="line">    <span class="number">1193947460</span>,   <span class="comment"># 0x472A8944</span></span><br><span class="line">    -<span class="number">229306230</span>,   <span class="comment"># 0xF29BFC6A </span></span><br><span class="line">    <span class="number">73202484</span>,     <span class="comment"># 0x045D0374</span></span><br><span class="line">    <span class="number">961145356</span>,    <span class="comment"># 0x394A0E0C</span></span><br><span class="line">    -<span class="number">881456792</span>,   <span class="comment"># 0xCB4B6B68 </span></span><br><span class="line">    <span class="number">358205817</span>,    <span class="comment"># 0x1559FC79</span></span><br><span class="line">    -<span class="number">554069347</span>,   <span class="comment"># 0xDEF4F19D</span></span><br><span class="line">    <span class="number">119347883</span>,    <span class="comment"># 0x071C1F2B</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">v8 = [</span><br><span class="line">    <span class="number">289739801</span>,    <span class="comment"># 0x1142CB19</span></span><br><span class="line">    <span class="number">427884820</span>,    <span class="comment"># 0x19829914</span></span><br><span class="line">    <span class="number">1363251608</span>,   <span class="comment"># 0x51435998</span></span><br><span class="line">    <span class="number">269567252</span>,    <span class="comment"># 0x10119914</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密 v9 的每个块（5 个块，每个块 8 字节）</span></span><br><span class="line">decrypted = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>):</span><br><span class="line">    left = c_uint32(v9[i]).value  <span class="comment"># 转换为无符号 32 位整数</span></span><br><span class="line">    right = c_uint32(v9[i + <span class="number">1</span>]).value</span><br><span class="line">    dec_left, dec_right = decrypt_block(left, right, v8)</span><br><span class="line">    decrypted.append(dec_left)</span><br><span class="line">    decrypted.append(dec_right)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将解密后的 DWORD 转换为字节</span></span><br><span class="line">flag_bytes = []</span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> decrypted:</span><br><span class="line">    flag_bytes.extend(val.to_bytes(<span class="number">4</span>, byteorder=<span class="string">&#x27;little&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为 ASCII 字符串</span></span><br><span class="line">flag = <span class="built_in">bytes</span>(flag_bytes).decode(<span class="string">&#x27;ascii&#x27;</span>, errors=<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Decrypted Flag:&quot;</span>, flag)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;h3r3_4_cuP_0f_734_f0R_y0U!!!!!!&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ezpy-pyc"><a href="#ezpy-pyc" class="headerlink" title="ezpy.pyc"></a>ezpy.pyc</h3><blockquote>
+<p> <code>pyc</code>文件是 <strong>Python 字节码（Bytecode）的编译缓存文件</strong>。</p>
+</blockquote>
+<p>使用反编译工具 uncompyle6 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uncompyle</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle filename <span class="comment"># 直接使用</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-31.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">caesar_cipher_encrypt</span>(<span class="params">text, shift</span>):</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> text:</span><br><span class="line">        <span class="keyword">if</span> char.isalpha():</span><br><span class="line">            <span class="keyword">if</span> char.islower():</span><br><span class="line">                new_char = <span class="built_in">chr</span>((<span class="built_in">ord</span>(char) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) + shift) % <span class="number">26</span> + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> char.isupper():</span><br><span class="line">                    new_char = <span class="built_in">chr</span>((<span class="built_in">ord</span>(char) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + shift) % <span class="number">26</span> + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            result.append(new_char)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(char)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(result)</span><br></pre></td></tr></table></figure>
+
+<p>注意到 小写字母映射到 另一个小写字母，大写字母映射到另一个大写字母，其他字符不变</p>
+<p>那这个加密函数的解密就很简单了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plaintext = user_input</span><br><span class="line">shift = <span class="number">114514</span></span><br><span class="line">encrypted_text = caesar_cipher_encrypt(plaintext, shift)</span><br><span class="line"><span class="keyword">if</span> encrypted_text == <span class="string">&quot;wyomdp&#123;I0e_Ux0G_zim&#125;&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Correct!!!!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>现在试着写逆向函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt</span>(<span class="params">ciphertext,shift</span>):</span><br><span class="line">    text = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> ciphertext:</span><br><span class="line">        <span class="keyword">if</span> char.isalpha():</span><br><span class="line">            <span class="keyword">if</span> char.islower():</span><br><span class="line">                old_char = <span class="built_in">chr</span>((<span class="built_in">ord</span>(char) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) - shift) % <span class="number">26</span> + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> char.isupper():</span><br><span class="line">                    old_char = <span class="built_in">chr</span>((<span class="built_in">ord</span>(char) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) - shift) % <span class="number">26</span> + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            text.append(old_char)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            text.append(char)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(text)</span><br><span class="line">    </span><br><span class="line">ciphertext = <span class="string">&quot;wyomdp&#123;I0e_Ux0G_zim&#125;&quot;</span></span><br><span class="line">shift = <span class="number">114514</span></span><br><span class="line"></span><br><span class="line">plaintext = decrypt(ciphertext,shift)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(plaintext)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;Y0u_Kn0W_pyc&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="have-fun"><a href="#have-fun" class="headerlink" title="have_fun"></a>have_fun</h3><p>试运行</p>
+<p><img src="/../images/MoeCTF%202025-32.png" alt="image-20250908171838529"></p>
+<p>拖入 IDA ，查看反编译代码。40~43行非常熟悉，这是在计算 String 的长度 v5，可以看到如果长度 大于 32 就会执行很长一块代码</p>
+<p><img src="/../images/MoeCTF%202025-33.png" alt="image-20250908171926300"></p>
+<p>大于32时会执行很长一串块代码，从前往后循环处理32字节的字符，剩余的字符，分别与 <code>0x2A</code> 异或加密</p>
+<p>这就是加密逻辑，那接下来就应该是比较逻辑</p>
+<p>注意到 83 行的 <code>break</code> ，这应该是比较中不愿意看到的，触发条件就是加密后的数组需要与 <code>aGeoiLqbj</code> 数组一致（仅需前 <code>len(aGeoiLqbj)</code>部分一致 ）</p>
+<p>注意到 87 行 <code>v17</code>，上面提到这个变量会触发 <code>break</code> ，在这行 <code>if</code>条件中又出现，无论如何，不能让这个 <code>if</code> 语句执行，这个语句触发的第二个条件是加密后的数组长度不等于16，所以我们输入的 flag 长度应该为 16</p>
+<p>查看 <code>aGeoiLqbj</code> ：</p>
+<p><img src="/../images/MoeCTF%202025-34.png" alt="image-20250908174957805"></p>
+<p>逆向解密：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">aGeoiLqbj = [<span class="number">0x47</span>,<span class="number">0x45</span>,<span class="number">0x4F</span>,<span class="number">0x49</span>,<span class="number">0x5E</span>,<span class="number">0x4C</span>,<span class="number">0x51</span>,<span class="number">0x62</span>,<span class="number">0x6A</span>,<span class="number">0x5C</span>,<span class="number">0x1E</span>,<span class="number">0x75</span>,<span class="number">0x4C</span>,<span class="number">0x7F</span>,<span class="number">0x44</span>,<span class="number">0x57</span>]</span><br><span class="line"></span><br><span class="line">length = <span class="built_in">len</span>(aGeoiLqbj)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 逐字符 XOR 加密</span></span><br><span class="line"><span class="comment"># for i in range(length):</span></span><br><span class="line"><span class="comment">#     encrypted_text[i] = String[i] ^ 0x2A;  # 每个字符 XOR 0x2A</span></span><br><span class="line"></span><br><span class="line">plaintext = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">    plaintext.append(<span class="built_in">chr</span>(aGeoiLqbj[i] ^ <span class="number">0x2A</span>))</span><br><span class="line"></span><br><span class="line">plaintext = <span class="string">&quot;&quot;</span>.join(plaintext)</span><br><span class="line"><span class="built_in">print</span>(plaintext)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;H@v4_fUn&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="mazegame"><a href="#mazegame" class="headerlink" title="mazegame"></a>mazegame</h3><p>直接执行：</p>
+<p><img src="/../images/MoeCTF%202025-35.png" alt="image-20250908181225106"></p>
+<p>拖入 IDA</p>
+<p><img src="/../images/MoeCTF%202025-36.png" alt="image-20250908182944183"></p>
+<p>76 行：应该是超出迷宫范围</p>
+<p>81行：应该是撞墙逻辑（对应字符串处有 %d，%d，输出两个整数，就是之前截图里的撞墙提示坐标）</p>
+<p>86行：到达终点</p>
+<p>现在查看这个 <code>byte_140005660</code> ，发现在 13 行调用过的函数里被初始化过。</p>
+<p><img src="/../images/MoeCTF%202025-37.png" alt="image-20250908182858622"></p>
+<p><img src="/../images/MoeCTF%202025-38.png" alt="image-20250908183838781"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, std::vector&lt;std::string&gt;&amp; maze, std::string&amp; path)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 到达目标点</span></span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">32</span> &amp;&amp; y == <span class="number">15</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 标记当前位置为已访问</span></span><br><span class="line">    maze[y][x] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">    <span class="comment">// 四个方向：下、右、左、上</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> dx[] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> dy[] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> dir[] = &#123;<span class="string">&#x27;S&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;W&#x27;</span>&#125;;</span><br><span class="line">    <span class="comment">// 尝试四个方向</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> nx = x + dx[i];</span><br><span class="line">        <span class="type">int</span> ny = y + dy[i];</span><br><span class="line">        <span class="comment">// 检查新位置是否有效且未访问</span></span><br><span class="line">        <span class="keyword">if</span> (nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; maze[<span class="number">0</span>].<span class="built_in">length</span>() &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; maze.<span class="built_in">size</span>() </span><br><span class="line">            &amp;&amp; maze[ny][nx] == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">            path += dir[i];</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">dfs</span>(nx, ny, maze, path)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 回溯：如果这条路走不通，删除这一步</span></span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::vector&lt;std::string&gt; maze = v9; <span class="comment">// 复制一份地图，避免修改原始数据</span></span><br><span class="line">    std::string path;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">1</span>, maze, path)) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;找到路径: &quot;</span> &lt;&lt; path &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;路径长度: &quot;</span> &lt;&lt; path.<span class="built_in">length</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;没有找到路径！&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-39.png" alt="image-20250908185846357"></p>
+<h3 id="upx-revenge"><a href="#upx-revenge" class="headerlink" title="upx_revenge"></a>upx_revenge</h3><p>使用 upx -d 解压缩：</p>
+<p><img src="/../images/MoeCTF%202025-43.png" alt="image-20250908230454568"></p>
+<p>提示说查看 文件的 UPX 特征</p>
+<p>左边是题目的二进制，右边是一个我自己使用 upx 压缩的 exe 文件 </p>
+<p><img src="/../images/MoeCTF%202025-40.png" alt="image-20250908214431128"></p>
+<p>对比，发现少了 <code>UPX!</code>，把它补上，就能正常 脱壳</p>
+<p><img src="/../images/MoeCTF%202025-41.png" alt="image-20250908214551442"></p>
+<p><img src="/../images/MoeCTF%202025-42.png" alt="image-20250908214732666"></p>
+<p>脱壳成功，现在就是逆向代码的过程了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">xor_base64 = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">chr</span>(<span class="built_in">ord</span>(c) ^ <span class="number">0xE</span>) <span class="keyword">for</span> c <span class="keyword">in</span> <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;</span>)</span><br><span class="line">target = <span class="string">&quot;lY7bW=\\ck?eyjX7]TZ\\&#125;CVbh\\tOyTH6&gt;jH7XmFifG]H7&quot;</span></span><br><span class="line"></span><br><span class="line">index_map = &#123;c: i <span class="keyword">for</span> i, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(xor_base64)&#125;</span><br><span class="line">flag = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(target):</span><br><span class="line">    group = target[i:i+<span class="number">4</span>]</span><br><span class="line">    pad = group.count(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">    <span class="comment"># 处理填充</span></span><br><span class="line">    chars = [c <span class="keyword">for</span> c <span class="keyword">in</span> group <span class="keyword">if</span> c != <span class="string">&#x27;=&#x27;</span>]</span><br><span class="line">    <span class="comment"># 如果有填充，补齐索引</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(chars) &lt; <span class="number">4</span>:</span><br><span class="line">        chars.append(xor_base64[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        idx = [index_map[c] <span class="keyword">for</span> c <span class="keyword">in</span> chars]</span><br><span class="line">        value = (idx[<span class="number">0</span>] &lt;&lt; <span class="number">18</span>) | (idx[<span class="number">1</span>] &lt;&lt; <span class="number">12</span>) | (idx[<span class="number">2</span>] &lt;&lt; <span class="number">6</span>) | idx[<span class="number">3</span>]</span><br><span class="line">        flag += <span class="built_in">chr</span>((value &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>)</span><br><span class="line">        <span class="keyword">if</span> pad &lt; <span class="number">2</span>:</span><br><span class="line">            flag += <span class="built_in">chr</span>((value &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>)</span><br><span class="line">        <span class="keyword">if</span> pad &lt; <span class="number">1</span>:</span><br><span class="line">            flag += <span class="built_in">chr</span>(value &amp; <span class="number">0xFF</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Error: Character <span class="subst">&#123;e&#125;</span> not in encoding table&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    i += <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 去除末尾多余字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Flag: <span class="subst">&#123;flag.rstrip(<span class="built_in">chr</span>(<span class="number">0</span>))&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moea&#123;Y0u_Re4l1y_G00d_4t_Upx!!!&#125;</span><br><span class="line">猜测：moectf&#123;Y0u_Re4l1y_G00d_4t_Upx!!!&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="guess"><a href="#guess" class="headerlink" title="guess"></a>guess</h3><p>反编译：</p>
+<p><img src="/../images/MoeCTF%202025-68.png" alt="image-20250909205652457"></p>
+<p>发现需要 guess 的是一个随机数，那很难猜了。最多只能猜十次，范围是<code>0~99</code>，运气好一点能直接猜到。</p>
+<p>但是我直接修改这个 count &gt; 9 为 count &gt; 0x70，即可</p>
+<p><img src="/../images/MoeCTF%202025-67.png" alt="image-20250909205457870"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;RrRRccCc44$$_w1th_fl0w3r!!_3c6a11b5&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="chall"><a href="#chall" class="headerlink" title="chall"></a>chall</h3><p><img src="/../images/MoeCTF%202025-69.png" alt="image-20250909210049267"></p>
+<p>暂时放弃</p>
+<p>调试一下，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">381082: The instruction at 0x381082 referenced memory at 0x0. The memory could not be written -&gt; 00000000 (exc.code c0000005, tid 30616)</span><br></pre></td></tr></table></figure>
+
+<p>查看 0x381082</p>
+<p><img src="/../images/MoeCTF%202025-70.png" alt="image-20250910181728454"></p>
+<p>eax 之前被清零，现在往地址 0 处写 0 ，这是不允许的，难怪会崩溃。</p>
+<p>查看这段代码的被引用位置：</p>
+<p><img src="/../images/MoeCTF%202025-71.png" alt="image-20250910181844205"></p>
+<p>现在很清晰了，检测到被调试，于是走到会引发错误的分支</p>
+<p>现在反编译这段代码，发现更恐怖的事情，就是反调试手段不止这一个</p>
+<p><img src="/../images/MoeCTF%202025-72.png" alt="image-20250910182239933"></p>
+<p><img src="/../images/MoeCTF%202025-73.png" alt="image-20250910184345758"></p>
+<p>现在就能直接动态调试：</p>
+<p><img src="/../images/MoeCTF%202025-74.png" alt="image-20250910184509016"></p>
+<p><img src="/../images/MoeCTF%202025-75.png" alt="image-20250910184802347"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">63656F6D  moec</span><br><span class="line">747B6674  tf&#123;t</span><br><span class="line">5F736968  his_</span><br><span class="line">615F7369  is_a</span><br><span class="line">616C665F  _fla</span><br><span class="line">00007D67  g&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/MoeCTF%202025-76.png" alt="image-20250910193615858"></p>
+<p>百思不得其解，但是后面发现了 TLScallback ，还是经验太少了，还以为是加载什么 dll 的函数</p>
+<blockquote>
+<p>TLS（Thread Local Storage，线程局部存储）回调函数是 Windows 可执行文件（PE 文件）中用于处理线程或进程初始化&#x2F;终止的特殊函数。它定义在 PE 文件的 .tls 节中，通常在程序主入口点（如 main 或 WinMain）之前或进程&#x2F;线程退出时自动调用。TLS 回调函数常用于：</p>
+<ul>
+<li>初始化：在进程或线程启动时执行特定操作（如加载动态库、替换函数地址）。</li>
+<li>反调试：检测调试器或防止逆向分析。</li>
+<li>资源管理：分配或释放线程局部存储。</li>
+</ul>
+</blockquote>
+<p>最逆天的一集：</p>
+<p><img src="/../images/MoeCTF%202025-77.png" alt="image-20250910204326765"></p>
+<p>TLS（线程局部存储）回调函数，在进程&#x2F;线程初始化（a2 &#x3D;&#x3D; 1）或终止（a2 &#x3D;&#x3D; 2）时执行。</p>
+<p>a2 &#x3D;&#x3D; 1（DLL_PROCESS_ATTACH）：</p>
+<ul>
+<li>调用 sub_401570 替换 strncmp（用 sub_401510）和 strlen（用 sub_4014C0）。</li>
+<li>sub_401510 成为程序中 strncmp 的实际实现。</li>
+</ul>
+<p>a2 &#x3D;&#x3D; 2（DLL_PROCESS_DETACH）：</p>
+<ul>
+<li>检测调试器（IsDebuggerPresent 或 NtQueryInformationProcess）。</li>
+<li>如果检测到调试器，写入 MEMORY[0] &#x3D; 0，触发崩溃（反调试机制）。</li>
+</ul>
+<h3 id="ez-DES"><a href="#ez-DES" class="headerlink" title="ez_DES"></a>ez_DES</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> DES</span><br><span class="line"><span class="keyword">import</span> secrets</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;moectf&#123;???&#125;&#x27;</span></span><br><span class="line">characters = string.ascii_letters + string.digits + string.punctuation</span><br><span class="line">key = <span class="string">&#x27;ezdes&#x27;</span>+<span class="string">&#x27;&#x27;</span>.join(secrets.choice(characters) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"><span class="keyword">assert</span> key[:<span class="number">5</span>] == <span class="string">&#x27;ezdes&#x27;</span></span><br><span class="line">key = key.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">l = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">text, key</span>):</span><br><span class="line">    cipher = DES.new(key, DES.MODE_ECB)</span><br><span class="line">    padded_text = text + (l - <span class="built_in">len</span>(text) % l) * <span class="built_in">chr</span>(<span class="built_in">len</span>(text))</span><br><span class="line">    data = cipher.encrypt(padded_text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">c = encrypt(flag, key)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c =&#x27;</span>, c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = b&#x27;\xe6\x8b0\xc8m\t?\x1d\xf6\x99sA&gt;\xce \rN\x83z\xa0\xdc&#123;\xbc\xb8X\xb2\xe2q\xa4&quot;\xfc\x07&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;_Ju5t envmEra+e.!&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="two-cup-of-tea"><a href="#two-cup-of-tea" class="headerlink" title="two cup of tea"></a>two cup of tea</h3><p><img src="/../images/MoeCTF%202025-149.png" alt="image-20250913120446340"></p>
+<p>第 40 行读取输入，从这开始看：</p>
+<blockquote>
+<p><code>strcspn</code> 返回 Buffer 中第一个 <code>\n</code> 的位置，即长度，要求长度小于 144，然后将输入字符串末尾  <code>\n</code> 改为 <code>\0</code></p>
+</blockquote>
+<p>第 51 行：调用函数，第一个参数与输入有关，第二个参数很神秘，第三个参数 来自前面 37 行的函数，这个函数调用时间在接收输入之前，可以判断与我们的输入无关。所以在这下断点，看看它是什么</p>
+<p> <img src="/../images/MoeCTF%202025-151.png" alt="image-20250913121554503"></p>
+<p>是 2 ? </p>
+<p>但是查看 v10 ，就是 上面那串  <code>moectf!!</code></p>
+<p>这个反编译应该是有问题，还得读汇编代码</p>
+<p><img src="/../images/MoeCTF%202025-152.png" alt="image-20250913123312534"></p>
+<p>注意到在调用函数之前，将四个数 <code>xmm0</code>  <code>xmm1</code>  <code>12345678h</code> <code>9ABCDEFh</code> 放到了栈上，前两个是输入的字符串参数，后两个是两个固定的数。</p>
+<p>在函数内看看它们是什么</p>
+<p>第三个参数 a3 ：指向一个栈中地址，以小端序就是</p>
+<p><code>0x63656F6D, 0x21216674, 0x12345678, 0x9ABCDEF0</code>（这里只给出前16个字节，之后会解释为什么）</p>
+<p><img src="/../images/MoeCTF%202025-153.png" alt="image-20250913123918049"></p>
+<p>接下来应该就是对 输入进行加密，注意到对 a3 以及 v26 都指第三个参数，即刚刚发现的指针</p>
+<p>它在整个加密过程中迭代，但是迭代结果会 <code>&amp;3</code>，这就说明这个指针只会指向前 4 个 4 字节数 (<code>uint</code>)</p>
+<p>很容易猜到，这是 TEA 加密的密钥，但后面的加密过程有点变态，将输入的字符串 分割成 10 组，从前往后加密，并且循环 11 次</p>
+<p><img src="/../images/MoeCTF%202025-154.png" alt="image-20250913124242518"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">encipher</span><span class="params">(<span class="type">uint32_t</span>* v, <span class="type">const</span> <span class="type">uint32_t</span>* key)</span> </span>&#123;  </span><br><span class="line">    <span class="type">uint32_t</span> v0 = v[<span class="number">0</span>], v1 = v[<span class="number">1</span>], v2 = v[<span class="number">2</span>], v3 = v[<span class="number">3</span>], v4 = v[<span class="number">4</span>];</span><br><span class="line">    <span class="type">uint32_t</span> v5 = v[<span class="number">5</span>], v6 = v[<span class="number">6</span>], v7 = v[<span class="number">7</span>], v8 = v[<span class="number">8</span>], v9 = v[<span class="number">9</span>];</span><br><span class="line">    <span class="type">uint32_t</span> sum = <span class="number">0</span>, delta = <span class="number">0x9E3779B9</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; ++i) &#123;  <span class="comment">// 11 轮</span></span><br><span class="line">        <span class="type">uint32_t</span> k_idx = (sum &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span>;</span><br><span class="line">        <span class="type">uint32_t</span> k0 = key[k_idx], k1 = key[k_idx ^ <span class="number">1</span>], k2 = key[k_idx ^ <span class="number">2</span>], k3 = key[k_idx ^ <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">        v0 += (((v1 &lt;&lt; <span class="number">2</span>) ^ (v9 &gt;&gt; <span class="number">5</span>)) + ((v1 &gt;&gt; <span class="number">3</span>) ^ (v9 &lt;&lt; <span class="number">4</span>))) ^ ((v9 ^ k0) + (v1 ^ sum));</span><br><span class="line">        v1 += (((v2 &lt;&lt; <span class="number">2</span>) ^ (v0 &gt;&gt; <span class="number">5</span>)) + ((v2 &gt;&gt; <span class="number">3</span>) ^ (v0 &lt;&lt; <span class="number">4</span>))) ^ ((v0 ^ k1) + (v2 ^ sum));</span><br><span class="line">        v2 += (((v3 &lt;&lt; <span class="number">2</span>) ^ (v1 &gt;&gt; <span class="number">5</span>)) + ((v3 &gt;&gt; <span class="number">3</span>) ^ (v1 &lt;&lt; <span class="number">4</span>))) ^ ((v1 ^ k2) + (v3 ^ sum));</span><br><span class="line">        v3 += (((v4 &lt;&lt; <span class="number">2</span>) ^ (v2 &gt;&gt; <span class="number">5</span>)) + ((v4 &gt;&gt; <span class="number">3</span>) ^ (v2 &lt;&lt; <span class="number">4</span>))) ^ ((v2 ^ k3) + (v4 ^ sum));</span><br><span class="line">        v4 += (((v5 &lt;&lt; <span class="number">2</span>) ^ (v3 &gt;&gt; <span class="number">5</span>)) + ((v5 &gt;&gt; <span class="number">3</span>) ^ (v3 &lt;&lt; <span class="number">4</span>))) ^ ((v3 ^ k0) + (v5 ^ sum));</span><br><span class="line">        v5 += (((v6 &lt;&lt; <span class="number">2</span>) ^ (v4 &gt;&gt; <span class="number">5</span>)) + ((v6 &gt;&gt; <span class="number">3</span>) ^ (v4 &lt;&lt; <span class="number">4</span>))) ^ ((v4 ^ k1) + (v6 ^ sum));</span><br><span class="line">        v6 += (((v7 &lt;&lt; <span class="number">2</span>) ^ (v5 &gt;&gt; <span class="number">5</span>)) + ((v7 &gt;&gt; <span class="number">3</span>) ^ (v5 &lt;&lt; <span class="number">4</span>))) ^ ((v5 ^ k2) + (v7 ^ sum));</span><br><span class="line">        v7 += (((v8 &lt;&lt; <span class="number">2</span>) ^ (v6 &gt;&gt; <span class="number">5</span>)) + ((v8 &gt;&gt; <span class="number">3</span>) ^ (v6 &lt;&lt; <span class="number">4</span>))) ^ ((v6 ^ k3) + (v8 ^ sum));</span><br><span class="line">        v8 += (((v9 &lt;&lt; <span class="number">2</span>) ^ (v7 &gt;&gt; <span class="number">5</span>)) + ((v9 &gt;&gt; <span class="number">3</span>) ^ (v7 &lt;&lt; <span class="number">4</span>))) ^ ((v7 ^ k0) + (v9 ^ sum));</span><br><span class="line">        v9 += (((v0 &lt;&lt; <span class="number">2</span>) ^ (v8 &gt;&gt; <span class="number">5</span>)) + ((v0 &gt;&gt; <span class="number">3</span>) ^ (v8 &lt;&lt; <span class="number">4</span>))) ^ ((v8 ^ k1) + (v0 ^ sum));</span><br><span class="line"></span><br><span class="line">        sum += delta;  <span class="comment">// 加密：sum 递增</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    v[<span class="number">0</span>] = v0; v[<span class="number">1</span>] = v1; v[<span class="number">2</span>] = v2; v[<span class="number">3</span>] = v3; v[<span class="number">4</span>] = v4;</span><br><span class="line">    v[<span class="number">5</span>] = v5; v[<span class="number">6</span>] = v6; v[<span class="number">7</span>] = v7; v[<span class="number">8</span>] = v8; v[<span class="number">9</span>] = v9;</span><br><span class="line">    <span class="keyword">return</span> v7;  <span class="comment">// 返回 v[7]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>仅仅使用 加减异或移位 的加密，是可以复原的。写出解密函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">decipher</span><span class="params">(<span class="type">uint32_t</span>* v, <span class="type">const</span> <span class="type">uint32_t</span>* key)</span> </span>&#123;  <span class="comment">// 解密函数</span></span><br><span class="line">    <span class="type">uint32_t</span> v0 = v[<span class="number">0</span>], v1 = v[<span class="number">1</span>], v2 = v[<span class="number">2</span>], v3 = v[<span class="number">3</span>], v4 = v[<span class="number">4</span>];</span><br><span class="line">    <span class="type">uint32_t</span> v5 = v[<span class="number">5</span>], v6 = v[<span class="number">6</span>], v7 = v[<span class="number">7</span>], v8 = v[<span class="number">8</span>], v9 = v[<span class="number">9</span>];</span><br><span class="line">    <span class="type">uint32_t</span> sum = <span class="number">0x9E3779B9</span> * <span class="number">11</span>, delta = <span class="number">0x9E3779B9</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">unsigned</span> <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; ++i) &#123;</span><br><span class="line">        <span class="type">uint32_t</span> k_idx = (sum &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span>;</span><br><span class="line">        <span class="type">uint32_t</span> k0 = key[k_idx], k1 = key[k_idx ^ <span class="number">1</span>], k2 = key[k_idx ^ <span class="number">2</span>], k3 = key[k_idx ^ <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 逆序减法（从 v9 到 v0，反转依赖）</span></span><br><span class="line">        v9 -= (((v0 &lt;&lt; <span class="number">2</span>) ^ (v8 &gt;&gt; <span class="number">5</span>)) + ((v0 &gt;&gt; <span class="number">3</span>) ^ (v8 &lt;&lt; <span class="number">4</span>))) ^ ((v8 ^ k1) + (v0 ^ sum));</span><br><span class="line">        v8 -= (((v9 &lt;&lt; <span class="number">2</span>) ^ (v7 &gt;&gt; <span class="number">5</span>)) + ((v9 &gt;&gt; <span class="number">3</span>) ^ (v7 &lt;&lt; <span class="number">4</span>))) ^ ((v7 ^ k0) + (v9 ^ sum));</span><br><span class="line">        v7 -= (((v8 &lt;&lt; <span class="number">2</span>) ^ (v6 &gt;&gt; <span class="number">5</span>)) + ((v8 &gt;&gt; <span class="number">3</span>) ^ (v6 &lt;&lt; <span class="number">4</span>))) ^ ((v6 ^ k3) + (v8 ^ sum));</span><br><span class="line">        v6 -= (((v7 &lt;&lt; <span class="number">2</span>) ^ (v5 &gt;&gt; <span class="number">5</span>)) + ((v7 &gt;&gt; <span class="number">3</span>) ^ (v5 &lt;&lt; <span class="number">4</span>))) ^ ((v5 ^ k2) + (v7 ^ sum));</span><br><span class="line">        v5 -= (((v6 &lt;&lt; <span class="number">2</span>) ^ (v4 &gt;&gt; <span class="number">5</span>)) + ((v6 &gt;&gt; <span class="number">3</span>) ^ (v4 &lt;&lt; <span class="number">4</span>))) ^ ((v4 ^ k1) + (v6 ^ sum));</span><br><span class="line">        v4 -= (((v5 &lt;&lt; <span class="number">2</span>) ^ (v3 &gt;&gt; <span class="number">5</span>)) + ((v5 &gt;&gt; <span class="number">3</span>) ^ (v3 &lt;&lt; <span class="number">4</span>))) ^ ((v3 ^ k0) + (v5 ^ sum));</span><br><span class="line">        v3 -= (((v4 &lt;&lt; <span class="number">2</span>) ^ (v2 &gt;&gt; <span class="number">5</span>)) + ((v4 &gt;&gt; <span class="number">3</span>) ^ (v2 &lt;&lt; <span class="number">4</span>))) ^ ((v2 ^ k3) + (v4 ^ sum));</span><br><span class="line">        v2 -= (((v3 &lt;&lt; <span class="number">2</span>) ^ (v1 &gt;&gt; <span class="number">5</span>)) + ((v3 &gt;&gt; <span class="number">3</span>) ^ (v1 &lt;&lt; <span class="number">4</span>))) ^ ((v1 ^ k2) + (v3 ^ sum));</span><br><span class="line">        v1 -= (((v2 &lt;&lt; <span class="number">2</span>) ^ (v0 &gt;&gt; <span class="number">5</span>)) + ((v2 &gt;&gt; <span class="number">3</span>) ^ (v0 &lt;&lt; <span class="number">4</span>))) ^ ((v0 ^ k1) + (v2 ^ sum));</span><br><span class="line">        v0 -= (((v1 &lt;&lt; <span class="number">2</span>) ^ (v9 &gt;&gt; <span class="number">5</span>)) + ((v1 &gt;&gt; <span class="number">3</span>) ^ (v9 &lt;&lt; <span class="number">4</span>))) ^ ((v9 ^ k0) + (v1 ^ sum));</span><br><span class="line"></span><br><span class="line">        sum -= delta;  <span class="comment">// 解密：sum 递减</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    v[<span class="number">0</span>] = v0; v[<span class="number">1</span>] = v1; v[<span class="number">2</span>] = v2; v[<span class="number">3</span>] = v3; v[<span class="number">4</span>] = v4;</span><br><span class="line">    v[<span class="number">5</span>] = v5; v[<span class="number">6</span>] = v6; v[<span class="number">7</span>] = v7; v[<span class="number">8</span>] = v8; v[<span class="number">9</span>] = v9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着看主函数，v7 循环计算 <code>Buffer</code> 长度，需要是 40</p>
+<p>然后将 密文与 之前硬编码的数组比较，需要全部相等，这就是密文</p>
+<p><img src="/../images/MoeCTF%202025-155.png" alt="image-20250913124953048"></p>
+<p>现在对密文进行解密，应该就是flag</p>
+<p>参考主函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 辅助函数：uint32 数组转字符串（小端序，包含所有字节）</span></span><br><span class="line"><span class="function">std::string <span class="title">uint32_to_string</span><span class="params">(<span class="type">const</span> <span class="type">uint32_t</span>* input, <span class="type">size_t</span> len)</span> </span>&#123;</span><br><span class="line">    std::string result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">        <span class="type">uint32_t</span> word = input[i];</span><br><span class="line">        result += <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(word &amp; <span class="number">0xFF</span>);</span><br><span class="line">        result += <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;((word &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>);</span><br><span class="line">        result += <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;((word &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>);</span><br><span class="line">        result += <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;((word &gt;&gt; <span class="number">24</span>) &amp; <span class="number">0xFF</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">uint32_t</span> ciphertext[<span class="number">10</span>] = &#123;</span><br><span class="line">        <span class="number">0x5D624C34</span>, <span class="number">0x8629FEAD</span>, <span class="number">0x9D11379B</span>, <span class="number">0xFCD53211</span>, <span class="number">0x460F63CE</span>,</span><br><span class="line">        <span class="number">0xC5816E68</span>, <span class="number">0xFE5300AD</span>, <span class="number">0x0A0015EE</span>, <span class="number">0x9806DBBB</span>, <span class="number">0xEF4A2648</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="type">const</span> <span class="type">uint32_t</span> k[<span class="number">4</span>] = &#123;<span class="number">0x63656F6D</span>, <span class="number">0x21216674</span>, <span class="number">0x12345678</span>, <span class="number">0x9ABCDEF0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">decipher</span>(ciphertext, k);</span><br><span class="line"></span><br><span class="line">    std::string plaintext = <span class="built_in">uint32_to_string</span>(ciphertext, <span class="number">10</span>);</span><br><span class="line">    std::cout &lt;&lt; plaintext &lt;&lt;std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;X7e4_And_xx7EA_I5_BeautifuL!!!!!&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ezandroidpro"><a href="#ezandroidpro" class="headerlink" title="ezandroidpro"></a>ezandroidpro</h3><p>在源代码com&#x2F;MainActivity中注意到，输入长度需要为 32，然后调用 check 方法，最后返回 1 输出 成功</p>
+<p><img src="/../images/MoeCTF%202025-127.png" alt="image-20250911210034788"></p>
+<p>那只需要弄清楚 check 是如何检查字符串即可</p>
+<p> <code>check </code>函数是一个 native 方法，它位于动态链接库（.so 文件）中。</p>
+<p>根据代码中的 <code>System.loadLibrary(&quot;ezandroidpro&quot;);</code>语句，这个库的名字是 <code>libezandroidpro.so</code>。</p>
+<p>接下来逆向这个 lib 二进制</p>
+<p>使用 IDA 打开，一片狼藉</p>
+<p>使用 Ghidra 打开，一眼就看到 ezandroidpro_MainActivity_check 字样</p>
+<p><img src="C:/Users/33135/AppData/Roaming/Typora/typora-user-images/image-20250911210915205.png" alt="image-20250911210915205"></p>
+<p>返回值是 bVar2 ，希望最后是 True ，这样就可以通过检查</p>
+<p><img src="/../images/MoeCTF%202025-128.png" alt="image-20250911211319081"></p>
+<p>bVar2  &#x3D; 1 要求 *pcVar6 &#x3D;&#x3D; *pcVar7，后面两个指针向后移动，同时 uVar5 减一，那可以猜到这应该是在比较两个数组，需要前 uVar5 个元素全部一样</p>
+<p>pcVar6 来自 local_a0</p>
+<p>pcVar7 来自 pcVar4 就是硬编码的一长串字符</p>
+<p>注意到一个sm4Encrypt加密，这是一个对称加密，密钥是什么呢？好难猜啊，大概就是硬编码的 <code>moectf2025!!!!!!</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmssl.sm4 <span class="keyword">import</span> CryptSM4, SM4_ENCRYPT, SM4_DECRYPT</span><br><span class="line"></span><br><span class="line">key = <span class="string">b&#x27;moectf2025!!!!!!&#x27;</span> <span class="comment"># 16字节</span></span><br><span class="line">ciphertext_hex = <span class="string">&quot;4EEB1EEF2914D79BFA8C5006332097ED2EF06C4A59CAE31C827A08D45CC649C0B971BF2EFBCB160E531A646DF7A6AC0B&quot;</span></span><br><span class="line">ciphertext = <span class="built_in">bytes</span>.fromhex(ciphertext_hex)</span><br><span class="line"></span><br><span class="line">crypt_sm4 = CryptSM4()</span><br><span class="line">crypt_sm4.set_key(key, SM4_DECRYPT)</span><br><span class="line">plaintext = crypt_sm4.crypt_ecb(ciphertext)</span><br><span class="line"><span class="built_in">print</span>(plaintext)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;SM4_Android_I5_Funing!!!&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="rusty-sudo"><a href="#rusty-sudo" class="headerlink" title="rusty_sudo"></a>rusty_sudo</h3><p>数独游戏</p>
+<p><img src="/../images/MoeCTF%202025-129.png" alt="image-20250911212239467"></p>
+<p>反编译看看：</p>
+<p><img src="/../images/MoeCTF%202025-132.png" alt="image-20250911214311736"></p>
+<p>几百行的代码，注意到第一个出现的长字符串不是控制台中输出的字符串，它肯定在前面就出现过了。</p>
+<p>注意到上面一些奇奇怪怪的变换，点进数组标识符</p>
+<p><img src="/../images/MoeCTF%202025-133.png" alt="image-20250911214436322"></p>
+<p>成功发现了提示信息，但是前面又有一点其他东西，还带………，刚好 81 个字符，可以猜到这就是数独棋盘，接下来要填数独了。</p>
+<blockquote>
+<p>使用 Ghidra 能直接看到数独盘的输出</p>
+</blockquote>
+<p><img src="/../images/MoeCTF%202025-134.png" alt="image-20250911215621054"></p>
+<p><img src="/../images/MoeCTF%202025-130.png" alt="image-20250911213620597"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">369184572</span><br><span class="line">185327694</span><br><span class="line">274956831</span><br><span class="line">632879415</span><br><span class="line">897541263</span><br><span class="line">541632789</span><br><span class="line">756213948</span><br><span class="line">918465327</span><br><span class="line">423798156</span><br></pre></td></tr></table></figure>
+
+<p>运行成功程序还退出了，那我们在退出的地方下断点，然后调试，最终果然输出 flag</p>
+<p><img src="/../images/MoeCTF%202025-131.png" alt="image-20250911214117939"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;a8c79927d4e830c3fe52e79f410216a0&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2048"><a href="#2048" class="headerlink" title="2048"></a>2048</h3><p>WinMain 函数</p>
+<p><img src="/../images/MoeCTF%202025-156.png" alt="image-20250913155103000"></p>
+<p>Wndproc 函数：</p>
+<p><img src="/../images/MoeCTF%202025-158.png" alt="image-20250913160412957"></p>
+<p>查阅一些资料：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">消息类型：</span><br><span class="line">WM_PAINT 0x000F 15 要求一个窗口重画自己</span><br><span class="line">WM_ERASEBKGND 0x0014 20 当窗口背景必须被擦除时（例在窗口改变大小时）</span><br><span class="line">WM_KEYDOWN 0x0100 256 按下一个键</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/MoeCTF%202025-157.png" alt="image-20250913160321182"></p>
+<p>所以上面截图的部分，应该是 2048 这个游戏的逻辑</p>
+<p>现在寻找 flag</p>
+<p>239 行这个函数就很可疑</p>
+<p><img src="/../images/MoeCTF%202025-159.png" alt="image-20250913160809386"></p>
+<p>果然，如下图，有一个比较，如果 result &gt; 13 ，就会有一个输出 flag 的提示</p>
+<p><img src="/../images/MoeCTF%202025-162.png" alt="image-20250913161543480"></p>
+<p>在这下断点，执行到这，需要 <code>eax</code> 大于 <code>0D</code>，随便换成一个数：</p>
+<p><img src="/../images/MoeCTF%202025-161.png" alt="image-20250913161511601"></p>
+<p>输出：</p>
+<p><img src="/../images/MoeCTF%202025-160.png" alt="image-20250913161435748"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;Y0u_4re_a_2048_m4st3r!!!!r0erowhu&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这个 flag 提交一直失败，最后发现这是 Misc 的 master 的答案，不是这个</p>
+<p>重新寻找 flag</p>
+<p><img src="/../images/MoeCTF%202025-164.png" alt="image-20250913172430205"></p>
+<p><img src="/../images/MoeCTF%202025-165.png" alt="image-20250913172750959"></p>
+<p>还有块加密</p>
+<p><img src="/../images/MoeCTF%202025-166.png" alt="image-20250913173020065"></p>
+<p>在这下断点：看看块加密的几个参数是什么</p>
+<p>a1 是输入flag.txt 文件的字符串，a2 是这个字符串长度，v7 是输出的参数</p>
+<p><img src="/../images/MoeCTF%202025-168.png" alt="image-20250913175338924"></p>
+<p>注意到这是个 XXTEA 加密</p>
+<p><img src="/../images/MoeCTF%202025-167.png" alt="image-20250913173750531"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">xxtea_decrypt</span>(<span class="params">v, n, k, delta=<span class="number">0x3E9779B9</span></span>):</span><br><span class="line">    v = <span class="built_in">list</span>(v)</span><br><span class="line">    rounds = <span class="number">6</span> + <span class="number">52</span> // n</span><br><span class="line">    sum_ = (rounds * delta) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">    y = v[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(rounds):</span><br><span class="line">        e = (sum_ &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span></span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            z = v[p - <span class="number">1</span>]</span><br><span class="line">            mx = (((z &gt;&gt; <span class="number">5</span>) ^ (y &lt;&lt; <span class="number">2</span>)) + ((y &gt;&gt; <span class="number">3</span>) ^ (z &lt;&lt; <span class="number">4</span>))) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">            mx ^= (((sum_ ^ y) + (k[(p &amp; <span class="number">3</span>) ^ e] ^ z)) &amp; <span class="number">0xFFFFFFFF</span>)</span><br><span class="line">            v[p] = (v[p] - mx) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">            y = v[p]</span><br><span class="line">        z = v[n - <span class="number">1</span>]</span><br><span class="line">        mx = (((z &gt;&gt; <span class="number">5</span>) ^ (y &lt;&lt; <span class="number">2</span>)) + ((y &gt;&gt; <span class="number">3</span>) ^ (z &lt;&lt; <span class="number">4</span>))) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        mx ^= (((sum_ ^ y) + (k[(<span class="number">0</span> &amp; <span class="number">3</span>) ^ e] ^ z)) &amp; <span class="number">0xFFFFFFFF</span>)</span><br><span class="line">        v[<span class="number">0</span>] = (v[<span class="number">0</span>] - mx) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        y = v[<span class="number">0</span>]</span><br><span class="line">        sum_ = (sum_ - delta) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 已知密文</span></span><br><span class="line">cipher = <span class="built_in">bytes</span>([<span class="number">0x35</span>, <span class="number">0x79</span>, <span class="number">0x77</span>, <span class="number">0xCC</span>, <span class="number">0x1B</span>, <span class="number">0x13</span>, <span class="number">0x41</span>, <span class="number">0x34</span>, <span class="number">0xF9</span>, <span class="number">0xFF</span>,</span><br><span class="line">                <span class="number">0x9F</span>, <span class="number">0x91</span>, <span class="number">0xFF</span>, <span class="number">0x5B</span>, <span class="number">0x94</span>, <span class="number">0x78</span>, <span class="number">0x86</span>, <span class="number">0x2A</span>, <span class="number">0xAF</span>, <span class="number">0xAE</span>,</span><br><span class="line">                <span class="number">0xD7</span>, <span class="number">0x9E</span>, <span class="number">0x31</span>, <span class="number">0x4D</span>, <span class="number">0x7A</span>, <span class="number">0xC4</span>, <span class="number">0xA5</span>, <span class="number">0x51</span>, <span class="number">0xD1</span>, <span class="number">0xD9</span>,</span><br><span class="line">                <span class="number">0x6E</span>, <span class="number">0x44</span>, <span class="number">0x18</span>, <span class="number">0x52</span>, <span class="number">0x86</span>, <span class="number">0x1B</span>, <span class="number">0x42</span>, <span class="number">0x8A</span>, <span class="number">0xC9</span>, <span class="number">0x63</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包成10个uint32</span></span><br><span class="line">v = <span class="built_in">list</span>(struct.unpack(<span class="string">&#x27;&lt;10I&#x27;</span>, cipher))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 密钥</span></span><br><span class="line">key_bytes = <span class="string">b&#x27;2048master2048ma&#x27;</span></span><br><span class="line">k = <span class="built_in">list</span>(struct.unpack(<span class="string">&#x27;&lt;4I&#x27;</span>, key_bytes))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密 (使用n=10)</span></span><br><span class="line">decrypted_v = xxtea_decrypt(v, <span class="number">10</span>, k)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解包成40字节</span></span><br><span class="line">plain_padded = struct.pack(<span class="string">&#x27;&lt;10I&#x27;</span>, *decrypted_v)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取前37字节作为flag，并解码为字符串（假设ASCII）</span></span><br><span class="line">flag = plain_padded[:<span class="number">37</span>].decode(<span class="string">&#x27;ascii&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Flag:&quot;</span>, flag)</span><br></pre></td></tr></table></figure>
+
+</article>
+
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/MoeCTF%202025-3/">MoeCTF 2025 Pwn</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/CryptoHack-2/">CryptoHack 第二部分 模运算</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">stone0721</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#speed"><span class="toc-text">speed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base"><span class="toc-text">Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#catch"><span class="toc-text">catch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moe-upx"><span class="toc-text">moe_upx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez3"><span class="toc-text">ez3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ezandroid"><span class="toc-text">ezandroid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flower"><span class="toc-text">flower</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-cup-of-tea"><span class="toc-text">A cup of tea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ezpy-pyc"><span class="toc-text">ezpy.pyc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#have-fun"><span class="toc-text">have_fun</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mazegame"><span class="toc-text">mazegame</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upx-revenge"><span class="toc-text">upx_revenge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#guess"><span class="toc-text">guess</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chall"><span class="toc-text">chall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez-DES"><span class="toc-text">ez_DES</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#two-cup-of-tea"><span class="toc-text">two cup of tea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ezandroidpro"><span class="toc-text">ezandroidpro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rusty-sudo"><span class="toc-text">rusty_sudo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2048"><span class="toc-text">2048</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

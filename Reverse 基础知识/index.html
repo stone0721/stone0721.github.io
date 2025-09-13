@@ -1,0 +1,1049 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>CTF Reverse 基础知识 - 首页</title>
+
+  
+    <meta name="description" content="python数据组织12345678b &#x3D; b&#x27;Hello&#x27;            # 字节对象：不可变的字节序列b &#x3D; bytearray(b&#x27;Hello&#x27;) # 字节数组对象：可变的字节序列s &#x3D; &quot;hello&quot;             # Unicode 字符序列hex_str &#x3D; &#x27;48656c6c6f&#x27;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF Reverse 基础知识">
+<meta property="og:url" content="https://stone0721.github.io/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<meta property="og:site_name" content="首页">
+<meta property="og:description" content="python数据组织12345678b &#x3D; b&#x27;Hello&#x27;            # 字节对象：不可变的字节序列b &#x3D; bytearray(b&#x27;Hello&#x27;) # 字节数组对象：可变的字节序列s &#x3D; &quot;hello&quot;             # Unicode 字符序列hex_str &#x3D; &#x27;48656c6c6f&#x27;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
+<meta property="article:published_time" content="2025-09-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-13T14:32:17.541Z">
+<meta property="article:author" content="stone0721">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/home.ico">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-12T00:00:00+08:00","dateModified":"2025-09-13T22:32:17+08:00","datePublished":"2025-09-12T00:00:00+08:00","description":"","headline":"CTF Reverse 基础知识","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/cover.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">ddddd</div><div class="sub cap">分享个人学习笔记、技术文章</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Pwn 基础知识</span></a><a class="item title" href="/Web%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-5/"><span class="title">MoeCTF 2025 Web</span></a><a class="item title" href="/Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/MoeCTF%202025-1/"><span class="title">MoeCTF 2025 Reverse</span></a><a class="item title" href="/MoeCTF%202025-2/"><span class="title">MoeCTF 2025 Misc</span></a><a class="item title" href="/Cyber-Security-101-1/"><span class="title">Cyber Security 101 第一部分 简介</span></a><a class="item title" href="/Cyber-Security-101-2/"><span class="title">Cyber Security 101 第二部分 Linux基础知识</span></a><a class="item title" href="/MoeCTF%202025-3/"><span class="title">MoeCTF 2025 Pwn</span></a><a class="item title" href="/MoeCTF%202025-4/"><span class="title">MoeCTF 2025 Crypto</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-11T16:00:00.000Z">2025-09-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-13T14:32:17.541Z">2025-09-13</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>CTF Reverse 基础知识</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><span id="more"></span>
+
+<h3 id="python数据组织"><a href="#python数据组织" class="headerlink" title="python数据组织"></a>python数据组织</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="string">b&#x27;Hello&#x27;</span>            <span class="comment"># 字节对象：不可变的字节序列</span></span><br><span class="line">b = <span class="built_in">bytearray</span>(<span class="string">b&#x27;Hello&#x27;</span>) <span class="comment"># 字节数组对象：可变的字节序列</span></span><br><span class="line">s = <span class="string">&quot;hello&quot;</span>             <span class="comment"># Unicode 字符序列</span></span><br><span class="line"></span><br><span class="line">hex_str = <span class="string">&#x27;48656c6c6f&#x27;</span>       <span class="comment"># 十六进制字符串</span></span><br><span class="line">b = <span class="built_in">bytes</span>.fromhex(hex_str)   <span class="comment"># 获得对应字节对象</span></span><br><span class="line"></span><br><span class="line">hex_str = b.<span class="built_in">hex</span>()       <span class="comment"># 将 bytes 转化为十六进制字符串</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;Hello&#x27;</span></span><br><span class="line">b = s.encode(<span class="string">&#x27;utf-8&#x27;</span>)   <span class="comment"># 使用 utf-8 编码，获得对应字节对象</span></span><br><span class="line">s = b.decode(<span class="string">&#x27;utf-8&#x27;</span>)   <span class="comment"># 使用 utf-8 解码，获得对应字符序列</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h3><h4 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h4><p>将 6 位二进制数 映射到 64个字符</p>
+<p>每 3 个字节，24位，可以分为 4 组，即 4 个六位二进制数，编码为 4 个字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A-Z (大写字母，索引0-25，对应ASCII 65-90)</span><br><span class="line">a-z (小写字母，索引26-51，对应ASCII 97-122)</span><br><span class="line">0-9 (数字，索引52-61，对应ASCII 48-57)</span><br><span class="line">+ (索引62，对应ASCII 43)</span><br><span class="line">/ (索引63，对应ASCII 47)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">= 用于填充（padding），当输入字节数不是3的倍数时使用。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 所以看到一串字符串，以 <code>=</code> 结尾时，很大可能是 base64 编码过的。 </p>
+</blockquote>
+<p>使用 base64 库：</p>
+<ul>
+<li>Base64编码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="built_in">print</span>(base64.b64encode(<span class="string">b&quot;CTF&quot;</span>).decode())  <span class="comment"># 输出: Q1Rm</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Base64解码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">ciphertext = <span class="string">&quot;bW9lY3Rme1kwdV9DNG5fRzAwZF9BdF9CNDVlNjQhIX0=&quot;</span></span><br><span class="line">b = base64.b64decode(ciphertext)    <span class="comment"># 得到 b 是字节对象</span></span><br><span class="line"><span class="built_in">print</span>(b.decode())    <span class="comment"># decode()  默认是 Unicode 解码</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Base32"><a href="#Base32" class="headerlink" title="Base32"></a>Base32</h4><p>将 5 位二进制数 映射到 32个字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A-Z (索引0-25，对应ASCII 65-90)</span><br><span class="line">2-7 (索引26-31，对应ASCII 50-55)</span><br></pre></td></tr></table></figure>
+
+<p>每 5 字节（40位）分为 8 个 5 位块，编码为 5 个字符</p>
+<p>输入不足 5 字节时，用 &#x3D; 填充（最多6个 &#x3D; ）。</p>
+<blockquote>
+<p>相比Base64，Base32输出更长，但字符集更简单（无小写字母或特殊字符），适合大小写不敏感的场景。</p>
+</blockquote>
+<h4 id="Base16"><a href="#Base16" class="headerlink" title="Base16"></a>Base16</h4><p>Base16编码原理Base16（即十六进制）使用16个字符（4位二进制）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0-9 (索引0-9，对应ASCII 48-57)</span><br><span class="line">A-F (索引10-15，对应ASCII 65-70)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>分组：每字节（8位）分为2个4位块。</li>
+<li>映射：每个4位块直接转换为十六进制字符。</li>
+<li>特点：输出最长，但最直观，常用于调试或表示二进制数据。</li>
+</ul>
+<h3 id="upx-continuing…"><a href="#upx-continuing…" class="headerlink" title="upx  (continuing…)"></a>upx  (continuing…)</h3><ul>
+<li>压缩：通过压缩和加壳技术减小文件体积</li>
+<li>加壳：将可执行程序的外部再包一层外壳程序，并在运行时使用外壳程序解压实际的程序，然后加载到内存运行。</li>
+</ul>
+<p>可使用 <strong>Die (Detect  it easy)</strong> 检测文件类型，判定是否加壳</p>
+<p><img src="/../images/CTF%20Reverse/5.png" alt="image-20250912162158351"></p>
+<p>加壳后的程序应包含：</p>
+<ul>
+<li><p>PE 头部：保留原始 PE 文件的 DOS 头、NT 头和节表（Section Table），但可能被修改以适应压缩后的结构。</p>
+</li>
+<li><p>UPX 区段：UPX 通常将文件分为几个自定义区段（如 <code>UPX0</code>、<code>UPX1</code>、<code>UPX2</code>），用于存储压缩数据、解压 stub 和其他元数据。</p>
+</li>
+<li><p>UPX 头部：UPX 在文件中嵌入一个特定的头部结构，包含压缩算法标识、文件长度等信息，<code>UPX! </code>是其中的一个标志性字符串。</p>
+</li>
+<li><p>解压 stub：一段解压代码，负责在运行时将压缩的程序还原到内存中。</p>
+</li>
+<li><p>压缩数据：原始程序的代码和数据经过压缩后存储在文件中。</p>
+</li>
+</ul>
+<p>UPX 的加壳过程会重构 PE 文件的节表和内容，但保留 PE 格式的基本结构以确保文件仍可被操作系统加载。</p>
+<p>对upx 加壳过的程序：逆向时需要使用 <code>upx -d</code> 脱壳：</p>
+<p>脱壳过程中 upx 特征区段很重要，逆向时若无法脱壳需要考虑恢复特征区段</p>
+<ul>
+<li>修改区段名：<code>UPX0</code>  <code>UPX1</code>  <code>UPX2</code> 可以改成其他名字，<code>upx -d</code> 将无法识别文件结构，导致脱壳失败。</li>
+<li>恢复UPX头：恢复 <code>UPX!</code></li>
+</ul>
+<p>如果仍然无法脱壳，可能需要手动脱壳</p>
+<h3 id="文件的二进制结构"><a href="#文件的二进制结构" class="headerlink" title="文件的二进制结构"></a>文件的二进制结构</h3><h4 id="ELF"><a href="#ELF" class="headerlink" title="ELF"></a>ELF</h4><p>Linux 中的目标文件，也就是 **ELF （Executable and Linkable Format）**文件，主要有以下三种类型</p>
+<ul>
+<li>可重定位文件（Relocatable File），包含由编译器生成的代码以及数据。链接器会将它与其它目标文件链接起来从而创建可执行文件或者共享目标文件。在 Linux 系统中，这种文件的后缀一般为 <code>.o</code> 。</li>
+<li>可执行文件（Executable File），就是我们通常在 Linux 中执行的程序。</li>
+<li>共享目标文件（Shared Object File），包含代码和数据，这种文件是我们所称的库文件，一般以 <code>.so</code> 结尾。一般情况下，它有以下两种使用情景：<ul>
+<li>链接器（Link eDitor, ld）可能会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。</li>
+<li>动态链接器（Dynamic Linker）将它与可执行文件以及其它共享目标组合在一起生成进程镜像。</li>
+</ul>
+</li>
+</ul>
+<p>文件结构</p>
+<ol>
+<li><p>ELF Header（文件头）</p>
+<p> 固定数 ELF 、文件类型、目标体系结构、文件版本、入口点地址、段表偏移、节表偏移、文件头大小…….</p>
+</li>
+<li><p>Program Header Table（程序头表）</p>
+<p> 描述 ELF 文件的**段（Segment）**信息，适用于可执行文件和共享目标文件。动态链接器和操作系统加载器使用该表来加载程序到内存中。</p>
+</li>
+<li><p>Section Header Table（节头表）</p>
+</li>
+<li><p>Sections（节）</p>
+<p> 常见节包括：</p>
+<ul>
+<li><code>.text</code>：存储可执行代码。</li>
+<li><code>.data</code>：存储初始化数据。</li>
+<li><code>.bss</code>：存储未初始化的全局&#x2F;静态变量（不占用文件空间，仅在内存中分配）。</li>
+<li><code>.rodata</code>：存储只读数据，如字符串常量。</li>
+<li><code>.symtab</code>：符号表，存储函数和变量的符号信息。</li>
+<li><code>.strtab</code>：字符串表，存储符号名称等字符串。</li>
+</ul>
+</li>
+<li><p>Dynamic Linking Information（动态链接信息）</p>
+</li>
+<li><p>Symbol Table（符号表）</p>
+</li>
+<li><p>Relocation Table（重定位表）</p>
+</li>
+</ol>
+<h4 id="PE"><a href="#PE" class="headerlink" title="PE"></a>PE</h4><p>Windows EXE文件采用  <strong>PE（Portable Executable）</strong> 格式  ，与 ELF 文件对比：</p>
+<p>共同点：</p>
+<ul>
+<li>都支持可执行文件、动态库和目标文件。</li>
+<li>都包含头部、段&#x2F;节、符号表和重定位信息。</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>平台：ELF 主要用于 Linux&#x2F;Unix，PE 用于 Windows。</li>
+<li>头部结构：ELF Header 更简洁，PE 使用 DOS 头和 PE 头，兼容旧的 DOS 格式。</li>
+<li>动态链接：ELF 使用 .dynamic 节和动态链接器（ld.so）；PE 使用导入表（Import Table）和 DLL。</li>
+<li>扩展性：ELF 设计更灵活，支持多种架构；PE 主要针对 x86&#x2F;x64。</li>
+</ul>
+<h3 id="Windows桌面应用程序-GUI-程序"><a href="#Windows桌面应用程序-GUI-程序" class="headerlink" title="Windows桌面应用程序(GUI 程序)"></a>Windows桌面应用程序(GUI 程序)</h3><p>WinMain 函数是程序入口点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> WINAPI <span class="title function_">WinMain</span><span class="params">(</span></span><br><span class="line"><span class="params">   _In_ HINSTANCE hInstance,         <span class="comment">// 当前程序实例的句柄</span></span></span><br><span class="line"><span class="params">   _In_opt_ HINSTANCE hPrevInstance, <span class="comment">// 前一个实例的句柄</span></span></span><br><span class="line"><span class="params">   _In_ LPSTR     lpCmdLine,         <span class="comment">// 命令行参数（字符串形式）</span></span></span><br><span class="line"><span class="params">   _In_ <span class="type">int</span>       nCmdShow           <span class="comment">// 窗口显示方式（如最大化、最小化、正常等）</span></span></span><br><span class="line"><span class="params">)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Windows 桌面程序需要 <code>&lt;windows.h&gt;</code></p>
+<p>除了 <code>WinMain</code> 函数，每个Windows桌面应用程序还需要一个窗口过程函数 <code>WndProc</code> ，可以指定为任何名称，用于处理窗口收到的消息。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LRESULT CALLBACK <span class="title function_">WndProc</span><span class="params">(</span></span><br><span class="line"><span class="params">   _In_ HWND   hWnd,     <span class="comment">// 窗口句柄表示消息所属的窗口,类似指针</span></span></span><br><span class="line"><span class="params">   _In_ UINT   message,  <span class="comment">// 消息类型</span></span></span><br><span class="line"><span class="params">   _In_ WPARAM wParam,   <span class="comment">// 消息的附加参数1</span></span></span><br><span class="line"><span class="params">   _In_ LPARAM lParam    <span class="comment">// 消息的附加参数2</span></span></span><br><span class="line"><span class="params">)</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="WinMain-函数-处理窗口"><a href="#WinMain-函数-处理窗口" class="headerlink" title="WinMain 函数 处理窗口"></a>WinMain 函数 处理窗口</h4><p>1.填充  <code>WNDCLASSEX</code> 类型的结构 添加关于主窗口的一些基本信息</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WNDCLASSEX wc = &#123; <span class="keyword">sizeof</span>(WNDCLASSEX), CS_HREDRAW | CS_VREDRAW, WindowProc, <span class="number">0</span>, <span class="number">0</span>, hInstance, <span class="literal">NULL</span>, <span class="literal">NULL</span>, (HBRUSH)(COLOR_WINDOW+<span class="number">1</span>), <span class="literal">NULL</span>, <span class="string">L&quot;MyWindowClass&quot;</span>, <span class="literal">NULL</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>2.填充 <code>WNDCLASSEX</code> 结构后，向 Windows 注册该结构，使其了解你的窗口以及如何向该窗口发送消息。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegisterClassEx(&amp;wc);</span><br></pre></td></tr></table></figure>
+
+<p>3.使用 <code>CreatWindowEx</code> 函数创建窗口</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HWND hwnd = CreateWindowEx(<span class="number">0</span>, <span class="string">L&quot;MyWindowClass&quot;</span>, <span class="string">L&quot;CTF Window&quot;</span>, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, <span class="number">800</span>, <span class="number">600</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, hInstance, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.显示窗口</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ShowWindow(hwnd, nCmdShow); <span class="comment">// 设置窗口显示状态</span></span><br><span class="line">UpdateWindow(hwnd);         <span class="comment">// 强制窗口重绘</span></span><br></pre></td></tr></table></figure>
+
+<p>5.为了处理消息，首先添加“消息循环”来侦听 Windows 发送的消息。</p>
+<p> 当应用程序收到消息时，此循环将该消息调度到 <code>WndProc</code> 函数进行处理。 消息循环类似于以下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MSG msg;  <span class="comment">// 定义 MSG 结构，存储消息队列中的消息。</span></span><br><span class="line"><span class="comment">// 从消息队列获取消息。返回非0表示成功获取消息，0表示收到 WM_QUIT。</span></span><br><span class="line"><span class="keyword">while</span> (GetMessage(&amp;msg, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>)) &#123;  </span><br><span class="line">   TranslateMessage(&amp;msg);  <span class="comment">// 将键盘虚拟键消息转换为字符消息</span></span><br><span class="line">   DispatchMessage(&amp;msg);   <span class="comment">// 将消息分发到对应的 WindowProc 函数。</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (<span class="type">int</span>)msg.wParam;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="WndProc-函数-处理消息"><a href="#WndProc-函数-处理消息" class="headerlink" title="WndProc 函数 处理消息"></a>WndProc 函数 处理消息</h4><ol>
+<li><code>WM_PAINT</code> ：更新显示窗口（第一次显示窗口需要更新整个窗口）</li>
+</ol>
+<p>使用 <code>BeginPaint</code> ，处理所有逻辑，再调用 <code>EndPaint</code>  （调用 TextOut 在窗口指定位置显示文本）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">PAINTSTRUCT ps;</span><br><span class="line">HDC hdc;        <span class="comment">// 与窗口工作区关联的设备上下文的句柄</span></span><br><span class="line">TCHAR greeting[] = _T(<span class="string">&quot;Hello, Windows desktop!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (message)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> WM_PAINT:</span><br><span class="line">   hdc = BeginPaint(hWnd, &amp;ps);    <span class="comment">// 返回用于在工作区进行绘制的显示设备上下文的句柄</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// Here your application is laid out.</span></span><br><span class="line">   <span class="comment">// For this introduction, we just print out &quot;Hello, Windows desktop!&quot;</span></span><br><span class="line">   <span class="comment">// in the top left corner.</span></span><br><span class="line">   TextOut(hdc, <span class="number">5</span>, <span class="number">5</span>, greeting, _tcslen(greeting));</span><br><span class="line">   <span class="comment">// End application-specific layout section.</span></span><br><span class="line"></span><br><span class="line">   EndPaint(hWnd, &amp;ps); <span class="comment">// 结束绘制请求并释放设备上下文。</span></span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> WM_DESTROY:</span><br><span class="line">   PostQuitMessage(<span class="number">0</span>);</span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">   <span class="keyword">return</span> DefWindowProc(hWnd, message, wParam, lParam);</span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>WM_CREATE</code> ：首次创建窗口</li>
+<li><code>WM_DESTROY</code>：关闭窗口</li>
+</ol>
+<h3 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h3><h3 id="GDB动态调试"><a href="#GDB动态调试" class="headerlink" title="GDB动态调试"></a>GDB动态调试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gdb program</span><br><span class="line">layout asm    <span class="comment"># 显示反汇编窗口 </span></span><br><span class="line">layout regs   <span class="comment"># 显示寄存器窗口</span></span><br><span class="line">b *0x40127c   <span class="comment"># 下断点</span></span><br><span class="line">r <span class="comment"># 运行</span></span><br><span class="line">s <span class="comment"># 单步运行</span></span><br><span class="line">c <span class="comment"># 继续运行</span></span><br><span class="line">q <span class="comment"># 退出</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Z3求解器"><a href="#Z3求解器" class="headerlink" title="*Z3求解器"></a>*Z3求解器</h3><ul>
+<li><p><strong>约束求解</strong>（Constraint Solving）</p>
+</li>
+<li><p><strong>逻辑公式验证</strong>（Formal Verification）</p>
+</li>
+<li><p><strong>符号执行</strong>（Symbolic Execution）</p>
+</li>
+<li><p><strong>程序分析</strong>（Program Analysis）</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install z3-solver</span><br></pre></td></tr></table></figure>
+
+<h4 id="基础语法示例"><a href="#基础语法示例" class="headerlink" title="基础语法示例"></a>基础语法示例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">s = Solver()   <span class="comment"># 首先创建一个 Z3 求解器</span></span><br><span class="line"></span><br><span class="line">x = Int(<span class="string">&#x27;x&#x27;</span>)   <span class="comment"># 整数变量</span></span><br><span class="line">y = Int(<span class="string">&#x27;y&#x27;</span>)   <span class="comment"># 整数变量</span></span><br><span class="line">z = Real(<span class="string">&#x27;z&#x27;</span>)  <span class="comment"># 实数变量</span></span><br><span class="line">p = Bool(<span class="string">&#x27;p&#x27;</span>)  <span class="comment"># 布尔变量</span></span><br><span class="line"></span><br><span class="line">s.add(x + y == <span class="number">10</span>)          <span class="comment"># 整数约束：x + y = 10</span></span><br><span class="line">s.add(x &gt; <span class="number">0</span>, y &lt; <span class="number">5</span>)         <span class="comment"># 多个约束：x &gt; 0 且 y &lt; 5</span></span><br><span class="line">s.add(And(x &gt;= <span class="number">2</span>, y == <span class="number">3</span>))  <span class="comment"># 逻辑与：x &gt;= 2 且 y = 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> s.check() == sat: <span class="comment"># 检查可满足性 </span></span><br><span class="line">    m = s.model()    <span class="comment"># 获得一个可满足的模型</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;x = <span class="subst">&#123;m[x]&#125;</span>, y = <span class="subst">&#123;m[y]&#125;</span>&quot;</span>)  <span class="comment"># 输出如：x = 5, y = 5</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;No solution&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="进阶语法示例"><a href="#进阶语法示例" class="headerlink" title="进阶语法示例"></a>进阶语法示例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_flag</span>(<span class="params">flag</span>):</span><br><span class="line">    b = [<span class="number">0</span>] * <span class="number">34</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">        b[i] = <span class="number">47806</span> * (<span class="built_in">ord</span>(flag[i]) + i)</span><br><span class="line">        <span class="keyword">if</span> i != <span class="number">0</span>:</span><br><span class="line">            b[i] = b[i] ^ b[i-<span class="number">1</span>] ^ <span class="number">0x114514</span></span><br><span class="line">        b[i] = b[i] % <span class="number">51966</span></span><br><span class="line">        <span class="keyword">if</span> b[i] != ciphertext[i]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>知道密文的情况下爆破求解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">ciphertext = [  <span class="number">0x0B1B0</span>, <span class="number">0x5678</span>,<span class="number">0x7FF2</span>,<span class="number">0x0A332</span>,<span class="number">0x0A0E8</span>,<span class="number">0x364C</span>,<span class="number">0x2BD4</span>,<span class="number">0x0C8FE</span>,</span><br><span class="line">                <span class="number">0x4A7C</span>,<span class="number">0x18</span>,<span class="number">0x2BE4</span>,<span class="number">0x4144</span>,<span class="number">0x3BA6</span>,<span class="number">0x0BE8C</span>,<span class="number">0x8F7E</span>,<span class="number">0x35F8</span>,<span class="number">0x61AA</span>,</span><br><span class="line">                <span class="number">0x2B4A</span>,<span class="number">0x6828</span>,<span class="number">0x0B39E</span>,<span class="number">0x0B542</span>,<span class="number">0x33EC</span>,<span class="number">0x0C7D8</span>,<span class="number">0x448C</span>,<span class="number">0x9310</span>,</span><br><span class="line">                <span class="number">0x8808</span>,<span class="number">0x0ADD4</span>,<span class="number">0x3CC2</span>,<span class="number">0x796</span>,<span class="number">0x0C940</span>,<span class="number">0x4E32</span>,<span class="number">0x4E2E</span>,<span class="number">0x924A</span>,<span class="number">0x5B5C</span>]</span><br><span class="line">solver = Solver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 flag 列表和中间量 b，使用 BitVec 类型（32 位）</span></span><br><span class="line">flag = [BitVec(<span class="string">f&#x27;flag_<span class="subst">&#123;i&#125;</span>&#x27;</span>, <span class="number">32</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]</span><br><span class="line">b = [BitVec(<span class="string">f&#x27;b_<span class="subst">&#123;i&#125;</span>&#x27;</span>, <span class="number">32</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加约束：flag 字符在 ASCII 可打印字符范围内 (32 到 126)</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">    solver.add(flag[i] &gt;= <span class="number">32</span>, flag[i] &lt;= <span class="number">126</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 is_flag 函数的逻辑添加约束</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">    temp = <span class="number">47806</span> * (flag[i] + i)</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        solver.add(b[i] == temp % <span class="number">51966</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        temp = temp ^ b[i-<span class="number">1</span>] ^ <span class="number">0x114514</span></span><br><span class="line">        solver.add(b[i] == temp % <span class="number">51966</span>)</span><br><span class="line">    solver.add(b[i] == ciphertext[i])</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 存储所有解</span></span><br><span class="line">solutions = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> solver.check() == sat:</span><br><span class="line">    model = solver.model()</span><br><span class="line">    <span class="comment"># 提取 flag 字符, as_long() 将 Z3 的值转为 Python 整数）。</span></span><br><span class="line">    flag_vals = [model[flag[i]].as_long() <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]   </span><br><span class="line">    flag_str = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">chr</span>(val) <span class="keyword">for</span> val <span class="keyword">in</span> flag_vals) </span><br><span class="line">    solutions.append(flag_str)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 添加排除当前解的约束, 以加快求解速度</span></span><br><span class="line">    solver.add(Or([flag[i] != flag_vals[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>)]))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 可选：限制最大解的数量，避免过多输出</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(solutions) &gt;= <span class="number">100</span>:  <span class="comment"># 限制最多 100 个解</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 非空则输出所有解</span></span><br><span class="line"><span class="keyword">if</span> solutions:</span><br><span class="line">    <span class="keyword">for</span> idx, sol <span class="keyword">in</span> <span class="built_in">enumerate</span>(solutions, <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;idx&#125;</span>: <span class="subst">&#123;sol&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;无解&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/CTF%20Reverse/6.png" alt="image-20250912172941440"></p>
+<h3 id="Android逆向"><a href="#Android逆向" class="headerlink" title="Android逆向"></a>Android逆向</h3><p>一个 Android app 大概由三部分组成：</p>
+<ul>
+<li><code>AndroidManifest.xml</code>：记录app各种信息</li>
+<li><code>resources</code>：各种资源，包括排版、程序中出现的字串、图片等等</li>
+</ul>
+<h4 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h4><p><img src="/../images/CTF%20Reverse/1.png" alt="image-20250912151647632"></p>
+<p>第 7 行：app 的package name 是  <code>com.example.ezandroidpro</code></p>
+<blockquote>
+<p>我们访问谷歌商店，找到app X</p>
+<p><code>https://play.google.com/store/apps/details?id=com.twitter.android&amp;hl=zh_TW&amp;gl=US</code></p>
+<p>这个 <code>id = com.twitter.android</code> 就是指 X app 的 package name</p>
+<p>Package Name（包名）是Android应用程序的唯一标识符，通常采用类似域名反写的格式，例如 com.example.myapp。它在Android系统中用于区分不同的应用程序，通常在应用的 AndroidManifest.xml 文件中定义。</p>
+<p>包名不仅用于标识应用，还用于管理应用的安装、更新以及权限分配等。</p>
+</blockquote>
+<p>第 24 行：app 有一个 activity，是  <code>com.example.ezandroidpro.MainActivity</code></p>
+<h4 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h4><p>Activity 是一个核心组件，表示应用程序的一个用户界面屏幕。每个Activity通常对应一个单独的屏幕，用户可以通过它与应用进行交互。例如，一个Activity可以是一个登录页面、主页或设置页面。</p>
+<p>MainActivity 是一个约定俗成的名称，通常指应用启动时默认加载的第一个Activity。它是应用的入口点，用户打开应用时最先看到的界面。</p>
+<p><img src="/../images/CTF%20Reverse/2.png" alt="image-20250912160000809"></p>
+<p>从上面的 MainActivity 可以得到 app 运行逻辑，语言是 java</p>
+<h4 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h4><p>Android的Native层是指使用C&#x2F;C++编写的代码，这段代码可以直接与Android系统交互。通过NDK，开发者可以编 写高性能的代码，尤其是在需要进行复杂计算或处理多媒体数据时。Native层的使用场景主要包括： </p>
+<ul>
+<li><p>实现高性能的游戏引擎 </p>
+</li>
+<li><p>进行复杂的数据处理 </p>
+</li>
+<li><p>使用已存在的C&#x2F;C++库</p>
+</li>
+</ul>
+<p><img src="/../images/CTF%20Reverse/3.png" alt="image-20250912160436447"></p>
+<p>上图 app 使用 check 函数对输入进行检查，看到第 15 行，这个函数是来自 native 层</p>
+<p>查看 lib 文件，应该就有so动态链接库文件，也可以看看 Summary </p>
+<p><img src="/../images/CTF%20Reverse/4.png" alt="image-20250912160756500"></p>
+<p>这些文件是 C&#x2F;C++ 编写的原生代码 (Native Code)</p>
+<p>需要使用 IDA &#x2F; Ghidra 进行反汇编、反编译</p>
+<h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><h4 id="TEA"><a href="#TEA" class="headerlink" title="TEA"></a>TEA</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">encrypt</span> <span class="params">(<span class="type">uint32_t</span>* v, <span class="type">uint32_t</span>* k)</span> &#123;</span><br><span class="line">    <span class="type">uint32_t</span> v0=v[<span class="number">0</span>], v1=v[<span class="number">1</span>], sum=<span class="number">0</span>, i;           <span class="comment">/* set up */</span></span><br><span class="line">    <span class="type">uint32_t</span> delta=<span class="number">0x9e3779b9</span>;                     <span class="comment">/* a key schedule constant */</span></span><br><span class="line">    <span class="type">uint32_t</span> k0=k[<span class="number">0</span>], k1=k[<span class="number">1</span>], k2=k[<span class="number">2</span>], k3=k[<span class="number">3</span>];   <span class="comment">/* cache key */</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;                       <span class="comment">/* basic cycle start */</span></span><br><span class="line">        sum += delta;</span><br><span class="line">        v0 += ((v1&lt;&lt;<span class="number">4</span>) + k0) ^ (v1 + sum) ^ ((v1&gt;&gt;<span class="number">5</span>) + k1);</span><br><span class="line">        v1 += ((v0&lt;&lt;<span class="number">4</span>) + k2) ^ (v0 + sum) ^ ((v0&gt;&gt;<span class="number">5</span>) + k3);  </span><br><span class="line">    &#125;                                              <span class="comment">/* end cycle */</span></span><br><span class="line">    v[<span class="number">0</span>]=v0; v[<span class="number">1</span>]=v1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">decrypt</span> <span class="params">(<span class="type">uint32_t</span>* v, <span class="type">uint32_t</span>* k)</span> &#123;</span><br><span class="line">    <span class="type">uint32_t</span> v0=v[<span class="number">0</span>], v1=v[<span class="number">1</span>], sum=<span class="number">0xC6EF3720</span>, i;  <span class="comment">/* set up */</span></span><br><span class="line">    <span class="type">uint32_t</span> delta=<span class="number">0x9e3779b9</span>;                     <span class="comment">/* a key schedule constant */</span></span><br><span class="line">    <span class="type">uint32_t</span> k0=k[<span class="number">0</span>], k1=k[<span class="number">1</span>], k2=k[<span class="number">2</span>], k3=k[<span class="number">3</span>];   <span class="comment">/* cache key */</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">32</span>; i++) &#123;                         <span class="comment">/* basic cycle start */</span></span><br><span class="line">        v1 -= ((v0&lt;&lt;<span class="number">4</span>) + k2) ^ (v0 + sum) ^ ((v0&gt;&gt;<span class="number">5</span>) + k3);</span><br><span class="line">        v0 -= ((v1&lt;&lt;<span class="number">4</span>) + k0) ^ (v1 + sum) ^ ((v1&gt;&gt;<span class="number">5</span>) + k1);</span><br><span class="line">        sum -= delta;                                   </span><br><span class="line">    &#125;                                              <span class="comment">/* end cycle */</span></span><br><span class="line">    v[<span class="number">0</span>]=v0; v[<span class="number">1</span>]=v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="RC4"><a href="#RC4" class="headerlink" title="RC4"></a>RC4</h4><h4 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h4></article>
+
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CTF Pwn 基础知识</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">stone0721</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E6%95%B0%E6%8D%AE%E7%BB%84%E7%BB%87"><span class="toc-text">python数据组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base"><span class="toc-text">Base</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Base64"><span class="toc-text">Base64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Base32"><span class="toc-text">Base32</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Base16"><span class="toc-text">Base16</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upx-continuing%E2%80%A6"><span class="toc-text">upx  (continuing…)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BB%93%E6%9E%84"><span class="toc-text">文件的二进制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ELF"><span class="toc-text">ELF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PE"><span class="toc-text">PE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-GUI-%E7%A8%8B%E5%BA%8F"><span class="toc-text">Windows桌面应用程序(GUI 程序)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WinMain-%E5%87%BD%E6%95%B0-%E5%A4%84%E7%90%86%E7%AA%97%E5%8F%A3"><span class="toc-text">WinMain 函数 处理窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WndProc-%E5%87%BD%E6%95%B0-%E5%A4%84%E7%90%86%E6%B6%88%E6%81%AF"><span class="toc-text">WndProc 函数 处理消息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E8%B0%83%E8%AF%95"><span class="toc-text">反调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GDB%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95"><span class="toc-text">GDB动态调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z3%E6%B1%82%E8%A7%A3%E5%99%A8"><span class="toc-text">*Z3求解器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">基础语法示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">进阶语法示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android%E9%80%86%E5%90%91"><span class="toc-text">Android逆向</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AndroidManifest-xml"><span class="toc-text">AndroidManifest.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity"><span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Native"><span class="toc-text">Native</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86"><span class="toc-text">加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TEA"><span class="toc-text">TEA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RC4"><span class="toc-text">RC4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MD5"><span class="toc-text">MD5</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
