@@ -17,19 +17,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>CTF Pwn 基础知识 - 首页</title>
+  <title>MoeCTF 2025 Misc - 首页</title>
 
   
-    <meta name="description" content="CTF Pwn 基础知识">
+    <meta name="description" content="杂项部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF Pwn 基础知识">
-<meta property="og:url" content="https://stone0721.github.io/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<meta property="og:title" content="MoeCTF 2025 Misc">
+<meta property="og:url" content="https://stone0721.github.io/MoeCTF%202025-2/">
 <meta property="og:site_name" content="首页">
-<meta property="og:description" content="CTF Pwn 基础知识">
+<meta property="og:description" content="杂项部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
-<meta property="article:published_time" content="2025-09-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-16T02:40:25.932Z">
+<meta property="article:published_time" content="2025-09-08T23:20:00.000Z">
+<meta property="article:modified_time" content="2025-09-12T12:35:00.655Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
@@ -50,7 +50,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-14T00:00:00+08:00","dateModified":"2025-09-16T10:40:25+08:00","datePublished":"2025-09-14T00:00:00+08:00","description":"CTF Pwn 基础知识","headline":"CTF Pwn 基础知识","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-09T07:20:00+08:00","dateModified":"2025-09-12T20:35:00+08:00","datePublished":"2025-09-09T07:20:00+08:00","description":"杂项部分","headline":"MoeCTF 2025 Misc","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/MoeCTF%202025-2/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/MoeCTF%202025-2/","image":[]}</script>
   
 </head>
 <body>
@@ -82,141 +82,118 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-13T16:00:00.000Z">2025-09-14</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-16T02:40:25.932Z">2025-09-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-08T23:20:00.000Z">2025-09-09</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-09-12T12:35:00.655Z">2025-09-12</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>CTF Pwn 基础知识</span></h1>
+        <h1 class="text title"><span>MoeCTF 2025 Misc</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><p>CTF Pwn 基础知识</p>
+  </div><article class="md-text content"><p>杂项部分</p>
 <span id="more"></span>
 
-
-
-<h3 id="程序内存中的映射"><a href="#程序内存中的映射" class="headerlink" title="程序内存中的映射"></a>程序<strong>内存中的映射</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">高地址（0x7FFF...）</span><br><span class="line">┌───────────────────────┐</span><br><span class="line">│        Kernel         │  ← 内核空间（用户进程不可访问）</span><br><span class="line">├───────────────────────┤</span><br><span class="line">│        Stack          │  ← 栈（向下增长）</span><br><span class="line">│          ↓            │</span><br><span class="line">├───────────────────────┤</span><br><span class="line">│        ...            │  ← 共享库、内存映射区等</span><br><span class="line">├───────────────────────┤</span><br><span class="line">│        Heap           │  ← 堆（向上增长）</span><br><span class="line">│          ↑            │</span><br><span class="line">├───────────────────────┤</span><br><span class="line">│   .bss / .data / .text │  ← 未初始化/已初始化数据、代码段</span><br><span class="line">└───────────────────────┘</span><br><span class="line">低地址（0x400000）</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="部署到本地网络"><a href="#部署到本地网络" class="headerlink" title="部署到本地网络"></a>部署到本地网络</h3><p>拿到一个 Linux 文件首先直接运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u+x your_pwn_binary   <span class="comment"># 授予权限</span></span><br><span class="line">./your_pwn_binary</span><br></pre></td></tr></table></figure>
-
-<p>使用 netstat 或 lsof 命令查找程序输出端口号</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlnp | grep your_pwn_binary</span><br><span class="line"><span class="comment"># 或者使用 lsof</span></span><br><span class="line">lsof -i -P -n | grep LISTEN | grep your_pwn_binary</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h3 id="pwngdb"><a href="#pwngdb" class="headerlink" title="pwngdb"></a>pwngdb</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb</span><br><span class="line"><span class="built_in">cp</span> ~/Pwngdb/.gdbinit ~/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x/s &amp;Buffer</span><br></pre></td></tr></table></figure>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><ul>
+<li>信息搜集</li>
+<li>取证分析 </li>
+<li><pre><code>内存分析：volatility
+</code></pre>
+</li>
+<li><pre><code>磁盘取证：VeraCrypt(处理加密卷)、Elcomsoft Forensic Disk Decryptor
+</code></pre>
+</li>
+<li>隐写：StegSolve</li>
+<li>流量分析：WireShark</li>
+<li>编码</li>
+</ul>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="入门指北"><a href="#入门指北" class="headerlink" title="入门指北"></a>入门指北</h3><p>一个入门指北 PDF 文件，提示说 flag 需要查找，然后复制这块空白</p>
+<p><img src="/../images/MoeCTF%202025-45.png" alt="image-20250909074840756"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;We1c0m3_7o_tH3_w0R1d_0f_m1sc3111aN3ous!!&#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="Pyjail-0"><a href="#Pyjail-0" class="headerlink" title="Pyjail 0"></a>Pyjail 0</h3><blockquote>
+<p><code>nc</code>&#x2F;<code>ncat</code> 是一个命令行网络工具<a target="_blank" rel="noopener" href="https://ctf.xidian.edu.cn/wiki/13#user-content-fn-1">1</a>，允许你通过 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP 协议</a>或者 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP 协议</a>连接到远程服务器 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Network_socket">Socket</a>，并进行数据传输。浏览器使用的是 HTTP&#x2F;HTTPS 协议。HTTP&#x2F;HTTPS 协议构建于 TCP 协议之上，<strong>而很多题目（Pwn &#x2F; Misc）方向的题目使用的是原始的 TCP 协议</strong>，并没有进一步实现 HTTP 协议的内容，所以用浏览器访问会显示一个<em>服务器发送了无效的响应</em></p>
+</blockquote>
+<p>下载WSRX windows</p>
+<p><img src="/../images/MoeCTF%202025-46.png" alt="image-20250909080041830"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncat 127.0.0.1 40835</span><br></pre></td></tr></table></figure>
 
+<p><img src="/../images/MoeCTF%202025-47.png" alt="image-20250909080143662"></p>
+<p>暂时放弃</p>
+<h3 id="ez-LSB"><a href="#ez-LSB" class="headerlink" title="ez_LSB"></a>ez_LSB</h3><p>一张红色校徽图片，</p>
+<p><img src="/../images/MoeCTF%202025-48.png" alt="image-20250909112452776"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">54686520666c6167 2069733a20625739  The flag  is: bW9</span><br><span class="line">6c5933526d653078 54516c3878633139  lY3Rme0x TQl8xc19</span><br><span class="line">7a4d463878626e51 7a636d567a644446  zMF8xbnQ zcmVzdDF</span><br><span class="line">755a79456863326f 3564325239000000  uZyEhc2o 5d2R9...</span><br></pre></td></tr></table></figure>
 
-<h3 id="Windows环境下汇编"><a href="#Windows环境下汇编" class="headerlink" title="Windows环境下汇编"></a>Windows环境下汇编</h3><h4 id="1-核心调用约定"><a href="#1-核心调用约定" class="headerlink" title="1. 核心调用约定"></a><strong>1. 核心调用约定</strong></h4><p>Windows 主要使用以下三种调用约定：</p>
-<table>
-<thead>
-<tr>
-<th align="left">调用约定</th>
-<th align="left">清理方</th>
-<th align="left">参数传递顺序</th>
-<th align="left">寄存器使用</th>
-<th align="left">典型应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong><code>__cdecl</code></strong></td>
-<td align="left">调用者</td>
-<td align="left">从右到左</td>
-<td align="left">栈传递参数</td>
-<td align="left">C 语言默认、可变参数函数</td>
-</tr>
-<tr>
-<td align="left"><strong><code>__stdcall</code></strong></td>
-<td align="left">被调者</td>
-<td align="left">从右到左</td>
-<td align="left">栈传递参数</td>
-<td align="left">Win32 API 函数</td>
-</tr>
-<tr>
-<td align="left"><strong><code>__fastcall</code></strong></td>
-<td align="left">被调者</td>
-<td align="left">从右到左</td>
-<td align="left">前两个参数用 <code>ECX</code>&#x2F;<code>EDX</code>，其余用栈</td>
-<td align="left">性能敏感代码</td>
-</tr>
-</tbody></table>
-<h4 id="2-寄存器"><a href="#2-寄存器" class="headerlink" title="2 .寄存器"></a>2 .寄存器</h4><table>
-<thead>
-<tr>
-<th align="left">寄存器</th>
-<th align="left">主要用途</th>
-<th align="left">Windows 特殊约定</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>RSP</strong></td>
-<td align="left">栈指针（Stack Pointer），指向当前栈顶</td>
-<td align="left">必须 16 字节对齐（调用 API 时）</td>
-</tr>
-<tr>
-<td align="left"><strong>RDI</strong></td>
-<td align="left">通用寄存器，Linux 中用于传递第一个参数（Windows 不用）</td>
-<td align="left">Windows 中通常为临时寄存器</td>
-</tr>
-<tr>
-<td align="left"><strong>RAX</strong></td>
-<td align="left">返回值寄存器（Return Value）</td>
-<td align="left">系统调用（syscall）返回值也存于此</td>
-</tr>
-<tr>
-<td align="left"><strong>RCX</strong></td>
-<td align="left">通用寄存器，Windows 中用于传递第一个整数参数</td>
-<td align="left"><code>fastcall</code>调用约定第 1 个参数</td>
-</tr>
-<tr>
-<td align="left"><strong>RDX</strong></td>
-<td align="left">通用寄存器，Windows 中用于传递第二个整数参数</td>
-<td align="left"><code>fastcall</code>调用约定第 2 个参数</td>
-</tr>
-<tr>
-<td align="left"><strong>R8</strong></td>
-<td align="left">通用寄存器，Windows 中用于传递第三个整数参数</td>
-<td align="left"><code>fastcall</code>调用约定第 3 个参数</td>
-</tr>
-<tr>
-<td align="left"><strong>R9</strong></td>
-<td align="left">通用寄存器，Windows 中用于传递第四个整数参数</td>
-<td align="left"><code>fastcall</code>调用约定第 4 个参数</td>
-</tr>
-</tbody></table>
-<h3 id="手动编译"><a href="#手动编译" class="headerlink" title="手动编译"></a>手动编译</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 下载特定版本的 glibc 源码</span><br><span class="line">wget https://ftp.gnu.org/gnu/glibc/glibc-2.31.tar.gz</span><br><span class="line">tar -xf glibc-2.31.tar.gz</span><br><span class="line">cd glibc-2.31</span><br><span class="line"></span><br><span class="line"># 编译（需要指定安装目录）</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">../configure --prefix=/path/to/glibc-2.31-install</span><br><span class="line">make -j$(nproc)</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 获取 ld-linux</span><br><span class="line">cp /path/to/glibc-2.31-install/lib/ld-linux-x86-64.so.2 ./</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bW9lY3Rme0xTQl8xc19zMF8xbnQzcmVzdDFuZyEhc2o5d2R9</span><br></pre></td></tr></table></figure>
+
+<p>注意到 bW9lY3Rme 开头（之前Base64解码过，就是 moectf{ ）</p>
+<p>猜测是base64加密过的，现在解码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">ciphertext = <span class="string">&quot;bW9lY3Rme0xTQl8xc19zMF8xbnQzcmVzdDFuZyEhc2o5d2R9&quot;</span></span><br><span class="line">b = base64.b64decode(ciphertext) </span><br><span class="line"><span class="built_in">print</span>(b.decode())  <span class="comment"># 输出解码后的明文</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;LSB_1s_s0_1nt3rest1ng!!sj9wd&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><p>heap：变，动态分配，runtime</p>
-<p>stack：定，可以存储函数返回地址</p>
-<h3 id="缓冲区溢出"><a href="#缓冲区溢出" class="headerlink" title="缓冲区溢出"></a>缓冲区溢出</h3><p>根本原因：数据混杂</p>
-<p>直接原因：未进行长度检查</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcpy</span>(Buffer,input);   <span class="comment">// 不检查长度。直接复制</span></span><br></pre></td></tr></table></figure>
+<h3 id="ez-锟斤拷"><a href="#ez-锟斤拷" class="headerlink" title="ez_锟斤拷????"></a>ez_锟斤拷????</h3><p>打开 <code>flag.txt</code></p>
+<p><img src="/../images/MoeCTF%202025-49.png" alt="image-20250909113023376"></p>
+<p>首先要了解一下 锟斤拷 的形成原理</p>
+<p>GBK 字符集 转化成 Unicode字符集 时，有些字符是 Unicode 没法表示的。使用一个占位符来表示这些文字。就是 <code>U+FFFD</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">U+FFFD：UTF-8 编码 -&gt; \xef\xbf\xbd 重复多次</span><br><span class="line">\xef\xbf\xbd\xef\xbf\xbd：GBK 编码 -&gt; EFBF BDEF BFBD 锟斤拷</span><br></pre></td></tr></table></figure>
+
+<p>先通过编码保存为 GBK，再通过 UTF-8 编码重新打开flag.txt即可</p>
+<p><img src="/../images/MoeCTF%202025-50.png" alt="image-20250909114317800"></p>
+<p>即：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;EnC0d1ing_gbK_@nD_Utf_8_1s_4un!!ewwww&#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="Rush"><a href="#Rush" class="headerlink" title="Rush"></a>Rush</h3><p>打开是一个 gif 文件</p>
+<p><img src="/../images/MoeCTF%202025-51.png" alt="image-20250909114559611"></p>
+<p>导出每帧图片：第12帧出现了二维码</p>
+<p><img src="/../images/MoeCTF%202025-52.png" alt="image-20250909115257964"></p>
+<p>但是这个码缺失了一部分，扫不了</p>
+<p>补上两个角即可</p>
+<p><img src="/../images/MoeCTF%202025-148.png" alt="image-20250912203343767"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moectf&#123;QR_C0d3s_feATUR3_eRror_c0RRECt10N&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="CRC"><a href="#CRC" class="headerlink" title="CRC"></a>CRC</h3><p>在 windows 下可以正常打开图片，在 Linux&#x2F;VScode 中打不开</p>
+<p>先分析一下png图片格式</p>
+<p><img src="/../images/MoeCTF%202025-147.png" alt="image-20250912115001718"></p>
+<blockquote>
+<p>前八个字节<strong>89 50 4E 47 0D 0A 1A 0A</strong>为png的文件头，<strong>该段格式是固定的</strong></p>
+<p>图中高亮部分为<strong>chunk[0]段</strong>：00 00 00 0D 表示数据块的长度为13</p>
+<p>​	49 48 44 52：IHDR，是文件头数据块的标识，该段格式也是固定的</p>
+<p>​	之后进入 13 位数据块</p>
+<p>​		前四个字节：00 00 03 84 表示图片的宽为0x384</p>
+<p>​		后四个字节：00 00 01 EA 表示图片的高为0x1EA</p>
+<p>​		后五个字节：08 02 00 00 00：分别表示bit depth 、color type、compression method、filter method、interlace method</p>
+<p>​		剩余四个字节：B5 A7 BF 8C：CRC校验码</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">宽：0384(900)</span><br><span class="line">高：01EA(490)</span><br><span class="line">CRC校验码： B5A7BF8C</span><br></pre></td></tr></table></figure>
+
+<p><strong>对一张正常的图片，通过修改其宽度或者高度隐藏信息，使计算出的CRC校验码与原图的CRC校验码不一致；windows的图片查看器会忽略错误的CRC校验码，因此会显示图片，但此时的图片已经是修改过的，所以会有显示不全或扭曲等情况，借此可以隐藏信息。</strong></p>
+<p>而Linux下的图片查看器不会忽略错误的CRC校验码，因此用Linux打开修改过宽或高的png图片时，会出现打不开的情况</p>
+<p>根据CRC校验码爆破获得原图片的宽和高</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"></span><br><span class="line">target_crc = <span class="number">0xB5A7BF8C</span></span><br><span class="line">bit_depth = <span class="number">8</span></span><br><span class="line">color_type = <span class="number">2</span></span><br><span class="line">compression = <span class="number">0</span></span><br><span class="line">filter_method = <span class="number">0</span></span><br><span class="line">interlace = <span class="number">0</span></span><br><span class="line">chunk_type = <span class="string">b&#x27;IHDR&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 爆破宽高区间自行设置（比如1~4096）</span></span><br><span class="line"><span class="keyword">for</span> width <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4096</span>):</span><br><span class="line">    <span class="keyword">for</span> height <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4096</span>):</span><br><span class="line">        ihdr_data = (</span><br><span class="line">            width.to_bytes(<span class="number">4</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            height.to_bytes(<span class="number">4</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            bit_depth.to_bytes(<span class="number">1</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            color_type.to_bytes(<span class="number">1</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            compression.to_bytes(<span class="number">1</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            filter_method.to_bytes(<span class="number">1</span>, <span class="string">&#x27;big&#x27;</span>) +</span><br><span class="line">            interlace.to_bytes(<span class="number">1</span>, <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">        )</span><br><span class="line">        crc_val = binascii.crc32(chunk_type + ihdr_data) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        <span class="keyword">if</span> crc_val == target_crc:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Found!&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Width:&quot;</span>, width)      <span class="comment"># 900</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Height:&quot;</span>, height)    <span class="comment"># 490</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Other IHDR params:&quot;</span>, [bit_depth, color_type, compression, filter_method, interlace])</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="/../images/MoeCTF%202025-146.png" alt="image-20250912114058499"></p>
 </article>
 
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/CTF%20Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CTF Reverse 基础知识</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Web%20%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">Web 理论知识</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/MoeCTF%202025-5/">MoeCTF 2025 Web</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/MoeCTF%202025-3/">MoeCTF 2025 Pwn</a></div></section></div>
 
 
 
@@ -230,7 +207,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%98%A0%E5%B0%84"><span class="toc-text">程序内存中的映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%BD%91%E7%BB%9C"><span class="toc-text">部署到本地网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwngdb"><span class="toc-text">pwngdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%B1%87%E7%BC%96"><span class="toc-text">Windows环境下汇编</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A"><span class="toc-text">1. 核心调用约定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">2 .寄存器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91"><span class="toc-text">手动编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-text">汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA"><span class="toc-text">缓冲区溢出</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Misc"><span class="toc-text">Misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97"><span class="toc-text">入门指北</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pyjail-0"><span class="toc-text">Pyjail 0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez-LSB"><span class="toc-text">ez_LSB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez-%E9%94%9F%E6%96%A4%E6%8B%B7"><span class="toc-text">ez_锟斤拷????</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rush"><span class="toc-text">Rush</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRC"><span class="toc-text">CRC</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
