@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,15 +17,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>分类：MoeCTF 2025 - 首页</title>
+  <title>PE和ELF文件结构 - 首页</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="首页">
-<meta property="og:url" content="https://stone0721.github.io/categories/MoeCTF-2025/">
+    <meta name="description" content="PE和ELF文件结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PE和ELF文件结构">
+<meta property="og:url" content="https://stone0721.github.io/PE%E4%B8%8EELF%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/">
 <meta property="og:site_name" content="首页">
+<meta property="og:description" content="PE和ELF文件结构">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
+<meta property="article:published_time" content="2025-09-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-20T07:52:30.544Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
@@ -46,12 +50,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://stone0721.github.io","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"name":"首页","description":"","url":"https://stone0721.github.io"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-09-16T00:00:00+08:00","dateModified":"2025-10-20T15:52:30+08:00","datePublished":"2025-09-16T00:00:00+08:00","description":"PE和ELF文件结构","headline":"PE和ELF文件结构","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/PE%E4%B8%8EELF%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/PE%E4%B8%8EELF%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/","image":[]}</script>
   
 </head>
 <body>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/cover.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">ddddd</div><div class="sub cap">分享个人学习笔记、技术文章</div></a></div></header>
@@ -63,34 +67,107 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
+
+
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/CTF%20Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/PE%E4%B8%8EELF%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/"><span class="title">PE和ELF文件结构</span></a><a class="item title" href="/CTF%20Misc%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Misc 基础知识</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%A3%B3/"><span class="title">反逆向之壳</span></a><a class="item title" href="/Z3%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"><span class="title">Z3求解器的使用</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E8%99%9A%E6%8B%9F%E6%9C%BA/"><span class="title">反逆向之虚拟机</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E8%8A%B1%E6%8C%87%E4%BB%A4/"><span class="title">反逆向之花指令</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%8F%8D%E8%B0%83%E8%AF%95/"><span class="title">反逆向之反调试</span></a><a class="item title" href="/python%E5%AD%97%E8%8A%82%E7%A0%81/"><span class="title">Python字节码</span></a><a class="item title" href="/Android%E9%80%86%E5%90%91/"><span class="title">Android 逆向基础</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/cover.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">ddddd</div><div class="sub cap">分享个人学习笔记、技术文章</div></a></div></header>
-
- 
 
 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a class="active" href="/categories/">分类：MoeCTF 2025</a><a href="/archives/">归档</a></nav></div></div></div>
-<div class="post-list post"><a class="post-card post" href="/MoeCTF%202025-5/">
-<article class="md-text"><h2 class="post-title">MoeCTF 2025 Web</h2><div class="excerpt"><p>MoeCTF 2025 Web部分</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2025-10-15T09:20:00.000Z">2025-10-15</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>MoeCTF 2025</span></span></div></article>
-</a><a class="post-card post" href="/MoeCTF%202025-1/">
-<article class="md-text"><h2 class="post-title">MoeCTF 2025 Reverse</h2><div class="excerpt"><p>逆向部分</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2025-10-08T15:20:00.000Z">2025-10-08</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>MoeCTF 2025</span></span></div></article>
-</a><a class="post-card post" href="/MoeCTF%202025-2/">
-<article class="md-text"><h2 class="post-title">MoeCTF 2025 Misc</h2><div class="excerpt"><p>杂项部分</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2025-09-08T23:20:00.000Z">2025-09-09</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>MoeCTF 2025</span></span></div></article>
-</a><a class="post-card post" href="/MoeCTF%202025-3/">
-<article class="md-text"><h2 class="post-title">MoeCTF 2025 Pwn</h2><div class="excerpt"><p>PWN部分</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2025-09-08T23:20:00.000Z">2025-09-09</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>MoeCTF 2025</span></span></div></article>
-</a></div>
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-09-15T16:00:00.000Z">2025-09-16</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-10-20T07:52:30.544Z">2025-10-20</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>PE和ELF文件结构</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>PE和ELF文件结构</p>
+<span id="more"></span>
+
+
+
+<h3 id="文件的二进制结构"><a href="#文件的二进制结构" class="headerlink" title="文件的二进制结构"></a>文件的二进制结构</h3><h4 id="ELF"><a href="#ELF" class="headerlink" title="ELF"></a>ELF</h4><p>Linux 中的目标文件，也就是 **ELF （Executable and Linkable Format）**文件，主要有以下三种类型</p>
+<ul>
+<li>可重定位文件（Relocatable File），包含由编译器生成的代码以及数据。链接器会将它与其它目标文件链接起来从而创建可执行文件或者共享目标文件。在 Linux 系统中，这种文件的后缀一般为 <code>.o</code> 。</li>
+<li>可执行文件（Executable File），就是我们通常在 Linux 中执行的程序。</li>
+<li>共享目标文件（Shared Object File），包含代码和数据，这种文件是我们所称的库文件，一般以 <code>.so</code> 结尾。一般情况下，它有以下两种使用情景：<ul>
+<li>链接器（Link eDitor, ld）可能会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。</li>
+<li>动态链接器（Dynamic Linker）将它与可执行文件以及其它共享目标组合在一起生成进程镜像。</li>
+</ul>
+</li>
+</ul>
+<p>文件结构</p>
+<ol>
+<li><p>ELF Header（文件头）</p>
+<p> 固定数 ELF 、文件类型、目标体系结构、文件版本、入口点地址、段表偏移、节表偏移、文件头大小…….</p>
+</li>
+<li><p>Program Header Table（程序头表）</p>
+<p> 描述 ELF 文件的**段（Segment）**信息，适用于可执行文件和共享目标文件。动态链接器和操作系统加载器使用该表来加载程序到内存中。</p>
+</li>
+<li><p>Section Header Table（节头表）</p>
+</li>
+<li><p>Sections（节）</p>
+<p> 常见节包括：</p>
+<ul>
+<li><code>.text</code>：存储可执行代码。</li>
+<li><code>.data</code>：存储初始化数据。</li>
+<li><code>.bss</code>：存储未初始化的全局&#x2F;静态变量（不占用文件空间，仅在内存中分配）。</li>
+<li><code>.rodata</code>：存储只读数据，如字符串常量。</li>
+<li><code>.symtab</code>：符号表，存储函数和变量的符号信息。</li>
+<li><code>.strtab</code>：字符串表，存储符号名称等字符串。</li>
+</ul>
+</li>
+<li><p>Dynamic Linking Information（动态链接信息）</p>
+</li>
+<li><p>Symbol Table（符号表）</p>
+</li>
+<li><p>Relocation Table（重定位表）</p>
+</li>
+</ol>
+<h4 id="PE"><a href="#PE" class="headerlink" title="PE"></a>PE</h4><p>Windows EXE文件采用  <strong>PE（Portable Executable）</strong> 格式  ，与 ELF 文件对比：</p>
+<p>共同点：</p>
+<ul>
+<li>都支持可执行文件、动态库和目标文件。</li>
+<li>都包含头部、段&#x2F;节、符号表和重定位信息。</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>平台：ELF 主要用于 Linux&#x2F;Unix，PE 用于 Windows。</li>
+<li>头部结构：ELF Header 更简洁，PE 使用 DOS 头和 PE 头，兼容旧的 DOS 格式。</li>
+<li>动态链接：ELF 使用 .dynamic 节和动态链接器（ld.so）；PE 使用导入表（Import Table）和 DLL。</li>
+<li>扩展性：ELF 设计更灵活，支持多种架构；PE 主要针对 x86&#x2F;x64。</li>
+</ul>
+</article>
+
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/%E7%BC%96%E7%A0%81/">编码知识</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/CTF%20Pwn%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CTF Pwn 基础知识</a></div></section></div>
+
+
+
+
 
 
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">stone0721</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BB%93%E6%9E%84"><span class="toc-text">文件的二进制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ELF"><span class="toc-text">ELF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PE"><span class="toc-text">PE</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -785,6 +862,29 @@
     }
   });
 </script>
+
+<script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     window.codeElements = document.querySelectorAll('.code');
