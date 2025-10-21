@@ -20,16 +20,16 @@
   <title>Python字节码 - 首页</title>
 
   
-    <meta name="description" content="Python字节码相关知识">
+    <meta name="description" content="介绍Python字节码，其文件结构，以及如何反编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python字节码">
 <meta property="og:url" content="https://stone0721.github.io/python%E5%AD%97%E8%8A%82%E7%A0%81/">
 <meta property="og:site_name" content="首页">
-<meta property="og:description" content="Python字节码相关知识">
+<meta property="og:description" content="介绍Python字节码，其文件结构，以及如何反编译">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stone0721.github.io/images/cover.jpg">
-<meta property="article:published_time" content="2025-10-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-20T07:35:58.676Z">
+<meta property="article:published_time" content="2025-10-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-21T06:16:31.758Z">
 <meta property="article:author" content="stone0721">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stone0721.github.io/images/cover.jpg">
@@ -50,7 +50,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-10-20T00:00:00+08:00","dateModified":"2025-10-20T15:35:58+08:00","datePublished":"2025-10-20T00:00:00+08:00","description":"Python字节码相关知识","headline":"Python字节码","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/python%E5%AD%97%E8%8A%82%E7%A0%81/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/python%E5%AD%97%E8%8A%82%E7%A0%81/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"stone0721","sameAs":[],"image":"/images/cover.jpg"},"dateCreated":"2025-10-21T00:00:00+08:00","dateModified":"2025-10-21T14:16:31+08:00","datePublished":"2025-10-21T00:00:00+08:00","description":"介绍Python字节码，其文件结构，以及如何反编译","headline":"Python字节码","mainEntityOfPage":{"@type":"WebPage","@id":"https://stone0721.github.io/python%E5%AD%97%E8%8A%82%E7%A0%81/"},"publisher":{"@type":"Organization","name":"stone0721","sameAs":[],"image":"/images/cover.jpg","logo":{"@type":"ImageObject","url":"/images/cover.jpg"}},"url":"https://stone0721.github.io/python%E5%AD%97%E8%8A%82%E7%A0%81/","image":[]}</script>
   
 </head>
 <body>
@@ -69,7 +69,7 @@
 
 
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Z3%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"><span class="title">Z3求解器的使用</span></a><a class="item title" href="/Android%E9%80%86%E5%90%91/"><span class="title">Android 逆向基础</span></a><a class="item title" href="/CTF%20Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a><a class="item title" href="/PE%E4%B8%8EELF%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/"><span class="title">PE和ELF文件结构</span></a><a class="item title" href="/CTF%20Misc%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Misc 基础知识</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%A3%B3/"><span class="title">反逆向之壳</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E8%99%9A%E6%8B%9F%E6%9C%BA/"><span class="title">反逆向之虚拟机</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E8%8A%B1%E6%8C%87%E4%BB%A4/"><span class="title">反逆向之花指令</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%8F%8D%E8%B0%83%E8%AF%95/"><span class="title">反逆向之反调试</span></a><a class="item title" href="/python%E5%AD%97%E8%8A%82%E7%A0%81/"><span class="title">Python字节码</span></a></div></widget>
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/python%E5%AD%97%E8%8A%82%E7%A0%81/"><span class="title">Python字节码</span></a><a class="item title" href="/Python-2/"><span class="title">Python进阶</span></a><a class="item title" href="/Python-1/"><span class="title">Python基础</span></a><a class="item title" href="/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/"><span class="title">信息系统安全</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E8%8A%B1%E6%8C%87%E4%BB%A4/"><span class="title">反逆向之花指令</span></a><a class="item title" href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%BC%82%E5%B8%B8/"><span class="title">反逆向异常</span></a><a class="item title" href="/%E7%BC%96%E7%A0%81/"><span class="title">编码知识</span></a><a class="item title" href="/Z3%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"><span class="title">Z3求解器的使用</span></a><a class="item title" href="/Android%E9%80%86%E5%90%91/"><span class="title">Android 逆向基础</span></a><a class="item title" href="/CTF%20Reverse%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="title">CTF Reverse 基础知识</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -81,8 +81,8 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/CTF/">CTF</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-10-19T16:00:00.000Z">2025-10-20</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-10-20T07:35:58.676Z">2025-10-20</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python/">Python</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-10-20T16:00:00.000Z">2025-10-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-10-21T06:16:31.758Z">2025-10-21</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -93,30 +93,63 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><p>Python字节码相关知识</p>
+  </div><article class="md-text content"><p>介绍Python字节码，其文件结构，以及如何反编译</p>
 <span id="more"></span>
 
 
 
-<h4 id="Python字节码"><a href="#Python字节码" class="headerlink" title="Python字节码"></a>Python字节码</h4><blockquote>
-<p> <code>pyc</code>文件是 <strong>Python 字节码（Bytecode）的编译缓存文件</strong>。</p>
+<h2 id="Python字节码"><a href="#Python字节码" class="headerlink" title="Python字节码"></a>Python字节码</h2><p>Python 脚本执行流程</p>
+<ul>
+<li><p>读取文件里面的内容，对其进行分词, 将源代码切分成一个一个的<code>token</code></p>
+</li>
+<li><p>然后Python编译器会对<code>token</code>进行语法解析, 建立抽象语法树<code>(AST, abstract syntax tree)</code></p>
+</li>
+<li><p>编译器再将得到<code>AST</code>编译成字节码</p>
+</li>
+<li><p>最终由<code>Python</code>虚拟机来执行字节码</p>
+</li>
+</ul>
+<p><strong>Python解释器 &#x3D; Python编译器 + Python虚拟机，Python编译器负责将Python源代码编译成字节码(包括文件读取、分词、建立AST、编译成字节码)，Python虚拟机负责执行这些字节码。</strong></p>
+<p>.pyc 文件包含编译后的字节码，可以直接由解释器执行，无需每次运行脚本时重新编译源代码。</p>
+<p>.pyc 文件特定于用于生成它们的 Python 版本。如果尝试使用不同版本的 Python 运行 .pyc 文件，则可能会遇到错误或意外行为。</p>
+<h2 id="Python字节码结构"><a href="#Python字节码结构" class="headerlink" title="Python字节码结构"></a>Python字节码结构</h2><h3 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h3><p><strong>Python 3.7+</strong></p>
+<p><img src="/../images/CTF%20Reverse/20.png" alt="image-20251021124901500"></p>
+<p><code>\x00</code> 时间戳、大小对反编译均无影响</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Python 3.3 - 3.7（包含3.3）版本中，  只有 Magic Number 、四字节时间戳 、四字节大小信息</span><br><span class="line">Python 3.3 以下的版本中， 只有 Magic Number 和 四字节时间戳</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Python 3.5  （3350）  <code>0x0D16</code></li>
+<li>Python 3.7.0  (3394)    <code>0x0D42</code></li>
+</ul>
+<h3 id="PyCodeObject"><a href="#PyCodeObject" class="headerlink" title="PyCodeObject"></a>PyCodeObject</h3><p><strong>对于Python编译器来说，PyCodeObject对象是其真正的编译结果，而pyc文件是这个对象在硬盘上表现形式。</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    PyObject_HEAD		<span class="comment">/* 头部信息, 我们看到真的一切皆对象, 字节码也是个对象 */</span>	</span><br><span class="line">    <span class="type">int</span> co_argcount;            <span class="comment">/* 可以通过位置参数传递的参数个数 */</span></span><br><span class="line">    <span class="type">int</span> co_posonlyargcount;     <span class="comment">/* 只能通过位置参数传递的参数个数,  Python3.8新增 */</span></span><br><span class="line">    <span class="type">int</span> co_kwonlyargcount;      <span class="comment">/* 只能通过关键字参数传递的参数个数 */</span></span><br><span class="line">    <span class="type">int</span> co_nlocals;             <span class="comment">/* 代码块中局部变量的个数，也包括参数 */</span></span><br><span class="line">    <span class="type">int</span> co_stacksize;           <span class="comment">/* 执行该段代码块需要的栈空间 */</span></span><br><span class="line">    <span class="type">int</span> co_flags;               <span class="comment">/* 参数类型标识 */</span></span><br><span class="line">    <span class="type">int</span> co_firstlineno;         <span class="comment">/* 代码块在对应文件的行号 */</span></span><br><span class="line">    PyObject *co_code;          <span class="comment">/* 指令集, 也就是字节码, 它是一个bytes对象 */</span></span><br><span class="line">    PyObject *co_consts;        <span class="comment">/* 常量池, 一个元组，保存代码块中的所有常量。 */</span></span><br><span class="line">    PyObject *co_names;         <span class="comment">/* 一个元组,保存代码块中引用的其它作用域的变量 */</span></span><br><span class="line">    PyObject *co_varnames;      <span class="comment">/* 一个元组,保存当前作用域中的变量 */</span></span><br><span class="line">    PyObject *co_freevars;      <span class="comment">/* 内层函数引用的外层函数的作用域中的变量 */</span></span><br><span class="line">    PyObject *co_cellvars;      <span class="comment">/* 外层函数中作用域中被内层函数引用的变量，本质上和co_freevars是一样的 */</span></span><br><span class="line"></span><br><span class="line">    Py_ssize_t *co_cell2arg;    <span class="comment">/* 无需关注 */</span></span><br><span class="line">    PyObject *co_filename;      <span class="comment">/* 代码块所在的文件名 */</span></span><br><span class="line">    PyObject *co_name;          <span class="comment">/* 代码块的名字，通常是函数名或者类名 */</span></span><br><span class="line">    PyObject *co_lnotab;        <span class="comment">/* 字节码指令与python源代码的行号之间的对应关系，以PyByteObject的形式存在 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//剩下的无需关注了</span></span><br><span class="line">    <span class="type">void</span> *co_zombieframe;       <span class="comment">/* for optimization only (see frameobject.c) */</span></span><br><span class="line">    PyObject *co_weakreflist;   <span class="comment">/* to support weakrefs to code objects */</span></span><br><span class="line">    <span class="type">void</span> *co_extra;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> *co_opcache_map;</span><br><span class="line">    _PyOpcache *co_opcache;</span><br><span class="line">    <span class="type">int</span> co_opcache_flag; </span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> co_opcache_size; </span><br><span class="line">&#125; PyCodeObject;</span><br></pre></td></tr></table></figure>
+
+<p>对于代码中的每一个 block（作用域），都会创建一个PyCodeObject与之对应。</p>
+<p>可以通过特殊方法 <code>__code__</code> 访问这些属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a,b,c</span>):</span><br><span class="line">    <span class="keyword">return</span> a+b+c</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(func.__code__.co_argcount)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3</p>
 </blockquote>
-<p>反编译最简单的方法就是找个在线网站</p>
-<p> <strong><code>pycdc</code>（Python 反编译工具）</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install git cmake g++</span><br></pre></td></tr></table></figure>
+<h2 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h2><p>反编译最简单的方法就是找个在线网站</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.lddgo.net/string/pyc-compile-decompile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="pycdc"><a href="#pycdc" class="headerlink" title="pycdc"></a>pycdc</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install git cmake g++</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zrax/pycdc.git</span><br><span class="line"><span class="built_in">cd</span> pycdc</span><br><span class="line"></span><br><span class="line">cmake .</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./pycdc    file.pyc</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./pycdc  file.pyc</span><br></pre></td></tr></table></figure>
 
+<p>支持反编译 Python 3.9 及以上版本的 <code>.pyc</code> 文件。</p>
+<h3 id="umcompyle6"><a href="#umcompyle6" class="headerlink" title="umcompyle6"></a>umcompyle6</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install uncompyle6 <span class="comment"># 安装</span></span><br><span class="line">uncompyle6 file.pyc     <span class="comment"># 使用</span></span><br></pre></td></tr></table></figure>
 
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install uncompyle6</span><br></pre></td></tr></table></figure>
-
+<p>支持 python 1.3 - 3.8</p>
 </article>
 
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/Z3%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/">Z3求解器的使用</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/%E5%8F%8D%E9%80%86%E5%90%91%E4%B9%8B%E5%8F%8D%E8%B0%83%E8%AF%95/">反逆向之反调试</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Android%E9%80%86%E5%90%91/">Android 逆向基础</a></div></section></div>
 
 
 
@@ -130,7 +163,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">Python字节码</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">Python字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E5%AD%97%E8%8A%82%E7%A0%81%E7%BB%93%E6%9E%84"><span class="toc-text">Python字节码结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8"><span class="toc-text">头部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PyCodeObject"><span class="toc-text">PyCodeObject</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-text">反编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pycdc"><span class="toc-text">pycdc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umcompyle6"><span class="toc-text">umcompyle6</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
