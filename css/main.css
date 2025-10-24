@@ -1,10 +1,10 @@
 :root {
-  --width-main: 720px;
+  --width-main: 900px;
   --fsp: 0.9375rem;
   --fsh2: calc(var(--fsp) + 11px);
   --fsh3: calc(var(--fsp) + 7px);
   --fsh4: calc(var(--fsp) + 4px);
-  --side-content-width: 224px;
+  --side-content-width: 220px;
   --gap-margin: 16px;
   --gap-padding: 16px;
   --gap-p: calc(0.9375rem + 4px);
