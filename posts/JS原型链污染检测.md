@@ -1,12 +1,20 @@
+---
+title: JS原型链污染漏洞检测
+date: 2025-11-21
+categories: Web安全 
+mathjax: true
+toc: true
+---
+
 # JS 原型链污染漏洞检测
 
-Javascript 是一种非常灵活的动态语言，核心机制之一就是原型链继承，但也引入了原型链污染漏洞。即攻击者通过原型链修改父类（上到 Object 类）的属性，影响所有对象行为。
+JavaScript 是一种非常灵活的动态语言，核心机制之一就是原型链继承，但也引入了原型链污染漏洞。即攻击者通过原型链修改父类（上到 Object 类）的属性，影响所有对象行为。
 
 ## 论文笔记
 
 **Detecting Node.js Prototype Pollution Vulnerabilities via Object Lookup Analysis (2021)**
 
-使用 AST 静态分析 Javascript，难以精确地建模原型链继承和动态属性访问等行为，为了解决这个问题，论文提出一种 **Object Property Graph（OPG）**，新增 对象节点 和  属性/变量节点。（`object node`、`name node`）。
+使用 AST 静态分析 JavaScript，难以精确地建模原型链继承和动态属性访问等行为，为了解决这个问题，论文提出一种 **Object Property Graph（OPG）**，新增 对象节点 和  属性/变量节点。（`object node`、`name node`）。
 
 在 OPG 的基础上分析污点传播，将 Source 和 Sink 同时扩展，如果出现汇点，说明可能存在一条从输入到敏感属性的污染路径，之后约束求解验证。
 
@@ -99,7 +107,7 @@ Sink 是污染目标，初始化为 JavaScript 内置函数的原型（如 `Obje
 
 ### 1.OPG 的构建
 
-首先使用 `Esprima` (https://esprima.org/)  解析 Javascript 生成 AST
+首先使用 `Esprima` (https://esprima.org/)  解析 JavaScript 生成 AST
 
 基于 AST 构建 OPG：深度优先遍历 AST，每个节点调用对应 Handler，负责将 AST 节点转换成 OPG 中的对应结构
 
