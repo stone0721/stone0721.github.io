@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的博客</title>
     <meta name="description" content="一个带有粒子背景和流畅动画的个人中文博客">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- 新样式 -->
 </head>
 <body>
+
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
@@ -18,16 +20,30 @@
         <p>加载中，请稍后...</p>
     </div>
 
-    <!-- 主内容 -->
+    <!-- 固定导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">我的博客</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="about.html" class="nav-link">关于我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 主视觉区 -->
     <header class="hero">
-        <h1 data-aos="fade-down">欢迎来到我的博客</h1>
-        <p data-aos="fade-up" class="subtitle">记录技术 · 生活 · 思考</p>
-        <a href="about.html" class="btn" data-aos="zoom-in">关于我</a>
+        <div class="hero-content" data-aos="fade-down">
+            <h1 class="glitch" data-text="欢迎来到我的博客">欢迎来到我的博客</h1>
+            <p class="subtitle">记录技术 · 生活 · 思考</p>
+            <a href="about.html" class="btn-glow">关于我 <i class="fas fa-arrow-right"></i></a>
+        </div>
     </header>
 
+    <!-- 最新文章 -->
     <section class="posts-section">
         <h2 data-aos="zoom-in">最新文章</h2>
-        <div id="post-container">
+        <div id="post-container" class="posts-grid">
             <!-- JS 动态加载 -->
         </div>
     </section>

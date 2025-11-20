@@ -1,319 +1,234 @@
-/* 导航栏样式 */
-.navbar {
+/* 全局 */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    background: #0a0a1f;
+    overflow-x: hidden;
+}
+#particles-js {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    top: 0; left: 0;
+    z-index: -1;
 }
 
+/* 预加载 */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #0a0a1f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s;
+}
+.spinner {
+    width: 60px; height: 60px;
+    border: 6px solid rgba(79,195,247,0.3);
+    border-top-color: #4fc3f7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 0;
+    background: rgba(10,10,31,0.4);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
 .nav-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .nav-logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #4fc3f7;
     text-decoration: none;
 }
-
-.nav-link {
-    color: white;
+.nav-links a {
+    color: #fff;
+    margin-left: 30px;
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: #ff9a9e;
 }
 
-.nav-link:hover {
-    color: #4fc3f7;
-}
-
-/* 关于页面主体 */
-.about-main {
-    padding-top: 100px;
+/* Hero 区 */
+.hero {
     min-height: 100vh;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* 个人资料区域 */
-.profile-section {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.avatar-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-}
-
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #4fc3f7, #a18cd1);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-content {
+    max-width: 900px;
+}
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #4fc3f7, #ff9a9e, #a18cd1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
-    z-index: 2;
-    box-shadow: 0 20px 40px rgba(79, 195, 247, 0.3);
-    transition: transform 0.3s ease;
 }
-
-.avatar:hover {
-    transform: scale(1.1);
-}
-
-.avatar-glow {
+.glitch::before, .glitch::after {
+    content: attr(data-text);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(79, 195, 247, 0.3), transparent);
-    animation: pulse 2s infinite;
-    z-index: 1;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
-}
-
-.name {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, #4fc3f7, #ff9a9e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.title {
-    font-size: 1.3rem;
-    opacity: 0.8;
-    color: #a18cd1;
-}
-
-/* 技能部分 */
-.skills-section {
-    margin-bottom: 80px;
-}
-
-.skills-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #4fc3f7;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.skill-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    transition: all 0.4s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(79, 195, 247, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.skill-card i {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #4fc3f7, #a18cd1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.skill-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.skill-bar {
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 15px;
+    background: #0a0a1f;
+    -webkit-background-clip: text;
+    clip-text: text;
 }
-
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #4fc3f7, #a18cd1);
-    border-radius: 4px;
-    animation: fillBar 2s ease-in-out forwards;
+.glitch::before {
+    animation: glitch-1 2s infinite;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
 }
-
-@keyframes fillBar {
-    from { width: 0% !important; }
+.glitch::after {
+    animation: glitch-2 2s infinite;
+    left: -2px;
+    text-shadow: 2px 0 #00ffff;
 }
-
-/* 介绍部分 */
-.intro-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 80px;
+@keyframes glitch-1 {
+    0%,100% { clip: rect(0,9999px,0,0); }
+    20% { clip: rect(20px,9999px,40px,0); }
+    40% { clip: rect(80px,9999px,20px,0); }
+    60% { clip: rect(40px,9999px,80px,0); }
+    80% { clip: rect(60px,9999px,50px,0); }
 }
-
-.intro-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s ease;
+@keyframes glitch-2 {
+    0%,100% { clip: rect(0,9999px,0,0); }
+    20% { clip: rect(50px,9999px,70px,0); }
+    40% { clip: rect(30px,9999px,90px,0); }
+    60% { clip: rect(90px,9999px,30px,0); }
 }
-
-.intro-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(79, 195, 247, 0.2);
-}
-
-.intro-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #4fc3f7;
-}
-
-.intro-card h2 i {
-    margin-right: 10px;
-}
-
-.intro-card p {
-    line-height: 1.6;
+.subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
     opacity: 0.9;
 }
-
-.hobbies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+.btn-glow {
+    padding: 14px 40px;
+    font-size: 1.2rem;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #4fc3f7;
+    border-radius: 50px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.4), transparent);
+    transition: 0.6s;
+}
+.btn-glow:hover::before { left: 100%; }
+.btn-glow:hover {
+    background: #4fc3f7;
+    box-shadow: 0 0 30px rgba(79,195,247,0.8);
+    transform: translateY(-5px);
 }
 
-.hobby-tag {
-    background: rgba(79, 195, 247, 0.2);
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    border: 1px solid rgba(79, 195, 247, 0.3);
-    transition: all 0.3s ease;
-}
-
-.hobby-tag:hover {
-    background: rgba(79, 195, 247, 0.3);
-    transform: scale(1.05);
-}
-
-/* 联系部分 */
-.contact-section {
+/* 文章区 */
+.posts-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px;
     text-align: center;
 }
-
-.contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+.posts-section h2 {
+    font-size: 3rem;
+    margin-bottom: 60px;
     color: #4fc3f7;
 }
-
-.social-links {
-    display: flex;
-    justify-content: center;
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    flex-wrap: wrap;
+}
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, #4fc3f7, #ff9a9e);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+.card:hover::before { transform: scaleX(1); }
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(79,195,247,0.3);
+    border-color: #4fc3f7;
+}
+.card .date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+.card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #ff9a9e;
+}
+.card p {
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
-.social-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    min-width: 100px;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
+footer a { color: #4fc3f7; }
 
-.social-link:hover {
-    transform: translateY(-10px) scale(1.1);
-    color: #4fc3f7;
-    box-shadow: 0 15px 30px rgba(79, 195, 247, 0.3);
-}
-
-.social-link i {
-    font-size: 2rem;
-}
-
-/* 响应式设计 */
+/* 响应式 */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .name {
-        font-size: 2.5rem;
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .intro-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .social-links {
-        gap: 20px;
-    }
-    
-    .avatar {
-        width: 120px;
-        height: 120px;
-        font-size: 3rem;
-    }
-    
-    .avatar-glow {
-        width: 140px;
-        height: 140px;
-    }
+    .hero h1 { font-size: 3.2rem; }
+    .subtitle { font-size: 1.3rem; }
+    .nav-links { gap: 20px; }
+    .nav-links a { margin-left: 0; }
 }
