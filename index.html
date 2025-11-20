@@ -4,30 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ddddd</title>
-    <meta name="description" content="Web Security & Reverse Engineering">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- 引入 AOS 动画库样式 -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- 头部区域 -->
+    <!-- 首页头部 -->
     <header>
-        <h1 class="glitch" data-text="STONE_BLOG">ddddd的个人博客</h1>
-        <p class="subtitle" data-aos="fade-up" data-aos-delay="400">专注于 Web 安全、逆向工程</p>
-        <div class="scroll-hint"></div>
+        <h1 class="glitch">ddddd的个人博客</h1>
+        <p class="subtitle">专注于 Web 安全、逆向工程</p>
     </header>
 
-    <!-- 文章列表 -->
-    <section id="posts" class="container">
-        <h2 data-aos="fade-right">最新文章</h2>
+    <!-- 文章列表区域 -->
+    <section class="container">
         <div class="post-list" id="postList">
-            <!-- JS 动态注入 -->
+            <!-- JS 会在这里自动插入 .post-preview 卡片 -->
         </div>
     </section>
 
-    <!-- 脚本库 -->
+    <!-- 脚本 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
