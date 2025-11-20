@@ -1,5 +1,13 @@
-# Welcome Post
+# 欢迎来到星尘日志 ✨
 
-This is my first blog post. Cool effects everywhere!
+这里是我记录技术心得、生活碎碎念以及对宇宙各种脑洞的地方。
 
-More content...
+目前博客使用：
+- particles.js 粒子背景
+- AOS 滚动动画
+- Marked.js 实时解析 Markdown
+- 纯静态，无需任何后端
+
+喜欢的话点个 Star 吧～
+
+继续向下滚动，探索更多文章！

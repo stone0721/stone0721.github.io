@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Blog</title>
+    <title>星尘日志 | 一个有粒子特效的酷炫博客</title>
+    <meta name="description" content="用粒子、渐变和流畅动画打造的极简个人博客">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- AOS for animations -->
+    <!-- AOS 动画库 -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Particle Background -->
+    <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- Preloader -->
+    <!-- 预加载动画 -->
     <div id="preloader">
         <div class="spinner"></div>
+        <p class="loading-text">加载中...</div>
     </div>
 
-    <!-- Main Content -->
-    <header>
-        <h1 data-aos="fade-down">Welcome to My Blog</h1>
-        <p data-aos="fade-up">Cool stuff with dynamic effects!</p>
+    <!-- 主内容 -->
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <h1>星尘日志</h1>
+        <p class="subtitle" data-aos="fade-up" data-aos-delay="400">记录技术 · 生活 · 宇宙与一切</p>
+        <div class="scroll-hint" data-aos="fade" data-aos-delay="1200">↓ 向下探索</div>
     </header>
 
-    <section id="posts">
-        <h2 data-aos="zoom-in">Latest Posts</h2>
-        <div class="post-list">
-            <!-- Posts will be loaded here via JS -->
+    <section id="posts" class="container">
+        <h2 data-aos="zoom-in" data-aos-delay="200">最新文章</h2>
+        <div class="post-list" id="postList">
+            <!-- JS 动态插入文章卡片 -->
         </div>
     </section>
 
-    <footer>
-        <p>Powered by GitHub Pages</p>
+    <footer data-aos="fade-up">
+        <p>© 2025 星尘日志 • Powered by GitHub Pages & 粒子特效</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- 脚本 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
