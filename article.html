@@ -3,39 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>读取档案...</title>
+    <title>文章加载中...</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- 引入代码高亮样式 -->
+    <!-- 引入代码高亮样式 (暗色主题) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
 </head>
 <body>
+    <!-- 背景 -->
     <div id="particles-js"></div>
 
-    <div class="nav-bar">
-        <a href="index.html" class="home-btn">← 主页</a>
-    </div>
+    <!-- 清晰的返回主页按钮 -->
+    <a href="index.html" class="back-home-btn">
+        ← 主页
+    </a>
 
-    <div class="container" style="padding-top: 100px;">
-        <!-- 渲染容器 -->
+    <!-- 文章内容容器 -->
+    <div class="container article-container">
         <div id="article-content" class="markdown-body">
-            <div style="text-align: center; color: #666;">正在加载</div>
+            <div class="loading-text">正在加载文章内容...</div>
         </div>
     </div>
 
+    <!-- 脚本库 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script src="assets/js/script.js"></script>
+    
+    <!-- 页面加载逻辑 -->
     <script>
-        // 页面加载时执行文章加载逻辑
         document.addEventListener('DOMContentLoaded', () => {
+            // 获取 URL 中的 ?post=文件名
             const urlParams = new URLSearchParams(window.location.search);
-            const postFile = urlParams.get('post'); // 获取 ?post=xxx.md
+            const postFile = urlParams.get('post'); 
             
             if(postFile) {
                 loadArticle(postFile);
             } else {
-                document.getElementById('article-content').innerHTML = '<h2 style="color:red">错误</h2>';
+                document.getElementById('article-content').innerHTML = '<h2 style="color:red;">错误：未找到文章</h2>';
             }
         });
     </script>
