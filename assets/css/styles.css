@@ -56,25 +56,43 @@ header {
 
 /* ==================== 清晰的返回按钮 (Article页用) ==================== */
 .back-home-btn {
-    position: fixed;
-    top: 40px;
-    left: 50px;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid var(--primary);
+    position: fixed;      /* 固定定位，滑动文章时按钮也会一直在左上角 */
+    top: 30px;            /* 距离顶部 30px，不再贴边 */
+    left: 30px;           /* 距离左侧 30px */
+    z-index: 1000;        /* 保证在粒子背景和文章内容之上 */
+    
+    display: inline-flex; /* 垂直居中文字 */
+    align-items: center;
+    
+    background: rgba(0, 0, 0, 0.6); /* 半透明黑底，防止文字看不清 */
+    backdrop-filter: blur(5px);     /* 毛玻璃效果 */
+    border: 1px solid var(--primary); /* 赛博青边框 */
     color: var(--primary);
-    padding: 10px 20px;
-    border-radius: 5px;
+    
+    padding: 10px 20px;   /* 增加内部填充，按钮更大更好点 */
+    border-radius: 4px;   /* 轻微圆角 */
     font-weight: bold;
     font-size: 1rem;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* 添加阴影，增加立体感 */
+    transition: all 0.3s ease;
 }
-
 .back-home-btn:hover {
-    background: var(--primary);
-    color: #000;
-    box-shadow: 0 0 15px var(--primary);
+    background: var(--primary);    /* 鼠标悬停变色 */
+    color: #000;                   /* 文字变黑 */
+    box-shadow: 0 0 20px var(--primary); /* 发光效果 */
+    transform: translateY(2px);    /* 轻微按压效果 */
+}
+/* --- 手机端适配 --- */
+/* 手机屏幕小，留太宽会遮挡内容，所以手机上稍微靠边一点 */
+@media (max-width: 768px) {
+    .back-home-btn {
+        top: 15px;
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 }
 
 /* ==================== 列表区域 ==================== */
