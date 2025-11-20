@@ -1,50 +1,47 @@
-// 鼠标光斑跟随
+// 鼠标特效
 document.addEventListener('mousemove', e => {
-    const cursor = document.querySelector('.cursor');
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    document.querySelector('.cursor').style.left = e.clientX + 'px';
+    document.querySelector('.cursor').style.top = e.clientY + 'px';
+    document.querySelector('.cursor-follower').style.left = e.clientX + 'px';
+    document.querySelector('.cursor-follower').style.top = e.clientY + 'px';
 });
 
-// 粒子背景（更梦幻）
+// 粒子背景超梦幻
 particlesJS('particles-js', {
     particles: {
-        number: { value: 80 },
+        number: { value: 120 },
         color: { value: ['#4fc3f7', '#ff9a9e', '#a18cd1', '#fad0c4'] },
-        shape: { type: ['circle', 'triangle', 'star'] },
+        shape: { type: ['circle', 'triangle'] },
         opacity: { value: 0.8, random: true },
-        size: { value: 5, random: true },
-        line_linked: { enable: true, distance: 150, color: '#4fc3f7', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 3, direction: 'none', random: false }
+        size: { value: 4, random: true },
+        line_linked: { enable: true, distance: 120, color: '#4fc3f7', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2 }
     },
     interactivity: {
-        events: {
-            onhover: { enable: true, mode: 'repulse' },
-            onclick: { enable: true, mode: 'push' }
-        }
-    },
-    retina_detect: true
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } }
+    }
 });
 
-// 加载动画
+// 加载消失
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('preloader').style.opacity = '0';
         setTimeout(() => document.getElementById('preloader').remove(), 1000);
-    }, 1500);
-    AOS.init({ duration: 1200, easing: 'ease-out-cubic', once: true });
+    }, 2000);
+    AOS.init({ duration: 1200, once: true });
 });
 
-// 打字效果
-const typing = document.querySelector('.typing');
-if (typing) {
-    const text = typing.innerText;
-    typing.innerText = '';
-    let i = 0;
-    const timer = setInterval(() => {
-        typing.innerText += text[i];
-        if (++i === text.length) clearInterval(timer);
-    }, 100);
-}
+// 打字机效果（彩虹色）
+const text = "用代码点亮梦想 < / >";
+const typingEl = document.querySelector('.typing-text');
+let i = 0;
+const timer = setInterval(() => {
+    typingEl.innerHTML += text[i] === ' ' ? '&nbsp;' : text[i];
+    i++;
+    if (i === text.length) clearInterval(timer);
+}, 100);
+
+// 文章加载保持你原来的逻辑...
 
 // 文章加载 + 3D卡片
 const postFiles = ['welcome.md'];

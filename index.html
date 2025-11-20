@@ -7,12 +7,14 @@
     <meta name="description" content="极致酷炫的个人技术博客">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@300;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- 动态鼠标光斑 -->
+    <!-- 鼠标光斑 -->
     <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
@@ -20,15 +22,14 @@
     <!-- 加载屏 -->
     <div id="preloader">
         <div class="loader">
-            <div class="neon-text">LOADING</div>
-            <div class="progress"></div>
+            <div class="neon-text glitch" data-text="LOADING">LOADING</div>
         </div>
     </div>
 
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo"><i class="fas fa-blog"></i> 我的博客</a>
+            <a href="index.html" class="nav-logo">我的博客</a>
             <div class="nav-menu">
                 <a href="index.html" class="nav-item active">首页</a>
                 <a href="about.html" class="nav-item">关于我</a>
@@ -38,25 +39,29 @@
 
     <!-- Hero 主区 -->
     <header class="hero">
-        <div class="hero-glow"></div>
+        <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1 class="neon-title" data-aos="zoom-in">
-                <span>欢迎来到</span><br>
-                <span class="gradient-text">我的博客</span>
+            <h1 class="main-title">
+                <span class="line">欢迎来到</span>
+                <span class="line gradient-flow">我的博客</span>
             </h1>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="400">
-                记录技术 · 生活 · 思考<br>
-                <span class="typing">用代码点亮梦想 &lt;/&gt;</span>
+            <p class="subtitle">
+                记录技术 · 生活 · 思考
             </p>
-            <a href="about.html" class="magnetic-btn" data-aos="fade-up" data-aos-delay="600">
-                <span>探索关于我 <i class="fas fa-rocket"></i></span>
-            </a>
+            <p class="typing-text"></p>
+            <div class="btn-container">
+                <a href="about.html" class="cyber-btn">
+                    <span>探索关于我</span>
+                    <div class="btn-glow"></div>
+                    <i class="fas fa-rocket"></i>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- 最新文章 -->
     <section class="posts-section">
-        <h2 class="section-title" data-aos="fade-up">最新文章</h2>
+        <h2 class="section-title">最新文章</h2>
         <div id="post-container" class="posts-grid"></div>
     </section>
 
@@ -67,6 +72,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="assets/js/main.js?v=2"></script>
+    <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
