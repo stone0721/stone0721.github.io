@@ -14,14 +14,13 @@
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- 加载屏 -->
+    <!-- 预加载 -->
     <div id="preloader">
-        <div class="loader">
-            <div class="neon">LOADING...</div>
-        </div>
+        <div class="spinner"></div>
+        <p>加载中...</p>
     </div>
 
-    <!-- 导航栏 -->
+    <!-- 导航栏（固定顶端） -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">我的博客</a>
@@ -32,27 +31,23 @@
         </div>
     </nav>
 
-    <!-- Hero 主视觉区（完美居中） -->
-    <section class="hero">
+    <!-- Hero 区：标题完美居中 -->
+    <header class="hero">
         <div class="hero-content">
-            <h1 data-aos="fade-up">
-                <span class="line">欢迎来到</span>
-                <span class="line gradient">我的博客</span>
+            <h1 data-aos="fade-down" data-aos-duration="1200">
+                欢迎来到<br><span class="gradient-title">我的博客</span>
             </h1>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="300">
+            <p data-aos="fade-up" data-aos-delay="600">
                 记录技术 · 生活 · 思考
             </p>
-            <p class="tagline" data-aos="fade-up" data-aos-delay="600">
-                用代码照亮每一个黑夜 <span class="cursor">|</span>
-            </p>
-            <a href="about.html" class="btn-3d" data-aos="fade-up" data-aos-delay="900">
-                探索关于我 <i class="fas fa-rocket"></i>
+            <a href="about.html" class="btn" data-aos="fade-up" data-aos-delay="900">
+                探索关于我 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
-    </section>
+    </header>
 
-    <!-- 最新文章 -->
-    <section class="posts">
+    <!-- 最新文章区（从这里开始正常顶部布局） -->
+    <section class="posts-section">
         <div class="container">
             <h2 data-aos="fade-up">最新文章</h2>
             <div class="post-list"></div>
