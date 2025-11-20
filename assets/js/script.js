@@ -140,13 +140,5 @@ async function loadPosts() {
   }
 }
 
-function removePreloader() {
-    const preloader = document.getElementById('preloader');
-    if(preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => preloader.remove(), 1000);
-    }
-}
-
 // 启动
 loadPosts();
