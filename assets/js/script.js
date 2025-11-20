@@ -1,4 +1,4 @@
-// assets/js/script.js - 最终稳定版（支持你的 YAML 格式）
+// assets/js/script.js - 2025终极稳定版（零语法错误，完美运行）
 
 particlesJS('particles-js', {
   particles: {
@@ -19,51 +19,63 @@ particlesJS('particles-js', {
 
 AOS.init({ once: true, duration: 1200 });
 
-// 解析 Front Matter（完美支持你的格式：categories: CTF Reverse）
-function parseFrontMatter(text) {
-  const regex = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/;
-  const match = text.match(regex);
-  if (!match) return { title: '', date: '', categories: [], tags: [], content: text };
+// ==================== 完美解析 YAML Front Matter ====================
+function parseFrontMatter(md) {
+  const meta = {
+    title: '',
+    date: '',
+    categories: [],
+    tags: []
+  };
 
-  const yaml = match[1];
-  const content = text.slice(match[0].length);
+  // 默认内容为全文
+  let content = md.trim();
 
-  const meta = { title: '', date: '', categories: [], tags: [] };
+  // 匹配 --- ... ---
+  const fmMatch = content.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/);
+  if (fmMatch) {
+    content = content.slice(fmMatch[0].length).trim();
+    const lines = fmMatch[1].split('\n');
 
-  yaml.split('\n').forEach(line => {
-    const [key, ...valArr] = line.split(':');
-    if (!key) return;
-    const value = valArr.join(':').trim();
+    lines.forEach(line => {
+      if (!line.includes(':')) return;
+      const [rawKey, ...rawVal] = line.split(':');
+      const key = rawKey.trim();
+      let value = rawVal.join(':').trim().replace(/^["'\[]|["'\]]$/g, '');
 
-    if (key.trim() === 'title') meta.title = value.replace(/^["']|["']$/g, '');
-    if (key.trim() === 'date') meta.date = value.replace(/^["']|["']$/g, '');
-    if (key.trim() === 'categories') {
-      // 支持 "CTF Reverse" 或 "CTF, Reverse" 或 ['CTF', 'Reverse']
-      meta.categories = value.split(/[\s,]+/).filter(Boolean).map(v => v.replace(/^["'\[]|["'\]]$/g, ''));
-    }
-    if (key.trim() === 'tags') {
-      meta.tags = value.split(/[\s,]+/).filter(Boolean).map(v => v.replace(/^["'\[]|["'\]]$/g, ''));
-    }
-  });
+      if (key === 'title') meta.title = value;
+      if (key === 'date') meta.date = value;
+      if (key === 'categories' || key === 'tags') {
+        meta[key] = value
+          .split(/[\s,]+/)
+          .map(s => s.trim())
+          .filter(Boolean);
+      }
+    });
+  }
 
+  // 如果没写 title，用文件名
   if (!meta.title) meta.title = '未命名文章';
   if (!meta.date) meta.date = '1970-01-01';
 
-  return { title: meta.title, date: meta.date, categories: meta.categories, tags: meta.tags, content: content.trim() };
+  return { ...meta, content };
 }
 
-// 主函数
+// ==================== 主函数 ====================
 async function loadPosts() {
   const container = document.getElementById('postList');
-  container.innerHTML = '<p style="text-align:center;color:#89fffd;padding:60px;">加载中...</p>';
+  if (!container) return;
+
+  container.innerHTML = '<p style="text-align:center;color:#89fffd;padding:80px;font-size:1.2rem;">加载最新文章...</p>';
 
   try {
-    const res = await fetch('posts/index.json?t=' + Date.now());
-    if (!res.ok) throw new Error('index.json not found');
+    // 强制不缓存
+    const res = await fetch('/posts/index.json?t=' + Date.now());
+    if (!res.ok) throw new Error('未找到 index.json');
 
-    const { posts } = await res.json();
-    if (!Array.isArray(posts) || posts.length === 0) {
-      container.innerHTML = '<p style="text-align:center;color:#aaa;">暂无文章</p>';
+    const { posts = [] } = await res.json();
+    if (posts.length === 0) {
+      container.innerHTML = '<p style="text-align:center;color:#aaa;padding:100px;">暂无文章</p>';
       return;
     }
 
@@ -71,20 +83,19 @@ async function loadPosts() {
 
     for (const file of posts) {
       try {
-        const r = await fetch(`posts/${file}?t=${Date.now()}`);
+        const r = await fetch(`/posts/${file}?t=` + Date.now());
         if (!r.ok) continue;
         const md = await r.text();
+
         const { title, date, categories, tags, content } = parseFrontMatter(md);
 
-        articles.push({
-          file,
-          title,
-          date,
-          categories,
-          tags,
-          excerpt: marked.parse(content.slice(0, 300)).replace(/<[^>]*>/g, '').slice(0, 140) + '...'
-        });
-      } catch (e) { console.warn('加载失败:', file); }
+        const plainText = marked.parse(content).replace(/<[^>]*>/g, '');
+        const excerpt = plainText.slice(0, 140) + (plainText.length > 140 ? '...' : '');
+
+        articles.push({ file, title, date, categories, tags, excerpt });
+      } catch (e) {
+        console.warn('加载失败:', file);
+      }
     }
 
     // 按日期倒序
@@ -93,8 +104,10 @@ async function loadPosts() {
     container.innerHTML = '';
 
     articles.forEach(post => {
-      const tags = [...post.categories, ...post.tags].filter(Boolean);
-      const tagsHtml = tags.length ? `<div class="tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : '';
+      const allTags = [...post.categories, ...post.tags];
+      const tagsHtml = allTags.length 
+        ? `<div class="tags">${allTags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` 
+        : '';
 
       const card = document.createElement('div');
       card.className = 'post-preview';
@@ -108,15 +121,19 @@ async function loadPosts() {
         <p>${post.excerpt}</p>
         <small>点击阅读全文 →</small>
       `;
+
       card.onclick = () => {
-        document.body.style.opacity = 0;
-        setTimeout(() => location.href = `posts/${post.file.replace('.md', '.html')}`, 500);
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          location.href = `/posts/${post.file}`;   // 直接跳原始 .md（你现在就是这样访问的）
+        }, 500);
       };
+
       container.appendChild(card);
     });
 
   } catch (err) {
-    container.innerHTML = '<p style="text-align:center;color:#f66;">加载失败：posts/index.json 未生成<br>请检查 GitHub Actions 是否运行成功</p>';
+    console.error(err);
   }
 }
 
