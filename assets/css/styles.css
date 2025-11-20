@@ -85,8 +85,8 @@ header h1 {
     font-size: 2.8rem;
     margin-bottom: 60px;
     background: linear-gradient(90deg, #74f2ce, #89fffd);
-    -webkit-background-clip: text;  /* 保留：Safari/iOS 仍然需要 */
-    background-clip: text;         /* ← 加这一行，标准属性，警告立刻消失 */
+    -webkit-background-clip: text;  
+    background-clip: text;        
     color: transparent;
 }
 .post-list {
