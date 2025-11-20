@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Blog</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- AOS for animations -->
+    <title>我的博客</title>
+    <meta name="description" content="一个带有粒子背景和流畅动画的个人中文博客">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Particle Background -->
+    <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- Preloader -->
+    <!-- 加载动画 -->
     <div id="preloader">
         <div class="spinner"></div>
+        <p>加载中，请稍后...</p>
     </div>
 
-    <!-- Main Content -->
-    <header>
-        <h1 data-aos="fade-down">Welcome to My Blog</h1>
-        <p data-aos="fade-up">Cool stuff with dynamic effects!</p>
+    <!-- 主内容 -->
+    <header class="hero">
+        <h1 data-aos="fade-down">欢迎来到我的博客</h1>
+        <p data-aos="fade-up" class="subtitle">记录技术 · 生活 · 思考</p>
+        <a href="about.html" class="btn" data-aos="zoom-in">关于我</a>
     </header>
 
-    <section id="posts">
-        <h2 data-aos="zoom-in">Latest Posts</h2>
-        <div class="post-list">
-            <!-- Posts will be loaded here via JS -->
+    <section class="posts-section">
+        <h2 data-aos="zoom-in">最新文章</h2>
+        <div id="post-container">
+            <!-- JS 动态加载 -->
         </div>
     </section>
 
     <footer>
-        <p>Powered by GitHub Pages</p>
+        <p>© 2025 我的博客 • Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- 脚本 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
