@@ -1,320 +1,236 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* ==================== 全局设置 ==================== */
+:root {
+    --bg-color: #050505;
+    --primary: #00f3ff; /* 赛博青 */
+    --secondary: #bd00ff; /* 霓虹紫 */
+    --text: #e0e0e0;
+    --card-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "Hiragino Sans GB", sans-serif;
-    color: #eee;
-    background: #000;
+    font-family: 'Courier New', Courier, monospace, sans-serif; /* 极客字体 */
+    background: var(--bg-color);
+    color: var(--text);
     overflow-x: hidden;
-    line-height: 1.8;
+    min-height: 100vh;
 }
+
+/* ==================== 预加载动画 ==================== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--secondary);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px var(--primary);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ==================== 粒子背景 ==================== */
 #particles-js {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
 }
 
-/* ==================== 超美预加载动画 ==================== */
-#preloader {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 1.2s ease;
-}
-
-.loader {
-    width: 120px;
-    height: 120px;
-    border: 4px solid transparent;
-    border-top-color: #89fffd;
-    border-right-color: #ff8af7;
-    border-radius: 50%;
-    position: relative;
-    animation: spin 1.5s linear infinite;
-}
-
-.loader::before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 4px solid transparent;
-    border-top-color: #74f2ce;
-    border-radius: 50%;
-    animation: spin 2s linear infinite reverse;
-}
-
-.loader::after {
-    content: "星尘加载中";
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 500;
-    background: linear-gradient(90deg, #89fffd, #ff8af7, #74f2ce);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
-
-/* ==================== 头部 ==================== */
+/* ==================== 头部设计 (Glitch Effect) ==================== */
 header {
-    text-align: center;
-    padding: 160px 20px 100px;
-    min-height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-header h1 {
-    font-size: 4.8rem;
-    margin: 0;
-    font-weight: 800;
-    background: linear-gradient(90deg, #89fffd, #ff8af7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    text-shadow: 0 0 40px rgba(137, 255, 253, 0.5);
+/* 故障文字效果 */
+.glitch {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--secondary);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--primary);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(33px, 9999px, 11px, 0); }
+    20% { clip: rect(85px, 9999px, 9px, 0); }
+    40% { clip: rect(12px, 9999px, 55px, 0); }
+    60% { clip: rect(64px, 9999px, 33px, 0); }
+    80% { clip: rect(22px, 9999px, 76px, 0); }
+    100% { clip: rect(93px, 9999px, 44px, 0); }
+}
+@keyframes glitch-anim2 {
+    0% { clip: rect(15px, 9999px, 88px, 0); }
+    20% { clip: rect(55px, 9999px, 12px, 0); }
+    40% { clip: rect(3px, 9999px, 33px, 0); }
+    60% { clip: rect(94px, 9999px, 66px, 0); }
+    80% { clip: rect(44px, 9999px, 22px, 0); }
+    100% { clip: rect(11px, 9999px, 99px, 0); }
 }
 
 .subtitle {
-    font-size: 1.6rem;
-    opacity: 0.9;
-    margin: 24px 0 40px;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
 
 .scroll-hint {
-    margin-top: 80px;
-    font-size: 1rem;
-    opacity: 0.6;
+    position: absolute;
+    bottom: 40px;
+    font-size: 0.8rem;
+    opacity: 0.7;
     animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
-
-/* ==================== 文章列表 ==================== */
+/* ==================== 列表区域 ==================== */
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px 120px;
 }
 
-#posts h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 60px;
-    background: linear-gradient(90deg, #74f2ce, #89fffd);
-    -webkit-background-clip: text;
-    background-clip: text;                    /* 标准属性，已加，VSCode 零警告 */
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #fff;
+    border-left: 4px solid var(--primary);
+    padding-left: 20px;
+    text-transform: uppercase;
 }
 
 .post-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
 }
 
+/* ==================== 卡片样式 ==================== */
 .post-preview {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 30px;
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
     cursor: pointer;
-    transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .post-preview:hover {
-    transform: translateY(-16px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(137, 255, 253, 0.3);
-    border-color: #89fffd;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.card-content {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .post-preview h3 {
-    margin: 0 0 16px;
-    font-size: 1.65rem;
-    color: #89fffd;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.date {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.tag {
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: 0.75rem;
 }
 
 .post-preview p {
-    margin: 0;
-    opacity: 0.88;
-    font-size: 1rem;
-}
-
-.post-preview small {
-    display: block;
-    margin-top: 16px;
-    color: #74f2ce;
-    font-size: 0.9rem;
-}
-
-/* ==================== 文章内容页（post.html） ==================== */
-.post-content {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    line-height: 2;
-}
-
-.post-content h1, .post-content h2, .post-content h3 {
-    margin: 48px 0 24px;
-    color: #89fffd;
-}
-
-.post-content p {
-    margin: 20px 0;
-    font-size: 1.1rem;
-}
-
-/* 图片目录 */
-.image-toc {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(137,255,253,0.3);
-    border-radius: 12px;
-    padding: 18px 24px;
-    margin: 40px 0;
-    font-size: 0.98rem;
-}
-
-.image-toc h4 {
-    margin: 0 0 14px;
-    color: #89fffd;
-    font-size: 1.15rem;
-}
-
-.image-toc ul {
-    margin: 0;
-    padding-left: 22px;
-    list-style: none;
-}
-
-.image-toc li {
-    margin: 10px 0;
-}
-
-.image-toc a {
-    color: #a0f0ff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.image-toc a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* 文章内图片 */
-.post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin: 28px auto;
-    display: block;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-    transition: transform 0.4s ease;
-    cursor: zoom-in;
-}
-
-.post-content img:hover {
-    transform: scale(1.02);
-}
-
-/* 纯CSS灯箱 */
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.96);
-    backdrop-filter: blur(12px);
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-out;
-    padding: 20px;
-}
-
-.lightbox:target {
-    display: flex;
-}
-
-.lightbox img {
-    max-width: 92%;
-    max-height: 92vh;
-    border-radius: 16px;
-    box-shadow: 0 0 60px rgba(137, 255, 253, 0.8);
-}
-
-/* ==================== 页脚 ==================== */
-footer {
-    text-align: center;
-    padding: 60px 20px;
-    background: rgba(0,0,0,0.6);
     font-size: 0.95rem;
-    opacity: 0.85;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp:3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* AOS 动画微调 */
-[data-aos] {
-    transition-duration: 1s !important;
+.read-more {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.3s;
 }
 
-/* 文章卡片元信息与标签 */
-.post-preview .meta {
-    margin: 12px 0;
-    font-size: 0.88rem;
-    color: #74f2ce;
-    opacity: 0.9;
+.post-preview:hover .read-more {
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px var(--primary);
 }
-.post-preview time {
-    margin-right: 16px;
-}
-.tags {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-.tag {
-    background: rgba(137, 255, 253, 0.15);
-    color: #89fffd;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(137, 255, 253, 0.3);
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .glitch { font-size: 3rem; }
+    header { height: 70vh; }
 }

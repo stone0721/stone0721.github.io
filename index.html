@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
-    <meta name="description" content="用粒子、渐变和流畅动画打造的极简个人博客">
+    <title>ddddd</title>
+    <meta name="description" content="Web Security & Reverse Engineering">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- AOS 动画库 -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- 酷炫预加载动画 -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- 主内容 -->
-    <header data-aos="fade-down" data-aos-duration="1500">
-        <h1> ddddd 的个人博客</h1>
-        <p class="subtitle" data-aos="fade-up" data-aos-delay="400">专注逆向工程、Web安全</p>
+    <!-- 头部区域 -->
+    <header>
+        <h1 class="glitch" data-text="STONE_BLOG">ddddd的个人博客</h1>
+        <p class="subtitle" data-aos="fade-up" data-aos-delay="400">Web Security / Reverse Engineering / Coding</p>
+        <div class="scroll-hint"></div>
     </header>
 
+    <!-- 文章列表 -->
     <section id="posts" class="container">
-        <h2 data-aos="zoom-in" data-aos-delay="200">最新文章</h2>
+        <h2 data-aos="fade-right">最新文章</h2>
         <div class="post-list" id="postList">
-            <!-- JS 动态插入文章卡片 -->
+            <!-- JS 动态注入 -->
         </div>
     </section>
 
-    <!-- 脚本 -->
+    <!-- 脚本库 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
