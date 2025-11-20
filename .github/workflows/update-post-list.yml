@@ -1,0 +1,33 @@
+# .github/workflows/update-post-list.yml
+name: Auto Update Posts List
+
+on:
+  push:
+    paths:
+      - 'posts/*.md'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  generate-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate posts/index.json
+        run: |
+          echo '{' > posts/index.json
+          echo '  "generated_at": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",' >> posts/index.json
+          echo '  "posts": [' >> posts/index.json
+          ls posts/*.md | grep -v "template.md" | sort -r | sed 's|.*/|    "|;s|\.md"|",|; $ s/,$//' >> posts/index.json
+          echo '  ]' >> posts/index.json
+          echo '}' >> posts/index.json
+          sed -i '$ s/,$/ ]/' posts/index.json  # 移除最后一个逗号
+
+      - name: Commit & Push if changed
+        run: |
+          git config user.name "Auto Bot"
+          git config user.email "bot@noreply.github.com"
+          git add posts/index.json
+          git diff --quiet && exit 0
+          git commit -m "Auto update posts list [skip ci]"
+          git push

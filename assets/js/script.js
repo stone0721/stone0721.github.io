@@ -1,4 +1,5 @@
-// ===== 粒子升级：鼠标强吸引 + 抓取连线 =====
+// assets/js/script.js - 完全零配置自动加载所有文章（终极版）
+
 particlesJS('particles-js', {
   particles: {
     number: { value: 90 },
@@ -7,90 +8,67 @@ particlesJS('particles-js', {
     opacity: { value: 0.8, random: true },
     size: { value: 3, random: true },
     line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.3, width: 1 },
-    move: {
-      enable: true,
-      speed: 3,
-      direction: 'none',
-      random: false,
-      straight: false,
-      out_mode: 'out',
-      attract: { enable: true, rotateX: 600, rotateY: 1200 } // ← 关键：强鼠标跟随
-    }
+    move: { enable: true, speed: 3, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
   },
   interactivity: {
-    events: {
-      onhover: { enable: true, mode: 'grab' }, // 鼠标附近粒子被牵引
-      onclick: { enable: true, mode: 'push' },
-      resize: true
-    },
-    modes: {
-      grab: { distance: 180, line_linked: { opacity: 0.8 } },
-      push: { particles_nb: 6 }
-    }
+    events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+    modes: { grab: { distance: 180, line_linked: { opacity: 0.8 } }, push: { particles_nb: 6 } }
   },
   retina_detect: true
 });
 
-// 预加载超美动画
-window.addEventListener('load', () => {
-  AOS.init({ once: true, duration: 1200, easing: 'ease-out-quart' });
+AOS.init({ once: true, duration: 1200 });
 
-  const preloader = document.getElementById('preloader');
-  setTimeout(() => {
-    preloader.style.opacity = '0';
-    setTimeout(() => preloader.remove(), 1200);
-  }, 1500);
-});
-
-// ===== 新增：文章内图片目录 + 灯箱功能 =====
-function generateImageTOC() {
-  const images = document.querySelectorAll('.post-content img');
-  if (images.length === 0) return;
-
-  const toc = document.createElement('div');
-  toc.className = 'image-toc';
-  toc.innerHTML = `<h4>📸 本文图片 (${images.length})</h4><ul></ul>`;
-
-  const ul = toc.querySelector('ul');
-
-  images.forEach((img, index) => {
-    const id = `img-${index + 1}`;
-    img.id = id;
-    img.onclick = () => window.location.hash = id; // 点击放大
-
-    const li = document.createElement('li');
-    li.innerHTML = `<a href="#${id}">图片 ${index + 1}${img.alt ? ' - ' + img.alt : ''}</a>`;
-    ul.appendChild(li);
-  });
-
-  // 插入到文章最前面
-  const content = document.querySelector('.post-content');
-  content?.parentNode.insertBefore(toc, content);
-}
-
-// 如果是文章页（有 .post-content），才执行
-if (document.querySelector('.post-content')) {
-  generateImageTOC();
-
-  // 灯箱关闭（点击黑背景）
-  document.querySelectorAll('.post-content img').forEach(img => {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.id = img.id;
-    lightbox.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}">`;
-    document.body.appendChild(lightbox);
-
-    lightbox.addEventListener('click', () => {
-      history.back(); // 优雅关闭
-    });
-  });
-}
-
-// 原有的首页文章加载保持不变……
-const posts = ['welcome.md' /* 继续添加 */];
-
-async function loadPosts() {
+// ==================== 完全自动加载文章（无需任何配置！） ====================
+async function loadPostsFullyAuto() {
   const container = document.getElementById('postList');
-  // ... 你原来的 loadPosts 代码不变
+  if (!container) return;
+
+  container.innerHTML = '<p style="text-align:center;color:#89fffd;padding:60px;">加载最新文章...</p>';
+
+  try {
+    const res = await fetch('posts/index.json?t=' + Date.now());
+    const data = await res.json();
+    const postFiles = data.posts || [];
+
+    if (postFiles.length === 0) {
+      container.innerHTML = '<p style="text-align:center;color:#aaa;padding:80px;">暂无文章</p>';
+      return;
+    }
+
+    container.innerHTML = ''; // 清空加载提示
+
+    for (const file of postFiles) {
+      try {
+        const mdRes = await fetch(`posts/${file}?t=${Date.now()}`);
+        if (!mdRes.ok) continue;
+        const md = await mdRes.text();
+
+        let title = file.replace('.md', '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        const titleMatch = md.match(/^#\s+(.+)/m);
+        if (titleMatch) title = titleMatch[1].trim();
+
+        let body = md.replace(/^#.*/gm, '').trim();
+        let excerpt = marked.parse(body).replace(/<[^>]*>/g, '').slice(0, 130) + '...';
+
+        const card = document.createElement('div');
+        card.className = 'post-preview';
+        card.setAttribute('data-aos', 'fade-up');
+        card.innerHTML = `
+          <h3>${title}</h3>
+          <p>${excerpt}</p>
+          <small>点击阅读全文 →</small>
+        `;
+        card.onclick = () => {
+          document.body.style.opacity = 0;
+          setTimeout(() => location.href = `posts/${file.replace('.md', '.html')}`, 500);
+        };
+        container.appendChild(card);
+      } catch (e) { console.warn('单篇加载失败:', file); }
+    }
+  } catch (err) {
+    container.innerHTML = '<p style="text-align:center;color:#f66;">文章列表加载失败（请检查网络或稍后重试）</p>';
+  }
 }
-loadPosts();
+
+loadPostsFullyAuto();
