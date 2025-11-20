@@ -1,0 +1,26 @@
+# .github/workflows/deploy.yml
+name: Deploy Pure Static Blog
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate posts list
+        run: |
+          echo '{"posts": [' > posts/index.json
+          ls posts/*.md | sort -r | sed 's|posts/|"|g;s|\.md|"|g' | paste -sd, - >> posts/index.json
+          echo '],"generated":"'$(date -u +"%Y-%m-%d %H:%M")'"}' >> posts/index.json
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .   # 直接部署根目录所有文件
+          force_orphan: true
