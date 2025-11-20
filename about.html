@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 我的博客</title>
+    <meta name="description" content="了解更多关于我的信息">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div id="particles-js"></div>
+
+    <!-- 加载动画 -->
+    <div id="preloader">
+        <div class="spinner"></div>
+        <p>加载中，请稍后...</p>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">我的博客</a>
+            <a href="index.html" class="nav-link">首页</a>
+        </div>
+    </nav>
+
+    <!-- 关于我内容 -->
+    <main class="about-main">
+        <div class="about-container">
+            <!-- 个人头像区域 -->
+            <div class="profile-section" data-aos="zoom-in">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h1 class="name">你的名字</h1>
+                <p class="title">全栈开发者 | 技术爱好者</p>
+            </div>
+
+            <!-- 技能卡片 -->
+            <div class="skills-section">
+                <h2 data-aos="fade-up">技术栈</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
+                        <i class="fab fa-js-square"></i>
+                        <h3>JavaScript</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
+                        <i class="fab fa-react"></i>
+                        <h3>React</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="400">
+                        <i class="fab fa-node-js"></i>
+                        <h3>Node.js</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 个人介绍 -->
+            <div class="intro-section">
+                <div class="intro-card" data-aos="fade-right">
+                    <h2><i class="fas fa-user-circle"></i> 个人简介</h2>
+                    <p>我是一名充满热情的开发者，热爱技术创新与学习。在编程的世界里探索无限可能，用代码创造价值，用技术改变世界。</p>
+                </div>
+                
+                <div class="intro-card" data-aos="fade-left" data-aos-delay="200">
+                    <h2><i class="fas fa-heart"></i> 兴趣爱好</h2>
+                    <div class="hobbies">
+                        <span class="hobby-tag">💻 编程</span>
+                        <span class="hobby-tag">🎮 游戏</span>
+                        <span class="hobby-tag">📚 阅读</span>
+                        <span class="hobby-tag">🎵 音乐</span>
+                        <span class="hobby-tag">🏃 运动</span>
+                        <span class="hobby-tag">📷 摄影</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="contact-section" data-aos="zoom-in">
+                <h2>联系我</h2>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 我的博客 • Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
+    </footer>
+
+    <!-- 脚本 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
