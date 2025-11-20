@@ -4,58 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的博客</title>
-    <meta name="description" content="一个带有粒子背景和流畅动画的个人中文博客">
+    <meta name="description" content="极致酷炫的个人技术博客">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- 新样式 -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
+
+    <!-- 动态鼠标光斑 -->
+    <div class="cursor"></div>
 
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
-    <!-- 加载动画 -->
+    <!-- 加载屏 -->
     <div id="preloader">
-        <div class="spinner"></div>
-        <p>加载中，请稍后...</p>
+        <div class="loader">
+            <div class="neon-text">LOADING</div>
+            <div class="progress"></div>
+        </div>
     </div>
 
-    <!-- 固定导航栏 -->
+    <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">我的博客</a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">首页</a>
-                <a href="about.html" class="nav-link">关于我</a>
+            <a href="index.html" class="nav-logo"><i class="fas fa-blog"></i> 我的博客</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item active">首页</a>
+                <a href="about.html" class="nav-item">关于我</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero 主视觉区 -->
+    <!-- Hero 主区 -->
     <header class="hero">
-        <div class="hero-content" data-aos="fade-down">
-            <h1 class="glitch" data-text="欢迎来到我的博客">欢迎来到我的博客</h1>
-            <p class="subtitle">记录技术 · 生活 · 思考</p>
-            <a href="about.html" class="btn-glow">关于我 <i class="fas fa-arrow-right"></i></a>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <h1 class="neon-title" data-aos="zoom-in">
+                <span>欢迎来到</span><br>
+                <span class="gradient-text">我的博客</span>
+            </h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="400">
+                记录技术 · 生活 · 思考<br>
+                <span class="typing">用代码点亮梦想 &lt;/&gt;</span>
+            </p>
+            <a href="about.html" class="magnetic-btn" data-aos="fade-up" data-aos-delay="600">
+                <span>探索关于我 <i class="fas fa-rocket"></i></span>
+            </a>
         </div>
     </header>
 
     <!-- 最新文章 -->
     <section class="posts-section">
-        <h2 data-aos="zoom-in">最新文章</h2>
-        <div id="post-container" class="posts-grid">
-            <!-- JS 动态加载 -->
-        </div>
+        <h2 class="section-title" data-aos="fade-up">最新文章</h2>
+        <div id="post-container" class="posts-grid"></div>
     </section>
 
     <footer>
-        <p>© 2025 我的博客 • Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
+        <p>© 2025 我的博客 • Powered by GitHub Pages with ❤</p>
     </footer>
 
-    <!-- 脚本 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=2"></script>
 </body>
 </html>
