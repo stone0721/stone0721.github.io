@@ -1,67 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的博客</title>
-    <meta name="description" content="极致酷炫的个人技术博客">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>My Cool Blog</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- AOS for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
-    <!-- 粒子背景 -->
+    <!-- Particle Background -->
     <div id="particles-js"></div>
 
-    <!-- 预加载 -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="spinner"></div>
-        <p>加载中...</p>
     </div>
 
-    <!-- 导航栏（固定顶端） -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">我的博客</a>
-            <div class="nav-links">
-                <a href="index.html" class="active">首页</a>
-                <a href="about.html">关于我</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero 区：标题完美居中 -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1 data-aos="fade-down" data-aos-duration="1200">
-                欢迎来到<br><span class="gradient-title">我的博客</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="600">
-                记录技术 · 生活 · 思考
-            </p>
-            <a href="about.html" class="btn" data-aos="fade-up" data-aos-delay="900">
-                探索关于我 <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
+    <!-- Main Content -->
+    <header>
+        <h1 data-aos="fade-down">Welcome to My Blog</h1>
+        <p data-aos="fade-up">Cool stuff with dynamic effects!</p>
     </header>
 
-    <!-- 最新文章区（从这里开始正常顶部布局） -->
-    <section class="posts-section">
-        <div class="container">
-            <h2 data-aos="fade-up">最新文章</h2>
-            <div class="post-list"></div>
+    <section id="posts">
+        <h2 data-aos="zoom-in">Latest Posts</h2>
+        <div class="post-list">
+            <!-- Posts will be loaded here via JS -->
         </div>
     </section>
 
     <footer>
-        <p>© 2025 我的博客 • Powered by GitHub Pages</p>
+        <p>Powered by GitHub Pages</p>
     </footer>
 
-    <!-- 脚本 -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

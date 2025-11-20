@@ -1,12 +1,5 @@
-# 欢迎来到我的博客！
+# Welcome Post
 
-<!-- 2025-11-20 -->
+This is my first blog post. Cool effects everywhere!
 
-这是一个使用 GitHub Pages + Markdown 搭建的极简个人博客。
-
-这里会记录：
-- 技术学习心得
-- 生活随笔
-- 各种奇思妙想
-
-感谢你的到来 ✨
+More content...
