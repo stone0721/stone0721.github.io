@@ -57,8 +57,8 @@ header {
 /* ==================== 清晰的返回按钮 (Article页用) ==================== */
 .back-home-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 40px;
+    left: 50px;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid var(--primary);
