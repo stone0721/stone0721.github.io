@@ -5,35 +5,39 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# 解决 403 权限的关键三行
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 每次部署都重新生成 posts/index.json（按文件名倒序，兼容中文路径）
       - name: Generate posts/index.json
         run: |
-          echo '{"posts":["' > posts/index.json
-          ls posts/*.md | sort -r | sed 's|posts/||' | sed 's|\.md|", "|g' | paste -sd "" - | sed 's/, $//' >> posts/index.json
-          echo '"],"generated":"'$(date -u +"%Y-%m-%d %H:%M:%S")'"}' >> posts/index.json
+          mkdir -p posts
+          echo '{"posts":[' > posts/index.json
+          # 按修改时间倒序（最新文章在最上面），兼容中文文件名
+          ls -1t posts/*.md 2>/dev/null | awk '{print "\""$NF"\""}' | paste -sd, - >> posts/index.json || echo -n "" >> posts/index.json
+          echo '],"generated":"'$(date -u +"%Y-%m-%d %H:%M:%SZ")'"}' >> posts/index.json
+          echo "=== Generated posts/index.json ==="
+          cat posts/index.json
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload artifact (整个站点)
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
