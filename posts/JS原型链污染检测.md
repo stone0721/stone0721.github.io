@@ -2,7 +2,6 @@
 title: JS原型链污染漏洞检测
 date: 2025-11-21
 categories: Web安全 
-mathjax: true
 toc: true
 ---
 
