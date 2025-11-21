@@ -38,57 +38,31 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -3;
-    
-    /* 1. 设置背景颜色占位 */
-    /* 在图片加载出来之前，显示黑色，避免出现白色闪烁或透明 */
     background-color: #000; 
-
     background-image: url('../img/background.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-
-    /* 2. 初始状态设为透明 (opacity: 0) */
     opacity: 0; 
-    
-    /* 3. 添加渐显动画：1.5秒内从 0 变到 0.5 */
-    /* forwards 表示动画结束后保持最后一帧的状态 (即保持 opacity: 0.5) */
     animation: wallpaperFadeIn 1.5s ease-out 0.2s forwards;
-
-    /* 去掉滤镜和遮罩 */
     filter: none; 
     mask-image: none;
     -webkit-mask-image: none;
 }
 
-/* 定义渐显动画关键帧 */
 @keyframes wallpaperFadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(1.02); /* 可选：稍微放大一点点，制造呼吸感 */
-    }
-    100% {
-        /* 这里填你原本想要的最终透明度，你之前代码里是 0.5 */
-        opacity: 0.5; 
-        transform: scale(1);
-    }
+    0% { opacity: 0; transform: scale(1.02); }
+    100% { opacity: 0.5; transform: scale(1); }
 }
 
-/* 手机端设置 */
 @media (max-width: 768px) {
-    .bg-wallpaper { 
-        /* 手机端动画结束后应用不同的透明度 */
-        animation-name: wallpaperFadeInMobile;
-    }
+    .bg-wallpaper { animation-name: wallpaperFadeInMobile; }
 }
 
-/* 手机端专用的动画关键帧 (因为最终透明度不同) */
 @keyframes wallpaperFadeInMobile {
     0% { opacity: 0; }
-    100% { opacity: 0.8; } /* 手机端最终透明度 */
+    100% { opacity: 0.8; }
 }
-
-
 
 /* 网格装饰 */
 .bg-grid {
@@ -144,10 +118,10 @@ header * { pointer-events: auto; }
     box-shadow: 0 0 10px var(--primary-dim);
 }
 
-/* 搜索与分类栏 */
+/* 搜索与分类栏 - [修改] 改为百分比宽度 */
 .filter-section {
-    width: 75%;
-    max-width: 1200px;
+    width: 80%; /* 原为 75% */
+    max-width: 90%; /* 原为 1200px，现在允许更宽 */
     margin: -60px auto 40px; 
     position: relative;
     z-index: 10;
@@ -196,8 +170,14 @@ header * { pointer-events: auto; }
     text-shadow: 0 0 5px var(--primary);
 }
 
-/* 文章卡片列表 */
-.container { width: 75%; max-width: 1600px; margin: 0 auto; padding-bottom: 100px; }
+/* 文章卡片列表 - [修改] 改为百分比宽度 */
+.container { 
+    width: 85%; /* 原为 75% */
+    max-width: 95%; /* 原为 1600px */
+    margin: 0 auto; 
+    padding-bottom: 100px; 
+}
+
 .section-title {
     font-size: 1.8rem;
     margin-bottom: 30px;
@@ -214,6 +194,7 @@ header * { pointer-events: auto; }
 
 .post-list {
     display: grid;
+    /* 这里的 minmax(350px, 1fr) 已经是响应式的，无需修改 */
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
 }
@@ -279,14 +260,20 @@ header * { pointer-events: auto; }
 }
 .cmd-back-btn span { color: var(--primary); margin-right: 8px; }
 
-/* 双栏布局 Grid */
+/* 双栏布局 Grid - [修改] 关键修改：百分比布局 */
 .article-grid {
     display: grid;
-    grid-template-columns: 1fr 280px; /* 左侧内容，右侧目录 */
-    gap: 40px;
-    max-width: 1400px;
+    /* 
+       旧代码: grid-template-columns: 1fr 280px; 
+       新代码: 左侧 75%，右侧 23% (留 2% 间隙)
+    */
+    grid-template-columns: 75% 23%;
+    gap: 2%; /* 原为 40px */
+    
+    width: 90%; /* 使用宽百分比，替代 max-width: 1400px */
+    max-width: none; 
     margin: 0 auto;
-    padding: 120px 20px 100px;
+    padding: 120px 0 100px; /* 左右 padding 由 width 控制 */
 }
 
 /* 内容容器 */
@@ -301,7 +288,7 @@ header * { pointer-events: auto; }
     font-size: 2.5rem; color: #fff; margin-bottom: 20px; line-height: 1.2;
 }
 
-/* ==================== 5. Markdown 正文渲染样式 (核心修改) ==================== */
+/* ==================== 5. Markdown 正文渲染样式 ==================== */
 
 .markdown-content {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -324,7 +311,7 @@ header * { pointer-events: auto; }
 
 .markdown-content h2 {
     font-size: 1.8rem;
-    color: var(--primary); /* 赛博青 */
+    color: var(--primary); 
     border-bottom: 1px solid rgba(0, 243, 255, 0.2);
     padding-bottom: 10px;
 }
@@ -332,7 +319,7 @@ header * { pointer-events: auto; }
 .markdown-content h3 {
     font-size: 1.4rem;
     color: #e0e0e0;
-    border-left: 4px solid var(--secondary); /* 紫色左标 */
+    border-left: 4px solid var(--secondary);
     padding-left: 12px;
 }
 
@@ -347,7 +334,7 @@ header * { pointer-events: auto; }
     padding-left: 1.5em;
 }
 .markdown-content li { margin-bottom: 0.5em; color: #ccc; }
-.markdown-content li::marker { color: var(--primary); } /* 列表前面的点变青色 */
+.markdown-content li::marker { color: var(--primary); } 
 
 /* --- 链接 --- */
 .markdown-content a {
@@ -400,20 +387,17 @@ header * { pointer-events: auto; }
 .markdown-content blockquote p { margin: 0 !important; }
 
 /* ==================== 代码块核心样式 (Code Blocks) ==================== */
-
-/* 1. 代码块容器 (Pre) - 增加 Mac 风格窗口头 */
 .markdown-content pre {
-    background: #0d1117; /* GitHub Dark 背景 */
+    background: #0d1117; 
     border-radius: 12px;
     margin: 2em 0;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid #30363d;
-    padding-top: 45px !important; /* 留出顶部空间给红黄绿圆点 */
+    padding-top: 45px !important; 
     overflow: hidden;
 }
 
-/* Mac 风格红黄绿圆点装饰 */
 .markdown-content pre::before {
     content: '';
     position: absolute;
@@ -422,12 +406,11 @@ header * { pointer-events: auto; }
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #ff5f56; /* 红 */
-    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄 + 绿 */
+    background: #ff5f56; 
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; 
     z-index: 2;
 }
 
-/* 显示代码语言 (可选) */
 .markdown-content pre::after {
     content: 'CODE'; 
     position: absolute;
@@ -439,24 +422,22 @@ header * { pointer-events: auto; }
     font-weight: bold;
 }
 
-/* 2. 代码内容 (Code) */
 .markdown-content pre code {
     display: block;
     overflow-x: auto;
-    padding: 0 20px 20px 20px !important; /* 覆盖 highlight.js 默认 padding */
-    background: transparent !important; /* 继承 pre 的背景 */
+    padding: 0 20px 20px 20px !important; 
+    background: transparent !important; 
     color: #c9d1d9;
     font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
-/* 3. 行内代码 (Inline Code) */
 .markdown-content p code,
 .markdown-content li code,
 .markdown-content table code {
-    background: rgba(255, 0, 85, 0.15); /* 使用你的 --secondary 颜色背景 */
-    color: #ff79c6; /* 粉色高亮 */
+    background: rgba(255, 0, 85, 0.15); 
+    color: #ff79c6; 
     font-family: 'JetBrains Mono', monospace;
     padding: 2px 6px;
     border-radius: 6px;
@@ -490,52 +471,15 @@ header * { pointer-events: auto; }
 .markdown-content tr:last-child td { border-bottom: none; }
 .markdown-content tr:hover { background: rgba(255,255,255,0.02); }
 
-/* ==================== Highlight.js 自定义配色 (Cyberpunk Theme) ==================== */
-/* 
-   因为你可能没有引入 highlight.js 的 CSS 文件，或者样式被覆盖，
-   这里手动定义一套适配你博客风格的高亮颜色。
-*/
-
-/* 关键字 (function, const, return) -> 紫色/粉色 */
-.hljs-keyword, .hljs-selector-tag, .hljs-operator {
-    color: #ff79c6; 
-    font-weight: bold;
-}
-
-/* 字符串 ("hello") -> 绿色/青色 */
-.hljs-string, .hljs-attr {
-    color: #a6e22e; /* 亮绿 */
-}
-
-/* 函数名、类名 -> 赛博青 */
-.hljs-title, .hljs-section, .hljs-selector-id {
-    color: var(--primary); 
-    font-weight: bold;
-}
-
-/* 变量、属性 -> 浅白 */
-.hljs-variable, .hljs-template-variable, .hljs-attribute {
-    color: #f8f8f2; 
-}
-
-/* 注释 -> 灰色斜体 */
-.hljs-comment, .hljs-quote {
-    color: #6272a4;
-    font-style: italic;
-}
-
-/* 数字、布尔值 -> 橙色 */
-.hljs-number, .hljs-literal, .hljs-type, .hljs-built_in {
-    color: #bd93f9; /* 浅紫 */
-}
-
-/* 符号、标签 -> 浅灰 */
-.hljs-tag, .hljs-name {
-    color: #ff79c6;
-}
-
-.hljs-meta { color: #f1fa8c; } /* 黄色 */
-
+/* ==================== Highlight.js 自定义配色 ==================== */
+.hljs-keyword, .hljs-selector-tag, .hljs-operator { color: #ff79c6; font-weight: bold; }
+.hljs-string, .hljs-attr { color: #a6e22e; }
+.hljs-title, .hljs-section, .hljs-selector-id { color: var(--primary); font-weight: bold; }
+.hljs-variable, .hljs-template-variable, .hljs-attribute { color: #f8f8f2; }
+.hljs-comment, .hljs-quote { color: #6272a4; font-style: italic; }
+.hljs-number, .hljs-literal, .hljs-type, .hljs-built_in { color: #bd93f9; }
+.hljs-tag, .hljs-name { color: #ff79c6; }
+.hljs-meta { color: #f1fa8c; } 
 
 /* ==================== 6. 侧边栏目录 (TOC Sidebar) ==================== */
 .toc-sidebar {
@@ -571,7 +515,6 @@ header * { pointer-events: auto; }
     border-left-color: var(--primary);
     padding-left: 15px;
 }
-/* 二级菜单缩进 */
 .toc-list .toc-sub a {
     margin-left: 15px;
     font-size: 0.85rem;
@@ -586,13 +529,16 @@ header * { pointer-events: auto; }
     }
     .toc-sidebar { display: none; }
     .article-wrapper { padding: 25px; }
-    .filter-section { width: 95%; margin-top: -40px; padding: 15px; }
-    .container { width: 90%; }
+    
+    /* 手机端保持较宽的显示区域 */
+    .filter-section { width: 95%; margin-top: -40px; padding: 15px; max-width: none; }
+    .container { width: 95%; max-width: none; }
+    
     header { height: 70vh; }
     .glitch { font-size: 3rem; }
 }
 
-/* ==================== 8. 首页导航按钮 (New) ==================== */
+/* ==================== 8. 首页导航按钮 ==================== */
 .home-nav {
     margin-top: 40px;
     display: flex;
@@ -621,9 +567,12 @@ header * { pointer-events: auto; }
 }
 
 /* ==================== 9. 关于我页面样式 (About Page) ==================== */
+/* [修改] 改为百分比宽度 */
 .about-container {
     padding-top: 100px;
-    max-width: 1200px;
+    width: 80%; /* 原为固定 max-width: 1200px */
+    max-width: 95%;
+    margin: 0 auto; /* 确保居中 */
 }
 
 /* 头部档案 */
@@ -666,7 +615,8 @@ header * { pointer-events: auto; }
 /* 简历网格布局 */
 .resume-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 左侧宽，右侧窄 */
+    /* 这里已经是比例单位 (fraction)，无需修改 */
+    grid-template-columns: 2fr 1fr; 
     gap: 30px;
 }
 
