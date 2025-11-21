@@ -1,4 +1,4 @@
-/* ==================== 全局设置 ==================== */
+/* ==================== 1. 全局设置 (Variables & Global) ==================== */
 :root {
     --bg-color: #050505;
     --primary: #00f3ff; 
@@ -9,40 +9,6 @@
     --card-bg: rgba(17, 25, 40, 0.75);
     --glass-border: 1px solid rgba(255, 255, 255, 0.125);
 }
-
-/* ...原有的 :root 定义... */
-
-/* 新增：背景图片层 */
-.bg-wallpaper {
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    z-index: -3; /* 放在粒子(-1)和网格(-2)的更下面 */
-    
-    /* 引入图片 */
-    background-image: url('../img/home.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    /* 视觉处理：降低亮度，增加模糊，营造黑客氛围 */
-    opacity: 0.25; /* 调节这个值：0.1(极暗) - 1.0(原图) */
-    filter: grayscale(40%) contrast(1.2) blur(2px); 
-    
-    /* 加上一个暗色遮罩，防止图片太亮看不清字 */
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
-}
-
-/* 如果手机端觉得背景太花，可以隐藏或调暗 */
-@media (max-width: 768px) {
-    .bg-wallpaper {
-        opacity: 0.15;
-    }
-}
-
 
 html { scroll-behavior: smooth; }
 
@@ -55,7 +21,8 @@ html { scroll-behavior: smooth; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'JetBrains Mono', 'Microsoft YaHei', sans-serif; /* 换个更极客的字体栈 */
+    /* 全局主要字体：优先 JetBrains Mono (极客感)，其次雅黑 */
+    font-family: 'JetBrains Mono', 'Microsoft YaHei', sans-serif; 
     background: var(--bg-color);
     color: var(--text-main);
     overflow-x: hidden;
@@ -65,7 +32,28 @@ body {
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* 背景网格装饰 (更花哨的主页) */
+/* ==================== 2. 背景层 (Backgrounds) ==================== */
+/* 背景图片层 */
+.bg-wallpaper {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -3;
+    background-image: url('../img/home.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.25; 
+    filter: grayscale(40%) contrast(1.2) blur(2px); 
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
+}
+
+/* 手机端背景减淡 */
+@media (max-width: 768px) {
+    .bg-wallpaper { opacity: 0.15; }
+}
+
+/* 网格装饰 */
 .bg-grid {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -79,9 +67,9 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 #particles-js { position: fixed; inset: 0; z-index: -1; }
 
-/* ==================== 首页头部 & 搜索区 ==================== */
+/* ==================== 3. 首页组件 (Home Components) ==================== */
 header {
-    height: 85vh; /*稍微缩减高度，让搜索栏露出来 */
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,7 +79,6 @@ header {
 }
 header * { pointer-events: auto; }
 
-/* Glitch 效果保持不变，或者你可以微调颜色 */
 .glitch {
     font-size: 5rem;
     font-weight: 900;
@@ -120,11 +107,11 @@ header * { pointer-events: auto; }
     box-shadow: 0 0 10px var(--primary-dim);
 }
 
-/* ========== 新增：搜索与分类栏 ========== */
+/* 搜索与分类栏 */
 .filter-section {
     width: 75%;
     max-width: 1200px;
-    margin: -60px auto 40px; /* 向上重叠一点header */
+    margin: -60px auto 40px; 
     position: relative;
     z-index: 10;
     background: rgba(10, 10, 15, 0.9);
@@ -135,12 +122,7 @@ header * { pointer-events: auto; }
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
 }
 
-.search-box {
-    width: 100%;
-    margin-bottom: 20px;
-    position: relative;
-}
-
+.search-box { margin-bottom: 20px; }
 .search-input {
     width: 100%;
     background: transparent;
@@ -152,19 +134,13 @@ header * { pointer-events: auto; }
     font-family: inherit;
     transition: 0.3s;
 }
-
 .search-input:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 5px 10px -5px var(--primary-dim);
 }
 
-.category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
+.category-list { display: flex; flex-wrap: wrap; gap: 10px; }
 .cat-btn {
     background: transparent;
     border: 1px solid #444;
@@ -176,7 +152,6 @@ header * { pointer-events: auto; }
     border-radius: 2px;
     text-transform: uppercase;
 }
-
 .cat-btn:hover, .cat-btn.active {
     border-color: var(--primary);
     color: var(--primary);
@@ -184,14 +159,8 @@ header * { pointer-events: auto; }
     text-shadow: 0 0 5px var(--primary);
 }
 
-/* ==================== 文章列表 ==================== */
-.container {
-    width: 75%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
-
+/* 文章卡片列表 */
+.container { width: 75%; max-width: 1600px; margin: 0 auto; padding-bottom: 100px; }
 .section-title {
     font-size: 1.8rem;
     margin-bottom: 30px;
@@ -221,13 +190,11 @@ header * { pointer-events: auto; }
     overflow: hidden;
     transition: 0.4s;
 }
-
 .post-preview:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 10px 30px -10px rgba(0, 243, 255, 0.15);
 }
-
 .post-preview h3 { 
     font-size: 1.4rem; 
     margin-bottom: 10px; 
@@ -235,18 +202,14 @@ header * { pointer-events: auto; }
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* 限制标题一行 */
+    -webkit-line-clamp: 1; 
     line-clamp: 1;
     -webkit-box-orient: vertical;
 }
-
 .meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
 
 .read-more-btn {
-    display: block;
-    width: 100%;
-    margin-top: 15px;
-    padding: 8px 0;
+    display: block; width: 100%; margin-top: 15px; padding: 8px 0;
     text-align: center;
     background: rgba(0, 243, 255, 0.05);
     color: var(--primary);
@@ -255,22 +218,16 @@ header * { pointer-events: auto; }
     transition: 0.3s;
 }
 .post-preview:hover .read-more-btn {
-    background: var(--primary);
-    color: #000;
-    font-weight: bold;
+    background: var(--primary); color: #000; font-weight: bold;
 }
 
-/* ==================== 文章详情页 (带侧边栏) ==================== */
-/* 极客风格返回按钮 */
+/* ==================== 4. 文章页布局 (Article Layout) ==================== */
+/* 返回按钮 */
 .cmd-back-btn {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    z-index: 100;
+    position: fixed; top: 30px; left: 30px; z-index: 100;
     font-family: 'Consolas', monospace;
     color: var(--text-muted);
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.2rem; font-weight: bold;
     padding: 10px 20px;
     border: 1px solid #333;
     background: rgba(5, 5, 5, 0.8);
@@ -278,26 +235,24 @@ header * { pointer-events: auto; }
     transition: 0.3s;
     cursor: pointer;
 }
-
 .cmd-back-btn:hover {
-    border-color: var(--secondary);
-    color: var(--secondary);
+    border-color: var(--secondary); color: var(--secondary);
     box-shadow: -4px 4px 0 var(--secondary);
     transform: translate(2px, -2px);
 }
 .cmd-back-btn span { color: var(--primary); margin-right: 8px; }
 
-/* 布局容器：Grid 布局 */
+/* 双栏布局 Grid */
 .article-grid {
     display: grid;
-    grid-template-columns: 1fr 280px; /* 内容宽 + 目录宽 */
+    grid-template-columns: 1fr 280px; /* 左侧内容，右侧目录 */
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
     padding: 120px 20px 100px;
 }
 
-/* 内容区 */
+/* 内容容器 */
 .article-wrapper {
     background: rgba(15, 15, 20, 0.6);
     padding: 40px;
@@ -306,48 +261,154 @@ header * { pointer-events: auto; }
 }
 
 .article-header h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-    line-height: 1.3;
+    font-size: 2.5rem; color: #fff; margin-bottom: 20px; line-height: 1.2;
 }
 
-/* Markdown 样式 */
-.markdown-content { color: #ccc; font-size: 1.1rem; }
-.markdown-content h2 { 
-    color: var(--primary); 
-    margin-top: 2.5em; margin-bottom: 1em; 
-    border-bottom: 1px solid #333; padding-bottom: 10px;
+/* ==================== 5. Markdown 正文渲染样式 (核心修改) ==================== */
+/* 这部分完全替换了旧的样式，应用了你喜欢的风格 */
+
+.markdown-content {
+    /* 正文使用易读的无衬线字体，不再用 Courier New */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #d4d4d4; /* 柔和的灰白色 */
 }
-.markdown-content h3 { color: #fff; margin-top: 2em; }
-.markdown-content p { margin-bottom: 1.5em; text-align: justify; }
-.markdown-content pre {
-    background: #111 !important;
-    border: 1px solid #333;
-    border-radius: 6px;
-    padding: 15px;
-    overflow-x: auto;
+
+/* --- 标题 --- */
+.markdown-content h2 {
+    font-size: 1.8rem;
+    color: var(--primary); /* 赛博青 */
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    font-weight: 700;
+    position: relative;
+    padding-left: 15px;
+    border-bottom: none; /* 移除旧样式可能存在的下划线 */
 }
+/* 标题左侧的装饰竖线 */
+.markdown-content h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 4px;
+    background: var(--primary);
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.markdown-content h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    font-weight: 600;
+}
+
+/* --- 段落与列表 --- */
+.markdown-content p {
+    margin-bottom: 1.5em;
+    text-align: justify; 
+}
+
+.markdown-content ul, .markdown-content ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+    color: #ccc;
+}
+.markdown-content li { margin-bottom: 0.5em; }
+
+/* --- 链接 --- */
+.markdown-content a {
+    color: var(--primary);
+    border-bottom: 1px dashed var(--primary);
+    transition: all 0.2s;
+}
+.markdown-content a:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-bottom-style: solid;
+    color: #fff;
+}
+
+/* --- 图片 --- */
 .markdown-content img {
-    max-width: 100%;
-    border-radius: 4px;
-    border: 1px solid #333;
-    margin: 20px 0;
+    display: block;
+    max-width: 100%;     
+    height: auto;       
+    margin: 30px auto;   
+    border-radius: 8px;  
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    border: none; /* 移除旧样式边框 */
+    opacity: 0.95;
+    transition: opacity 0.3s;
 }
-/* 表格样式 */
+.markdown-content img:hover { opacity: 1; }
+
+/* --- 引用块 (修复空行问题) --- */
+.markdown-content blockquote {
+    border-left: 4px solid var(--secondary); /* 紫色边框 */
+    background: rgba(189, 0, 255, 0.05);     
+    margin: 2em 0;
+    padding: 12px 20px;      
+    border-radius: 0 8px 8px 0;
+    color: #bbb;
+    font-style: italic;
+    width: fit-content; 
+    max-width: 100%;          
+    overflow: hidden; 
+}
+/* 消除引用块内部 p 标签的默认下边距 */
+.markdown-content blockquote p { margin: 0 !important; }
+
+/* --- 代码块 --- */
+.markdown-content pre {
+    background: #151515 !important; 
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px !important;
+    margin: 2em 0;
+    overflow-x: auto;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.markdown-content code {
+    font-family: 'Fira Code', 'Consolas', monospace; 
+    font-size: 0.9em;
+}
+/* 行内代码 */
+.markdown-content p code, 
+.markdown-content li code {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+/* --- 表格 --- */
 .markdown-content table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 2em 0;
+    overflow: hidden;
+    border-radius: 8px;
+    border-style: hidden; 
+    box-shadow: 0 0 0 1px #333; 
 }
-.markdown-content th, .markdown-content td {
-    border: 1px solid #333;
-    padding: 10px;
+.markdown-content th {
+    background: #222;
+    color: var(--primary);
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #333;
 }
-.markdown-content th { background: #1a1a1a; color: var(--primary); }
+.markdown-content td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+}
 
-
-/* 侧边栏 TOC */
+/* ==================== 6. 侧边栏目录 (TOC Sidebar) ==================== */
 .toc-sidebar {
     position: sticky;
     top: 100px;
@@ -366,13 +427,8 @@ header * { pointer-events: auto; }
     margin-bottom: 15px;
 }
 
-.toc-list {
-    list-style: none;
-    padding: 0;
-}
-
+.toc-list { list-style: none; padding: 0; }
 .toc-list li { margin-bottom: 8px; }
-
 .toc-list a {
     color: #777;
     font-size: 0.9rem;
@@ -381,46 +437,28 @@ header * { pointer-events: auto; }
     border-left: 2px solid transparent;
     transition: 0.2s;
 }
-
 .toc-list a:hover, .toc-list a.active {
     color: var(--primary);
     border-left-color: var(--primary);
     padding-left: 15px;
 }
-/* ...接上一条回答的 CSS... */
-
+/* 二级菜单缩进 */
 .toc-list .toc-sub a {
     margin-left: 15px;
     font-size: 0.85rem;
     border-left: 1px solid #333;
 }
 
-/* ==================== 响应式适配 ==================== */
+/* ==================== 7. 响应式适配 (Mobile) ==================== */
 @media (max-width: 1000px) {
-    /* 文章页在平板/手机变为单栏 */
     .article-grid {
         display: block;
         padding-top: 80px;
     }
-    
-    /* 手机端隐藏侧边目录，或者你可以改为底部弹出，这里先隐藏以保持整洁 */
-    .toc-sidebar {
-        display: none; 
-    }
-
-    .article-wrapper {
-        padding: 25px;
-    }
-    
-    .filter-section {
-        width: 95%;
-        margin-top: -40px;
-        padding: 15px;
-    }
-    
+    .toc-sidebar { display: none; }
+    .article-wrapper { padding: 25px; }
+    .filter-section { width: 95%; margin-top: -40px; padding: 15px; }
     .container { width: 90%; }
-    
     header { height: 70vh; }
     .glitch { font-size: 3rem; }
 }
-

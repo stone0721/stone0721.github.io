@@ -104,7 +104,7 @@ function renderPosts(posts, container) {
             </div>
             <p style="font-size:0.9rem; color:#888; margin-bottom:15px;">${post.excerpt}</p>
             <a href="article.html?post=${encodeURIComponent(post.file)}" class="read-more-btn">
-                &lt;EXECUTE&gt;
+                &lt阅读全文&gt;
             </a>
         `;
         container.appendChild(card);
@@ -160,8 +160,7 @@ async function loadArticle(filename) {
             <div class="article-header">
                 <h1>${title}</h1>
                 <div style="color:#666; font-family:'Consolas'">
-                    <span>UID: 0x${Math.floor(Math.random()*9999)}</span> // 
-                    <span>DATE: ${date}</span>
+                    <span>更新时间: ${date}</span>
                 </div>
             </div>
             <hr style="border:0; border-top:1px dashed #333; margin:30px 0;">
