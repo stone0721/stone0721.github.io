@@ -394,12 +394,27 @@ header * {
 .markdown-content blockquote {
     border-left: 4px solid var(--secondary); /* 紫色边框 */
     background: rgba(189, 0, 255, 0.05);     /* 极淡的紫色背景 */
+    
     margin: 2em 0;
-    padding: 15px 20px;
+    padding: 12px 20px;       /* 稍微调整内边距 */
     border-radius: 0 8px 8px 0;
     color: #bbb;
     font-style: italic;
+    
+    /* 核心修改 1：宽度自适应文本长度 */
+    width: fit-content; 
+    max-width: 100%;          /* 防止超出屏幕 */
+    
+    /* 解决有可能出现的莫名高度问题 */
+    overflow: hidden; 
 }
+
+/* 核心修改 2：消除引用块内部 p 标签的默认下边距 */
+/* 这就是导致“多出一行”的罪魁祸首 */
+.markdown-content blockquote p {
+    margin: 0 !important;
+}
+
 
 /* --- 代码块 --- */
 .markdown-content pre {

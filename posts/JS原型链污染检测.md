@@ -69,7 +69,7 @@ module.exports = Paypal;
 
 #### 2.Source Cluster Expansion
 
-**目标：**识别并构建一个“受攻击者控制”的数据源的集合。
+**目标：** 识别并构建一个“受攻击者控制”的数据源的集合。
 
 污点源一般来源于用户输入， 输入内容可能是任何对象，使用通配符 `*` 表示，这个对象的任意属性也认为是 `*` 。
 
@@ -343,7 +343,7 @@ def handle_prop(G, ast_node, side=None, extra=ExtraInfo()) \
     # return ......
 ```
 
-**Source Cluster Expansion：**检查 `prop_name_sources` 的 `tainted` 标记，识别用户可控的属性名，加入到 Source
+**Source Cluster Expansion：** 检查 `prop_name_sources` 的 `tainted` 标记，识别用户可控的属性名，加入到 Source
 
 **Sink Cluster Expansion：** 检查 `parent_obj` 是否属于 `builtin_prototypes`，直接识别对敏感原型的访问。如果检测到代码正在访问内置原型的属性，将此次访问标记为 Sink 
 
