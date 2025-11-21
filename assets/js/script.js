@@ -36,26 +36,34 @@ async function initHomePage() {
     try {
         // 加载索引
         const res = await fetch('posts/index.json?t=' + Date.now());
+        if (!res.ok) throw new Error("Index file not found");
         const data = await res.json();
         const files = data.posts || [];
 
-        // 并发加载所有 Markdown不仅是为了显示，也是为了提取分类
-        // 注意：如果文章非常多(上百篇)，建议在生成 index.json 时就包含 metadata，而不是前端去 fetch 解析
+        // 并发加载所有 Markdown
         const loadedPosts = await Promise.all(files.map(async (file) => {
             try {
                 const r = await fetch(`posts/${encodeURIComponent(file)}`);
+                if (!r.ok) return null;
                 const text = await r.text();
                 const meta = parseFrontMatter(text);
+                
+                // 生成纯文本摘要 (移除 Markdown 符号)
+                const rawContent = meta.content.replace(/[#*`\[\]]/g, '').trim();
+                const excerpt = rawContent.slice(0, 120) + '...';
+
                 return { 
                     file, 
                     ...meta, 
-                    // 简单的纯文本摘要
-                    excerpt: marked.parse(meta.content).replace(/<[^>]+>/g, '').slice(0, 100) + '...'
+                    excerpt
                 };
-            } catch(e) { return null; }
+            } catch(e) { 
+                console.warn("Load failed:", file);
+                return null; 
+            }
         }));
 
-        // 过滤掉加载失败的，按日期降序
+        // 过滤无效文章并按日期排序
         allPostsData = loadedPosts.filter(p => p).sort((a, b) => new Date(b.date) - new Date(a.date));
 
         // 1. 渲染分类按钮
@@ -68,15 +76,15 @@ async function initHomePage() {
         searchInput.addEventListener('input', (e) => {
             const keyword = e.target.value.toLowerCase();
             const filtered = allPostsData.filter(p => 
-                p.title.toLowerCase().includes(keyword) || 
-                p.content.toLowerCase().includes(keyword)
+                (p.title || '').toLowerCase().includes(keyword) || 
+                (p.content || '').toLowerCase().includes(keyword)
             );
             renderPosts(filtered, container);
         });
 
     } catch (err) {
         console.error(err);
-        container.innerHTML = '<div style="color:red">系统离线或索引损坏</div>';
+        container.innerHTML = '<div style="color:red; text-align:center; padding:20px;">系统离线或索引损坏 (Index Error)</div>';
     }
 }
 
@@ -92,19 +100,26 @@ function renderPosts(posts, container) {
         const card = document.createElement('div');
         card.className = 'post-preview';
         card.setAttribute('data-aos', 'fade-up');
-        // 只有前几个加延迟，避免搜索时闪烁太慢
         if(index < 6) card.setAttribute('data-aos-delay', index * 50);
 
-        const tagsHtml = (post.tags || []).map(t => `<span style="margin-right:5px; color:var(--primary)">#${t}</span>`).join('');
+        // >>> 修复标签显示逻辑 <<<
+        // 合并 categories 和 tags，去重
+        const allTags = new Set([...(post.categories || []), ...(post.tags || [])]);
+        // 生成 HTML
+        const tagsHtml = Array.from(allTags).map(t => 
+            `<span style="margin-right:8px; color:var(--primary); font-size:0.8rem; font-weight:bold;">#${t}</span>`
+        ).join('');
 
         card.innerHTML = `
             <h3>${post.title}</h3>
             <div class="meta">
-                <span>${post.date}</span> &nbsp;|&nbsp; ${tagsHtml}
+                <span>${post.date || 'Unknown Date'}</span>
+                <span style="margin: 0 10px; color:#444;">|</span>
+                ${tagsHtml} 
             </div>
             <p style="font-size:0.9rem; color:#888; margin-bottom:15px;">${post.excerpt}</p>
             <a href="article.html?post=${encodeURIComponent(post.file)}" class="read-more-btn">
-                &lt阅读全文&gt;
+                &lt; 阅读全文 &gt;
             </a>
         `;
         container.appendChild(card);
@@ -118,18 +133,15 @@ function renderCategories(posts, container) {
         if(p.categories) p.categories.forEach(c => categories.add(c));
     });
 
-    // "全部" 按钮
     let html = `<button class="cat-btn active" onclick="filterCat('all', this)">ALL</button>`;
-    
     categories.forEach(c => {
         html += `<button class="cat-btn" onclick="filterCat('${c}', this)">${c}</button>`;
     });
-    container.innerHTML = html;
+    if(container) container.innerHTML = html;
 }
 
-// 分类筛选函数 (挂载到 window 以便 HTML onclick 调用)
+// 分类筛选
 window.filterCat = function(category, btn) {
-    // 按钮样式切换
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
@@ -137,142 +149,176 @@ window.filterCat = function(category, btn) {
     if(category === 'all') {
         renderPosts(allPostsData, container);
     } else {
-        const filtered = allPostsData.filter(p => p.categories && p.categories.includes(category));
+        const filtered = allPostsData.filter(p => 
+            (p.categories && p.categories.includes(category))
+        );
         renderPosts(filtered, container);
     }
 }
 
-// ================= 文章详情页功能 (含目录生成) =================
+// ================= 文章详情页功能 =================
 async function loadArticle(filename) {
     const container = document.getElementById('article-content');
-    const tocContainer = document.getElementById('toc-content'); // 目录容器
+    const tocContainer = document.getElementById('toc-content');
     
     try {
         const res = await fetch(`posts/${filename}`);
         if(!res.ok) throw new Error('404 Not Found');
         const text = await res.text();
-        const { title, date, content } = parseFrontMatter(text);
-
+        
+        // 解析
+        const { title, date, content, categories, tags } = parseFrontMatter(text);
         document.title = title + " | DevLog";
 
-        // 渲染 Markdown
+        // 合并标签用于显示
+        const allTags = [...(categories || []), ...(tags || [])];
+        const tagsHtml = allTags.map(t => `#${t}`).join('  ');
+
+        // 1. 渲染 HTML 结构
         container.innerHTML = `
             <div class="article-header">
                 <h1>${title}</h1>
-                <div style="color:#666; font-family:'Consolas'">
-                    <span>更新时间: ${date}</span>
+                <div style="color:#666; font-family:'Consolas', monospace; font-size:0.9rem;">
+                    <span>DATE: ${date}</span>
+                    <span style="margin-left:20px; color:var(--primary);">${tagsHtml}</span>
                 </div>
             </div>
             <hr style="border:0; border-top:1px dashed #333; margin:30px 0;">
+            
+            <!-- Markdown 正文 -->
             <div class="markdown-content">
                 ${marked.parse(content)}
             </div>
         `;
 
-        // 代码高亮
-        if(typeof hljs !== 'undefined') hljs.highlightAll();
+        // 2. >>> 修复代码高亮 (关键修改) <<<
+        // 不再使用 highlightAll，而是精确查找当前文章内的代码块
+        if(typeof hljs !== 'undefined') {
+            const blocks = container.querySelectorAll('pre code');
+            blocks.forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        }
 
-        // >>> 生成目录 (TOC) <<<
+        // 3. 生成目录
         generateTOC(container, tocContainer);
 
     } catch (err) {
-        container.innerHTML = `<h1>DATA CORRUPTED</h1><p>${err.message}</p>`;
+        console.error(err);
+        container.innerHTML = `
+            <div style="padding:50px; text-align:center;">
+                <h2 style="color:#ff5555;">LOAD ERROR</h2>
+                <p style="color:#888;">${err.message}</p>
+            </div>`;
     }
 }
 
-// 生成目录逻辑
+// 生成目录
 function generateTOC(articleElement, tocElement) {
-    // 查找所有的 h2 和 h3
     const headers = articleElement.querySelectorAll('h2, h3');
-        if (headers.length === 0) {
-            tocElement.innerHTML = '<p style="color:#555; font-size:0.8rem;">// NO HEADERS DETECTED</p>';
-            return;
+    if (!tocElement) return;
+
+    if (headers.length === 0) {
+        tocElement.innerHTML = '<p style="color:#555; font-size:0.8rem; padding-left:10px;">// NO HEADERS DETECTED</p>';
+        return;
+    }
+
+    const ul = document.createElement('ul');
+    ul.className = 'toc-list';
+
+    headers.forEach((header, index) => {
+        const id = 'header-' + index;
+        header.setAttribute('id', id);
+
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = header.textContent;
+        
+        if (header.tagName.toLowerCase() === 'h3') {
+            li.className = 'toc-sub';
         }
 
-        const ul = document.createElement('ul');
-        ul.className = 'toc-list';
-
-        headers.forEach((header, index) => {
-            // 1. 为标题自动添加 ID，作为锚点
-            const id = 'header-' + index;
-            header.setAttribute('id', id);
-
-            // 2. 创建目录项
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = '#' + id;
-            a.textContent = header.textContent;
-            
-            // 3. 根据标题级别设置缩进样式
-            if (header.tagName.toLowerCase() === 'h3') {
-                li.className = 'toc-sub';
-            }
-
-            // 4. 点击平滑滚动
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                header.scrollIntoView({ behavior: 'smooth' });
-            });
-
-            li.appendChild(a);
-            ul.appendChild(li);
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            header.scrollIntoView({ behavior: 'smooth' });
         });
 
-        tocElement.innerHTML = '<div class="toc-title">>> DIRECTORY</div>';
-        tocElement.appendChild(ul);
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
 
-        // 5. 滚动监听 (高亮当前目录项)
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                const id = entry.target.getAttribute('id');
-                const link = tocElement.querySelector(`a[href="#${id}"]`);
-                if (entry.isIntersecting && link) {
-                    document.querySelectorAll('.toc-list a').forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-        }, { rootMargin: '-100px 0px -60% 0px' });
+    tocElement.innerHTML = '<div class="toc-title">>> 目录</div>';
+    tocElement.appendChild(ul);
 
-        headers.forEach(h => observer.observe(h));
+    // 滚动监听
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            const link = tocElement.querySelector(`a[href="#${id}"]`);
+            if (entry.isIntersecting && link) {
+                document.querySelectorAll('.toc-list a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-100px 0px -60% 0px' });
+
+    headers.forEach(h => observer.observe(h));
 }
 
 // ================= 辅助工具函数 =================
 
-// 解析 Front Matter
+// 增强版 Front Matter 解析
 function parseFrontMatter(text) {
-    const meta = { title: '', date: '', categories: [], tags: [], content: '' };
-    // 简单的 YAML 解析正则
+    const meta = { title: 'Untitled', date: 'Unknown', categories: [], tags: [], content: '' };
+    
+    // 匹配 YAML 头部：以 --- 开头，以 --- 结尾
     const match = text.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---([\s\S]*)$/);
 
     if (match) {
-        const yaml = match[1];
+        const yamlBlock = match[1];
         meta.content = match[2].trim();
 
-        yaml.split('\n').forEach(line => {
-            const [key, ...valParts] = line.split(':');
-            if(!key || valParts.length === 0) return;
+        // 按行解析 YAML
+        yamlBlock.split('\n').forEach(line => {
+            const parts = line.split(':');
+            if (parts.length < 2) return;
+
+            const key = parts[0].trim();
+            // 处理值包含冒号的情况 (如 date: 2023-01-01 12:00)
+            let value = parts.slice(1).join(':').trim();
             
-            const val = valParts.join(':').trim().replace(/^['"]|['"]$/g, '');
+            // 去除引号
+            value = value.replace(/^['"]|['"]$/g, '');
+
+            if (key === 'title') meta.title = value;
+            if (key === 'date') meta.date = value;
             
-            if (key.trim() === 'title') meta.title = val;
-            if (key.trim() === 'date') meta.date = val;
-            if (['categories', 'tags'].includes(key.trim())) {
-                meta[key.trim()] = val.replace(/[\[\]]/g, '').split(',').map(s => s.trim()).filter(Boolean);
+            // 解析数组格式： [Web安全, 笔记] 或 Web安全, 笔记
+            if (['categories', 'tags'].includes(key)) {
+                // 去掉中括号
+                const cleanValue = value.replace(/[\[\]]/g, '');
+                if(cleanValue) {
+                    meta[key] = cleanValue.split(',').map(s => s.trim()).filter(Boolean);
+                }
             }
         });
     } else {
-        meta.content = text; // 没有头部信息的纯 Markdown
+        meta.content = text; // 没找到头部，全文当作内容
     }
 
-    // 全局替换 content 中的 WEB 为 Web (排除链接中的)
+    // 需求修正：修复 WEB 大小写
     meta.content = meta.content.replace(/(?!<a[^>]*>)WEB(?![^<]*<\/a>)/g, 'Web');
-    // 同时也修复 categories 中的拼写
-    meta.categories = meta.categories.map(c => c === 'WEB安全' ? 'Web安全' : c);
+    
+    // 修复 categories 里的拼写
+    if(meta.categories) {
+        meta.categories = meta.categories.map(c => c === 'WEB安全' ? 'Web安全' : c);
+    }
 
     return meta;
 }
 
-// 初始化粒子效果
+// 粒子特效
 function initParticles() {
     particlesJS('particles-js', {
         particles: {
@@ -291,15 +337,13 @@ function initParticles() {
     });
 }
 
-// 初始化打字机 (修改文案)
+// 打字机
 function initTypewriter() {
     const el = document.querySelector('.subtitle');
     if(!el) return;
-    // 需求1：文案修正
     const text = "专注于逆向工程、Web安全"; 
     let i = 0;
-    el.innerHTML = ""; // 清空
-    
+    el.innerHTML = ""; 
     function type() {
         if(i < text.length) {
             el.innerHTML += text.charAt(i);
@@ -307,5 +351,5 @@ function initTypewriter() {
             setTimeout(type, 100);
         }
     }
-    setTimeout(type, 100);
+    setTimeout(type, 200);
 }
