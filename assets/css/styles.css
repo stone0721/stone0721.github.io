@@ -47,7 +47,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     /* --- 修改开始：让图片清晰显示 --- */
     
     /* 1. 提高不透明度 (1.0 为原图亮度，觉得太亮可以改成 0.8 或 0.6) */
-    opacity: 1.0; 
+    opacity: 0.5; 
     
     /* 2. 去掉滤镜 (去掉了 blur 模糊和 grayscale 黑白) */
     filter: none; 
