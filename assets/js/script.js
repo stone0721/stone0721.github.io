@@ -238,7 +238,7 @@ function generateTOC(articleElement, tocElement) {
 
 // ================= 辅助工具函数 =================
 
-// 解析 Front Matter (含 WEB -> Web 的拼写修复)
+// 解析 Front Matter
 function parseFrontMatter(text) {
     const meta = { title: '', date: '', categories: [], tags: [], content: '' };
     // 简单的 YAML 解析正则
@@ -264,7 +264,6 @@ function parseFrontMatter(text) {
         meta.content = text; // 没有头部信息的纯 Markdown
     }
 
-    // >>> 需求1：修复 WEB 大小写问题 <<<
     // 全局替换 content 中的 WEB 为 Web (排除链接中的)
     meta.content = meta.content.replace(/(?!<a[^>]*>)WEB(?![^<]*<\/a>)/g, 'Web');
     // 同时也修复 categories 中的拼写
@@ -308,5 +307,5 @@ function initTypewriter() {
             setTimeout(type, 100);
         }
     }
-    setTimeout(type, 500);
+    setTimeout(type, 100);
 }
