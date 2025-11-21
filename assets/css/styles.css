@@ -39,33 +39,55 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -3;
     
+    /* 1. 设置背景颜色占位 */
+    /* 在图片加载出来之前，显示黑色，避免出现白色闪烁或透明 */
+    background-color: #000; 
+
     background-image: url('../img/background.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    /* --- 修改开始：让图片清晰显示 --- */
+    /* 2. 初始状态设为透明 (opacity: 0) */
+    opacity: 0; 
     
-    /* 1. 提高不透明度 (1.0 为原图亮度，觉得太亮可以改成 0.8 或 0.6) */
-    opacity: 0.5; 
-    
-    /* 2. 去掉滤镜 (去掉了 blur 模糊和 grayscale 黑白) */
+    /* 3. 添加渐显动画：1.5秒内从 0 变到 0.5 */
+    /* forwards 表示动画结束后保持最后一帧的状态 (即保持 opacity: 0.5) */
+    animation: wallpaperFadeIn 1.5s ease-out 0.2s forwards;
+
+    /* 去掉滤镜和遮罩 */
     filter: none; 
-    
-    /* 3. 去掉遮罩 (去掉了四周渐隐的效果) */
     mask-image: none;
     -webkit-mask-image: none;
-    
-    /* --- 修改结束 --- */
+}
+
+/* 定义渐显动画关键帧 */
+@keyframes wallpaperFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.02); /* 可选：稍微放大一点点，制造呼吸感 */
+    }
+    100% {
+        /* 这里填你原本想要的最终透明度，你之前代码里是 0.5 */
+        opacity: 0.5; 
+        transform: scale(1);
+    }
 }
 
 /* 手机端设置 */
 @media (max-width: 768px) {
     .bg-wallpaper { 
-        /* 手机上通常不需要太亮，稍微调暗一点，否则字看不清 */
-        opacity: 0.8; 
+        /* 手机端动画结束后应用不同的透明度 */
+        animation-name: wallpaperFadeInMobile;
     }
 }
+
+/* 手机端专用的动画关键帧 (因为最终透明度不同) */
+@keyframes wallpaperFadeInMobile {
+    0% { opacity: 0; }
+    100% { opacity: 0.8; } /* 手机端最终透明度 */
+}
+
 
 
 /* 网格装饰 */

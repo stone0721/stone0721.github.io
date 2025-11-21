@@ -348,8 +348,8 @@ function initTypewriter() {
         if(i < text.length) {
             el.innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, 100);
+            setTimeout(type, 70);
         }
     }
-    setTimeout(type, 200);
+    setTimeout(type, 100);
 }
