@@ -3,39 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>主页</title>
+    
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- 粒子背景 -->
+    <!-- 背景层 -->
+    <!-- 1. 背景图片层 -->
+    <div class="bg-wallpaper"></div>
+
+    <!-- 2. 网格装饰 -->
+    <div class="bg-grid"></div>
+
+    <!-- 3. 粒子特效 -->
     <div id="particles-js"></div>
 
-    <!-- 全屏头部区域 -->
     <header>
-        <!-- data-text 用于 CSS 里的故障动画 -->
         <h1 class="glitch" data-text="ddddd的个人博客">ddddd的个人博客</h1>
-        
-        <!-- 使用 typewriter-text 类名触发 JS 打字效果 -->
-        <p class="subtitle typewriter-text" data-aos="fade-in" data-aos-delay="500"></p>
-        
-        <div class="scroll-down-btn" onclick="document.getElementById('content').scrollIntoView({behavior: 'smooth'})">
-            <span>﹀</span>
-        </div>
+        <p class="subtitle"></p>
     </header>
 
-    <!-- 文章列表 -->
-    <section id="content" class="container">
-        <h2 class="section-title" data-aos="fade-right">最新文章</h2>
-        <div class="post-list" id="postList">
-            <!-- JS 动态加载 -->
-            <div style="text-align:center; width:100%; margin-top:50px; color:var(--primary);">
-                加载中...
-            </div>
+    <!-- 搜索与分类索引 -->
+    <section class="filter-section" data-aos="fade-up">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder=">> 搜索 / Type to search...">
+        </div>
+        <div class="category-list" id="categoryList">
+            <!-- JS 将在这里生成按钮 -->
         </div>
     </section>
 
-    <!-- 脚本引入 -->
+    <section class="container">
+        <h2 class="section-title">最新文章</h2>
+        <div class="post-list" id="postList">
+            <!-- JS 将在这里生成文章列表 -->
+        </div>
+    </section>
+
+    <!-- 脚本引用保持不变 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

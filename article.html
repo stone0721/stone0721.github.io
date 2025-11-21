@@ -4,39 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>读取中...</title>
+    
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- 背景层 -->
+    <!-- 1. 背景图片层 -->
+    <div class="bg-wallpaper"></div>
+
+    <!-- 2. 网格装饰 -->
+    <div class="bg-grid"></div>
+
+    <!-- 3. 粒子特效 -->
     <div id="particles-js"></div>
 
-    <a href="index.html" class="back-home-btn">
+    <!-- 需求4：更酷的返回按钮 -->
+    <a href="index.html" class="cmd-back-btn">
         主页
     </a>
 
-    <div class="container article-container">
-        <div id="article-content" class="markdown-body">
-            <div style="color:#666; text-align:center; margin-top:50px;">正在加载...</div>
+    <!-- 需求2：目录解析布局 -->
+    <div class="article-grid">
+        
+        <!-- 左侧：文章内容区 -->
+        <div class="article-wrapper" data-aos="fade-right">
+            <div id="article-content">
+                <div style="text-align:center; padding:50px; color:#666;">
+                    正在加载...
+                </div>
+            </div>
         </div>
+
+        <!-- 右侧：侧边栏目录 -->
+        <aside class="toc-sidebar" data-aos="fade-left">
+            <div id="toc-content">
+                <!-- JS 将在这里生成目录 -->
+            </div>
+        </aside>
+
     </div>
 
+    <!-- 脚本引用 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/script.js"></script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postFile = urlParams.get('post'); 
-            if(postFile) {
-                loadArticle(postFile);
-            } else {
-                document.getElementById('article-content').innerHTML = '<h2 style="color:var(--secondary);">ERROR: NO FILE SPECIFIED</h2>';
-            }
-        });
-    </script>
 </body>
 </html>
