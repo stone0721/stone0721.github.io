@@ -1,28 +1,67 @@
-// 初始化粒子背景
+// 初始化粒子背景 (参数优化版)
 if(document.getElementById('particles-js')) {
     particlesJS('particles-js', {
         particles: {
-            number: { value: 60, density: { enable: true, value_area: 800 } },
+            number: { value: 80, density: { enable: true, value_area: 800 } },
             color: { value: '#00f3ff' },
             shape: { type: 'circle' },
-            opacity: { value: 0.5, random: true },
-            size: { value: 3, random: true },
-            line_linked: { enable: true, distance: 150, color: '#00f3ff', opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 1.5 }
+            opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+            size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+            line_linked: { 
+                enable: true, 
+                distance: 150, 
+                color: '#00f3ff', 
+                opacity: 0.3, /* 提高连线可见度 */
+                width: 1 
+            },
+            move: { 
+                enable: true, 
+                speed: 2, /* 稍微加快速度 */
+                direction: 'none', 
+                random: false, 
+                straight: false, 
+                out_mode: 'out', 
+                bounce: false, 
+            }
         },
         interactivity: {
-            detect_on: 'canvas',
-            events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-            modes: { repulse: { distance: 100, duration: 0.4 } }
-        }
+            detect_on: 'window', /* 关键：改为 window 检测，范围更广 */
+            events: { 
+                onhover: { enable: true, mode: 'grab' }, /* 改为 grab 抓取模式，更酷 */
+                onclick: { enable: true, mode: 'push' }, 
+                resize: true 
+            },
+            modes: { 
+                grab: { distance: 200, line_linked: { opacity: 0.8 } }, /* 抓取连线变亮 */
+                push: { particles_nb: 4 } 
+            }
+        },
+        retina_detect: true
     });
+}
+
+// 打字机效果 (新增)
+const subtitleElement = document.querySelector('.typewriter-text');
+if(subtitleElement) {
+    const text = "专注于 逆向工程、Web安全";
+    let index = 0;
+    function typeWriter() {
+        if (index < text.length) {
+            subtitleElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100); // 打字速度
+        }
+    }
+    // 延迟一点开始打字
+    setTimeout(typeWriter, 1000);
 }
 
 // 初始化动画库
 if(typeof AOS !== 'undefined') {
-    AOS.init({ once: true, duration: 800, offset: 100 });
+    AOS.init({ once: true, duration: 1000, offset: 120, easing: 'ease-out-cubic' });
 }
 
+// ... (以下 parseFrontMatter, loadPosts, loadArticle 代码保持不变，无需修改) ...
 // 解析 Front Matter (YAML头信息)
 function parseFrontMatter(md) {
     const meta = { title: '', date: '', categories: [], tags: [] };
@@ -51,7 +90,7 @@ function parseFrontMatter(md) {
 // ================= 首页列表加载逻辑 =================
 async function loadPosts() {
     const container = document.getElementById('postList');
-    if (!container) return; // 如果不在首页，这部分不执行
+    if (!container) return;
 
     try {
         const res = await fetch('posts/index.json?t=' + Date.now());
@@ -60,13 +99,12 @@ async function loadPosts() {
         const { posts = [] } = await res.json();
         
         if (posts.length === 0) {
-            container.innerHTML = '<div style="color:#888">>> 系统日志为空 <<</div>';
+            container.innerHTML = '<div style="color:#888; font-size:1.2rem; padding:40px;">>> 系统日志为空 (EMPTY LOGS) <<</div>';
             return;
         }
 
         const articles = [];
 
-        // 并行获取文章元数据
         await Promise.all(posts.map(async (filename) => {
             try {
                 const url = `posts/${encodeURIComponent(filename)}`;
@@ -76,9 +114,8 @@ async function loadPosts() {
                 const text = await r.text();
                 const { title, date, categories, tags, content } = parseFrontMatter(text);
                 
-                // 生成摘要 (去除 Markdown 符号)
                 const plain = marked.parse(content).replace(/<[^>]+>/g, '');
-                const excerpt = plain.slice(0, 100) + '...';
+                const excerpt = plain.slice(0, 120) + '...'; // 摘要稍长一点
                 
                 articles.push({ 
                     file: filename,
@@ -91,7 +128,6 @@ async function loadPosts() {
             }
         }));
 
-        // 按日期倒序
         articles.sort((a, b) => new Date(b.date) - new Date(a.date));
         container.innerHTML = '';
 
@@ -99,7 +135,7 @@ async function loadPosts() {
             const card = document.createElement('div');
             card.className = 'post-preview';
             card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', index * 50);
+            card.setAttribute('data-aos-delay', index * 100); // 增加延迟差距，动画更有层次
             
             const tagHtml = [...post.categories, ...post.tags]
                 .map(t => `<span class="tag">#${t}</span>`).join('');
@@ -108,17 +144,15 @@ async function loadPosts() {
                 <div class="card-content">
                     <h3>${post.title}</h3>
                     <div class="meta">
-                        <span class="date">[ ${post.date} ]</span>
+                        <span class="date" style="color:var(--primary)">[ ${post.date} ]</span>
                         ${tagHtml}
                     </div>
                     <p>${post.excerpt}</p>
-                    <div class="read-more">读取档案_ ></div>
+                    <div class="read-more">View Logs >></div>
                 </div>
             `;
 
-            // 点击跳转到 article.html 并携带参数
             card.addEventListener('click', () => {
-                // 使用 encodeURIComponent 确保中文文件名安全传输
                 location.href = `article.html?post=${encodeURIComponent(post.file)}`;
             });
 
@@ -127,7 +161,7 @@ async function loadPosts() {
 
     } catch (err) {
         console.error(err);
-        container.innerHTML = `<div style="color:red">系统错误: ${err.message}</div>`;
+        container.innerHTML = `<div style="color:red">ERROR: SYSTEM FAILURE - ${err.message}</div>`;
     }
 }
 
@@ -137,44 +171,43 @@ async function loadArticle(filename) {
     if(!container) return;
 
     try {
-        const url = `posts/${filename}`; // 文件名已经是 url encoded 的字符串(如果来自URL参数)
+        const url = `posts/${filename}`;
         const res = await fetch(url);
         
-        if(!res.ok) throw new Error('档案损坏或不存在 (404)');
+        if(!res.ok) throw new Error('FILE NOT FOUND (404)');
         
         const text = await res.text();
         const { title, date, content } = parseFrontMatter(text);
 
-        // 设置网页标题
-        document.title = `${title} | 系统日志`;
+        document.title = `${title}`;
 
-        // 渲染 Markdown
         const htmlContent = marked.parse(content);
 
-        // 组装 HTML
         container.innerHTML = `
-            <h1>${title}</h1>
-            <div style="margin-bottom:30px; color:#666; font-size:0.9rem;">
-                发布时间: <span style="color:var(--secondary)">${date}</span>
+            <h1 data-aos="zoom-in">${title}</h1>
+            <div style="text-align:center; margin-bottom:40px; color:#888; font-family:monospace;">
+                TIMESTAMP: <span style="color:var(--primary)">${date}</span>
             </div>
-            ${htmlContent}
+            <div class="markdown-content" data-aos="fade-up" data-aos-delay="200">
+                ${htmlContent}
+            </div>
         `;
 
-        // 启用代码高亮
         if(typeof hljs !== 'undefined') {
             hljs.highlightAll();
         }
 
     } catch (err) {
         container.innerHTML = `
-            <h2 style="color:var(--secondary)">ERROR_404</h2>
-            <p>无法读取目标档案: ${err.message}</p>
-            <a href="index.html" class="read-more" style="margin-top:20px; display:inline-block"><< 返回首页</a>
+            <h2 style="color:var(--secondary); text-align:center; margin-top:50px;">FATAL ERROR 404</h2>
+            <p style="text-align:center">Target Data Not Found.</p>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="index.html" class="read-more"><< RETURN TO ROOT</a>
+            </div>
         `;
     }
 }
 
-// 启动首页列表加载
 if(document.getElementById('postList')) {
     loadPosts();
 }
