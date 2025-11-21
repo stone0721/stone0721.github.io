@@ -1,18 +1,17 @@
-/* ==================== 全局变量与重置 ==================== */
+/* ==================== 全局设置 ==================== */
 :root {
-    --bg-color: #050505;
-    --primary: #00ffcc; /* 经典的黑客绿/青色 */
-    --secondary: #ff0055; /* 错误/强调红 */
-    --card-bg: rgba(16, 20, 23, 0.85);
+    --bg-color: #0a0a0a;
+    --primary: #00f3ff; /* 亮青色，用于强调 */
     --text-main: #e0e0e0;
-    --text-muted: #8892b0;
-    --font-mono: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    --text-muted: #a0a0a0;
+    --card-bg: rgba(30, 30, 30, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: var(--font-mono); /* 全局使用等宽字体增强黑客感 */
+    font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
     background: var(--bg-color);
     color: var(--text-main);
     overflow-x: hidden;
@@ -22,219 +21,205 @@ body {
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* 滚动条美化 */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
-
-/* ==================== 背景特效 ==================== */
+/* 背景 */
 #particles-js {
     position: fixed;
     inset: 0;
-    z-index: -2;
-    background: #050505;
-}
-
-/* CRT 扫描线效果 */
-.scanlines {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
-    background-size: 100% 4px;
     z-index: -1;
-    pointer-events: none;
-}
-
-/* ==================== 动画 ==================== */
-/* 核心：进入主页的下拉动画 */
-@keyframes slideDownFade {
-    0% { transform: translateY(-50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-.slide-down-intro {
-    animation: slideDownFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-/* 故障文字动画 keyframes */
-@keyframes glitch-skew {
-    0% { transform: skew(0deg); }
-    20% { transform: skew(-2deg); }
-    40% { transform: skew(2deg); }
-    60% { transform: skew(-1deg); }
-    80% { transform: skew(1deg); }
-    100% { transform: skew(0deg); }
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
 }
 
 /* ==================== 首页头部 ==================== */
 header {
-    height: 45vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    position: relative;
 }
 
-/* 模拟终端窗口 */
-.terminal-window {
-    border: 1px solid rgba(0, 255, 204, 0.3);
-    padding: 40px 60px;
-    background: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-    backdrop-filter: blur(3px);
-}
-
-.terminal-header {
-    display: flex; gap: 8px; margin-bottom: 20px; justify-content: center;
-}
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-
-/* 故障标题样式 */
 .glitch {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: #fff;
-    position: relative;
-    text-transform: uppercase;
-    animation: glitch-skew 3s infinite;
-}
-.glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-}
-.glitch::before {
-    left: 2px; text-shadow: -1px 0 var(--secondary); clip-path: inset(0 0 0 0);
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
-}
-.glitch::after {
-    left: -2px; text-shadow: -1px 0 var(--primary); clip-path: inset(0 0 0 0);
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
+    font-size: 1.2rem;
+    color: var(--primary);
     margin-top: 15px;
-    border-top: 1px dashed #333;
-    padding-top: 15px;
+    letter-spacing: 1px;
 }
-.prompt { color: var(--primary); font-weight: bold; margin-right: 10px; }
+
+/* ==================== 清晰的返回按钮 (Article页用) ==================== */
+.back-home-btn {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.back-home-btn:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary);
+}
 
 /* ==================== 列表区域 ==================== */
-.container { max-width: 900px; margin: 0 auto; padding: 20px 20px 100px; }
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 100px;
+}
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 30px;
+    border-left: 5px solid var(--primary);
+    padding-left: 15px;
     color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
-.bracket { color: var(--primary); margin: 0 5px; }
 
-.post-list { display: flex; flex-direction: column; gap: 20px; }
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
 
-/* 文章卡片 */
+/* 卡片样式 */
 .post-preview {
     background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     padding: 25px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.post-preview::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-    background: var(--primary); transform: scaleY(0); transition: transform 0.3s;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .post-preview:hover {
-    transform: translateX(5px);
+    transform: translateY(-5px);
     border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
 }
-.post-preview:hover::before { transform: scaleY(1); }
 
-.post-preview h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+.post-preview h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
 
-.meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; font-family: var(--font-mono); }
-.tag { color: var(--primary); margin-left: 10px; }
-.tag::before { content: '#'; }
+.meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
 
-.post-preview p { font-size: 0.95rem; color: #bbb; margin-bottom: 15px; }
+.tag {
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--primary);
+    background: rgba(0, 243, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.post-preview p {
+    font-size: 0.95rem;
+    color: #ccc;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
 
 .read-more {
-    display: inline-block;
     color: var(--primary);
     font-size: 0.9rem;
     font-weight: bold;
-    border-bottom: 1px solid transparent;
 }
-.post-preview:hover .read-more { border-bottom-color: var(--primary); }
 
-/* ==================== 文章页 & MD ==================== */
-.back-home-btn {
-    display: inline-block;
-    margin: 40px 0 20px 20px;
-    color: var(--text-main);
-    font-family: var(--font-mono);
-    border: 1px solid #333;
-    padding: 8px 16px;
-    background: #000;
+/* ==================== Markdown渲染样式 (重要) ==================== */
+.article-container {
+    padding-top: 80px; /* 给返回按钮留空间 */
 }
-.back-home-btn:hover { border-color: var(--primary); color: var(--primary); }
-.cmd { color: var(--secondary); font-weight: bold; }
-.comment { color: #555; margin-left: 10px; }
 
 .markdown-body {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(20, 20, 20, 0.8);
     padding: 40px;
-    border: 1px solid #222;
-    color: #ccc;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    color: #dcdcdc;
 }
 
-.markdown-body h1, .markdown-body h2, .markdown-body h3 { color: #fff; margin-top: 1.5em; margin-bottom: 0.8em; }
-.markdown-body h1 { border-bottom: 1px solid #333; padding-bottom: 10px; color: var(--primary); }
-.markdown-body strong { color: var(--primary); }
+/* MD 标题 */
+.markdown-body h1 { font-size: 2.2rem; color: #fff; margin-bottom: 0.5em; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.markdown-body h2 { font-size: 1.8rem; color: var(--primary); margin: 1.5em 0 0.8em; }
+.markdown-body h3 { font-size: 1.4rem; color: #fff; margin: 1.2em 0 0.6em; }
+
+/* MD 文本 */
+.markdown-body p { margin-bottom: 1.2em; line-height: 1.8; }
+.markdown-body strong { color: #fff; font-weight: bold; }
+.markdown-body blockquote { 
+    border-left: 4px solid var(--primary); 
+    background: rgba(255,255,255,0.05); 
+    padding: 15px; 
+    margin: 1.5em 0;
+    color: #aaa;
+}
+
+/* MD 代码块 */
+.markdown-body pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border: 1px solid #333;
+}
 .markdown-body code {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--primary);
-    padding: 2px 6px;
+    font-family: 'Courier New', monospace;
+    background: rgba(255,255,255,0.1);
+    padding: 2px 5px;
     border-radius: 3px;
-    font-family: var(--font-mono);
+    color: #ff7b72; /* 类似红色高亮 */
 }
-.markdown-body pre { background: #111 !important; border: 1px solid #333; padding: 15px; border-radius: 5px; }
-.markdown-body blockquote { border-left: 4px solid var(--secondary); color: #888; padding-left: 15px; margin: 1em 0; }
+.markdown-body pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
 
-.loading-terminal { font-family: var(--font-mono); color: var(--primary); padding: 20px; }
+/* MD 图片 */
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin: 10px 0;
+}
+
+/* MD 列表和表格 */
+.markdown-body ul, .markdown-body ol { padding-left: 2em; margin-bottom: 1.2em; }
+.markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
+.markdown-body th, .markdown-body td { border: 1px solid #444; padding: 10px; }
+.markdown-body th { background: rgba(255,255,255,0.05); color: var(--primary); }
 
 /* 手机适配 */
 @media (max-width: 768px) {
     .glitch { font-size: 2.5rem; }
-    .terminal-window { padding: 20px; width: 100%; }
     .markdown-body { padding: 20px; }
-}
-
-/* 辅助动画：Glitch 片段 */
-@keyframes glitch-anim-1 {
-    0% { clip-path: inset(20% 0 80% 0); }
-    20% { clip-path: inset(60% 0 10% 0); }
-    40% { clip-path: inset(40% 0 50% 0); }
-    60% { clip-path: inset(80% 0 5% 0); }
-    80% { clip-path: inset(10% 0 60% 0); }
-    100% { clip-path: inset(30% 0 30% 0); }
-}
-@keyframes glitch-anim-2 {
-    0% { clip-path: inset(10% 0 60% 0); }
-    20% { clip-path: inset(30% 0 20% 0); }
-    40% { clip-path: inset(70% 0 10% 0); }
-    60% { clip-path: inset(50% 0 30% 0); }
-    80% { clip-path: inset(20% 0 70% 0); }
-    100% { clip-path: inset(80% 0 5% 0); }
+    .back-home-btn { padding: 8px 12px; font-size: 0.9rem; }
 }
