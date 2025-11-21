@@ -48,9 +48,25 @@ async function initHomePage() {
                 const text = await r.text();
                 const meta = parseFrontMatter(text);
                 
-                // 生成纯文本摘要 (移除 Markdown 符号)
-                const rawContent = meta.content.replace(/[#*`\[\]]/g, '').trim();
-                const excerpt = rawContent.slice(0, 120) + '...';
+                // === 修改开始：摘要生成逻辑优化 ===
+                let excerpt = '';
+                const moreTag = '<!--more-->';
+                
+                if (meta.content.includes(moreTag)) {
+                    // 1. 如果存在 <!--more-->，截取它之前的内容
+                    const parts = meta.content.split(moreTag);
+                    excerpt = parts[0];
+                } else {
+                    // 2. 如果不存在，默认截取前 120 个字符
+                    excerpt = meta.content.slice(0, 120) + '...';
+                }
+
+                // 3. 清理 Markdown 符号和换行，保证卡片美观
+                // 移除 标题#、加粗*、代码`、链接[]、图片!
+                excerpt = excerpt.replace(/[#*`$$$$!]/g, '') 
+                                 .replace(/\n/g, ' ') // 把换行变成空格
+                                 .trim();
+                // === 修改结束 ===
 
                 return { 
                     file, 
@@ -102,7 +118,6 @@ function renderPosts(posts, container) {
         card.setAttribute('data-aos', 'fade-up');
         if(index < 6) card.setAttribute('data-aos-delay', index * 50);
 
-        // >>> 修复标签显示逻辑 <<<
         // 合并 categories 和 tags，去重
         const allTags = new Set([...(post.categories || []), ...(post.tags || [])]);
         // 生成 HTML
@@ -117,7 +132,7 @@ function renderPosts(posts, container) {
                 <span style="margin: 0 10px; color:#444;">|</span>
                 ${tagsHtml} 
             </div>
-            <p style="font-size:0.9rem; color:#888; margin-bottom:15px;">${post.excerpt}</p>
+            <p style="font-size:0.9rem; color:#888; margin-bottom:15px; line-height:1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${post.excerpt}</p>
             <a href="article.html?post=${encodeURIComponent(post.file)}" class="read-more-btn">
                 &lt; 阅读全文 &gt;
             </a>
@@ -191,8 +206,7 @@ async function loadArticle(filename) {
             </div>
         `;
 
-        // 2. >>> 修复代码高亮 (关键修改) <<<
-        // 不再使用 highlightAll，而是精确查找当前文章内的代码块
+        // 2. 修复代码高亮
         if(typeof hljs !== 'undefined') {
             const blocks = container.querySelectorAll('pre code');
             blocks.forEach((block) => {
@@ -297,7 +311,7 @@ function parseFrontMatter(text) {
             // 解析数组格式： [Web安全, 笔记] 或 Web安全, 笔记
             if (['categories', 'tags'].includes(key)) {
                 // 去掉中括号
-                const cleanValue = value.replace(/[\[\]]/g, '');
+                const cleanValue = value.replace(/[$$$$]/g, '');
                 if(cleanValue) {
                     meta[key] = cleanValue.split(',').map(s => s.trim()).filter(Boolean);
                 }
