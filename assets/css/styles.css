@@ -38,20 +38,35 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -3;
+    
     background-image: url('../img/background.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.25; 
-    filter: grayscale(40%) contrast(1.2) blur(2px); 
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 100%);
+
+    /* --- 修改开始：让图片清晰显示 --- */
+    
+    /* 1. 提高不透明度 (1.0 为原图亮度，觉得太亮可以改成 0.8 或 0.6) */
+    opacity: 1.0; 
+    
+    /* 2. 去掉滤镜 (去掉了 blur 模糊和 grayscale 黑白) */
+    filter: none; 
+    
+    /* 3. 去掉遮罩 (去掉了四周渐隐的效果) */
+    mask-image: none;
+    -webkit-mask-image: none;
+    
+    /* --- 修改结束 --- */
 }
 
-/* 手机端背景减淡 */
+/* 手机端设置 */
 @media (max-width: 768px) {
-    .bg-wallpaper { opacity: 0.15; }
+    .bg-wallpaper { 
+        /* 手机上通常不需要太亮，稍微调暗一点，否则字看不清 */
+        opacity: 0.8; 
+    }
 }
+
 
 /* 网格装饰 */
 .bg-grid {
