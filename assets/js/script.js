@@ -49,7 +49,7 @@ if(subtitleElement) {
         if (index < text.length) {
             subtitleElement.innerHTML += text.charAt(index);
             index++;
-            setTimeout(typeWriter, 200); // 打字速度
+            setTimeout(typeWriter, 400); // 打字速度
         }
     }
     // 延迟一点开始打字
