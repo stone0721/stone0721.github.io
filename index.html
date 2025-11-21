@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ddddd</title>
+    <title>ddddd的主页</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- 粒子背景 -->
     <div id="particles-js"></div>
+    <!-- 扫描线遮罩 -->
+    <div class="scanlines"></div>
 
-    <!-- 头部区域 -->
-    <header>
-        <h1 class="glitch" data-text="ddddd的个人博客">ddddd的个人博客</h1>
-        <p class="subtitle" data-aos="fade-up" data-aos-delay="200">专注于 Web 安全、逆向工程</p>
-    </header>
+    <!-- 主要内容容器 (用于下拉动画) -->
+    <div class="main-wrapper slide-down-intro">
+        <!-- 头部区域 -->
+        <header>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <h1 class="glitch" data-text="ddddd_Blog">ddddd的个人博客</h1>
+                <p class="subtitle" data-aos="fade-in" data-aos-delay="400">
+                    <span class="prompt">root@ddddd:~$</span> echo "专注于逆向工程、Web安全"
+                </p>
+            </div>
+        </header>
 
-    <!-- 文章列表 -->
-    <section class="container">
-        <h2 class="section-title" data-aos="fade-right">最新文章</h2>
-        <div class="post-list" id="postList">
-            <!-- JS 动态加载文章 -->
-        </div>
-    </section>
+        <!-- 文章列表 -->
+        <section class="container">
+            <h2 class="section-title" data-aos="fade-right">
+                <span class="bracket">[</span> 最新文章 <span class="bracket">]</span>
+            </h2>
+            <div class="post-list" id="postList">
+                <!-- JS 动态加载文章 -->
+                <div class="loading-terminal">
+                    > 正在初始化数据流...<br>
+                    > 连接数据库...
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
