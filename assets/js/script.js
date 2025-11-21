@@ -43,17 +43,17 @@ if(document.getElementById('particles-js')) {
 // 打字机效果 (新增)
 const subtitleElement = document.querySelector('.typewriter-text');
 if(subtitleElement) {
-    const text = "专注于 逆向工程、Web安全";
+    const text = "专注于逆向工程、Web安全";
     let index = 0;
     function typeWriter() {
         if (index < text.length) {
             subtitleElement.innerHTML += text.charAt(index);
             index++;
-            setTimeout(typeWriter, 100); // 打字速度
+            setTimeout(typeWriter, 200); // 打字速度
         }
     }
     // 延迟一点开始打字
-    setTimeout(typeWriter, 1000);
+    setTimeout(typeWriter, 200);
 }
 
 // 初始化动画库
@@ -61,7 +61,7 @@ if(typeof AOS !== 'undefined') {
     AOS.init({ once: true, duration: 1000, offset: 120, easing: 'ease-out-cubic' });
 }
 
-// ... (以下 parseFrontMatter, loadPosts, loadArticle 代码保持不变，无需修改) ...
+
 // 解析 Front Matter (YAML头信息)
 function parseFrontMatter(md) {
     const meta = { title: '', date: '', categories: [], tags: [] };
@@ -99,7 +99,7 @@ async function loadPosts() {
         const { posts = [] } = await res.json();
         
         if (posts.length === 0) {
-            container.innerHTML = '<div style="color:#888; font-size:1.2rem; padding:40px;">>> 系统日志为空 (EMPTY LOGS) <<</div>';
+            container.innerHTML = '<div style="color:#888; font-size:1.2rem; padding:40px;">>> 文章列表为空 <<</div>';
             return;
         }
 
@@ -148,7 +148,7 @@ async function loadPosts() {
                         ${tagHtml}
                     </div>
                     <p>${post.excerpt}</p>
-                    <div class="read-more">View Logs >></div>
+                    <div class="read-more"> 阅读全文>></div>
                 </div>
             `;
 
@@ -168,45 +168,60 @@ async function loadPosts() {
 // ================= 详情页文章渲染逻辑 =================
 async function loadArticle(filename) {
     const container = document.getElementById('article-content');
-    if(!container) return;
+    if(!container) return; // 如果页面上没有这个ID（比如在首页），就不执行
 
     try {
-        const url = `posts/${filename}`;
+        // 1. 获取文章内容
+        // 注意：这里假设你的文件在 posts 文件夹下
+        const url = `posts/${filename}`; 
         const res = await fetch(url);
         
-        if(!res.ok) throw new Error('FILE NOT FOUND (404)');
+        if(!res.ok) throw new Error('文章未找到或无法加载 (404)');
         
         const text = await res.text();
+        
+        // 2. 解析 Front Matter
         const { title, date, content } = parseFrontMatter(text);
 
-        document.title = `${title}`;
+        // 3. 设置浏览器标签页标题
+        document.title = title;
 
+        // 4. 渲染 Markdown 为 HTML
         const htmlContent = marked.parse(content);
 
+        // 5. 注入 HTML
+        // 使用了新的 CSS 类名结构：article-header 和 markdown-content
         container.innerHTML = `
-            <h1 data-aos="zoom-in">${title}</h1>
-            <div style="text-align:center; margin-bottom:40px; color:#888; font-family:monospace;">
-                TIMESTAMP: <span style="color:var(--primary)">${date}</span>
+            <div class="article-header" data-aos="fade-down">
+                <h1>${title}</h1>
+                <div class="article-meta">
+                    <span>发布于 ${date}</span>
+                </div>
             </div>
+            
             <div class="markdown-content" data-aos="fade-up" data-aos-delay="200">
                 ${htmlContent}
             </div>
         `;
 
+        // 6. 启用代码高亮
         if(typeof hljs !== 'undefined') {
             hljs.highlightAll();
         }
 
     } catch (err) {
+        console.error(err);
         container.innerHTML = `
-            <h2 style="color:var(--secondary); text-align:center; margin-top:50px;">FATAL ERROR 404</h2>
-            <p style="text-align:center">Target Data Not Found.</p>
-            <div style="text-align:center; margin-top:30px;">
-                <a href="index.html" class="read-more"><< RETURN TO ROOT</a>
+            <div style="text-align:center; margin-top:100px;">
+                <h2 style="color:#ff4444; margin-bottom:20px;">载入失败</h2>
+                <p style="color:#888;">无法读取文章内容：${err.message}</p>
+                <br>
+                <a href="index.html" style="color:var(--primary); border-bottom:1px solid var(--primary);">点击返回主页</a>
             </div>
         `;
     }
 }
+
 
 if(document.getElementById('postList')) {
     loadPosts();
