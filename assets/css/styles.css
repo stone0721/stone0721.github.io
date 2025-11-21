@@ -279,7 +279,7 @@ header * {
 
 /* ==================== 文章详情页容器 ==================== */
 .article-container {
-    max-width: 900px; /* 增加宽度，让文章和图片显示更宽敞 */
+    max-width: 1500px; /* 增加宽度，让文章和图片显示更宽敞 */
     margin: 0 auto;
     padding: 100px 20px 100px; /* 顶部留出空间给返回按钮 */
 }
@@ -373,7 +373,7 @@ header * {
     color: #fff;
 }
 
-/* --- 图片 (重点修改) --- */
+/* --- 图片  --- */
 .markdown-content img {
     display: block;
     max-width: 100%;     /* 必须限制不超过屏幕，否则会撑破手机页面 */
