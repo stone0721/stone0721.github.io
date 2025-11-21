@@ -1,11 +1,15 @@
 /* ==================== 全局设置 ==================== */
 :root {
     --bg-color: #0a0a0a;
-    --primary: #00f3ff; /* 亮青色，用于强调 */
+    --primary: #00f3ff; 
     --text-main: #e0e0e0;
     --text-muted: #a0a0a0;
     --card-bg: rgba(30, 30, 30, 0.7);
     --border-color: rgba(255, 255, 255, 0.1);
+}
+
+html {
+    scroll-behavior: smooth; /* 启用平滑滚动 */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,15 +33,16 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
 }
 
-/* ==================== 首页头部 ==================== */
+/* ==================== 首页头部 (修改部分) ==================== */
 header {
-    height: 50vh;
+    height: 100vh; /* 修改为全屏高度 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
+    position: relative; /* 为定位箭头做准备 */
 }
 
 .glitch {
@@ -45,36 +50,36 @@ header {
     font-weight: bold;
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    margin-bottom: 1rem;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* 稍微调大字体 */
     color: var(--primary);
     margin-top: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-/* ==================== 清晰的返回按钮 (Article页用) ==================== */
-.back-home-btn {
-    position: fixed;
-    top: 40px;
-    left: 50px;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid var(--primary);
+/* 新增：下滑提示动画 */
+.scroll-down-btn {
+    position: absolute;
+    bottom: 40px;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    transition: color 0.3s;
+}
+
+.scroll-down-btn:hover {
     color: var(--primary);
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.back-home-btn:hover {
-    background: var(--primary);
-    color: #000;
-    box-shadow: 0 0 15px var(--primary);
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
 /* ==================== 列表区域 ==================== */
@@ -82,6 +87,7 @@ header {
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px 100px;
+    min-height: 100vh; /* 保证内容区至少有一屏高度 */
 }
 
 .section-title {
@@ -90,6 +96,7 @@ header {
     border-left: 5px solid var(--primary);
     padding-left: 15px;
     color: #fff;
+    padding-top: 20px;
 }
 
 .post-list {
@@ -98,7 +105,7 @@ header {
     gap: 25px;
 }
 
-/* 卡片样式 */
+/* 卡片样式保持不变 */
 .post-preview {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -151,6 +158,10 @@ header {
     font-size: 0.9rem;
     font-weight: bold;
 }
+
+/* 保持其他 Markdown 样式和 Article 样式不变，这里省略以节省空间... */
+/* 请保留原 CSS 文件中 .back-home-btn, .markdown-body 等相关样式 */
+
 
 /* ==================== Markdown渲染样式 (重要) ==================== */
 .article-container {

@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ddddd</title>
+    <title>ddddd的个人博客</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- 粒子背景 -->
+    <!-- 粒子背景 (与鼠标互动) -->
     <div id="particles-js"></div>
 
-    <!-- 头部区域 -->
+    <!-- 全屏头部区域 -->
     <header>
         <h1 class="glitch" data-text="ddddd的个人博客">ddddd的个人博客</h1>
-        <p class="subtitle" data-aos="fade-up" data-aos-delay="200">专注于 Web 安全、逆向工程</p>
+        <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+            专注于 逆向工程 / Web安全
+        </p>
+        
+        <!-- 下滑提示按钮 -->
+        <div class="scroll-down-btn" onclick="document.getElementById('content').scrollIntoView()">
+            <span>﹀</span>
+        </div>
     </header>
 
     <!-- 文章列表 -->
-    <section class="container">
+    <section id="content" class="container">
         <h2 class="section-title" data-aos="fade-right">最新文章</h2>
         <div class="post-list" id="postList">
             <!-- JS 动态加载文章 -->
+            <div style="text-align:center; color:#666;">加载中</div>
         </div>
     </section>
 
+    <!-- 脚本引入 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
