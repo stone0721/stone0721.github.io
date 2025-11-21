@@ -591,3 +591,231 @@ header * { pointer-events: auto; }
     header { height: 70vh; }
     .glitch { font-size: 3rem; }
 }
+
+/* ==================== 8. 首页导航按钮 (New) ==================== */
+.home-nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    color: #000;
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-dim);
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* ==================== 9. 关于我页面样式 (About Page) ==================== */
+.about-container {
+    padding-top: 100px;
+    max-width: 1200px;
+}
+
+/* 头部档案 */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    background: rgba(10, 10, 15, 0.6);
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+}
+
+.profile-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px var(--primary-dim);
+    object-fit: cover;
+}
+
+.profile-role {
+    font-family: 'Consolas', monospace;
+    color: var(--primary);
+    margin: 10px 0 20px;
+    font-size: 1.1rem;
+}
+
+.profile-meta {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* 简历网格布局 */
+.resume-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 左侧宽，右侧窄 */
+    gap: 30px;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    border: var(--glass-border);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* 时间轴样式 */
+.timeline-item {
+    border-left: 2px solid var(--primary);
+    padding-left: 20px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 0;
+    width: 10px; height: 10px;
+    background: var(--bg-color);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+}
+
+.time {
+    font-family: 'Consolas', monospace;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.detail-list li {
+    margin-bottom: 5px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+.detail-list li::before {
+    content: '>';
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+/* 奖项列表 */
+.award-list {
+    list-style: none;
+}
+.award-list li {
+    display: flex;
+    margin-bottom: 20px;
+    border-left: 2px solid #333;
+    padding-left: 15px;
+    transition: 0.3s;
+}
+.award-list li:hover {
+    border-left-color: var(--secondary);
+    background: linear-gradient(90deg, rgba(255, 0, 85, 0.05), transparent);
+}
+.award-date {
+    font-family: monospace;
+    color: #666;
+    margin-right: 15px;
+    min-width: 80px;
+}
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+.badge.secondary {
+    background: rgba(255, 0, 85, 0.2);
+    color: var(--secondary);
+    border: 1px solid rgba(255, 0, 85, 0.3);
+}
+
+/* 技能标签云 */
+.skill-section { margin-bottom: 30px; }
+.skill-section h3 {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    padding: 5px 12px;
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 10px var(--primary-dim);
+    transform: translateY(-2px);
+}
+
+.tag.highlight {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    background: rgba(255, 0, 85, 0.05);
+}
+.tag.highlight:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-meta { justify-content: center; }
+}
