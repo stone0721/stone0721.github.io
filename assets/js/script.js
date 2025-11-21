@@ -179,7 +179,7 @@ async function loadArticle(filename) {
             <div class="article-header">
                 <h1>${title}</h1>
                 <div style="color:#666; font-family:'Consolas', monospace; font-size:0.9rem;">
-                    <span>DATE: ${date}</span>
+                    <span>更新日期: ${date}</span>
                     <span style="margin-left:20px; color:var(--primary);">${tagsHtml}</span>
                 </div>
             </div>
