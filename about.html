@@ -7,44 +7,108 @@
     <link rel="icon" type="image/jpg" href="assets/img/home.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* 针对本页面的特殊微调 */
+        /* === 页面专属样式修正 === */
+        
+        /* 1. 头部档案卡片布局 */
         .profile-header {
-            /* 改为左对齐，更像档案 */
-            justify-content: flex-start; 
-            padding: 50px;
-            background: linear-gradient(90deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.6) 100%);
+            display: flex;
+            align-items: flex-start; 
+            gap: 40px;
+            padding: 40px;
+            background: rgba(15, 15, 20, 0.8); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
         }
+
+        /* 2. 头像样式：正式的圆角矩形 */
+        .profile-avatar img {
+            width: 140px;
+            height: 140px;
+            border-radius: 6px; 
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+            object-fit: cover;
+        }
+
+        /* 3. 信息区域 */
         .profile-info {
-            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+
         .profile-name-row {
             display: flex;
-            align-items: baseline;
+            align-items: baseline; /* 文字底部对齐 */
             gap: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             margin-bottom: 20px;
         }
+
         .profile-role {
             color: var(--primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            opacity: 0.9;
         }
+
+        /* 4. 联系方式网格：中文标签 */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 自适应列宽 */
+            gap: 12px;
+            font-size: 0.95rem;
             color: #ccc;
         }
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
-        .contact-item i { color: var(--secondary); }
+        .contact-item .label {
+            color: #888; /* 标签颜色稍暗 */
+            margin-right: 10px;
+            font-weight: bold;
+            min-width: 4em; /* 保证标签对齐 */
+        }
+        .contact-item .value {
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', sans-serif; /* 数字用等宽字体更好看 */
+        }
+
+        /* 5. 列表样式：极简风格 */
+        .detail-list {
+            margin-top: 15px;
+            padding-left: 5px;
+        }
+        .detail-list li {
+            list-style: none;
+            margin-bottom: 8px;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+        }
+        /* 使用方块作为列表符号，比圆点更硬朗 */
+        .detail-list li::before {
+            content: '■'; 
+            color: var(--primary);
+            font-size: 0.6rem;
+            margin-right: 12px;
+            margin-top: 6px; /* 微调对齐 */
+            opacity: 0.8;
+        }
+        
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-name-row { flex-direction: column; gap: 5px; }
+            .contact-grid { width: 100%; text-align: left; }
+            .contact-item { justify-content: center; }
+            /* 手机上左对齐更好看 */
+            .contact-item { justify-content: flex-start; } 
+        }
     </style>
 </head>
 <body>
@@ -55,31 +119,36 @@
 
     <!-- 返回按钮 -->
     <a href="index.html" class="cmd-back-btn">
-        <span>&lt;</span> SYSTEM.EXIT
+        <span>&lt;</span> 主页
     </a>
 
     <div class="container about-container">
         
-        <!-- 1. 头部档案卡片 (无头像，纯文字档案风) -->
+        <!-- 1. 头部档案卡片 -->
         <section class="profile-header" data-aos="fade-down">
+            <div class="profile-avatar">
+                <!-- 请替换为你的正式头像 -->
+                <img src="assets/img/home.png" alt="Profile Photo" onerror="this.src='https://ui-avatars.com/api/?name=Yang+Cheng&background=111&color=00f3ff&size=256'">
+            </div>
+            
             <div class="profile-info">
                 <div class="profile-name-row">
-                    <h1 class="glitch" style="font-size: 3.5rem; margin: 0; line-height: 1;" data-text="杨 程">杨 程</h1>
-                    <span class="profile-role">/ Information Security Student</span>
+                    <h1 class="glitch" style="font-size: 3rem; margin: 0; line-height: 1;" data-text="杨 程">杨 程</h1>
+                    <span class="profile-role">/ 信息安全 · 在读本科生</span>
                 </div>
                 
                 <div class="contact-grid">
                     <div class="contact-item">
-                        <i>📍</i> <span>上海市杨浦区</span>
+                        <span class="label">现居</span>
+                        <span class="value">上海市杨浦区</span>
                     </div>
                     <div class="contact-item">
-                        <i>🎂</i> <span>2005.10</span>
+                        <span class="label">出生年月</span>
+                        <span class="value">2005.10</span>
                     </div>
                     <div class="contact-item">
-                        <i>📧</i> <span>23307130238@m.fudan.edu.cn</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📞</i> <span>150 2716 4190</span>
+                        <span class="label">邮箱</span>
+                        <span class="value">23307130238@m.fudan.edu.cn</span>
                     </div>
                 </div>
             </div>
@@ -96,12 +165,8 @@
                     <div class="timeline-item">
                         <div class="time">2023.09 - 2027.06 (预计)</div>
                         <div class="content">
-                            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 5px;">复旦大学 (Fudan University)</h3>
-                            <p class="highlight" style="color: var(--primary); font-weight: bold;">信息安全专业 / 本科</p>
-                            <ul class="detail-list" style="margin-top: 15px;">
-                                <li>🏆 复旦大学学年奖学金 (2次)</li>
-                                <li>👥 复旦大学网络信息安全协会成员</li>
-                            </ul>
+                            <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 5px;">复旦大学</h3>
+                            <p class="highlight" style="color: var(--primary); font-weight: bold;">信息安全专业</p>
                         </div>
                     </div>
                 </div>
@@ -113,17 +178,16 @@
                         <li>
                             <span class="award-date">2025.11</span>
                             <div class="award-info">
-                                <div style="color: #fff; font-weight: bold;">DataCon2025 大数据安全分析竞赛</div>
+                                <div style="color: #fff; font-weight: 600;">DataCon2025 大数据安全分析竞赛</div>
                                 <div style="margin-top: 4px;">
                                     <span class="badge secondary">全国二等奖</span>
-                                    <a href="https://www.datacon.org.cn" target="_blank" style="font-size: 0.8rem; color: #666; margin-left: 10px; border-bottom: 1px dotted #666;">[ Link ]</a>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <span class="award-date">2025.10</span>
                             <div class="award-info">
-                                <div style="color: #fff; font-weight: bold;">FDUCTF 2025</div>
+                                <div style="color: #fff; font-weight: 600;">FDUCTF 2025</div>
                                 <span class="badge secondary">优胜奖</span>
                             </div>
                         </li>
@@ -137,7 +201,7 @@
                     <h2 class="card-title">:: 技术能力 (SKILLS)</h2>
                     
                     <div class="skill-section">
-                        <h3>编程语言 (Languages)</h3>
+                        <h3>编程语言</h3>
                         <div class="tags-cloud">
                             <span class="tag">Python</span>
                             <span class="tag">PHP</span>
@@ -152,12 +216,12 @@
                         <h3>CTF 方向</h3>
                         <div class="tags-cloud">
                             <span class="tag highlight">Reverse</span>
-                            <span class="tag highlight">Web Security</span>
+                            <span class="tag highlight">Web</span>
                         </div>
                     </div>
 
                     <div class="skill-section">
-                        <h3>语言 & 工具</h3>
+                        <h3>其他技能</h3>
                         <div class="tags-cloud">
                             <span class="tag">CET-6</span>
                             <span class="tag">Git</span>
