@@ -241,20 +241,41 @@ header * {
     top: 20px;
     left: 20px;
     z-index: 100;
+    
+    /* --- 核心修改区域 --- */
+    font-size: 0.85rem;    /* 字体稍微改小 (约13-14px) */
+    padding: 6px 14px;     /* 内边距收缩，按钮变扁变短 */
+    border-radius: 50px;   /* 保持完全圆润的胶囊形状 */
+    letter-spacing: 1px;   /* 增加字间距，小字号下更易读 */
+    /* ------------------ */
+
     color: var(--primary);
-    font-size: 1.0rem;
-    font-weight: bold;
-    border: 1px solid var(--primary);
-    padding: 8px 20px;
-    border-radius: 30px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.4); /* 背景稍微透明一点 */
+    border: 1px solid rgba(0, 243, 255, 0.6); /* 边框稍微调细或透明一点，不那么生硬 */
+    backdrop-filter: blur(4px);
+    
+    transition: all 0.3s ease;
+    text-decoration: none; /* 确保没有下划线 */
 }
+
 .back-home-btn:hover {
     background: var(--primary);
-    color: #000;
-    box-shadow: 0 0 15px var(--primary);
+    color: #050505; /* 悬停时文字变深色背景色，对比度更高 */
+    box-shadow: 0 0 12px var(--primary); /* 光晕稍微收敛一点，更精致 */
+    transform: translateY(2px); /* 添加一点点按压效果 */
+    border-color: var(--primary);
 }
+
+/* 手机端可以更小一点 */
+@media (max-width: 768px) {
+    .back-home-btn {
+        top: 15px;
+        left: 15px;
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+}
+
 
 /* ==================== 文章详情页容器 ==================== */
 .article-container {
@@ -290,7 +311,7 @@ header * {
     /* 正文使用易读的无衬线字体，不再用 Courier New */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 1.1rem;
-    line-height: 1.0;
+    line-height: 1.2;
     color: #d4d4d4; /* 柔和的灰白色 */
 }
 
