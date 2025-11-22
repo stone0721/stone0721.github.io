@@ -161,7 +161,7 @@ header * { pointer-events: auto; }
     cursor: pointer;
     transition: 0.3s;
     border-radius: 2px;
-    text-transform: uppercase;
+    text-transform: none;
 }
 .cat-btn:hover, .cat-btn.active {
     border-color: var(--primary);
