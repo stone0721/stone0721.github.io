@@ -1,5 +1,5 @@
 ---
-title: Scrapy Playwright实战 股民社区情感分析
+title: Scrapy-Playwright-股民社区情感分析
 date: 2025-11-22
 categories: 爬虫与数据分析 
 toc: true
