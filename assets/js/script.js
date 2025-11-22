@@ -183,7 +183,7 @@ async function loadArticle(filename) {
         
         // 解析
         const { title, date, content, categories, tags } = parseFrontMatter(text);
-        document.title = title + " | DevLog";
+        document.title = title ;
 
         // 合并标签用于显示
         const allTags = [...(categories || []), ...(tags || [])];
