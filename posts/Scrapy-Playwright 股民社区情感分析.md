@@ -13,7 +13,9 @@ toc: true
 ## 数据源选择
 
 > 东方财富股吧 https://guba.eastmoney.com
+> 
 > 雪球 https://xueqiu.com
+> 
 > 同花顺 https://t.10jqka.com.cn
 
 ## xueqiu股民评论爬取
@@ -212,20 +214,3 @@ class XueqiuSpider(scrapy.Spider):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```sh
-scrapy crawl xueqiu -o data.json
-```
