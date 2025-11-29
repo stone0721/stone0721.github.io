@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 | 杨程</title>
+    <!-- 引入 Google Fonts: Noto Serif SC (思源宋体) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/jpg" href="assets/img/home.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* === 页面专属样式修正 === */
+        
+        /* 1. 头部档案卡片布局 */
+        .profile-header {
+            display: flex;
+            align-items: flex-start; 
+            gap: 40px;
+            padding: 40px;
+            background: rgba(15, 15, 20, 0.8); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* 2. 头像样式：正式的圆角矩形 */
+        .profile-avatar img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; 
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+            object-fit: cover;
+        }
+
+        /* 3. 信息区域 */
+        .profile-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-name-row {
+            display: flex;
+            align-items: baseline; /* 文字底部对齐 */
+            gap: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .profile-role {
+            color: var(--primary);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* 4. 联系方式网格：中文标签 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 自适应列宽 */
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        .contact-item .label {
+            color: #888; /* 标签颜色稍暗 */
+            margin-right: 10px;
+            font-weight: bold;
+            min-width: 4em; /* 保证标签对齐 */
+        }
+        .contact-item .value {
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', sans-serif; /* 数字用等宽字体更好看 */
+        }
+
+        /* 5. 列表样式：极简风格 */
+        .detail-list {
+            margin-top: 15px;
+            padding-left: 5px;
+        }
+        .detail-list li {
+            list-style: none;
+            margin-bottom: 8px;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+        }
+        /* 使用方块作为列表符号，比圆点更硬朗 */
+        .detail-list li::before {
+            content: '■'; 
+            color: var(--primary);
+            font-size: 0.6rem;
+            margin-right: 12px;
+            margin-top: 6px; /* 微调对齐 */
+            opacity: 0.8;
+        }
+        
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-name-row { flex-direction: column; gap: 5px; }
+            .contact-grid { width: 100%; text-align: left; }
+            .contact-item { justify-content: center; }
+            /* 手机上左对齐更好看 */
+            .contact-item { justify-content: flex-start; } 
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景层 -->
+    <div class="bg-wallpaper"></div>
+    <div class="bg-grid"></div>
+    <div id="particles-js"></div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="cmd-back-btn">
+        <
+    </a>
+
+    <div class="container about-container">
+        
+        <!-- 1. 头部档案卡片 -->
+        <section class="profile-header" data-aos="fade-down">
+            <div class="profile-avatar">
+                <!-- 请替换为你的正式头像 -->
+                <img src="assets/img/home.png" alt="Profile Photo" onerror="this.src='https://ui-avatars.com/api/?name=Yang+Cheng&background=111&color=00f3ff&size=256'">
+            </div>
+            
+            <div class="profile-info">
+                <div class="profile-name-row">
+                    <h1 style="font-size: 3rem; margin: 0; line-height: 1; color: #fff; font-weight: 900;">杨 程</h1>
+                    <span class="profile-role">/ 信息安全 · 在读本科生</span>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="label">现居</span>
+                        <span class="value">上海市杨浦区</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">出生年月</span>
+                        <span class="value">2005.10</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">邮箱</span>
+                        <span class="value">23307130238@m.fudan.edu.cn</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="resume-grid">
+            
+            <!-- 2. 左栏：教育 & 奖项 -->
+            <div class="resume-left">
+                
+                <!-- 教育背景 -->
+                <div class="glass-card" data-aos="fade-right">
+                    <h2 class="card-title">教育背景</h2>
+                    <div class="timeline-item">
+                        <div class="time">2023.09 - 2027.06 (预计)</div>
+                        <div class="content">
+                            <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 5px;">复旦大学</h3>
+                            <p class="highlight" style="color: var(--primary); font-weight: bold;">信息安全专业</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 竞赛获奖 -->
+                <div class="glass-card" data-aos="fade-right" data-aos-delay="100">
+                    <h2 class="card-title">荣誉与奖项</h2>
+                    <ul class="award-list">
+                        <li>
+                            <span class="award-date">2025.11</span>
+                            <div class="award-info">
+                                <div style="color: #fff; font-weight: 600;">DataCon2025 大数据安全分析竞赛</div>
+                                <div style="margin-top: 4px;">
+                                    <span class="badge secondary">二等奖</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="award-date">2025.10</span>
+                            <div class="award-info">
+                                <div style="color: #fff; font-weight: 600;">FDUCTF 2025</div>
+                                <span class="badge secondary">优胜奖</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. 右栏：技能栈 -->
+            <div class="resume-right">
+                <div class="glass-card" data-aos="fade-left">
+                    <h2 class="card-title">技术能力</h2>
+                    
+                    <div class="skill-section">
+                        <h3>编程语言</h3>
+                        <div class="tags-cloud">
+                            <span class="tag">Python</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">C/C++</span>
+                            <span class="tag">Shell</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-section">
+                        <h3>CTF 方向</h3>
+                        <div class="tags-cloud">
+                            <span class="tag highlight">Reverse</span>
+                            <span class="tag highlight">Web</span>
+                        </div>
+                    </div>
+
+                    <!--
+                    <div class="skill-section">
+                        <h3>其他技能</h3>
+                        <div class="tags-cloud">
+                            <span class="tag">CET-6</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">Linux</span>
+                        </div>
+                    </div>
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 脚本引用 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

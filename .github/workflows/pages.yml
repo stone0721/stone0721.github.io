@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate posts/index.json
+        run: |
+          mkdir -p posts
+          echo '{"posts":[' > posts/index.json
+          # 进入 posts 目录，只列出文件名，按修改时间倒序
+          cd posts
+          ls -1t *.md 2>/dev/null | awk '{print "\""$0"\""}' | paste -sd, - >> ../posts/index.json || echo -n "" >> ../posts/index.json
+          cd ..
+          echo '],"generated":"'$(date -u +"%Y-%m-%d %H:%M:%SZ")'"}' >> posts/index.json
+          echo "=== Generated posts/index.json ==="
+          cat posts/index.json
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

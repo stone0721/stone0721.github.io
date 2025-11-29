@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加载中...</title>
+    <link rel="icon" type="image/jpg" href="assets/img/home.png">
+    <!-- 引入 Google Fonts: Noto Serif SC (思源宋体) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- 背景层 -->
+    <!-- 1. 背景图片层 -->
+    <div class="bg-wallpaper"></div>
+
+    <!-- 2. 网格装饰 -->
+    <div class="bg-grid"></div>
+
+    <!-- 3. 粒子特效 -->
+    <div id="particles-js"></div>
+
+    <!-- 需求4：更酷的返回按钮 -->
+    <a href="index.html" class="cmd-back-btn">
+        <
+    </a>
+
+    <!-- 需求2：目录解析布局 -->
+    <div class="article-grid">
+        
+        <!-- 左侧：文章内容区 -->
+        <div class="article-wrapper" data-aos="fade-right">
+            <div id="article-content">
+                <div style="text-align:center; padding:50px; color:#666;">
+                    正在加载...
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：侧边栏目录 -->
+        <aside class="toc-sidebar" data-aos="fade-left">
+            <div id="toc-content">
+                <!-- JS 将在这里生成目录 -->
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- 脚本引用 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>

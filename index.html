@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ddddd</title>
+    
+    <link rel="icon" type="image/jpg" href="assets/img/home.png">
+    <!-- 引入 Google Fonts: Noto Serif SC (思源宋体) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 背景层 -->
+    <!-- 1. 背景图片层 -->
+    <div class="bg-wallpaper"></div>
+
+    <!-- 2. 网格装饰 -->
+    <div class="bg-grid"></div>
+
+    <!-- 3. 粒子特效 -->
+    <div id="particles-js"></div>
+
+    <!-- 在 index.html 的 header 内部添加 -->
+    <header>
+        <h1 class="glitch" data-text="ddddd的个人博客">ddddd</h1>
+        <p class="subtitle"></p> <!-- 这是原本的打字机位置 -->
+    
+        <!-- 新增：导航按钮组 -->
+        <nav class="home-nav" data-aos="fade-in" data-aos-delay="400">
+            <a href="about.html" class="nav-link">ABOUT ME</a>
+            <!-- 你以后可以在这里加更多链接，比如 GitHub -->
+        </nav>
+    </header>
+
+    <!-- 搜索与分类索引 -->
+    <section class="filter-section" data-aos="fade-up">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder=">> 搜索">
+        </div>
+        <div class="category-list" id="categoryList">
+            <!-- JS 将在这里生成按钮 -->
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">最新文章</h2>
+        <div class="post-list" id="postList">
+            <!-- JS 将在这里生成文章列表 -->
+        </div>
+    </section>
+
+    <!-- 脚本引用保持不变 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
