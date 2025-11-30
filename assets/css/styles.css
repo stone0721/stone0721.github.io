@@ -1303,7 +1303,7 @@ header * { pointer-events: auto; }
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .tag {
