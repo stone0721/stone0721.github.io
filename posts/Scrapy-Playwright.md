@@ -99,7 +99,7 @@ Scrapy 采用组件化架构设计，其核心工作流程包括：
 传统爬虫难以处理现代 Web 应用中的 JavaScript 动态渲染内容，本系统通过集成 Playwright 解决这一挑战。以下是关键配置实现：
 
 ```python
-# settings.py - 异步下载器配置
+# settings.py
 
 # 替换默认下载器为 Playwright 下载器
 DOWNLOAD_HANDLERS = {
@@ -113,7 +113,7 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 # 浏览器实例配置
 PLAYWRIGHT_LAUNCH_OPTIONS = {
     "headless": False,  # 调试模式，调试完后可设为True
-    "timeout": 60 * 1000,  # 延长超时时间，适应复杂页面加载
+    "timeout": 60 * 1000,  
     "args": [
         "--disable-infobars",  # 隐藏信息栏
         "--disable-blink-features=AutomationControlled",  # 绕过反爬检测
@@ -122,7 +122,6 @@ PLAYWRIGHT_LAUNCH_OPTIONS = {
     ]
 }
 
-# 模拟真实浏览器请求头
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # 并发控制配置
@@ -154,7 +153,7 @@ LOG_STDOUT = True
 | 错误恢复 | 简单重试 | 可结合浏览器状态恢复，更健壮 |
 
 ```python
-# 传统同步爬虫模式 - 存在的局限性
+# 传统同步爬虫模式
 class TraditionalStockSpider(scrapy.Spider):
     name = "traditional_xueqiu"
     allowed_domains = ["xueqiu.com"]
@@ -167,7 +166,7 @@ class TraditionalStockSpider(scrapy.Spider):
 ```
 
 ```python
-# 异步 Playwright 爬虫模式 - 本系统实现
+# 异步 Playwright 爬虫模式
 import scrapy
 from scrapy_playwright.page import PageMethod
 from stock_sentiment_analysis.items import StockCommentItem
@@ -176,7 +175,7 @@ class XueqiuSpider(scrapy.Spider):
     name = "xueqiu_spider"
     allowed_domains = ["xueqiu.com"]
     custom_settings = {
-        'DOWNLOAD_DELAY': 2,  # 设置下载延迟，避免请求过快
+        'DOWNLOAD_DELAY': 2, 
         'CONCURRENT_REQUESTS': 5,  # 控制并发请求数
     }
 
@@ -218,8 +217,8 @@ class XueqiuSpider(scrapy.Spider):
     name = "xueqiu_spider"
     allowed_domains = ["xueqiu.com"]
     custom_settings = {
-        'DOWNLOAD_DELAY': 2,  # 设置下载延迟，避免请求过快
-        'CONCURRENT_REQUESTS': 5,  # 控制并发请求数
+        'DOWNLOAD_DELAY': 2, 
+        'CONCURRENT_REQUESTS': 5,  
     }
 
     async def start_requests(self):
@@ -232,12 +231,10 @@ class XueqiuSpider(scrapy.Spider):
         yield scrapy.Request(
             url='https://xueqiu.com/hq',
             meta={
-                'playwright': True,  # 启用Playwright浏览器渲染
-                'playwright_include_page': True,  # 获取页面实例用于后续操作
+                'playwright': True, 
+                'playwright_include_page': True, 
                 'playwright_page_methods': [
-                    # 显式等待热门股票列表元素出现，确保内容完全加载
                     PageMethod("wait_for_selector", "ul[class*='hot-stock-list']", timeout=30000),
-                    # 额外等待时间，确保动态内容渲染完成
                     PageMethod('wait_for_timeout', 2000),
                 ]
             }
@@ -249,16 +246,12 @@ class XueqiuSpider(scrapy.Spider):
         作为爬虫的数据提取核心方法，采用异步处理模式，实现了高效的数据提取与任务分发。
         关键技术点包括：健壮的CSS选择器策略、数据完整性校验、元数据传递机制。
         """
-        # 使用CSS包含选择器精确定位热门股票列表项
-        # *= 表示包含关系选择器，选择class属性包含hot-stock-list的ul元素及其内部的li元素
-        # 这种方式增强了选择器的稳定性，降低了页面结构变更带来的影响
         stock_list = response.css('ul[class*="hot-stock-list"] li')
         
         self.logger.info(f"成功定位并解析到{len(stock_list)}支热门股票")
         
         # 遍历每个股票列表项提取关键信息
         for item in stock_list:
-            # 采用多层次提取策略，从链接中解析股票代码
             link = item.css('a::attr(href)').get()
             stock_code = link.split('/')[-1] if link else None
             
@@ -267,15 +260,14 @@ class XueqiuSpider(scrapy.Spider):
             name_span = item.css('span[class*="hot-stock-name"]::text').get()
             percent_span = item.css('span[class*="hot-stock-percent"]::text').get()
             
-            # 实施严格的数据完整性校验，确保数据质量
             if all([rank_span, name_span, percent_span, stock_code]):
                 # 构建标准化的股票信息字典，规范化数据格式
                 stock_info = {
-                    'rank': rank_span.replace('.', '').strip(),  # 清理排名数据
-                    'name': name_span.strip(),  # 清理股票名称
-                    'percent': percent_span.strip(),  # 保留涨跌幅百分比
-                    'code': stock_code,  # 规范化股票代码
-                    'link': response.urljoin(link) if link else None  # 构建完整URL
+                    'rank': rank_span.replace('.', '').strip(),  
+                    'name': name_span.strip(),
+                    'percent': percent_span.strip(), 
+                    'code': stock_code, 
+                    'link': response.urljoin(link) if link else None 
                 }
                 self.logger.debug(f"成功提取股票信息: {stock_info['name']}({stock_info['code']})")
                 
@@ -284,17 +276,15 @@ class XueqiuSpider(scrapy.Spider):
                     url=response.urljoin(link),
                     callback=self.parse_comments,  # 指定评论解析回调函数
                     meta={
-                        'playwright': True,  # 启用浏览器渲染评论内容
+                        'playwright': True,  
                         'playwright_include_page': True,
                         'playwright_page_methods': [
-                            # 等待评论内容加载完成
                             PageMethod("wait_for_selector", "article[class*='timeline__item']", timeout=30000),
                         ],
                         **stock_info  # 解包传递股票基本信息，实现数据链路完整性
                     },
                 )
             else:
-                # 记录数据异常情况，便于后续调试与优化
                 self.logger.warning(f"股票数据不完整，跳过处理: 排名={rank_span}, 名称={name_span}, 涨跌幅={percent_span}")
 ```
 
@@ -327,9 +317,6 @@ class XueqiuSpider(scrapy.Spider):
 
 
 
-
-
-
 ### 评论数据深度爬取策略
 
 #### 单页评论爬取
@@ -349,7 +336,7 @@ class XueqiuSpider(scrapy.Spider):
         3. 应用文本提取算法处理嵌套文本节点
         4. 执行数据质量过滤与标准化
         """
-        # 从meta中获取股票基础信息，实现数据链路完整性
+        # 从meta中获取股票基础信息
         stock_rank = response.meta.get('rank')
         stock_name = response.meta.get('name')
         stock_percent = response.meta.get('percent')
@@ -361,14 +348,10 @@ class XueqiuSpider(scrapy.Spider):
         await page.close()  # 显式关闭页面，避免内存泄漏
         
         # 使用Scrapy Selector解析渲染后的HTML内容
-        # 采用中间层抽象，提高代码可维护性
         sel = Selector(text=response.text)
         
-        # 使用健壮的CSS选择器定位评论元素
-        # 使用包含选择器模式，增强对页面结构变化的适应性
         articles = sel.css("article[class*='timeline__item']")
         
-        # 异常情况处理与日志记录
         if not articles:
             self.logger.warning(f"[{stock_rank}-{stock_name}] 未获取到有效评论数据")
             return
@@ -383,14 +366,11 @@ class XueqiuSpider(scrapy.Spider):
 ![5](../assets/img/Scrapy-Playwright股民社区情感分析/5.png)
 
 ```python
-            # 批量处理评论数据，采用流式处理模式
             for article in articles:
                 # 提取评论元数据
                 post_time = article.css('.date-and-source::text').get()
                 user_name = article.css('.user-name::text').get()
                 
-                # 高级文本提取算法：处理多层嵌套的文本节点
-                # 实现了递归式文本合并，解决评论内容分布在多个子节点的问题
                 comment_elements = article.css('div.content--description div ::text')
                 user_comment = ''.join(
                     comment_element.get().strip() 
@@ -404,7 +384,7 @@ class XueqiuSpider(scrapy.Spider):
                     
                 # 构建标准化数据项，实现数据格式统一
                 item = StockCommentItem(
-                    platform="xueqiu",  # 多源数据标记，便于后续数据融合
+                    platform="xueqiu", 
                     stock_rank=stock_rank,    
                     stock_name=stock_name,
                     stock_percent=stock_percent,
@@ -416,7 +396,6 @@ class XueqiuSpider(scrapy.Spider):
                     crawl_time=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 )
                 
-                # 数据日志记录，便于监控数据质量
                 self.logger.debug(f"成功提取评论：{stock_name} - {user_comment[:30]}...")
                 
                 # 返回标准化数据项到处理管道
@@ -443,7 +422,7 @@ class XueqiuSpider(scrapy.Spider):
         page = response.meta["playwright_page"]
         
         try:
-            # 提取评论数据（与parse_comments方法类似）
+            # 提取评论数据
             # ...评论提取代码...
             
             # 判断是否存在下一页
@@ -452,7 +431,6 @@ class XueqiuSpider(scrapy.Spider):
             
             # 分页策略：最多爬取10页，防止无限循环
             if not is_disabled and current_page < 10:
-                # 智能等待：随机延迟，模拟人类行为
                 await page.wait_for_timeout(random.randint(1000, 3000))
                 
                 # 点击下一页按钮
@@ -477,12 +455,10 @@ class XueqiuSpider(scrapy.Spider):
                     dont_filter=True  # 允许重复URL爬取，适应分页机制
                 )
             else:
-                # 没有下一页或达到最大页数，关闭页面
                 await page.close()
                 self.logger.info(f"[{stock_info.get('name')}] 评论爬取完成，共爬取{current_page}页")
                 
         except Exception as e:
-            # 异常处理：记录错误并确保资源释放
             self.logger.error(f"分页爬取异常: {str(e)}")
             await page.close()
 ```
@@ -537,25 +513,22 @@ class JsonWriterPipeline:
         self.output_dir = 'output'
         
     def open_spider(self, spider):
-        # 创建输出目录
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
         
-        # 根据时间生成文件名
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"{self.output_dir}/stock_data_{timestamp}.json"
         
-        # 打开文件
         self.file = open(filename, 'w', encoding='utf-8')
-        self.file.write('[\n')  # 开始JSON数组
+        self.file.write('[\n')  
         spider.logger.info(f"数据将保存到: {filename}")
         
     def close_spider(self, spider):
         if self.file:
             if self.items_count > 0:
-                self.file.write('\n]')  # 结束JSON数组
+                self.file.write('\n]') 
             else:
-                self.file.write(']')  # 空数组
+                self.file.write(']') 
             self.file.close()
             spider.logger.info(f"爬虫结束，共保存 {self.items_count} 条数据")
         
@@ -563,15 +536,14 @@ class JsonWriterPipeline:
         adapter = ItemAdapter(item)
         item_dict = dict(adapter)
         
-        # 格式化JSON
         if self.items_count > 0:
-            self.file.write(',\n')  # 添加逗号分隔符
+            self.file.write(',\n') 
         
         json_line = json.dumps(item_dict, ensure_ascii=False, indent=2)
-        self.file.write(' ' * 2 + json_line)  # 缩进2个空格
-        
+        self.file.write(' ' * 2 + json_line)
+
         self.items_count += 1
-        if self.items_count % 10 == 0:  # 每10条数据刷新一次
+        if self.items_count % 10 == 0: 
             self.file.flush()
             spider.logger.info(f"已处理 {self.items_count} 条数据")
         
@@ -589,7 +561,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 # 启用管道
 ITEM_PIPELINES = {
-    "test_pj.pipelines.JsonWriterPipeline": 100,     # JSON输出
+    "test_pj.pipelines.JsonWriterPipeline": 100,    
 }
 ```
 
