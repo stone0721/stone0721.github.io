@@ -195,19 +195,30 @@ async function loadArticle(filename) {
                 <h1>${title}</h1>
                 <div>更新时间: ${date}</div>
             </div>
+            <div class="mobile-toc" id="mobileToc">
+                <button class="mobile-toc-toggle" id="mobileTocToggle">目录</button>
+                <div class="mobile-toc-content" id="mobileTocContent"></div>
+            </div>
             <div class="markdown-content">
                 ${marked.parse(content)}
             </div>
         `;
 
-        // 处理代码块
         processCodeBlocks(container);
-        
-        // 处理图片
         processImages(container);
-        
-        // 生成目录
         generateTOC(container, tocContainer);
+
+        const mobileTocContent = document.getElementById('mobileTocContent');
+        const mobileTocToggle = document.getElementById('mobileTocToggle');
+        if (mobileTocContent && tocContainer) {
+            mobileTocContent.innerHTML = tocContainer.innerHTML;
+        }
+        if (mobileTocToggle) {
+            mobileTocToggle.addEventListener('click', () => {
+                mobileTocToggle.classList.toggle('expanded');
+                mobileTocContent.classList.toggle('expanded');
+            });
+        }
 
     } catch (err) {
         console.error(err);
@@ -249,23 +260,48 @@ function addCopyButton(pre, block) {
     btn.innerHTML = '复制';
     
     btn.addEventListener('click', () => {
-        const codeText = block.innerText; 
+        const codeText = block.innerText;
         
-        navigator.clipboard.writeText(codeText).then(() => {
-            btn.innerHTML = '✓ 已复制';
-            btn.classList.add('copied');
-            
-            setTimeout(() => {
-                btn.innerHTML = '复制';
-                btn.classList.remove('copied');
-            }, 2000);
-        }).catch(err => {
-            console.error('复制失败:', err);
-            btn.innerHTML = '错误';
-        });
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(codeText).then(() => {
+                btn.innerHTML = '✓ 已复制';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerHTML = '复制';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                fallbackCopy(codeText, btn);
+            });
+        } else {
+            fallbackCopy(codeText, btn);
+        }
     });
 
     pre.appendChild(btn);
+}
+
+function fallbackCopy(text, btn) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        btn.innerHTML = '✓ 已复制';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.innerHTML = '复制';
+            btn.classList.remove('copied');
+        }, 2000);
+    } catch (e) {
+        btn.innerHTML = '错误';
+    }
+    document.body.removeChild(textarea);
 }
 
 // ================= 图片处理 =================
@@ -321,6 +357,7 @@ function openLightbox(src, alt) {
             overlay.remove();
             document.body.style.overflow = '';
         }, 200);
+        document.removeEventListener('keydown', escHandler);
     };
     
     overlay.addEventListener('click', (e) => {
@@ -329,12 +366,25 @@ function openLightbox(src, alt) {
         }
     });
     
-    document.addEventListener('keydown', function escHandler(e) {
+    function escHandler(e) {
         if (e.key === 'Escape') {
             closeLightbox();
-            document.removeEventListener('keydown', escHandler);
         }
-    });
+    }
+    document.addEventListener('keydown', escHandler);
+
+    let touchStartY = 0;
+    overlay.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    overlay.addEventListener('touchend', (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = Math.abs(touchEndY - touchStartY);
+        if (diff > 80) {
+            closeLightbox();
+        }
+    }, { passive: true });
 }
 
 // ================= 目录生成 =================
@@ -536,17 +586,17 @@ function initCursorFollower() {
 // 初始化趣味动态元素
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
-    initFloatingIcons();
-    // initCursorFollower(); // 可选：鼠标跟随效果
     
-    // 为侧边目录添加显示逻辑
+    if (window.innerWidth > 768) {
+        initFloatingIcons();
+    }
+    
     const tocSidebar = document.querySelector('.toc-sidebar');
     if (tocSidebar && window.innerWidth >= 1024) {
         tocSidebar.style.display = 'block';
     }
 });
 
-// 窗口大小变化时更新侧边目录显示
 window.addEventListener('resize', () => {
     const tocSidebar = document.querySelector('.toc-sidebar');
     if (tocSidebar) {
