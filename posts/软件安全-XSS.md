@@ -1,3 +1,17 @@
+---
+title: 软件安全-XSS
+date: 2026-04-16
+categories: Web安全
+toc: true
+---
+
+跨站脚本攻击 XSS 能向受害者的网页浏览器中注入恶意 JS 代码，窃取 Cookie 等敏感信息。
+
+本实验使用关闭 XSS 防护的开源社交网络应用 Elgg ，进行 XSS 攻击与防护实验。
+
+<!--more-->
+
+
 ## 环境搭建
 
 下载 `Labsetup-XSS` 

@@ -3,31 +3,53 @@ let allPostsData = [];
 
 // ================= 初始化逻辑 =================
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 初始化粒子背景
-    if(document.getElementById('particles-js')) {
-        initParticles();
-    }
-
-    // 2. 首页逻辑
+    initNavbar();
+    
     if(document.getElementById('postList')) {
         initHomePage();
-        initTypewriter();
     }
 
-    // 3. 文章页逻辑
     const urlParams = new URLSearchParams(window.location.search);
     const postFile = urlParams.get('post');
     if(postFile && document.getElementById('article-content')) {
         loadArticle(postFile);
-        initMobileTocToggle(); // 初始化移动端目录切换
-    }
-
-    // 4. 初始化 AOS
-    if(typeof AOS !== 'undefined') {
-        AOS.init({ duration: 600, offset: 50, easing: 'ease-out-quart', once: true });
     }
 });
 
+// ================= 导航栏功能 =================
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = document.getElementById('navbarToggle');
+    const navbarLinks = document.getElementById('navbarLinks');
+    
+    // 滚动效果
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            navbar?.classList.add('scrolled');
+        } else {
+            navbar?.classList.remove('scrolled');
+        }
+    });
+    
+    // 移动端菜单切换
+    navbarToggle?.addEventListener('click', () => {
+        navbarLinks?.classList.toggle('active');
+    });
+    
+    // 点击导航链接时关闭移动端菜单
+    document.querySelectorAll('.navbar-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navbarLinks?.classList.remove('active');
+        });
+    });
+    
+    // 点击页面其他地方关闭菜单
+    document.addEventListener('click', (e) => {
+        if (!navbar?.contains(e.target) && navbarLinks?.classList.contains('active')) {
+            navbarLinks?.classList.remove('active');
+        }
+    });
+}
 
 // ================= 首页核心功能 =================
 async function initHomePage() {
@@ -54,9 +76,8 @@ async function initHomePage() {
                 if (meta.content.includes(moreTag)) {
                     excerpt = meta.content.split(moreTag)[0];
                 } else {
-                    excerpt = meta.content.slice(0, 100) + '...';
+                    excerpt = meta.content.slice(0, 150) + '...';
                 }
-                // 去除 Markdown 符号
                 excerpt = excerpt.replace(/[#*`$!\[\]]/g, '').replace(/\n/g, ' ').trim();
 
                 return { file, ...meta, excerpt };
@@ -68,48 +89,60 @@ async function initHomePage() {
         renderCategories(allPostsData, categoryContainer);
         renderPosts(allPostsData, container);
 
-        searchInput.addEventListener('input', (e) => {
+        searchInput.addEventListener('input', debounce((e) => {
             const keyword = e.target.value.toLowerCase();
             const filtered = allPostsData.filter(p => 
                 (p.title || '').toLowerCase().includes(keyword) || 
-                (p.content || '').toLowerCase().includes(keyword)
+                (p.content || '').toLowerCase().includes(keyword) ||
+                (p.categories || []).some(c => c.toLowerCase().includes(keyword)) ||
+                (p.tags || []).some(t => t.toLowerCase().includes(keyword))
             );
             renderPosts(filtered, container);
-        });
+        }, 200));
 
     } catch (err) {
-        container.innerHTML = '<div style="color:#666; text-align:center;">暂无文章数据</div>';
+        container.innerHTML = '<div style="color:#64748b; text-align:center; padding:40px;">暂无文章数据</div>';
     }
 }
-// 渲染文章卡片
+
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 function renderPosts(posts, container) {
     container.innerHTML = '';
     if(posts.length === 0) {
-        container.innerHTML = '<div style="text-align:center; color:#666; grid-column:1/-1;">未找到相关数据 // No Data Found</div>';
+        container.innerHTML = '<div style="text-align:center; color:#64748b; grid-column:1/-1; padding:40px;">未找到相关文章</div>';
         return;
     }
 
-    posts.forEach((post, index) => {
+    posts.forEach((post) => {
         const card = document.createElement('div');
         card.className = 'post-preview';
-        card.setAttribute('data-aos', 'fade-up');
-        if(index < 6) card.setAttribute('data-aos-delay', index * 50);
 
         const allTags = new Set([...(post.categories || []), ...(post.tags || [])]);
         const tagsHtml = Array.from(allTags).map(t => 
-            `<span style="margin-right:8px; color:var(--primary); font-size:0.8rem; font-weight:bold;">#${t}</span>`
+            `<span class="tag-item">#${t}</span>`
         ).join('');
 
         card.innerHTML = `
             <h3>${post.title}</h3>
             <div class="meta">
-                <span>${post.date || 'Unknown Date'}</span>
-                <span style="margin: 0 10px; color:#444;">|</span>
+                <span>${post.date || '未知日期'}</span>
+                <span style="margin: 0 8px; color:#cbd5e1;">|</span>
                 ${tagsHtml} 
             </div>
-            <p style="font-size:0.9rem; color:#888; margin-bottom:15px; line-height:1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${post.excerpt}</p>
+            <p>${post.excerpt}</p>
             <a href="article.html?post=${encodeURIComponent(post.file)}" class="read-more-btn">
-                &lt; 阅读全文 &gt;
+                阅读全文
             </a>
         `;
         container.appendChild(card);
@@ -122,7 +155,7 @@ function renderCategories(posts, container) {
         if(p.categories) p.categories.forEach(c => categories.add(c));
     });
 
-    let html = `<button class="cat-btn active" onclick="filterCat('all', this)">ALL</button>`;
+    let html = `<button class="cat-btn active" onclick="filterCat('all', this)">全部</button>`;
     categories.forEach(c => {
         html += `<button class="cat-btn" onclick="filterCat('${c}', this)">${c}</button>`;
     });
@@ -160,134 +193,203 @@ async function loadArticle(filename) {
         container.innerHTML = `
             <div class="article-header">
                 <h1>${title}</h1>
-                <div style="color:#666; font-family:'Consolas', monospace; font-size:0.85rem; margin-top:10px;">
-                    <span>更新时间: ${date}</span>
-                </div>
+                <div>更新时间: ${date}</div>
             </div>
-            <div style="height:1px; background:#222; margin:30px 0;"></div>
             <div class="markdown-content">
                 ${marked.parse(content)}
             </div>
         `;
 
-// 代码高亮与复制功能
-        if(typeof hljs !== 'undefined') {
-            container.querySelectorAll('pre code').forEach((block) => {
-                // 1. 执行高亮
-                hljs.highlightElement(block);
-                
-                // 2. 获取父级 pre 元素
-                const pre = block.parentElement;
-                
-                // 3. 获取语言名称 (例如 class="language-python")
-                let lang = 'CODE';
-                block.classList.forEach(cls => {
-                    if(cls.startsWith('language-')) {
-                        lang = cls.replace('language-', '').toUpperCase();
-                    }
-                });
-                // 设置 data-lang 属性，供 CSS 的 ::after 读取显示
-                pre.setAttribute('data-lang', lang);
-
-                // 4. 创建复制按钮
-                const btn = document.createElement('button');
-                btn.className = 'copy-btn';
-                btn.innerHTML = '复制'; // 初始文字
-                
-                // 5. 复制逻辑
-                btn.addEventListener('click', () => {
-                    // 获取纯文本，去除可能存在的HTML标签干扰
-                    const codeText = block.innerText; 
-                    
-                    navigator.clipboard.writeText(codeText).then(() => {
-                        // 成功反馈
-                        btn.innerHTML = '已复制';
-                        btn.classList.add('copied');
-                        
-                        // 2秒后恢复
-                        setTimeout(() => {
-                            btn.innerHTML = '复制';
-                            btn.classList.remove('copied');
-                        }, 2000);
-                    }).catch(err => {
-                        console.error('复制失败:', err);
-                        btn.innerHTML = '错误';
-                    });
-                });
-
-                // 将按钮添加到 pre 块中
-                pre.appendChild(btn);
-            });
-        }
-
+        // 处理代码块
+        processCodeBlocks(container);
+        
+        // 处理图片
+        processImages(container);
+        
+        // 生成目录
         generateTOC(container, tocContainer);
 
     } catch (err) {
         console.error(err);
-        container.innerHTML = `<div style="padding:50px; text-align:center; color:#666;">文章加载失败</div>`;
+        container.innerHTML = `<div style="padding:50px; text-align:center; color:#64748b;">文章加载失败</div>`;
     }
 }
 
-// 生成目录 -  支持三层结构 (H2, H3, H4)
+// ================= 代码块处理 =================
+function processCodeBlocks(container) {
+    if(typeof hljs !== 'undefined') {
+        container.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
+            
+            const pre = block.parentElement;
+            
+            // 获取语言
+            let lang = 'CODE';
+            block.classList.forEach(cls => {
+                if(cls.startsWith('language-')) {
+                    lang = cls.replace('language-', '').toUpperCase();
+                }
+            });
+            pre.setAttribute('data-lang', lang);
+            
+            // 添加复制按钮
+            addCopyButton(pre, block);
+        });
+    }
+}
+
+function addCopyButton(pre, block) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerHTML = '复制';
+    
+    btn.addEventListener('click', () => {
+        const codeText = block.innerText; 
+        
+        navigator.clipboard.writeText(codeText).then(() => {
+            btn.innerHTML = '✓ 已复制';
+            btn.classList.add('copied');
+            
+            setTimeout(() => {
+                btn.innerHTML = '复制';
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('复制失败:', err);
+            btn.innerHTML = '错误';
+        });
+    });
+
+    pre.appendChild(btn);
+}
+
+// ================= 图片处理 =================
+function processImages(container) {
+    container.querySelectorAll('img').forEach(img => {
+        // 添加加载动画
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 300ms ease';
+        
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', () => {
+            img.classList.add('error');
+            img.alt = '图片加载失败';
+            img.style.opacity = '1';
+        });
+        
+        // 添加响应式容器
+        if (!img.parentElement.classList.contains('image-container')) {
+            const wrapper = document.createElement('div');
+            wrapper.style.position = 'relative';
+            wrapper.style.maxWidth = '100%';
+            img.parentElement.insertBefore(wrapper, img);
+            wrapper.appendChild(img);
+        }
+    });
+}
+
+// ================= 目录生成 =================
 function generateTOC(articleElement, tocElement) {
-    //  选择器增加 h4
-    const headers = articleElement.querySelectorAll('h2, h3, h4');
+    // 支持 h1-h6 所有标题
+    const headers = articleElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
     if (!tocElement) return;
 
     if (headers.length === 0) {
-        tocElement.innerHTML = '<p style="color:#555; font-size:0.8rem; padding-left:10px;">// NO HEADERS DETECTED</p>';
         return;
     }
 
-    const ul = document.createElement('ul');
-    ul.className = 'toc-list';
+    const mainUl = document.createElement('ul');
+    mainUl.className = 'toc-list';
+
+    // 跟踪当前的层次结构
+    const stack = [mainUl];
+    const levelMap = {
+        'h1': 0,
+        'h2': 0,
+        'h3': 1,
+        'h4': 2,
+        'h5': 3,
+        'h6': 4
+    };
 
     headers.forEach((header, index) => {
         const id = 'header-' + index;
         header.setAttribute('id', id);
 
+        const tagName = header.tagName.toLowerCase();
+        const level = levelMap[tagName] || 0;
+
+        // 调整stack，确保当前level的父元素在栈顶
+        while (stack.length > level + 1) {
+            stack.pop();
+        }
+
+        // 创建新的li和a元素
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = '#' + id;
         a.textContent = header.textContent;
-        
-        //  根据标签名添加不同的类名，用于 CSS 缩进
-        const tagName = header.tagName.toLowerCase();
-        if (tagName === 'h3') {
-            li.className = 'toc-sub'; // 二级
-        } else if (tagName === 'h4') {
-            li.className = 'toc-sub-2'; // 三级 (CSS中定义缩进)
+
+        // 设置class
+        if (level === 1) {
+            li.className = 'toc-sub';
+        } else if (level === 2) {
+            li.className = 'toc-sub-2';
+        } else if (level === 3) {
+            li.className = 'toc-sub-3';
+        } else if (level >= 4) {
+            li.className = 'toc-sub-4';
         }
 
         a.addEventListener('click', (e) => {
             e.preventDefault();
-            header.scrollIntoView({ behavior: 'smooth' });
+            header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // 高亮当前目录
+            document.querySelectorAll('.toc-list a').forEach(l => l.classList.remove('active'));
+            a.classList.add('active');
         });
 
         li.appendChild(a);
-        ul.appendChild(li);
+        stack[stack.length - 1].appendChild(li);
+
+        // 如果不是最高层级，创建新的ul作为子级
+        if (level < 4) {
+            const newUl = document.createElement('ul');
+            newUl.className = 'toc-list';
+            li.appendChild(newUl);
+            stack.push(newUl);
+        }
     });
 
-    tocElement.innerHTML = '<div class="toc-title">>> 目录</div>';
-    tocElement.appendChild(ul);
+    tocElement.innerHTML = '<div class="toc-title">目录</div>';
+    tocElement.appendChild(mainUl);
 
-    // 滚动监听
+    // 滚动高亮
+    const observerOptions = {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            const id = entry.target.getAttribute('id');
-            const link = tocElement.querySelector(`a[href="#${id}"]`);
-            if (entry.isIntersecting && link) {
-                // 先移除所有高亮
-                document.querySelectorAll('.toc-list a').forEach(l => l.classList.remove('active'));
-                // 添加当前高亮
-                link.classList.add('active');
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const link = tocElement.querySelector(`a[href="#${id}"]`);
+                if (link) {
+                    document.querySelectorAll('.toc-list a').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
             }
         });
-    }, { rootMargin: '0px 0px 0px 0px' });
+    }, observerOptions);
+
     headers.forEach(h => observer.observe(h));
 }
 
-// 辅助函数
 function parseFrontMatter(text) {
     const meta = { title: 'Untitled', date: 'Unknown', categories: [], tags: [], content: '' };
     const match = text.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---([\s\S]*)$/);
@@ -312,83 +414,101 @@ function parseFrontMatter(text) {
     return meta;
 }
 
-// 移动端目录切换功能
-function initMobileTocToggle() {
-    const toggleBtn = document.createElement('button');
-    toggleBtn.className = 'toc-toggle-btn';
-    toggleBtn.textContent = '目录';
-    document.body.appendChild(toggleBtn);
-    
-    const tocSidebar = document.querySelector('.toc-sidebar');
-    
-    if (tocSidebar) {
-        toggleBtn.addEventListener('click', function() {
-            tocSidebar.classList.toggle('active');
-            toggleBtn.textContent = tocSidebar.classList.contains('active') ? '关闭' : '目录';
-        });
-        
-        // 点击目录链接后关闭目录
-        const tocLinks = tocSidebar.querySelectorAll('a');
-        tocLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                tocSidebar.classList.remove('active');
-                toggleBtn.textContent = '目录';
-            });
-        });
-    }
-}
+// ================= 趣味动态元素 =================
 
-// ================= 粒子配置优化 =================
-function initParticles() {
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: '#00f3ff' }, // 主色
-            shape: { type: 'circle' },
-            opacity: { value: 0.3, random: true },
-            size: { value: 3, random: true },
-            line_linked: { 
-                enable: true, 
-                distance: 150, 
-                color: '#00f3ff', 
-                opacity: 0.15, // 连线更淡
-                width: 1 
-            },
-            move: { 
-                enable: true, 
-                speed: 1.5, // 速度放慢，更优雅
-                direction: 'none', 
-                random: true, 
-                out_mode: 'out' 
-            }
-        },
-        interactivity: {
-            detect_on: 'window',
-            events: { 
-                onhover: { enable: true, mode: 'grab' }, // 鼠标悬停连线
-                onclick: { enable: true, mode: 'push' } 
-            },
-            modes: {
-                grab: { distance: 200, line_linked: { opacity: 0.5 } },
-                push: { particles_nb: 4 }
-            }
-        },
-        retina_detect: true
+// 滚动进度指示器
+function initScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
     });
 }
 
-function initTypewriter() {
-    const el = document.querySelector('.subtitle');
-    if(!el) return;
-    const text = "专注于逆向工程、Web安全"; 
-    let i = 0;
-    el.innerHTML = ""; 
-    function type() {
-        if(i < text.length) {
-            el.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, 50); // 打字速度
+// 浮动图标装饰
+function initFloatingIcons() {
+    const iconCount = 8;
+    for (let i = 0; i < iconCount; i++) {
+        const icon = document.createElement('div');
+        icon.className = 'floating-icon';
+        icon.style.left = Math.random() * 100 + 'vw';
+        icon.style.top = Math.random() * 100 + 'vh';
+        icon.style.animationDelay = Math.random() * 8 + 's';
+        icon.style.opacity = Math.random() * 0.3 + 0.1;
+        icon.style.width = (Math.random() * 6 + 4) + 'px';
+        icon.style.height = icon.style.width;
+        document.body.appendChild(icon);
+    }
+}
+
+// 鼠标跟随装饰
+function initCursorFollower() {
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(follower);
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        follower.classList.add('visible');
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        follower.classList.remove('visible');
+    });
+    
+    // 为可交互元素添加激活状态
+    const interactiveElements = document.querySelectorAll('a, button, .cat-btn, .nav-link, .read-more-btn');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => follower.classList.add('active'));
+        el.addEventListener('mouseleave', () => follower.classList.remove('active'));
+    });
+    
+    // 平滑跟随
+    function animate() {
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        
+        follower.style.left = (followerX - 10) + 'px';
+        follower.style.top = (followerY - 10) + 'px';
+        
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+// 初始化趣味动态元素
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollProgress();
+    initFloatingIcons();
+    // initCursorFollower(); // 可选：鼠标跟随效果
+    
+    // 为侧边目录添加显示逻辑
+    const tocSidebar = document.querySelector('.toc-sidebar');
+    if (tocSidebar && window.innerWidth >= 1024) {
+        tocSidebar.style.display = 'block';
+    }
+});
+
+// 窗口大小变化时更新侧边目录显示
+window.addEventListener('resize', () => {
+    const tocSidebar = document.querySelector('.toc-sidebar');
+    if (tocSidebar) {
+        if (window.innerWidth >= 1024) {
+            tocSidebar.style.display = 'block';
+        } else {
+            tocSidebar.style.display = 'none';
         }
     }
-    setTimeout(type, 200);
-}
+});
+
