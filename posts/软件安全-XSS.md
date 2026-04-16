@@ -11,6 +11,12 @@ toc: true
 
 <!--more-->
 
+- Cross-Site Scripting attack
+- XSS worm and self-propagation
+- Session cookies
+- HTTP GET and POST requests
+- JavaScript and Ajax
+- Content Security Policy (CSP)
 
 ## 环境搭建
 
