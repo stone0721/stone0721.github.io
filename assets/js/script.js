@@ -219,20 +219,25 @@ async function loadArticle(filename) {
 function processCodeBlocks(container) {
     if(typeof hljs !== 'undefined') {
         container.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightElement(block);
-            
             const pre = block.parentElement;
             
-            // 获取语言
-            let lang = 'CODE';
+            let hasLang = false;
+            let lang = 'TEXT';
             block.classList.forEach(cls => {
                 if(cls.startsWith('language-')) {
-                    lang = cls.replace('language-', '').toUpperCase();
+                    const detected = cls.replace('language-', '');
+                    if(detected) {
+                        lang = detected.toUpperCase();
+                        hasLang = true;
+                    }
                 }
             });
-            pre.setAttribute('data-lang', lang);
             
-            // 添加复制按钮
+            if(hasLang) {
+                hljs.highlightElement(block);
+            }
+            
+            pre.setAttribute('data-lang', lang);
             addCopyButton(pre, block);
         });
     }
@@ -266,27 +271,68 @@ function addCopyButton(pre, block) {
 // ================= 图片处理 =================
 function processImages(container) {
     container.querySelectorAll('img').forEach(img => {
-        // 添加加载动画
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 300ms ease';
-        
-        img.addEventListener('load', () => {
+        if (img.complete && img.naturalWidth > 0) {
             img.style.opacity = '1';
-        });
+        } else {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 300ms ease';
+            
+            img.addEventListener('load', () => {
+                img.style.opacity = '1';
+            });
+        }
         
         img.addEventListener('error', () => {
             img.classList.add('error');
             img.alt = '图片加载失败';
             img.style.opacity = '1';
         });
-        
-        // 添加响应式容器
-        if (!img.parentElement.classList.contains('image-container')) {
-            const wrapper = document.createElement('div');
-            wrapper.style.position = 'relative';
-            wrapper.style.maxWidth = '100%';
-            img.parentElement.insertBefore(wrapper, img);
-            wrapper.appendChild(img);
+
+        img.addEventListener('click', () => {
+            openLightbox(img.src, img.alt);
+        });
+    });
+}
+
+function openLightbox(src, alt) {
+    const overlay = document.createElement('div');
+    overlay.className = 'image-lightbox';
+    
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = alt || '';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'image-lightbox-close';
+    closeBtn.setAttribute('aria-label', '关闭');
+    
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+    
+    requestAnimationFrame(() => {
+        overlay.classList.add('active');
+    });
+    
+    const closeLightbox = () => {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.remove();
+            document.body.style.overflow = '';
+        }, 200);
+    };
+    
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay || e.target === closeBtn) {
+            closeLightbox();
+        }
+    });
+    
+    document.addEventListener('keydown', function escHandler(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+            document.removeEventListener('keydown', escHandler);
         }
     });
 }

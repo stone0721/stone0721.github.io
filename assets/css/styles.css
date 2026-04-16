@@ -600,7 +600,7 @@ header h1 {
     display: block;
     padding: var(--space-2) 0;
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     border-left: 2px solid transparent;
     padding-left: var(--space-3);
     margin-left: calc(-1 * var(--space-3));
@@ -630,7 +630,7 @@ header h1 {
     font-size: 0.75rem;
     padding-left: var(--space-10);
     margin-left: calc(-1 * var(--space-10));
-    color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 /* ==================== Markdown内容 ==================== */
@@ -638,6 +638,15 @@ header h1 {
     font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--text-primary);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.markdown-content p,
+.markdown-content li,
+.markdown-content blockquote {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .markdown-content h1,
@@ -702,23 +711,23 @@ header h1 {
 
 .markdown-content li {
     margin-bottom: 0.4em;
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .markdown-content img {
     display: block;
     max-width: 100%;
+    width: auto;
     height: auto;
     margin: 2em auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-card);
-    transition: all var(--transition-normal);
+    cursor: zoom-in;
     background: var(--bg-secondary);
 }
 
 .markdown-content img:hover {
-    transform: scale(1.01);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-medium);
 }
 
 .markdown-content img.error {
@@ -729,6 +738,74 @@ header h1 {
     justify-content: center;
     min-height: 150px;
     color: #d6d3d1;
+}
+
+.image-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    padding: 20px;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+}
+
+.image-lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 150ms ease;
+}
+
+.image-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.image-lightbox-close::before,
+.image-lightbox-close::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+}
+
+.image-lightbox-close::before {
+    transform: rotate(45deg);
+}
+
+.image-lightbox-close::after {
+    transform: rotate(-45deg);
 }
 
 .markdown-content blockquote {
@@ -752,7 +829,6 @@ header h1 {
     overflow-x: auto;
     position: relative;
     border: 1px solid var(--border-medium);
-    box-shadow: var(--shadow-soft);
 }
 
 .markdown-content pre::before {
@@ -770,27 +846,26 @@ header h1 {
 .markdown-content pre::after {
     content: attr(data-lang);
     position: absolute;
-    top: 8px;
+    top: 9px;
     left: 16px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.6875rem;
+    font-weight: 600;
     color: var(--text-tertiary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
 }
 
 .markdown-content pre code {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
     color: #0f172a;
     display: block;
     padding: 52px 1.25em 1.25em;
     white-space: pre;
 }
 
-/* 代码高亮 - 白底黑字主题 */
 .markdown-content pre code .hljs-keyword {
     color: #7c3aed;
     font-weight: 600;
@@ -879,26 +954,29 @@ header h1 {
     position: absolute;
     top: 6px;
     right: 12px;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    background: white;
-    border: 1px solid var(--border-medium);
+    padding: 4px 10px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
     cursor: pointer;
     transition: all var(--transition-fast);
     z-index: 10;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    letter-spacing: 0.02em;
 }
 
 .copy-btn:hover {
+    color: var(--text-primary);
     background: var(--bg-hover);
-    border-color: var(--text-tertiary);
+    border-color: var(--border-medium);
 }
 
 .copy-btn.copied {
     color: #16a34a;
-    border-color: #16a34a;
+    border-color: rgba(22, 163, 74, 0.3);
     background: #f0fdf4;
 }
 
@@ -998,7 +1076,7 @@ header h1 {
     padding: 3px 0;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     transition: all var(--transition-fast);
     line-height: 1.5;
     border-left: 2px solid transparent;
@@ -1032,7 +1110,7 @@ header h1 {
     padding: 2px 0;
     font-size: 0.78125rem;
     font-weight: 400;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
     transition: all var(--transition-fast);
     line-height: 1.5;
     border-left: 1px dashed var(--border-subtle);
@@ -1045,7 +1123,7 @@ header h1 {
 .toc-list .toc-sub-3 > a:hover {
     background: var(--bg-primary);
     border-left-color: var(--border-medium);
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .toc-list .toc-sub-3 > a.active {
@@ -1068,7 +1146,7 @@ header h1 {
     padding: 1px 0;
     font-size: 0.75rem;
     font-weight: 400;
-    color: var(--text-muted, #94a3b8);
+    color: var(--text-primary);
     transition: all var(--transition-fast);
     line-height: 1.4;
     border-left: 1px dotted var(--border-subtle);
@@ -1080,7 +1158,7 @@ header h1 {
 .toc-list .toc-sub-4 > a:hover {
     background: var(--bg-primary);
     border-left-color: var(--border-medium);
-    color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 .toc-list .toc-sub-4 > a.active {
@@ -1233,8 +1311,7 @@ header:hover h1::after {
 
 /* 代码块边框脉冲 */
 .markdown-content pre:hover {
-    box-shadow: 0 0 0 1px var(--accent-primary), var(--shadow-card);
-    transition: box-shadow 0.3s ease;
+    border-color: #475569;
 }
 
 /* 搜索框焦点动画 */
@@ -1651,6 +1728,20 @@ header:hover h1::after {
     
     .markdown-content h2 {
         font-size: 1.375rem;
+    }
+    
+    .markdown-content img {
+        margin: 1.5em auto;
+        border-radius: var(--radius-sm);
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .markdown-content pre code {
+        font-size: 0.75rem;
+        padding: 48px 1em 1em;
     }
 }
 
