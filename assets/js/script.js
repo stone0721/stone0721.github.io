@@ -183,10 +183,30 @@ async function loadArticle(filename) {
     const tocContainer = document.getElementById('toc-content');
     
     try {
-        const res = await fetch(`posts/${filename}`);
-        if(!res.ok) throw new Error('404 Not Found');
-        const text = await res.text();
-        const { title, date, content, categories, tags } = parseFrontMatter(text);
+        // 首先检查是否已经在 allPostsData 中存在该文章
+        const cachedPost = allPostsData.find(post => post.file === filename);
+        
+        let title, date, content, categories, tags;
+        
+        if (cachedPost) {
+            // 使用缓存的文章数据
+            title = cachedPost.title;
+            date = cachedPost.date;
+            content = cachedPost.content;
+            categories = cachedPost.categories;
+            tags = cachedPost.tags;
+        } else {
+            // 缓存中没有，请求文章文件
+            const res = await fetch(`posts/${filename}`);
+            if(!res.ok) throw new Error('404 Not Found');
+            const text = await res.text();
+            const parsedData = parseFrontMatter(text);
+            title = parsedData.title;
+            date = parsedData.date;
+            content = parsedData.content;
+            categories = parsedData.categories;
+            tags = parsedData.tags;
+        }
         
         document.title = title + " | ddddd";
 
