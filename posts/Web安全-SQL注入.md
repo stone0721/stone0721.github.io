@@ -1,5 +1,5 @@
 ---
-title: 软件安全-SQL注入
+title: Web安全-SQL注入
 date: 2026-04-17
 categories: Web安全
 toc: true 

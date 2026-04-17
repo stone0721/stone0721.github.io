@@ -1,5 +1,5 @@
 ---
-title: 软件安全-XSS
+title: Web安全-XSS
 date: 2026-04-16
 categories: Web安全
 toc: true
