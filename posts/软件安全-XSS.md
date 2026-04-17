@@ -754,3 +754,30 @@ Content-Type: text/html
 ```
 
 `Content-Security-Policy` 告诉浏览器哪些地方的 JS 代码是可信的
+
+
+
+## 总结
+
+跨站脚本攻击（**Cross Site Scripting**，简称 XSS）
+
+- 反射型：攻击者将恶意脚本注入到 URL 中，诱导用户点击特定链接，服务器反射请求回客户端，从而触发脚本执行。
+- 存储型：攻击者将恶意脚本提交到服务器端，并在其他用户访问相关内容时被加载和执行。
+- DOM 型：基于浏览器中的文档对象模型（DOM）进行攻击的一种方式，攻击入口仍通过 URL 参数传递；恶意代码不出现在 HTML 源码中，而是在浏览器解析 DOM 时动态执行； 主要依赖客户端 JavaScript 中的不安全操作（如 `document.write()`、`innerHTML`、`eval()` 等）； 
+
+
+
+本次实验本质上是 存储型 XSS
+
+
+
+防御措施：CSP ；输入转义(Escaping)：所有前端内容进行 HTML 转义，最根本防御手段
+
+- 反射型：避免直接拼接 HTML
+- 存储型：服务端输入验证与过滤
+- DOM 型：避免不安全的 DOM 操作innerHTML、outerHTML、document.write()
+
+
+
+1. DOM-based XSS 不经过服务器，传统的服务端过滤和 WAF 无法防御
+2. HttpOnly Cookie 可以在 HTTP 响应头设置，阻止 document.cookie 读取，但无法阻止 XSS

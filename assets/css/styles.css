@@ -546,6 +546,7 @@ header h1 {
 
 .article-wrapper {
     background: var(--bg-primary);
+    overflow-x: hidden;
 }
 
 .article-header {
@@ -641,6 +642,8 @@ header h1 {
     color: var(--text-primary);
     overflow-wrap: break-word;
     word-wrap: break-word;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .markdown-content p,
@@ -1737,7 +1740,16 @@ header:hover h1::after {
     }
     
     .article-layout {
-        padding: var(--space-6) var(--space-3);
+        padding: var(--space-4) var(--space-2);
+    }
+
+    .article-wrapper {
+        padding: 0;
+    }
+
+    .markdown-content {
+        font-size: 0.9375rem;
+        padding: 0 var(--space-2);
     }
 
     .article-header {
@@ -1771,7 +1783,7 @@ header:hover h1::after {
     }
     
     .markdown-content img {
-        margin: 1.5em auto;
+        margin: 1em auto;
         border-radius: var(--radius-sm);
         max-width: 100%;
         width: 100%;
