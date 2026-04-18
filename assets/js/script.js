@@ -210,6 +210,9 @@ async function loadArticle(filename) {
         
         document.title = title + " | ddddd";
 
+        // 在 markdown 解析前，先保护 LaTeX 公式
+        const { processedContent, latexMap } = protectLatex(content);
+
         container.innerHTML = `
             <div class="article-header">
                 <h1>${title}</h1>
@@ -220,7 +223,7 @@ async function loadArticle(filename) {
                 <div class="mobile-toc-content" id="mobileTocContent"></div>
             </div>
             <div class="markdown-content">
-                ${marked.parse(content)}
+                ${marked.parse(processedContent)}
             </div>
         `;
 
@@ -228,6 +231,11 @@ async function loadArticle(filename) {
         processImages(container);
         generateTOC(container, tocContainer);
 
+        // 还原 LaTeX 公式
+        const markdownContentEl = container.querySelector('.markdown-content');
+        restoreLatex(markdownContentEl, latexMap);
+
+        processLatex(container);
         const mobileTocContent = document.getElementById('mobileTocContent');
         const mobileTocToggle = document.getElementById('mobileTocToggle');
         if (mobileTocContent && tocContainer) {
@@ -348,6 +356,86 @@ function processImages(container) {
             openLightbox(img.src, img.alt);
         });
     });
+}
+
+
+// ================= LaTeX 公式处理 =================
+function protectLatex(content) {
+    const latexMap = {};
+    let index = 0;
+    
+    // 使用 HTML 注释来保护 LaTeX 公式，避免被 markdown 解析
+    // 先处理独立公式 $$...$$ 和 \[...\]
+    let processedContent = content.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\])/g, (match) => {
+        const key = `LATEX_${index}`;
+        // 存储原始公式内容
+        latexMap[key] = match;
+        index++;
+        return `<!--${key}-->`;
+    });
+    
+    // 再处理行内公式 $...$
+    processedContent = processedContent.replace(/(?<!\$)\$(?!\$)([^$\n]+?)(?<!\$)\$(?!\$)/g, (match) => {
+        const key = `LATEX_${index}`;
+        latexMap[key] = match;
+        index++;
+        return `<!--${key}-->`;
+    });
+    
+    return { processedContent, latexMap };
+}
+
+function restoreLatex(element, latexMap) {
+    if (!element) return;
+    
+    // 遍历所有注释节点
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_COMMENT,
+        null,
+        false
+    );
+    
+    const commentsToReplace = [];
+    let node;
+    while ((node = walker.nextNode())) {
+        const text = node.nodeValue;
+        for (const [key, value] of Object.entries(latexMap)) {
+            if (text === key) {
+                commentsToReplace.push({ node, value });
+                break;
+            }
+        }
+    }
+    
+    // 替换注释为公式内容
+    commentsToReplace.forEach(({ node, value }) => {
+        const span = document.createElement('span');
+        span.className = 'latex-formula';
+        span.textContent = value;  // 使用 textContent 避免 XSS 和重复转义
+        node.parentNode.replaceChild(span, node);
+    });
+}
+
+function processLatex(container) {
+    if(typeof renderMathInElement !== 'undefined') {
+        const markdownContent = container.querySelector('.markdown-content');
+        if (markdownContent) {
+            // 延迟渲染，确保 DOM 已更新
+            setTimeout(() => {
+                renderMathInElement(markdownContent, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false,
+                    strict: false
+                });
+            }, 0);
+        }
+    }
 }
 
 function openLightbox(src, alt) {

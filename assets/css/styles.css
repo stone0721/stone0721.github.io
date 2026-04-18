@@ -862,14 +862,24 @@ header h1 {
     font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
 }
 
+.markdown-content pre code.hljs {
+    background: transparent !important;
+    padding: 48px 1.25em 1em;
+}
+
 .markdown-content pre code {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Source Han Mono', 'Noto Sans SC', monospace;
     font-size: 0.8125rem;
     line-height: 1.6;
     color: #0f172a;
     display: block;
-    padding: 52px 1.25em 1.25em;
+    padding: 48px 1.25em 1em;
     white-space: pre;
+    min-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: normal;
 }
 
 .markdown-content pre code .hljs-keyword {
@@ -891,7 +901,7 @@ header h1 {
 }
 
 .markdown-content pre code .hljs-comment {
-    color: #64748b;
+    color: #475569;
     font-style: italic;
 }
 
@@ -1817,10 +1827,19 @@ header:hover h1::after {
         font-size: 0.625rem;
     }
     
+    .markdown-content pre code.hljs {
+        background: transparent !important;
+        padding: 56px 1em 0.75em;
+    }
+
     .markdown-content pre code {
+        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Source Han Mono', 'Noto Sans SC', monospace;
         font-size: 0.75rem;
-        padding: 44px 1em 1em;
+        padding: 56px 1em 0.75em;
         line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
     }
 
     .markdown-content table {
@@ -1997,9 +2016,18 @@ header:hover h1::after {
         font-size: 1.125rem;
     }
 
+    .markdown-content pre code.hljs {
+        background: transparent !important;
+        padding: 52px 0.75em 0.5em;
+    }
+
     .markdown-content pre code {
+        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Source Han Mono', 'Noto Sans SC', monospace;
         font-size: 0.6875rem;
-        padding: 40px 0.75em 0.75em;
+        padding: 52px 0.75em 0.5em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
     }
 
     .markdown-content pre::before {
