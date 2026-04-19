@@ -1,6 +1,6 @@
 ---
 title: MLP CNN 与对抗样本攻击
-date: 2026-04-19
+date: 2026-04-18
 categories: AI 安全 
 toc: true
 ---
