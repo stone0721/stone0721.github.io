@@ -210,8 +210,8 @@ async function loadArticle(filename) {
         
         document.title = title + " | ddddd";
 
-        // 在 markdown 解析前，先保护 LaTeX 公式
-        const { processedContent, latexMap } = protectLatex(content);
+        const { processedContent: codeProtected, codeMap } = protectCodeBlocks(content);
+        const { processedContent, latexMap } = protectLatex(codeProtected);
 
         container.innerHTML = `
             <div class="article-header">
@@ -227,11 +227,11 @@ async function loadArticle(filename) {
             </div>
         `;
 
+        restoreCodeBlocks(container, codeMap);
         processCodeBlocks(container);
         processImages(container);
         generateTOC(container, tocContainer);
 
-        // 还原 LaTeX 公式
         const markdownContentEl = container.querySelector('.markdown-content');
         restoreLatex(markdownContentEl, latexMap);
 
@@ -360,6 +360,57 @@ function processImages(container) {
 
 
 // ================= LaTeX 公式处理 =================
+function protectCodeBlocks(content) {
+    const codeMap = {};
+    let index = 0;
+
+    const processedContent = content.replace(/```[\s\S]*?```/g, (match) => {
+        const key = `CODE_${index}`;
+        codeMap[key] = match;
+        index++;
+        return `<!--${key}-->`;
+    });
+
+    return { processedContent, codeMap };
+}
+
+function restoreCodeBlocks(element, codeMap) {
+    if (!element) return;
+
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_COMMENT,
+        null,
+        false
+    );
+
+    const commentsToReplace = [];
+    let node;
+    while ((node = walker.nextNode())) {
+        const text = node.nodeValue;
+        for (const [key, value] of Object.entries(codeMap)) {
+            if (text === key) {
+                commentsToReplace.push({ node, value });
+                break;
+            }
+        }
+    }
+
+    const escapeHtml = (str) => str.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]));
+
+    commentsToReplace.forEach(({ node, value }) => {
+        const div = document.createElement('div');
+        const codeMatch = value.match(/^```(\w*)\n?([\s\S]*?)```$/);
+        if (codeMatch) {
+            const lang = codeMatch[1] ? `language-${codeMatch[1]}` : '';
+            div.innerHTML = `<pre><code class="${lang}">${escapeHtml(codeMatch[2].trim())}</code></pre>`;
+        } else {
+            div.innerHTML = `<pre><code>${escapeHtml(value.trim())}</code></pre>`;
+        }
+        node.parentNode.replaceChild(div, node);
+    });
+}
+
 function protectLatex(content) {
     const latexMap = {};
     let index = 0;
