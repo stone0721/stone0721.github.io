@@ -5,7 +5,8 @@
     "软件安全-格式化字符串攻击.md",
     "Web安全-SQL注入.md",
     "反逆向.md",
-    "MLP CNN 与对抗样本攻击.md",
-    "Web安全-CSRF.md"
+    "Web安全-CSRF.md",
+    "MLP (全连接) 和 CNN (卷积).md",
+    "对抗样本攻击.md"
   ]
 }
