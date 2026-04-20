@@ -76,9 +76,14 @@ async function initHomePage() {
                 if (meta.content.includes(moreTag)) {
                     excerpt = meta.content.split(moreTag)[0];
                 } else {
-                    excerpt = meta.content.slice(0, 150) + '...';
+                    excerpt = meta.content;
                 }
+                
+                // 清理格式
                 excerpt = excerpt.replace(/[#*`$!\[\]]/g, '').replace(/\n/g, ' ').trim();
+                
+                // 智能截断：考虑中英文宽度差异，大约显示3行
+                excerpt = smartTruncate(excerpt, 200);
 
                 return { file, ...meta, excerpt };
             } catch(e) { return null; }
@@ -115,6 +120,69 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+/**
+ * 智能截断文本，考虑中英文宽度差异
+ * @param {string} text - 要截断的文本
+ * @param {number} maxWidth - 最大宽度（以半角字符为单位）
+ * @returns {string} - 截断后的文本
+ */
+function smartTruncate(text, maxWidth) {
+    if (!text) return '';
+    
+    let currentWidth = 0;
+    let result = '';
+    const ellipsisWidth = 3; // 省略号宽度（三个点）
+    
+    // 先计算文本宽度，如果总宽度不超过最大宽度，直接返回
+    let totalWidth = 0;
+    for (let char of text) {
+        totalWidth += getCharWidth(char);
+    }
+    
+    if (totalWidth <= maxWidth) {
+        return text;
+    }
+    
+    // 需要截断
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const charWidth = getCharWidth(char);
+        
+        // 检查加上这个字符和省略号后是否超过最大宽度
+        if (currentWidth + charWidth + ellipsisWidth > maxWidth) {
+            // 尝试去掉可能的标点符号
+            result = trimTrailingPunctuation(result);
+            return result + '...';
+        }
+        
+        result += char;
+        currentWidth += charWidth;
+    }
+    
+    return result;
+}
+
+/**
+ * 获取字符宽度
+ * @param {string} char - 单个字符
+ * @returns {number} - 宽度（1 = 半角字符宽度）
+ */
+function getCharWidth(char) {
+    // 中文字符、全角字符等宽度为2
+    const fullWidthRegex = /[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]/;
+    return fullWidthRegex.test(char) ? 2 : 1;
+}
+
+/**
+ * 去掉末尾的标点符号
+ * @param {string} text - 文本
+ * @returns {string} - 处理后的文本
+ */
+function trimTrailingPunctuation(text) {
+    const trailingPunctuation = /[，。！？、；：""''（）【】《》,.!?;:'"()[]{}<>「」『』\s]+$/;
+    return text.replace(trailingPunctuation, '');
 }
 
 function renderPosts(posts, container) {

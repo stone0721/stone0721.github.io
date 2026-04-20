@@ -428,6 +428,8 @@ header h1 {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-preview::before {
@@ -502,6 +504,7 @@ header h1 {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-4);
+    flex-grow: 1;
 }
 
 .read-more-btn {
@@ -512,6 +515,8 @@ header h1 {
     color: var(--accent-primary);
     transition: all var(--transition-fast);
     position: relative;
+    margin-top: auto;
+    padding-top: var(--space-4);
 }
 
 .read-more-btn::after {
