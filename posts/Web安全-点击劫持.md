@@ -1,7 +1,7 @@
 ---
 title: Web安全-点击劫持
 date: 2026-04-21
-categories: Web 安全
+categories: Web安全
 toc: true
 ---
 
