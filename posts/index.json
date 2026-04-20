@@ -7,6 +7,7 @@
     "Web安全-XSS.md",
     "Web安全-SQL注入.md",
     "Web安全-CSRF.md",
+    "Web安全-点击劫持.md",
     "MLP (全连接) 和 CNN (卷积).md",
     "对抗样本攻击.md",
     "对抗样本防御.md"
