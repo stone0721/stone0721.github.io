@@ -1,6 +1,6 @@
 ---
 title: MLP (全连接) 和 CNN (卷积)
-date: 2026-04-18
+date: 2026-04-02
 categories: 深度学习
 toc: true
 ---
