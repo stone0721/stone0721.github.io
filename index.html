@@ -8,15 +8,12 @@
     <link rel="icon" type="image/jpg" href="assets/img/home.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="bg-animated">
-        <div class="bg-gradient-orb bg-orb-1"></div>
-        <div class="bg-gradient-orb bg-orb-2"></div>
-        <div class="bg-gradient-orb bg-orb-3"></div>
-    </div>
+    <div class="bg-texture"></div>
+    <div class="bg-grid"></div>
     
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
@@ -27,7 +24,7 @@
                 ddddd
             </a>
             
-            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -39,9 +36,9 @@
         </div>
     </nav>
 
-    <section class="filter-section">
+    <section class="filter-section" style="margin-top: var(--space-8);">
         <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="搜索文章...">
+            <input type="text" id="searchInput" class="search-input" placeholder="搜索文章..." aria-label="搜索文章">
         </div>
         <div class="category-list" id="categoryList">
         </div>
