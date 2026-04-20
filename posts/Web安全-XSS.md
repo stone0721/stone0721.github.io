@@ -1,5 +1,5 @@
 ---
-title: Web安全-XSS
+title: Web安全-XSS攻击
 date: 2026-03-16
 categories: Web安全
 toc: true
