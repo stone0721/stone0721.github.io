@@ -95,7 +95,6 @@ iframe {
     position: absolute; /* 使用绝对定位 */
     width: 100%; /* 宽度占满 */
     height: 100%; /* 高度占满 */
-    frameborder: 0; /* 设置无边框的方式 */
     z-index: 1; /* 设置堆叠顺序为1 */
 }
 

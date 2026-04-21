@@ -173,7 +173,7 @@ $sql = "SELECT id, name, eid, salary, birth, ssn, address, email,
 $result = $conn -> query($sql);
 ```
 
-这里 query 只能执行一条 SQL 语句，使用 multLquery 才能执行多条 SQL 语句
+这里 query 只能执行一条 SQL 语句，使用 multi_query 才能执行多条 SQL 语句
 
 
 
