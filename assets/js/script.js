@@ -817,21 +817,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 768) {
         initFloatingIcons();
     }
-    
-    const tocSidebar = document.querySelector('.toc-sidebar');
-    if (tocSidebar && window.innerWidth >= 1024) {
-        tocSidebar.style.display = 'block';
-    }
-});
-
-window.addEventListener('resize', () => {
-    const tocSidebar = document.querySelector('.toc-sidebar');
-    if (tocSidebar) {
-        if (window.innerWidth >= 1024) {
-            tocSidebar.style.display = 'block';
-        } else {
-            tocSidebar.style.display = 'none';
-        }
-    }
 });
 
